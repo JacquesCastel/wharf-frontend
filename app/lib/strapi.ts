@@ -233,12 +233,10 @@ export async function getHome() {
         lien: data.data.cta_lien || '/contact'
       },
       seo: {
-    title: data.data.seo_title || '',
-    description: data.data.seo_description || '',
-    image: data.data.seo_image || null
-  }
-
-
+        title: data.data.seo_title || '',
+        description: data.data.seo_description || '',
+        image: data.data.seo_image || null
+      }
     };
   } catch (error) {
     console.error('Error fetching home page:', error);
@@ -313,7 +311,69 @@ export interface HomeData {
     texte: string;
     lien: string;
   };
+  seo: {
+    title: string;
+    description: string;
+    image: any;
+  };
 }
+
+/**
+ * Fonction utilitaire pour convertir les Strapi Blocks en HTML
+ */
+const blocksToHtml = (blocks: any): string => {
+  // Vérifier que blocks existe et est un array
+  if (!blocks || !Array.isArray(blocks)) {
+    console.warn('blocksToHtml: blocks is not an array', blocks);
+    return '';
+  }
+  
+  try {
+    return blocks.map((block: any) => {
+      if (!block || !block.type) return '';
+      
+      switch (block.type) {
+        case 'paragraph':
+          if (!block.children || !Array.isArray(block.children)) return '';
+          return `<p>${block.children.map((child: any) => {
+            if (!child || !child.text) return '';
+            let text = child.text;
+            if (child.bold) text = `<strong>${text}</strong>`;
+            if (child.italic) text = `<em>${text}</em>`;
+            if (child.underline) text = `<u>${text}</u>`;
+            return text;
+          }).join('')}</p>`;
+        
+        case 'heading':
+          if (!block.children || !Array.isArray(block.children)) return '';
+          const level = block.level || 2;
+          return `<h${level}>${block.children.map((child: any) => child?.text || '').join('')}</h${level}>`;
+        
+        case 'list':
+          if (!block.children || !Array.isArray(block.children)) return '';
+          const listType = block.format === 'ordered' ? 'ol' : 'ul';
+          return `<${listType}>${block.children.map((item: any) => {
+            if (!item || !item.children) return '<li></li>';
+            return `<li>${item.children.map((child: any) => child?.text || '').join('')}</li>`;
+          }).join('')}</${listType}>`;
+        
+        case 'quote':
+          if (!block.children || !Array.isArray(block.children)) return '';
+          return `<blockquote>${block.children.map((child: any) => child?.text || '').join('')}</blockquote>`;
+        
+        case 'code':
+          if (!block.children || !Array.isArray(block.children)) return '';
+          return `<pre><code>${block.children.map((child: any) => child?.text || '').join('')}</code></pre>`;
+        
+        default:
+          return '';
+      }
+    }).join('');
+  } catch (err) {
+    console.error('Error in blocksToHtml:', err);
+    return '';
+  }
+};
 
 /**
  * Récupère les données de la page WE depuis Strapi
@@ -332,108 +392,103 @@ export async function getWe() {
     
     const data: StrapiResponse<any> = await response.json();
     
-    // Construire l'objet WE complet
+    console.log('WE Data from Strapi:', data.data);
+    
+    // Construire l'objet WE complet - Format attendu par la page
     return {
       hero: {
-        titre: data.data.hero_titre || 'Notre conviction',
-        baseline: data.data.hero_baseline || '',
-        video: data.data.hero_video ? {
+        titre: data.data?.hero_titre || 'Notre approche',
+        baseline: data.data?.hero_baseline || 'WE',
+        video: data.data?.hero_video ? {
           url: `${STRAPI_URL}${data.data.hero_video.url}`,
           alternativeText: data.data.hero_video.alternativeText || ''
         } : null
       },
-     actes: {
-  acte1: {
-    titre: data.data.acte1_titre || '',
-    contenu: blocksToHtml(data.data.acte1_contenu)
-  },
-  acte2: {
-    titre: data.data.acte2_titre || '',
-    contenu: blocksToHtml(data.data.acte2_contenu)
-  },
-  acte3: {
-    titre: data.data.acte3_titre || '',
-    contenu: blocksToHtml(data.data.acte3_contenu)
-  }
-}, 
-      transition: {
-        texte: data.data.transition_texte || ''
-      },
-     piliers: {
-  pilier1: {
-    titre: data.data.pilier1_titre || '',
-    contenu: blocksToHtml(data.data.pilier1_contenu)
-  },
-  pilier2: {
-    titre: data.data.pilier2_titre || '',
-    contenu: blocksToHtml(data.data.pilier2_contenu)
-  }
-},
-      closing: {
-        titre: data.data.closing_titre || '',
-        description: data.data.closing_description || '',
-        lien: data.data.closing_lien || '/work',
-        texte_bouton: data.data.closing_texte_bouton || 'Découvrir WORK →'
-      },
-      manifesto: {
-        texte: data.data.manifesto_texte || '',
-        pdf: data.data.manifesto_pdf ? {
-          url: `${STRAPI_URL}${data.data.manifesto_pdf.url}`,
-          name: data.data.manifesto_pdf.name || 'Manifesto'
-        } : null
-      },
-       seo: {
-      title: data.data.seo_title || '',
-      description: data.data.seo_description || '',
-      image: data.data.seo_image || null
-    }
-    };
-  } catch (error) {
-    console.error('Error fetching we page:', error);
-    // Retourner des données par défaut en cas d'erreur
-    return {
-      hero: {
-        titre: 'Notre conviction',
-        baseline: 'Retrouver un récit fidèle : formuler le sens, puis l\'incarner',
-        video: null
-      },
       actes: {
         acte1: {
-          titre: 'Le constat',
-          contenu: ''
+          numero: 1,
+          titre: data.data?.acte1_titre || 'Intention',
+          contenu: blocksToHtml(data.data?.acte1_contenu)
         },
         acte2: {
-          titre: 'La conviction',
-          contenu: ''
+          numero: 2,
+          titre: data.data?.acte2_titre || 'Perception',
+          contenu: blocksToHtml(data.data?.acte2_contenu)
         },
         acte3: {
-          titre: 'La mission',
-          contenu: ''
+          numero: 3,
+          titre: data.data?.acte3_titre || 'Réalignement',
+          contenu: blocksToHtml(data.data?.acte3_contenu)
         }
       },
       transition: {
-        texte: 'Là où la stratégie rencontre la création'
+        texte: data.data?.transition_texte || 'La où la stratégie rencontre la création'
       },
       piliers: {
         pilier1: {
-          titre: 'Formuler le sens',
-          contenu: ''
+          titre: data.data?.pilier1_titre || 'Pilier 1',
+          contenu: blocksToHtml(data.data?.pilier1_contenu)
         },
         pilier2: {
-          titre: 'Incarner le sens',
-          contenu: ''
+          titre: data.data?.pilier2_titre || 'Pilier 2',
+          contenu: blocksToHtml(data.data?.pilier2_contenu)
         }
       },
+      manifesto: {
+        texte: blocksToHtml(data.data?.manifesto_texte)
+      },
+      manifesto_pdf: data.data?.manifesto_pdf ? {
+        url: `${STRAPI_URL}${data.data.manifesto_pdf.url}`,
+        name: data.data.manifesto_pdf.name
+      } : null,
       closing: {
-        titre: 'Prêt à découvrir comment le récit prend forme ?',
-        description: 'Explorez nos projets et découvrez comment nous transformons les visions en expériences vivantes.',
-        lien: '/work',
-        texte_bouton: 'Découvrir WORK →'
+        titre: data.data?.closing_titre || 'Travaillons ensemble',
+        description: data.data?.closing_description || '',
+        lien: data.data?.closing_lien || '/contact',
+        texte_bouton: data.data?.closing_texte_bouton || 'Découvrir nos services →'
+      },
+      seo: {
+        title: data.data?.seo_title || '',
+        description: data.data?.seo_description || '',
+        image: data.data?.seo_image || null
+      }
+    };
+  } catch (error) {
+    console.error('Error fetching we page:', error);
+    // Retourner des données par défaut
+    return {
+      hero: {
+        titre: 'Notre approche',
+        baseline: 'WE',
+        video: null
+      },
+      actes: {
+        acte1: { numero: 1, titre: 'Intention', contenu: '' },
+        acte2: { numero: 2, titre: 'Perception', contenu: '' },
+        acte3: { numero: 3, titre: 'Réalignement', contenu: '' }
+      },
+      transition: {
+        texte: 'La où la stratégie rencontre la création'
+      },
+      piliers: {
+        pilier1: { titre: 'Pilier 1', contenu: '' },
+        pilier2: { titre: 'Pilier 2', contenu: '' }
       },
       manifesto: {
-        texte: '',
-        pdf: null
+        texte: ''
       },
+      manifesto_pdf: null,
+      closing: {
+        titre: 'Travaillons ensemble',
+        description: '',
+        lien: '/contact',
+        texte_bouton: 'Découvrir nos services →'
+      },
+      seo: {
+        title: '',
+        description: '',
+        image: null
+      }
     };
   }
 }
@@ -452,14 +507,17 @@ export interface WeData {
   };
   actes: {
     acte1: {
+      numero: number;
       titre: string;
       contenu: string;
     };
     acte2: {
+      numero: number;
       titre: string;
       contenu: string;
     };
     acte3: {
+      numero: number;
       titre: string;
       contenu: string;
     };
@@ -477,75 +535,24 @@ export interface WeData {
       contenu: string;
     };
   };
+  manifesto: {
+    texte: string;
+  };
+  manifesto_pdf: {
+    url: string;
+    name: string;
+  } | null;
   closing: {
     titre: string;
     description: string;
     lien: string;
     texte_bouton: string;
   };
-  manifesto: {
-    texte: string;
-    pdf: {
-      url: string;
-      name: string;
-    } | null;
+  seo: {
+    title: string;
+    description: string;
+    image: any;
   };
-}
-
-/**
- * Convertit le format Strapi Blocks en HTML
- */
-export function blocksToHtml(blocks: any): string {
-  if (!blocks || !Array.isArray(blocks)) return '';
-
-  return blocks.map((block: any) => {
-    switch (block.type) {
-      case 'paragraph':
-        const paragraphContent = block.children
-          .map((child: any) => {
-            if (child.bold) return `<strong>${child.text}</strong>`;
-            if (child.italic) return `<em>${child.text}</em>`;
-            if (child.underline) return `<u>${child.text}</u>`;
-            return child.text;
-          })
-          .join('');
-        return `<p>${paragraphContent}</p>`;
-
-      case 'heading':
-        const headingContent = block.children
-          .map((child: any) => child.text)
-          .join('');
-        return `<h${block.level}>${headingContent}</h${block.level}>`;
-
-      case 'list':
-        const listItems = block.children
-          .map((item: any) => {
-            const itemContent = item.children
-              .map((child: any) => child.text)
-              .join('');
-            return `<li>${itemContent}</li>`;
-          })
-          .join('');
-        return block.format === 'ordered' 
-          ? `<ol>${listItems}</ol>` 
-          : `<ul>${listItems}</ul>`;
-
-      case 'quote':
-        const quoteContent = block.children
-          .map((child: any) => child.text)
-          .join('');
-        return `<blockquote>${quoteContent}</blockquote>`;
-
-      case 'code':
-        const codeContent = block.children
-          .map((child: any) => child.text)
-          .join('');
-        return `<pre><code>${codeContent}</code></pre>`;
-
-      default:
-        return '';
-    }
-  }).join('');
 }
 
 /**
@@ -565,78 +572,79 @@ export async function getWork() {
     
     const data: StrapiResponse<any> = await response.json();
     
+    console.log('WORK Data from Strapi:', data.data);
+    
     // Construire l'objet WORK complet
     return {
       hero: {
-        titre: data.data.hero_titre || 'Le savoir-faire narratif',
-        baseline: data.data.hero_baseline || 'Là où le récit prend forme',
-        video: data.data.hero_video ? {
+        titre: data.data?.hero_titre || 'Comment travaillons-nous ?',
+        baseline: data.data?.hero_baseline || 'WORK',
+        video: data.data?.hero_video ? {
           url: `${STRAPI_URL}${data.data.hero_video.url}`,
           alternativeText: data.data.hero_video.alternativeText || ''
         } : null
       },
       intro: {
-        paragraphe1: data.data.intro_paragraphe1 || '',
-        paragraphe2: data.data.intro_paragraphe2 || '',
-        highlight: data.data.intro_highlight || ''
+        paragraphe1: data.data?.intro_paragraphe1 || '',
+        paragraphe2: data.data?.intro_paragraphe2 || '',
+        highlight: data.data?.intro_highlight || ''
       },
       methode: {
-        titre: data.data.methode_titre || 'Le design narratif, une méthode',
-        intro: data.data.methode_intro || '',
+        titre: data.data?.methode_titre || 'Notre méthode',
+        intro: data.data?.methode_intro || '',
         mouvements: [
           {
             numero: 1,
-            titre: data.data.mouvement1_titre || 'Écouter',
-            description: data.data.mouvement1_description || ''
+            titre: data.data?.mouvement1_titre || '',
+            description: blocksToHtml(data.data?.mouvement1_description)
           },
           {
             numero: 2,
-            titre: data.data.mouvement2_titre || 'Éclairer',
-            description: data.data.mouvement2_description || ''
+            titre: data.data?.mouvement2_titre || '',
+            description: blocksToHtml(data.data?.mouvement2_description)
           },
           {
             numero: 3,
-            titre: data.data.mouvement3_titre || 'Exprimer',
-            description: data.data.mouvement3_description || ''
+            titre: data.data?.mouvement3_titre || '',
+            description: blocksToHtml(data.data?.mouvement3_description)
           }
         ]
       },
       expertises: {
-        titre: 'Deux expertises complémentaires',
+        titre: data.data?.expertises_titre || 'Nos expertises',
         expertise1: {
-          titre: data.data.expertise1_titre || 'Conseil stratégique',
-          subtitle: data.data.expertise1_subtitle || 'formuler le sens',
-          description: data.data.expertise1_description || '',
-          liste: blocksToHtml(data.data.expertise1_liste)
+          titre: data.data?.expertise1_titre || 'Conseil stratégique',
+          subtitle: data.data?.expertise1_subtitle || 'formuler le sens',
+          description: blocksToHtml(data.data?.expertise1_description),
+          liste: blocksToHtml(data.data?.expertise1_liste)
         },
         expertise2: {
-          titre: data.data.expertise2_titre || 'Création audiovisuelle',
-          subtitle: data.data.expertise2_subtitle || 'donner corps au récit',
-          description: data.data.expertise2_description || '',
-          liste: blocksToHtml(data.data.expertise2_liste)
+          titre: data.data?.expertise2_titre || 'Création audiovisuelle',
+          subtitle: data.data?.expertise2_subtitle || 'donner corps au récit',
+          description: blocksToHtml(data.data?.expertise2_description),
+          liste: blocksToHtml(data.data?.expertise2_liste)
         }
       },
       closing: {
-        titre: data.data.closing_titre || 'Travaillons ensemble',
-        texte: data.data.closing_texte || '',
-        subtext: data.data.closing_subtext || 'Parlons-en.',
-        lien: data.data.closing_lien || '/contact',
-        texte_bouton: data.data.closing_texte_bouton || "Let's work together →"
+        titre: data.data?.closing_titre || 'Travaillons ensemble',
+        texte: blocksToHtml(data.data?.closing_texte),
+        subtext: data.data?.closing_subtext || 'Parlons-en.',
+        lien: data.data?.closing_lien || '/contact',
+        texte_bouton: data.data?.closing_texte_bouton || "Let's work together →"
       },
-
       seo: {
-    title: data.data.seo_title || '',
-    description: data.data.seo_description || '',
-    image: data.data.seo_image || null
-  }
+        title: data.data?.seo_title || '',
+        description: data.data?.seo_description || '',
+        image: data.data?.seo_image || null
+      }
     };
   } catch (error) {
     console.error('Error fetching work page:', error);
     // Retourner des données par défaut
     return {
       hero: {
-        titre: 'Le savoir-faire narratif',
-        baseline: 'Là où le récit prend forme',
+        titre: 'Comment travaillons-nous ?',
+        baseline: 'WORK',
         video: null
       },
       intro: {
@@ -645,16 +653,16 @@ export async function getWork() {
         highlight: ''
       },
       methode: {
-        titre: 'Le design narratif, une méthode',
+        titre: 'Notre méthode',
         intro: '',
         mouvements: [
-          { numero: 1, titre: 'Écouter', description: '' },
-          { numero: 2, titre: 'Éclairer', description: '' },
-          { numero: 3, titre: 'Exprimer', description: '' }
+          { numero: 1, titre: '', description: '' },
+          { numero: 2, titre: '', description: '' },
+          { numero: 3, titre: '', description: '' }
         ]
       },
       expertises: {
-        titre: 'Deux expertises complémentaires',
+        titre: 'Nos expertises',
         expertise1: {
           titre: 'Conseil stratégique',
           subtitle: 'formuler le sens',
@@ -674,6 +682,11 @@ export async function getWork() {
         subtext: 'Parlons-en.',
         lien: '/contact',
         texte_bouton: "Let's work together →"
+      },
+      seo: {
+        title: '',
+        description: '',
+        image: null
       }
     };
   }
@@ -726,6 +739,11 @@ export interface WorkData {
     subtext: string;
     lien: string;
     texte_bouton: string;
+  };
+  seo: {
+    title: string;
+    description: string;
+    image: any;
   };
 }
 
@@ -794,12 +812,11 @@ export async function getYou() {
         lien: data.data.closing_lien || '/contact',
         texte_bouton: data.data.closing_texte_bouton || 'Démarrer la conversation →'
       },
-
       seo: {
-    title: data.data.seo_title || '',
-    description: data.data.seo_description || '',
-    image: data.data.seo_image || null
-  }
+        title: data.data.seo_title || '',
+        description: data.data.seo_description || '',
+        image: data.data.seo_image || null
+      }
     };
   } catch (error) {
     console.error('Error fetching you page:', error);
@@ -887,6 +904,11 @@ export interface YouData {
     lien: string;
     texte_bouton: string;
   };
+  seo: {
+    title: string;
+    description: string;
+    image: any;
+  };
 }
 
 /**
@@ -926,10 +948,10 @@ export async function getContact() {
         email: data.data.closing_email || 'contact@bywharf.com'
       },
       seo: {
-    title: data.data.seo_title || '',
-    description: data.data.seo_description || '',
-    image: data.data.seo_image || null
-  }
+        title: data.data.seo_title || '',
+        description: data.data.seo_description || '',
+        image: data.data.seo_image || null
+      }
     };
   } catch (error) {
     console.error('Error fetching contact page:', error);
@@ -973,5 +995,10 @@ export interface ContactData {
     titre: string;
     texte: string;
     email: string;
+  };
+  seo: {
+    title: string;
+    description: string;
+    image: any;
   };
 }
