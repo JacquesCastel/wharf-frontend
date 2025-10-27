@@ -5,6 +5,7 @@ import WorkPortfolio from './WorkPortfolio';
 import Image from 'next/image';
 
 // Générer les métadonnées dynamiques
+export const dynamic = 'force-dynamic';
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const workData = await getWork();

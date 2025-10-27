@@ -4,6 +4,7 @@ import { generateMetadataFromStrapi } from '../lib/metadata';
 import Image from 'next/image';
 
 // Générer les métadonnées dynamiques
+export const dynamic = 'force-dynamic';
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const youData = await getYou();
