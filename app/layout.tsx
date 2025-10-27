@@ -3,7 +3,7 @@ import Footer from './components/Footer'
 import AccessibilityWidget from './components/AccessibilityWidget'
 import './globals.css'
 import HeaderWrapper from './components/HeaderWrapper';
-
+export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: "Wharf - Design Narratif",
   description: "Agence de communication corporate et design narratif",

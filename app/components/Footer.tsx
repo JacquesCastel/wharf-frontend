@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getFooter } from '../lib/strapi';
-
+export const dynamic = 'force-dynamic';
 export default async function Footer() {
   const footerData = await getFooter();
 
