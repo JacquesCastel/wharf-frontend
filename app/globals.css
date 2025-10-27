@@ -196,13 +196,12 @@ body {
 .skip-to-content:focus {
   top: 0;
 }
-
 /* ============================================
-   HEADER DYNAMIQUE - CSS ADAPTÉ
-   Remplacez la section NAVIGATION dans globals.css
+   HEADER & FOOTER - CSS COMPLET AVEC EFFETS
+   À ajouter/remplacer dans globals.css
    ============================================ */
 
-/* Container principal */
+/* ===== HEADER ===== */
 .header {
   position: sticky;
   top: 0;
@@ -212,10 +211,6 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   padding: 32px 0;
   transition: padding 0.3s ease;
-}
-
-.header-scrolled {
-  padding: 20px 0;
 }
 
 .header-container {
@@ -232,31 +227,28 @@ body {
 .header-logo {
   display: flex;
   align-items: center;
-  height: 60px;
-  flex-shrink: 0;
-}
-
-.header-logo-img {
-  object-fit: contain;
-}
-
-.header-logo-text {
   font-size: 24px;
   font-weight: 700;
   color: var(--color-primary);
   letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.header-logo:hover {
+  opacity: 0.7;
 }
 
 /* Navigation */
 .header-nav {
   display: flex;
   gap: 48px;
-  list-style: none;
+  align-items: center;
   flex: 1;
   justify-content: center;
 }
 
-.header-link {
+.header-nav-link {
   color: var(--color-secondary);
   text-decoration: none;
   font-size: 15px;
@@ -267,7 +259,7 @@ body {
   padding: 8px 0;
 }
 
-.header-link::after {
+.header-nav-link::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -279,26 +271,17 @@ body {
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.header-link:hover {
+.header-nav-link:hover {
   color: var(--color-primary);
   letter-spacing: 0.05em;
 }
 
-.header-link:hover::after {
+.header-nav-link:hover::after {
   width: 100%;
 }
 
-.header-link.active {
-  color: var(--color-primary);
-  font-weight: 500;
-}
-
-.header-link.active::after {
-  width: 100%;
-}
-
-/* CTA Button */
-.header-cta {
+/* Bouton Contact */
+.header-contact-btn {
   background: var(--color-primary);
   color: white;
   padding: 10px 20px;
@@ -314,24 +297,24 @@ body {
   flex-shrink: 0;
 }
 
-.header-cta::after {
+.header-contact-btn::after {
   content: '→';
   font-size: 14px;
   transition: transform 0.3s ease;
 }
 
-.header-cta:hover {
+.header-contact-btn:hover {
   background: #424245;
   padding-right: 24px;
   gap: 10px;
 }
 
-.header-cta:hover::after {
+.header-contact-btn:hover::after {
   transform: translateX(2px);
 }
 
-/* Mobile Menu Toggle */
-.header-mobile-toggle {
+/* Mobile Burger */
+.header-burger {
   display: none;
   flex-direction: column;
   gap: 6px;
@@ -341,7 +324,7 @@ body {
   padding: 8px;
 }
 
-.header-mobile-toggle span {
+.header-burger span {
   width: 24px;
   height: 2px;
   background: var(--color-primary);
@@ -350,7 +333,6 @@ body {
 
 /* Mobile Menu */
 .header-mobile-menu {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -378,30 +360,137 @@ body {
   transition: color 0.3s ease;
 }
 
-.header-mobile-link:hover,
-.header-mobile-link.active {
+.header-mobile-link:hover {
   color: var(--color-primary);
 }
 
-.header-mobile-cta {
+.header-mobile-contact {
   background: var(--color-primary);
-  color: white;
+  color: white !important;
   padding: 16px 24px;
   border-radius: 8px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
   text-align: center;
   margin-top: 16px;
+  border: none;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  padding: 80px 0 40px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  margin-bottom: 60px;
+}
+
+/* Logo + Slogan à gauche */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-logo {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-logo:hover {
+  opacity: 0.7;
+}
+
+.footer-slogan {
+  font-size: 14px;
+  color: var(--color-secondary);
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+/* 2 colonnes de navigation à droite */
+.footer-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-column-title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 8px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  position: relative;
+  width: fit-content;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-accent);
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* Copyright en bas */
+.footer-bottom {
+  padding-top: 40px;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-copyright {
+  font-size: 13px;
+  color: var(--color-secondary);
+  text-align: center;
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .header-nav {
-    gap: 32px;
-  }
-}
-
 @media (max-width: 768px) {
   .header {
     padding: 20px 0;
@@ -412,85 +501,86 @@ body {
   }
 
   .header-nav,
-  .header-cta {
+  .header-contact-btn {
     display: none;
   }
 
-  .header-mobile-toggle {
+  .header-burger {
     display: flex;
   }
 
-  .header-mobile-menu {
-    display: block;
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-right {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer {
+    padding: 60px 0 40px;
+  }
+
+  .footer-container {
+    padding: 0 24px;
   }
 }
 
-/* ============================================
-   MODES D'ACCESSIBILITÉ - HEADER
-   ============================================ */
-
-/* Mode Contraste Élevé */
-[data-contrast="high"] .header {
-  background-color: rgba(255, 255, 255, 1);
-  border-bottom-color: #000000;
-}
-
-[data-contrast="high"] .header-link {
-  color: #000000;
-}
-
-[data-contrast="high"] .header-link::after {
-  background: #000000;
-}
-
-[data-contrast="high"] .header-cta {
-  background: #000000;
-  color: #ffffff;
-  border: 2px solid #000000;
-}
-
-/* Mode Inversé (Dark Mode) */
+/* Modes d'accessibilité */
 [data-contrast="inverted"] .header {
   background-color: rgba(29, 29, 31, 0.95);
   border-bottom-color: #3f3f46;
 }
 
-[data-contrast="inverted"] .header-link {
+[data-contrast="inverted"] .header-nav-link {
   color: #a1a1aa;
 }
 
-[data-contrast="inverted"] .header-link:hover,
-[data-contrast="inverted"] .header-link.active {
+[data-contrast="inverted"] .header-nav-link:hover {
   color: #ffffff;
 }
 
-[data-contrast="inverted"] .header-cta {
+[data-contrast="inverted"] .header-contact-btn {
   background: #ffffff;
   color: #1d1d1f;
 }
 
-[data-contrast="inverted"] .header-cta:hover {
-  background: #d4d4d8;
+[data-contrast="inverted"] .footer {
+  background: #27272a;
+  border-top-color: #3f3f46;
 }
 
-[data-contrast="inverted"] .header-mobile-menu {
-  background: rgba(29, 29, 31, 0.98);
-  border-bottom-color: #3f3f46;
-}
-
-[data-contrast="inverted"] .header-mobile-link {
-  color: #a1a1aa;
-  border-bottom-color: #3f3f46;
-}
-
-[data-contrast="inverted"] .header-mobile-link:hover,
-[data-contrast="inverted"] .header-mobile-link.active {
+[data-contrast="inverted"] .footer-link {
   color: #ffffff;
 }
 
-[data-contrast="inverted"] .header-mobile-cta {
+[data-contrast="inverted"] .footer-link:hover {
+  color: var(--color-accent);
+}
+
+[data-contrast="high"] .header {
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom-color: #000000;
+}
+
+[data-contrast="high"] .header-nav-link {
+  color: #000000;
+}
+
+[data-contrast="high"] .header-nav-link::after {
+  background: #000000;
+}
+
+[data-contrast="high"] .header-contact-btn {
+  background: #000000;
+  color: #ffffff;
+}
+
+[data-contrast="high"] .footer {
   background: #ffffff;
-  color: #1d1d1f;
+  border-top-color: #000000;
 }
 
 /* ============================================
@@ -952,31 +1042,6 @@ body {
   }
 }
 
-/* ============================================
-   FOOTER DYNAMIQUE - CSS ADAPTÉ
-   Ajoutez ou remplacez la section FOOTER dans globals.css
-   ============================================ */
-
-/* Container principal */
-.footer {
-  background-color: var(--color-bg);
-  border-top: 1px solid var(--color-border);
-  padding: 80px 0 40px;
-}
-
-.footer-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-/* Grille principale */
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 60px;
-}
 
 /* Section Brand (logo + contact) */
 .footer-brand {

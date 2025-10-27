@@ -41,8 +41,7 @@ export default function Header() {
           liens_menu: [
             { id: 1, label: 'WE', url: '/we' },
             { id: 2, label: 'WORK', url: '/work' },
-            { id: 3, label: 'YOU', url: '/you' },
-            { id: 4, label: 'CONTACT', url: '/contact' }
+            { id: 3, label: 'YOU', url: '/you' }
           ]
         });
       }
@@ -88,6 +87,10 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
+          {/* Bouton Contact séparé */}
+          <Link href="/contact" className="header-contact-btn">
+            CONTACT
+          </Link>
         </nav>
 
         {/* Burger Mobile */}
@@ -115,6 +118,13 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
+              <Link 
+                href="/contact"
+                className="header-mobile-link header-mobile-contact"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                CONTACT
+              </Link>
             </nav>
           </div>
         )}
