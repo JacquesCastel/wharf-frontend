@@ -1,20 +1,7 @@
 'use client';
 
-import type { Metadata } from 'next';
 import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-import Image from 'next/image';
-
-// Métadonnées statiques pour la page Contact
-export const metadata: Metadata = {
-  title: 'Contact - Parlons de votre projet - Wharf',
-  description: 'Contactez Wharf pour discuter de votre projet de communication narrative. Prenons le temps d\'en parler.',
-  openGraph: {
-    title: 'Contact - Parlons de votre projet - Wharf',
-    description: 'Contactez Wharf pour discuter de votre projet de communication narrative.',
-    url: 'https://bywharf.com/contact',
-  },
-};
 
 interface ContactData {
   hero: {
