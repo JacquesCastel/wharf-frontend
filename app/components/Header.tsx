@@ -120,7 +120,7 @@ export default function Header() {
               ))}
               <Link 
                 href="/contact"
-                className="header-mobile-link header-mobile-contact"
+                className="header-mobile-link header-mobile-contact header-contact-btn"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 CONTACT

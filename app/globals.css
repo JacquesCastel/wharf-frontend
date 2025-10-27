@@ -280,6 +280,27 @@ body {
   width: 100%;
 }
 
+/* Navigation Container */
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 40px;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex: 1;
+}
+
+.header-contact-btn {
+  margin-left: auto;
+}
+
+
 /* Bouton Contact */
 .header-contact-btn {
   background: var(--color-primary);
