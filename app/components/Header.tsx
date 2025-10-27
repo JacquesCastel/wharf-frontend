@@ -2,116 +2,123 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-export const dynamic = 'force-dynamic';
+
+interface MenuItem {
+  id: number;
+  label: string;
+  url: string;
+}
+
 interface NavigationData {
-  logo: {
+  logo?: {
     url: string;
     alternativeText: string;
-    width: number;
-    height: number;
-  } | null;
-  liens: {
-    texte: string;
-    url: string;
-  }[];
-  cta_text: string;
-  cta_url: string;
+  };
+  liens_menu?: MenuItem[];
 }
 
-interface HeaderProps {
-  navigationData: NavigationData;
-}
-
-export default function Header({ navigationData }: HeaderProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
+export default function Header() {
+  const [navData, setNavData] = useState<NavigationData | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    const fetchNav = async () => {
+      try {
+        const response = await fetch('http://91.99.170.150/api/navigation?populate=*');
+        const data = await response.json();
+        
+        setNavData({
+          logo: data.data.logo ? {
+            url: `http://91.99.170.150${data.data.logo.url}`,
+            alternativeText: data.data.logo.alternativeText || 'Logo'
+          } : undefined,
+          liens_menu: data.data.liens_menu || []
+        });
+      } catch (error) {
+        console.error('Error fetching navigation:', error);
+        // Données par défaut
+        setNavData({
+          liens_menu: [
+            { id: 1, label: 'WE', url: '/we' },
+            { id: 2, label: 'WORK', url: '/work' },
+            { id: 3, label: 'YOU', url: '/you' },
+            { id: 4, label: 'CONTACT', url: '/contact' }
+          ]
+        });
+      }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    fetchNav();
   }, []);
 
+  if (!navData) {
+    return (
+      <header className="header">
+        <div className="header-container">
+          <Link href="/" className="header-logo">
+            WHARF
+          </Link>
+        </div>
+      </header>
+    );
+  }
+
   return (
-    <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
+    <header className="header">
       <div className="header-container">
-        
-        {/* Logo */}
         <Link href="/" className="header-logo">
-          {navigationData.logo ? (
-            <Image
-  src={navigationData.logo.url}
-  alt={navigationData.logo.alternativeText}
-  width={60}
-  height={60}
-  priority
-  className="header-logo-img"
-/>
+          {navData.logo ? (
+            <img 
+              src={navData.logo.url} 
+              alt={navData.logo.alternativeText}
+              style={{ height: '40px' }}
+            />
           ) : (
-            <span className="header-logo-text">WHARF</span>
+            'WHARF'
           )}
         </Link>
 
-        {/* Navigation Desktop */}
+        {/* Menu Desktop */}
         <nav className="header-nav">
-          {navigationData.liens.map((lien: any, index: number) => (
-            <Link
-              key={index}
-              href={lien.url}
-              className={`header-link ${pathname === lien.url ? 'active' : ''}`}
+          {navData.liens_menu?.map((item) => (
+            <Link 
+              key={item.id} 
+              href={item.url}
+              className="header-nav-link"
             >
-              {lien.Texte}
+              {item.label}
             </Link>
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <Link href={navigationData.cta_url} className="header-cta">
-          {navigationData.cta_text}
-        </Link>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="header-mobile-toggle"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
+        {/* Burger Mobile */}
+        <button 
+          className="header-burger"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Menu"
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
-      </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="header-mobile-menu">
-          <nav className="header-mobile-nav">
-            {navigationData.liens.map((lien: any, index: number) => (
-              <Link
-                key={index}
-                href={lien.url}
-                className={`header-mobile-link ${pathname === lien.url ? 'active' : ''}`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {lien.texte}
-              </Link>
-            ))}
-            <Link
-              href={navigationData.cta_url}
-              className="header-mobile-cta"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {navigationData.cta_text}
-            </Link>
-          </nav>
-        </div>
-      )}
+        {/* Menu Mobile */}
+        {mobileMenuOpen && (
+          <div className="header-mobile-menu">
+            <nav className="header-mobile-nav">
+              {navData.liens_menu?.map((item) => (
+                <Link 
+                  key={item.id} 
+                  href={item.url}
+                  className="header-mobile-link"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        )}
+      </div>
     </header>
   );
 }
