@@ -1,3 +1,5 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 export default function HomePage() {
   return (
     <main>
@@ -122,6 +124,7 @@ export default function HomePage() {
           <a href="/contact" className="btn btn-primary">Démarrer la conversation</a>
         </div>
       </section>
+      <SpeedInsights />
     </main>
   );
 }
