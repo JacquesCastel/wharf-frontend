@@ -28,4 +28,6 @@ const nextConfig = {
   },
 };
 
+// Updated
+
 export default nextConfig;
