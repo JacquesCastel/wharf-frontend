@@ -1,14 +1,12 @@
 import type { Metadata } from 'next';
 import { getWe } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
-import Image from 'next/image';
 
-// Générer les métadonnées dynamiques
 export const dynamic = 'force-dynamic';
+
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const weData = await getWe();
-    
     return generateMetadataFromStrapi(
       weData.seo?.title || 'Notre approche - Wharf Design Narratif',
       weData.seo?.description || 'Découvrez notre méthode de design narratif pour révéler et exprimer l\'authenticité de votre entreprise.',
