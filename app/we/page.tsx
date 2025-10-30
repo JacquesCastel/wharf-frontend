@@ -52,17 +52,15 @@ export default async function WePage() {
         )}
         <div className="we-hero-content">
           <h1>{weData.hero.titre}</h1>
-          <p className="we-hero-subtitle">
-            {weData.hero.baseline.split('fidèle').map((part: string, index: number) => (
-              index === 0 ? (
-                <span key={index}>
-                  {part}<span className="we-hero-accent">fidèle</span>
-                </span>
-              ) : (
-                <span key={index}>{part}</span>
-              )
-            ))}
-          </p>
+         <p 
+  className="we-hero-subtitle"
+  dangerouslySetInnerHTML={{
+    __html: weData.hero.texte.replace(
+      'fidèle',
+      '<span class="we-hero-accent">fidèle</span>'
+    )
+  }}
+/>
         </div>
       </section>
 

@@ -77,7 +77,7 @@ export async function getWe() {
     return {
       hero: {
         titre: data?.hero_titre || 'Notre approche',
-        baseline: data?.hero_baseline || 'WE',
+        texte: data?.hero_baseline || 'WE',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
