@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getWe } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
+import { markdownToHtml } from '../lib/strapi';
 
 export const dynamic = 'force-dynamic';
 
@@ -55,8 +56,8 @@ export default async function WePage() {
          <p 
   className="we-hero-subtitle"
   dangerouslySetInnerHTML={{
-    __html: weData.hero.texte.replace(
-      'fidèle',
+    __html: markdownToHtml(weData.hero.texte).replace(
+      /fidèle/g,
       '<span class="we-hero-accent">fidèle</span>'
     )
   }}

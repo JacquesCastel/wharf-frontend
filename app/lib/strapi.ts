@@ -359,3 +359,8 @@ export async function getNavigation() {
     return { logo: null, liens: [], cta_text: 'Contact', cta_url: '/contact' };
   }
 }
+export function markdownToHtml(text: string): string {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n/g, '<br>');
+}
