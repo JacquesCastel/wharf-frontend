@@ -52,17 +52,17 @@ export default async function WePage() {
         )}
         <div className="we-hero-content">
           <h1>{weData.hero.titre}</h1>
-          <p className="we-hero-subtitle">
-           {weData.hero.texte.split('fidèle').map((part: string, index: number) => (
-              index === 0 ? (
-                <span key={index}>
-                  {part}<span className="we-hero-accent">fidèle</span>
-                </span>
-              ) : (
-                <span key={index}>{part}</span>
-              )
-            ))}
-          </p>
+         <p className="we-hero-subtitle">
+  {weData.hero.texte.includes('fidèle') ? (
+    <>
+      {weData.hero.texte.split('fidèle')[0]}
+      <span className="we-hero-accent">fidèle</span>
+      {weData.hero.texte.split('fidèle')[1]}
+    </>
+  ) : (
+    weData.hero.texte
+  )}
+</p>
         </div>
       </section>
 
