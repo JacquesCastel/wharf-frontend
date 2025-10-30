@@ -77,7 +77,7 @@ export async function getWe() {
     return {
       hero: {
         titre: data?.hero_titre || 'Notre approche',
-        baseline: data?.hero_baseline || 'WE',
+        texte: data?.hero_texte || 'WE',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
@@ -135,7 +135,7 @@ export async function getWe() {
   } catch (error) {
     console.error('getWe error:', error);
     return {
-      hero: { titre: 'Notre approche', baseline: 'WE', video: null },
+      hero: { titre: 'Notre approche', texte: 'WE', video: null },
       actes: {
         acte1: { numero: 1, titre: 'Intention', contenu: '<p>Erreur de chargement</p>' },
         acte2: { numero: 2, titre: 'Perception', contenu: '<p>Erreur de chargement</p>' },
@@ -162,7 +162,7 @@ export async function getHome() {
     return {
       hero: {
         titre: data?.hero_titre || '',
-        baseline: data?.hero_baseline || '',
+        texte: data?.hero_texte || '',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
@@ -192,7 +192,7 @@ export async function getWork() {
     return {
       hero: {
         titre: data?.hero_titre || 'Comment travaillons-nous ?',
-        baseline: data?.hero_baseline || 'WORK',
+        texte: data?.hero_texte || 'WORK',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
@@ -251,7 +251,7 @@ export async function getYou() {
     return {
       hero: {
         titre: data?.hero_titre || 'Votre situation',
-        baseline: data?.hero_baseline || '',
+        texte: data?.hero_texte || '',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
@@ -303,7 +303,7 @@ export async function getContact() {
     return {
       hero: {
         titre: data?.hero_titre || 'Parlons-en',
-        baseline: data?.hero_baseline || '',
+        texte: data?.hero_texte || '',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
