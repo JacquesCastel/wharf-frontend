@@ -162,7 +162,7 @@ export async function getHome() {
     return {
       hero: {
         titre: data?.hero_titre || '',
-        baseline: data?.hero_baseline || '',
+        baseline: data?.hero_texte || '',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
@@ -192,7 +192,7 @@ export async function getWork() {
     return {
       hero: {
         titre: data?.hero_titre || 'Comment travaillons-nous ?',
-        baseline: data?.hero_baseline || 'WORK',
+        baseline: data?.hero_texte || 'WORK',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
@@ -251,7 +251,7 @@ export async function getYou() {
     return {
       hero: {
         titre: data?.hero_titre || 'Votre situation',
-        baseline: data?.hero_baseline || '',
+        baseline: data?.hero_texte || '',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
@@ -303,7 +303,7 @@ export async function getContact() {
     return {
       hero: {
         titre: data?.hero_titre || 'Parlons-en',
-        baseline: data?.hero_baseline || '',
+        baseline: data?.hero_texte || '',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
