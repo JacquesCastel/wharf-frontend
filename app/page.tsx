@@ -62,7 +62,7 @@ export default async function HomePage() {
               {homeData.hero.titre}
             </h1>
             <p className="hero-subtitle">
-              {homeData.hero.baseline}
+              {homeData.hero.texte}
             </p>
             <div className="hero-actions">
               <a href="/we" className="btn btn-primary">Découvrir notre approche</a>
