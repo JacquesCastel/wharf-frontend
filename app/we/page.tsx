@@ -56,10 +56,10 @@ export default async function WePage() {
          <p 
   className="we-hero-subtitle"
   dangerouslySetInnerHTML={{
-    __html: markdownToHtml(weData.hero.texte).replace(
-      /fidèle/g,
-      '<span class="we-hero-accent">fidèle</span>'
-    )
+    __html: weData.hero.texte
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // Gras Markdown
+      .replace(/\n/g, '<br>')  // Retours à la ligne
+      .replace(/fidèle/g, '<span class="we-hero-accent">fidèle</span>')  // Highlight
   }}
 />
         </div>
