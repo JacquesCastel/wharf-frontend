@@ -62,6 +62,7 @@ export default async function WePage() {
       .replace(/fidèle/g, '<span class="we-hero-accent">fidèle</span>')  // Highlight
   }}
 />
+
         </div>
       </section>
 
