@@ -162,24 +162,24 @@ export async function getHome() {
     return {
       hero: {
         titre: data?.hero_titre || '',
-        baseline: data?.hero_texte || '',
+        texte: data?.hero_texte || '',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
         } : null
       },
       blocs: {
-        we: { titre: data?.bloc_we_titre || 'WE', description: data?.bloc_we_description || '', lien: '/we' },
-        work: { titre: data?.bloc_work_titre || 'WORK', description: data?.bloc_work_description || '', lien: '/work' },
-        you: { titre: data?.bloc_you_titre || 'YOU', description: data?.bloc_you_description || '', lien: '/you' }
-      },
+  we: { titre: data?.bloc_we_titre || 'WE', texte: data?.bloc_we_texte || '', lien: '/we' },
+  work: { titre: data?.bloc_work_titre || 'WORK', texte: data?.bloc_work_texte || '', lien: '/work' },
+  you: { titre: data?.bloc_you_titre || 'YOU', texte: data?.bloc_you_texte || '', lien: '/you' }
+},
       manifesto: { texte: blocksToHtml(data?.manifesto_texte) || data?.manifesto_texte || '' },
       cta: { texte: data?.cta_texte || '', lien: data?.cta_lien || '/contact' },
       seo: { title: data?.seo_title || '', description: data?.seo_description || '', image: data?.seo_image || null }
     };
   } catch (error) {
     console.error('getHome error:', error);
-    return { hero: { titre: '', baseline: '', video: null }, blocs: {}, manifesto: { texte: '' }, cta: { texte: '', lien: '/contact' } };
+    return { hero: { titre: '', texte: '', video: null }, blocs: { we: { titre: 'WE', texte: '', lien: '/we' }, work: { titre: 'WORK', texte: '', lien: '/work' }, you: { titre: 'YOU', texte: '', lien: '/you' } }, manifesto: { texte: '' }, cta: { texte: '', lien: '/contact' }, seo: {} };
   }
 }
 
@@ -192,7 +192,7 @@ export async function getWork() {
     return {
       hero: {
         titre: data?.hero_titre || 'Comment travaillons-nous ?',
-        baseline: data?.hero_texte || 'WORK',
+        texte: data?.hero_texte || 'WORK',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
@@ -251,7 +251,7 @@ export async function getYou() {
     return {
       hero: {
         titre: data?.hero_titre || 'Votre situation',
-        baseline: data?.hero_texte || '',
+        texte: data?.hero_texte || '',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
