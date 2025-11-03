@@ -77,9 +77,18 @@ export default async function HomePage() {
         </section>
 
         {/* 3 ENTRY POINTS - CARDS AVEC IMAGES */}
+        {/* Entry Points - Les 3 points d'entrée */}
+  
+
         <section className="entry-points">
           <div className="container">
-            
+            <div className="section-header">
+            <h2 className="section-title">Trois façons de nous découvrir</h2>
+            <p className="section-subtitle">
+              Que vous cherchiez à comprendre notre philosophie, explorer notre travail, 
+              ou identifier comment nous pouvons vous accompagner.
+            </p>
+          </div>
             <div className="cards-split">
               
               {/* CARD 1 - WE */}
@@ -104,7 +113,7 @@ export default async function HomePage() {
   style={homeData.blocs.work.image ? { backgroundImage: `url(${homeData.blocs.work.image})` } : {}}
 >
                 <div className="card-split-right">
-                  <h3 className="card-split-subtitle">Le design narratif</h3>
+                  <h3 className="card-split-subtitle">{homeData.blocs.work.titre}</h3>
                   <p className="card-split-content">
                     {homeData.blocs.work.texte}
                   </p>
