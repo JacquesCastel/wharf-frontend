@@ -191,7 +191,7 @@ export default async function HomePage() {
           <div className="container">
             <h2>{homeData.cta.titre}</h2>
             <p>
-              Discutons de votre projet et construisons ensemble votre récit authentique.
+              {homeData.cta.texte}
             </p>
             <a href={homeData.cta.lien} className="btn btn-primary">{homeData.cta.lien}</a>
           </div>
