@@ -162,7 +162,7 @@ export async function getHome() {
     return {
       hero: {
         titre: data?.hero_titre || '',
-        texte: data?.hero_texte || '',
+        texte: data?.hero_soustitre || '',
         video: data?.hero_video ? {
           url: `${STRAPI_URL}${data.hero_video.url}`,
           alternativeText: data.hero_video.alternativeText || ''
