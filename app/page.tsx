@@ -189,11 +189,11 @@ export default async function HomePage() {
         {/* CTA FINAL */}
         <section className="cta-section">
           <div className="container">
-            <h2>{homeData.cta.texte}</h2>
+            <h2>{homeData.cta.titre}</h2>
             <p>
               Discutons de votre projet et construisons ensemble votre récit authentique.
             </p>
-            <a href={homeData.cta.lien} className="btn btn-primary">Contactez-nous</a>
+            <a href={homeData.cta.lien} className="btn btn-primary">{homeData.cta.lien}</a>
           </div>
         </section>
 

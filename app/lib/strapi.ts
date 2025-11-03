@@ -174,12 +174,12 @@ export async function getHome() {
   you: { titre: data?.bloc_you_titre || 'YOU', texte: data?.bloc_you_texte || '', image: data?.bloc_you_image ? `${STRAPI_URL}${data.bloc_you_image.url}` : null, lien: '/you' }
 },
       manifesto: { texte: blocksToHtml(data?.manifesto_texte) || data?.manifesto_texte || '' },
-      cta: { texte: data?.cta_texte || '', lien: data?.cta_lien || '/contact' },
+      cta: { texte: data?.cta_titre || '', lien: data?.cta_lien || '/contact' },
       seo: { title: data?.seo_title || '', description: data?.seo_description || '', image: data?.seo_image || null }
     };
   } catch (error) {
     console.error('getHome error:', error);
-    return { hero: { titre: '', texte: '', video: null }, blocs: { we: { titre: 'WE', texte: '', lien: '/we' }, work: { titre: 'WORK', texte: '', lien: '/work' }, you: { titre: 'YOU', texte: '', lien: '/you' } }, manifesto: { texte: '' }, cta: { texte: '', lien: '/contact' }, seo: {} };
+    return { hero: { titre: '', texte: '', video: null }, blocs: { we: { titre: 'WE', texte: '', lien: '/we' }, work: { titre: 'WORK', texte: '', lien: '/work' }, you: { titre: 'YOU', texte: '', lien: '/you' } }, manifesto: { texte: '' }, cta: { titre: '', lien: '/contact' }, seo: {} };
   }
 }
 
