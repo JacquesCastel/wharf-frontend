@@ -83,7 +83,7 @@ export default async function HomePage() {
             <div className="cards-split">
               
               {/* CARD 1 - WE */}
-              <div className="card-split card-split-we">
+              <div className="card-split card-split-we" style={homeData.blocs.we.image ? { backgroundImage: `url(${homeData.blocs.we.image})` } : {}}>
                 <div className="card-split-left">
                   <h2 className="card-split-title">{homeData.blocs.we.titre}</h2>
                 </div>
@@ -99,7 +99,10 @@ export default async function HomePage() {
               </div>
 
               {/* CARD 2 - WORK */}
-              <div className="card-split card-split-work">
+              <div 
+  className="card-split card-split-work"
+  style={homeData.blocs.work.image ? { backgroundImage: `url(${homeData.blocs.work.image})` } : {}}
+>
                 <div className="card-split-right">
                   <h3 className="card-split-subtitle">Comment travaillons-nous ?</h3>
                   <p className="card-split-content">
@@ -115,7 +118,10 @@ export default async function HomePage() {
               </div>
 
               {/* CARD 3 - YOU */}
-              <div className="card-split card-split-you">
+              <div 
+  className="card-split card-split-you"
+  style={homeData.blocs.you.image ? { backgroundImage: `url(${homeData.blocs.you.image})` } : {}}
+>
                 <div className="card-split-left">
                   <h2 className="card-split-title">{homeData.blocs.you.titre}</h2>
                 </div>
