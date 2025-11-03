@@ -88,7 +88,7 @@ export default async function HomePage() {
                   <h2 className="card-split-title">{homeData.blocs.we.titre}</h2>
                 </div>
                 <div className="card-split-right">
-                  <h3 className="card-split-subtitle">Qui sommes-nous ?</h3>
+                  <h3 className="card-split-subtitle">Quand la parole se dilue</h3>
                   <p className="card-split-content">
                     {homeData.blocs.we.texte}
                   </p>
@@ -104,7 +104,7 @@ export default async function HomePage() {
   style={homeData.blocs.work.image ? { backgroundImage: `url(${homeData.blocs.work.image})` } : {}}
 >
                 <div className="card-split-right">
-                  <h3 className="card-split-subtitle">Comment travaillons-nous ?</h3>
+                  <h3 className="card-split-subtitle">Le design narratif</h3>
                   <p className="card-split-content">
                     {homeData.blocs.work.texte}
                   </p>
@@ -126,7 +126,7 @@ export default async function HomePage() {
                   <h2 className="card-split-title">{homeData.blocs.you.titre}</h2>
                 </div>
                 <div className="card-split-right">
-                  <h3 className="card-split-subtitle">Pourquoi nous choisir ?</h3>
+                  <h3 className="card-split-subtitle">La rencontre</h3>
                   <p className="card-split-content">
                     {homeData.blocs.you.texte}
                   </p>
