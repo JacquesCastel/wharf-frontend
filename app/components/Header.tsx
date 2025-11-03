@@ -24,12 +24,12 @@ export default function Header() {
   useEffect(() => {
     const fetchNav = async () => {
       try {
-        const response = await fetch('http://91.99.170.150/api/navigation?populate=*');
+        const response = await fetch('https://admin.bywharf.com/api/navigation?populate=*');
         const data = await response.json();
         
         setNavData({
           logo: data.data.logo ? {
-            url: `http://91.99.170.150${data.data.logo.url}`,
+            url: `https://admin.bywharf.com${data.data.logo.url}`,
             alternativeText: data.data.logo.alternativeText || 'Logo'
           } : undefined,
           liens_menu: data.data.liens_menu || []
