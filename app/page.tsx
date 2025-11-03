@@ -61,9 +61,14 @@ export default async function HomePage() {
             <h1 className="hero-title">
               {homeData.hero.titre}
             </h1>
-            <p className="hero-subtitle">
-              {homeData.hero.texte}
-            </p>
+            <p 
+  className="hero-subtitle"
+  dangerouslySetInnerHTML={{
+    __html: homeData.hero.texte
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br>')
+  }}
+/>
             <div className="hero-actions">
               <a href="/we" className="btn btn-primary">Découvrir notre approche</a>
               <a href="/contact" className="btn btn-secondary">Nous contacter</a>
@@ -85,7 +90,7 @@ export default async function HomePage() {
                 <div className="card-split-right">
                   <h3 className="card-split-subtitle">Qui sommes-nous ?</h3>
                   <p className="card-split-content">
-                    {homeData.blocs.we.description}
+                    {homeData.blocs.we.texte}
                   </p>
                   <a href={homeData.blocs.we.lien} className="card-split-link">
                     Découvrir notre approche →
@@ -98,7 +103,7 @@ export default async function HomePage() {
                 <div className="card-split-right">
                   <h3 className="card-split-subtitle">Comment travaillons-nous ?</h3>
                   <p className="card-split-content">
-                    {homeData.blocs.work.description}
+                    {homeData.blocs.work.texte}
                   </p>
                   <a href={homeData.blocs.work.lien} className="card-split-link">
                     Explorer nos services →
@@ -117,7 +122,7 @@ export default async function HomePage() {
                 <div className="card-split-right">
                   <h3 className="card-split-subtitle">Pourquoi nous choisir ?</h3>
                   <p className="card-split-content">
-                    {homeData.blocs.you.description}
+                    {homeData.blocs.you.texte}
                   </p>
                   <a href={homeData.blocs.you.lien} className="card-split-link">
                     Voir nos cas d'usage →
