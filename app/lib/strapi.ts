@@ -217,14 +217,12 @@ export async function getWork() {
         expertise1: {
           titre: data?.expertise1_titre || 'Conseil stratégique',
           subtitle: data?.expertise1_subtitle || 'formuler le sens',
-          description: blocksToHtml(data?.expertise1_description),
-          liste: blocksToHtml(data?.expertise1_liste)
+          description: blocksToHtml(data?.expertise1_contenu)
         },
         expertise2: {
           titre: data?.expertise2_titre || 'Création audiovisuelle',
           subtitle: data?.expertise2_subtitle || 'donner corps au récit',
-          description: blocksToHtml(data?.expertise2_description),
-          liste: blocksToHtml(data?.expertise2_liste)
+          description: blocksToHtml(data?.expertise2_contenu)
         }
       },
       closing: {

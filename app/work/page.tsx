@@ -98,14 +98,14 @@ export default async function WorkPage() {
             <div className="expertise">
               <h3>{workData.expertises.expertise1.titre}</h3>
               <p className="expertise-subtitle">{workData.expertises.expertise1.subtitle}</p>
-              <p>{workData.expertises.expertise1.description}</p>
+              <p>{workData.expertises.expertise1.contenu}</p>
               <div dangerouslySetInnerHTML={{ __html: workData.expertises.expertise1.liste }} />
             </div>
 
             <div className="expertise">
               <h3>{workData.expertises.expertise2.titre}</h3>
               <p className="expertise-subtitle">{workData.expertises.expertise2.subtitle}</p>
-              <p>{workData.expertises.expertise2.description}</p>
+              <p>{workData.expertises.expertise2.contenu}</p>
               <div dangerouslySetInnerHTML={{ __html: workData.expertises.expertise2.liste }} />
             </div>
           </div>
