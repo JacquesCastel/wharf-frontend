@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 interface FooterData {
+  logo?: {
+    url: string;
+    alternativeText: string;
+  };
   slogan?: string;
   copyright?: string;
 }
@@ -14,7 +18,7 @@ export default function Footer() {
   useEffect(() => {
     const fetchFooter = async () => {
       try {
-        const response = await fetch('http://91.99.170.150/api/footer?populate=*');
+        const response = await fetch('https://admin.bywharf.com/api/footer?populate=*');
         const data = await response.json();
         
         setFooterData({
@@ -39,8 +43,16 @@ export default function Footer() {
           {/* Logo + Slogan à gauche */}
           <div className="footer-left">
             <Link href="/" className="footer-logo">
-              WHARF
-            </Link>
+  {footerData?.logo ? (
+    <img 
+      src={footerData.logo.url} 
+      alt={footerData.logo.alternativeText || 'Logo Wharf'}
+      style={{ height: '100px' }}
+    />
+  ) : (
+    'WHARF'
+  )}
+</Link>
             {footerData?.slogan && (
               <p className="footer-slogan">{footerData.slogan}</p>
             )}
