@@ -207,9 +207,9 @@ export async function getWork() {
         titre: data?.methode_titre || 'Notre méthode',
         intro: data?.methode_intro || '',
        mouvements: [
-  { numero: 1, titre: data?.mouvement1_titre || '', description: blocksToHtml(data?.mouvement1_texte) },
-  { numero: 2, titre: data?.mouvement2_titre || '', description: blocksToHtml(data?.mouvement2_texte) },
-  { numero: 3, titre: data?.mouvement3_titre || '', description: blocksToHtml(data?.mouvement3_texte) }
+  { numero: 1, titre: data?.mouvement1_titre || '', description: data?.mouvement1_texte },
+  { numero: 2, titre: data?.mouvement2_titre || '', description: data?.mouvement2_texte },
+  { numero: 3, titre: data?.mouvement3_titre || '', description: data?.mouvement3_texte }
 ]
       },
     expertises: {
