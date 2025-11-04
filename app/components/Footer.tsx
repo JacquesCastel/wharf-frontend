@@ -52,7 +52,7 @@ export default function Footer() {
     <img 
       src={footerData.Logo.url} 
       alt={footerData.Logo.alternativeText || 'Logo Wharf'}
-      style={{ height: '100px' }}
+      style={{ height: '200px' }}
     />
   ) : (
     'WHARF'
