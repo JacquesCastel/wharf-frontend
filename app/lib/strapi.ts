@@ -212,19 +212,19 @@ export async function getWork() {
   { numero: 3, titre: data?.mouvement3_titre || '', description: blocksToHtml(data?.mouvement3_description) }
 ]
       },
-     expertises: {
+    expertises: {
   titre: data?.expertises_titre || 'Nos expertises',
   expertise1: {
     titre: data?.expertise1_titre || 'Conseil stratégique',
     subtitle: data?.expertise1_subtitle || 'formuler le sens',
-    description: blocksToHtml(data?.expertise1_description),  // ✅
-    liste: blocksToHtml(data?.expertise1_liste)  // ✅
+    description: blocksToHtml(data?.expertise1_contenu),  // ✅
+    liste: ''  // Pas de champ liste dans Strapi
   },
   expertise2: {
     titre: data?.expertise2_titre || 'Création audiovisuelle',
     subtitle: data?.expertise2_subtitle || 'donner corps au récit',
-    description: blocksToHtml(data?.expertise2_description),  // ✅
-    liste: blocksToHtml(data?.expertise2_liste)  // ✅
+    description: blocksToHtml(data?.expertise2_contenu),  // ✅
+    liste: ''  // Pas de champ liste dans Strapi
   }
 },
       closing: {
