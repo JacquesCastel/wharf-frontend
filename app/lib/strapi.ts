@@ -1,5 +1,5 @@
 // lib/strapi.ts
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://91.99.170.150:1337';
+const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
 
 // Fonction simple pour convertir les blocks
 function blocksToHtml(blocks: any): string {
