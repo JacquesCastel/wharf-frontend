@@ -257,8 +257,7 @@ export async function getYou() {
       },
       intro: {
         titre: data?.intro_titre || '',
-        paragraphe1: data?.intro_paragraphe1 || '',
-        paragraphe2: data?.intro_paragraphe2 || ''
+        texte: data?.intro_texte || '',
       },
       comprendre: {
         titre: data?.comprendre_titre || '',
@@ -288,7 +287,7 @@ export async function getYou() {
     };
   } catch (error) {
     console.error('getYou error:', error);
-    return { hero: { titre: '', baseline: '', video: null }, intro: {}, comprendre: { items: [] }, situations: { liste: [] }, approche: {}, closing: {} };
+    return { hero: { titre: '', texte: '', video: null }, intro: {}, comprendre: { items: [] }, situations: { liste: [] }, approche: {}, closing: {} };
   }
 }
 
