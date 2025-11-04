@@ -56,7 +56,7 @@ export default async function WorkPage() {
         <div className="work-hero-overlay"></div>
         <div className="work-hero-content">
           <h1>{workData.hero.titre}</h1>
-          <p className="work-hero-subtitle">{workData.hero.baseline}</p>
+          <p className="work-hero-subtitle">{workData.hero.texte}</p>
         </div>
       </section>
 
