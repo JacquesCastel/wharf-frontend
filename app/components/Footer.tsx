@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 interface FooterData {
-  logo?: {
+  Logo?: {
     url: string;
     alternativeText: string;
   };
@@ -43,10 +43,10 @@ export default function Footer() {
           {/* Logo + Slogan à gauche */}
           <div className="footer-left">
             <Link href="/" className="footer-logo">
-  {footerData?.logo ? (
+  {footerData?.Logo ? (
     <img 
-      src={footerData.logo.url} 
-      alt={footerData.logo.alternativeText || 'Logo Wharf'}
+      src={footerData.Logo.url} 
+      alt={footerData.Logo.alternativeText || 'Logo Wharf'}
       style={{ height: '100px' }}
     />
   ) : (
