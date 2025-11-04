@@ -63,8 +63,7 @@ export default async function YouPage() {
       <section className="you-intro">
         <div className="you-container">
           <h2>{youData.intro.titre}</h2>
-          <p>{youData.intro.paragraphe1}</p>
-          <p>{youData.intro.paragraphe2}</p>
+          <p>{youData.intro.texte}</p>
         </div>
       </section>
 
