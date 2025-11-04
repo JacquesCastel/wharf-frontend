@@ -122,7 +122,7 @@ export async function getWe() {
       } : null,
       closing: {
         titre: data?.closing_titre || 'Travaillons ensemble',
-        description: data?.closing_description || '',
+        description: data?.closing_texte || '',
         lien: data?.closing_lien || '/contact',
         texte_bouton: data?.closing_texte_bouton || 'Découvrir nos services →'
       },
@@ -148,7 +148,7 @@ export async function getWe() {
       },
       manifesto: { texte: '' },
       manifesto_pdf: null,
-      closing: { titre: 'Travaillons ensemble', description: '', lien: '/contact', texte_bouton: 'Découvrir nos services →' }
+      closing: { titre: 'Travaillons ensemble', texte: '', lien: '/contact', texte_bouton: 'Découvrir notre approche →' }
     };
   }
 }
@@ -327,6 +327,7 @@ export async function getContact() {
 }
 
 export async function getFooter() {
+  
   try {
     const res = await fetch(`${STRAPI_URL}/api/footer?populate=*`, { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);

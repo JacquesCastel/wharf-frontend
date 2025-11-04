@@ -150,7 +150,7 @@ export default async function WePage() {
       {/* CLOSING CTA */}
       <section className="we-closing">
         <h2>{weData.closing.titre}</h2>
-        <p>{weData.closing.description}</p>
+        <p>{weData.closing.texte}</p>
         <a href={weData.closing.lien} className="we-cta-button">
           {weData.closing.texte_bouton}
         </a>
