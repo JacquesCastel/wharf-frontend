@@ -113,7 +113,7 @@ export default async function HomePage() {
   style={homeData.blocs.work.image ? { backgroundImage: `url(${homeData.blocs.work.image})` } : {}}
 >
                 <div className="card-split-right">
-                  <h3 className="card-split-subtitle">{homeData.blocs.work.titre}</h3>
+                  <h3 className="card-split-subtitle">Le design narratif</h3>
                   <p className="card-split-content">
                     {homeData.blocs.work.texte}
                   </p>
