@@ -206,25 +206,27 @@ export async function getWork() {
       methode: {
         titre: data?.methode_titre || 'Notre méthode',
         intro: data?.methode_intro || '',
-        mouvements: [
-          { numero: 1, titre: data?.mouvement1_titre || '', description: blocksToHtml(data?.mouvement1_texte) },
-          { numero: 2, titre: data?.mouvement2_titre || '', description: blocksToHtml(data?.mouvement2_texte) },
-          { numero: 3, titre: data?.mouvement3_titre || '', description: blocksToHtml(data?.mouvement3_texte) }
-        ]
+       mouvements: [
+  { numero: 1, titre: data?.mouvement1_titre || '', description: blocksToHtml(data?.mouvement1_description) },
+  { numero: 2, titre: data?.mouvement2_titre || '', description: blocksToHtml(data?.mouvement2_description) },
+  { numero: 3, titre: data?.mouvement3_titre || '', description: blocksToHtml(data?.mouvement3_description) }
+]
       },
-      expertises: {
-        titre: data?.expertises_titre || 'Nos expertises',
-        expertise1: {
-          titre: data?.expertise1_titre || 'Conseil stratégique',
-          subtitle: data?.expertise1_subtitle || 'formuler le sens',
-          contenu: blocksToHtml(data?.expertise1_contenu),
-        },
-        expertise2: {
-          titre: data?.expertise2_titre || 'Création audiovisuelle',
-          subtitle: data?.expertise2_subtitle || 'donner corps au récit',
-          contenu: blocksToHtml(data?.expertise2_contenu),
-        }
-      },
+     expertises: {
+  titre: data?.expertises_titre || 'Nos expertises',
+  expertise1: {
+    titre: data?.expertise1_titre || 'Conseil stratégique',
+    subtitle: data?.expertise1_subtitle || 'formuler le sens',
+    description: blocksToHtml(data?.expertise1_description),  // ✅
+    liste: blocksToHtml(data?.expertise1_liste)  // ✅
+  },
+  expertise2: {
+    titre: data?.expertise2_titre || 'Création audiovisuelle',
+    subtitle: data?.expertise2_subtitle || 'donner corps au récit',
+    description: blocksToHtml(data?.expertise2_description),  // ✅
+    liste: blocksToHtml(data?.expertise2_liste)  // ✅
+  }
+},
       closing: {
         titre: data?.closing_titre || 'Travaillons ensemble',
         texte: blocksToHtml(data?.closing_texte),
