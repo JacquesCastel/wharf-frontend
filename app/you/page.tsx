@@ -55,7 +55,7 @@ export default async function YouPage() {
         <div className="you-hero-overlay"></div>
         <div className="you-hero-content">
           <h1>{youData.hero.titre}</h1>
-          <p className="you-hero-subtitle">{youData.hero.baseline}</p>
+          <p className="you-hero-subtitle">{youData.hero.texte}</p>
         </div>
       </section>
 
