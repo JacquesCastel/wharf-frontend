@@ -207,9 +207,9 @@ export async function getWork() {
         titre: data?.methode_titre || 'Notre méthode',
         intro: data?.methode_intro || '',
         mouvements: [
-          { numero: 1, titre: data?.mouvement1_titre || '', description: blocksToHtml(data?.mouvement1_description) },
-          { numero: 2, titre: data?.mouvement2_titre || '', description: blocksToHtml(data?.mouvement2_description) },
-          { numero: 3, titre: data?.mouvement3_titre || '', description: blocksToHtml(data?.mouvement3_description) }
+          { numero: 1, titre: data?.mouvement1_titre || '', description: blocksToHtml(data?.mouvement1_texte) },
+          { numero: 2, titre: data?.mouvement2_titre || '', description: blocksToHtml(data?.mouvement2_texte) },
+          { numero: 3, titre: data?.mouvement3_titre || '', description: blocksToHtml(data?.mouvement3_texte) }
         ]
       },
       expertises: {
@@ -217,12 +217,12 @@ export async function getWork() {
         expertise1: {
           titre: data?.expertise1_titre || 'Conseil stratégique',
           subtitle: data?.expertise1_subtitle || 'formuler le sens',
-          description: data?.expertise1_contenu,
+          contenu: blocksToHtml(data?.expertise1_contenu),
         },
         expertise2: {
           titre: data?.expertise2_titre || 'Création audiovisuelle',
           subtitle: data?.expertise2_subtitle || 'donner corps au récit',
-          description: data?.expertise2_contenu,
+          contenu: blocksToHtml(data?.expertise2_contenu),
         }
       },
       closing: {

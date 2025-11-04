@@ -82,7 +82,7 @@ export default async function WorkPage() {
               <div key={mouvement.numero} className="mouvement">
                 <div className="mouvement-number">{mouvement.numero}</div>
                 <h3>{mouvement.titre}</h3>
-                <p>{mouvement.description}</p>
+                <p>{mouvement.texte}</p>
               </div>
             ))}
           </div>
