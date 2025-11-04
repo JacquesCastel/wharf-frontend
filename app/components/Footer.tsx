@@ -22,12 +22,17 @@ export default function Footer() {
         const data = await response.json();
         
         setFooterData({
+          Logo: data.data.Logo ? {
+           url: `https://admin.bywharf.com${data.data.Logo.url}`,
+           alternativeText: data.data.Logo.alternativeText || 'Logo Wharf'
+  } : undefined,
           slogan: data.data.slogan || 'Design narratif & Communication corporate',
           copyright: data.data.copyright || `© ${new Date().getFullYear()} Wharf. Tous droits réservés.`
         });
       } catch (error) {
         console.error('Error fetching footer:', error);
         setFooterData({
+          Logo: undefined,
           slogan: 'Design narratif & Communication corporate',
           copyright: `© ${new Date().getFullYear()} Wharf. Tous droits réservés.`
         });
