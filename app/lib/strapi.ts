@@ -332,7 +332,7 @@ export async function getFooter() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()).data;
     return {
-      logo: data?.logo ? { url: `${STRAPI_URL}${data.logo.url}`, alternativeText: data.logo.alternativeText || '' } : null,
+      logo: data?.Logo ? { url: `${STRAPI_URL}${data.Logo.url}`, alternativeText: data.Logo.alternativeText || '' } : null,
       email: data?.email || '',
       telephone: data?.telephone || '',
       sections: (data?.sections || []).map((s: any) => ({ titre: s.titre, liens: s.liens || [] }))
