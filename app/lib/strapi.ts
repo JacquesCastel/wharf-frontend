@@ -123,7 +123,7 @@ export async function getWe() {
       closing: {
         titre: data?.closing_titre || 'Travaillons ensemble',
         texte: data?.closing_texte || '',
-        lien: data?.closing_lien || '/contact',
+        lien: data?.closing_lien || '/work',
         texte_bouton: data?.closing_texte_bouton || 'Découvrir nos services →'
       },
       seo: {
@@ -148,7 +148,7 @@ export async function getWe() {
       },
       manifesto: { texte: '' },
       manifesto_pdf: null,
-      closing: { titre: 'Travaillons ensemble', texte: '', lien: '/contact', texte_bouton: 'Découvrir notre approche →' }
+      closing: { titre: 'Travaillons ensemble', texte: '', lien: '/work', texte_bouton: 'Découvrir notre approche →' }
     };
   }
 }
