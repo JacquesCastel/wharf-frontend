@@ -169,9 +169,30 @@ export async function getHome() {
         } : null
       },
       blocs: {
-  we: { titre: data?.bloc_we_titre || 'WE', texte: data?.bloc_we_texte || '', image: data?.bloc_we_image ? `${STRAPI_URL}${data.bloc_we_image.url}` : null, lien: '/we' },
-  work: { titre: data?.bloc_work_titre || 'WORK', texte: data?.bloc_work_texte || '', image: data?.bloc_work_image ? `${STRAPI_URL}${data.bloc_work_image.url}` : null, lien: '/work' },
-  you: { titre: data?.bloc_you_titre || 'YOU', texte: data?.bloc_you_texte || '', image: data?.bloc_you_image ? `${STRAPI_URL}${data.bloc_you_image.url}` : null, lien: '/you' }
+  we: { 
+  titre: data?.bloc_we_titre || 'WE', 
+  texte: data?.bloc_we_texte || '', 
+  image: data?.bloc_we_image?.data?.attributes?.url 
+    ? `${STRAPI_URL}${data.bloc_we_image.data.attributes.url}` 
+    : null, 
+  lien: '/we' 
+},
+work: { 
+  titre: data?.bloc_work_titre || 'WORK', 
+  texte: data?.bloc_work_texte || '', 
+  image: data?.bloc_work_image?.data?.attributes?.url 
+    ? `${STRAPI_URL}${data.bloc_work_image.data.attributes.url}` 
+    : null, 
+  lien: '/work' 
+},
+you: { 
+  titre: data?.bloc_you_titre || 'YOU', 
+  texte: data?.bloc_you_texte || '', 
+  image: data?.bloc_you_image?.data?.attributes?.url 
+    ? `${STRAPI_URL}${data.bloc_you_image.data.attributes.url}` 
+    : null, 
+  lien: '/you' 
+}
 },
       manifesto: { texte: blocksToHtml(data?.manifesto_texte) || data?.manifesto_texte || '' },
       cta: { titre: data?.cta_titre || 'YOU',texte: data?.cta_texte || '', lien: data?.cta_bouton_label || '/contact' },
