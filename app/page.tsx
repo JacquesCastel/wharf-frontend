@@ -167,7 +167,7 @@ export default async function HomePage() {
         <section className="manifesto">
           <div 
             className="manifesto-image"
-            style={{ backgroundImage: 'url(/images/manifesto-bg.jpg)' }}
+            style={{ backgroundImage: 'url(https://admin.bywharf.com/uploads/manifeste_b8fb418ca3.png)' }}
           ></div>
           <div className="manifesto-container">
             <div className="manifesto-label">Notre manifeste</div>
