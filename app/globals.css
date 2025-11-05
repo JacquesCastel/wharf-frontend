@@ -1503,15 +1503,15 @@ body {
   border-radius: 0;
 }
 
-.we-acte:nth-child(1) .we-acte-visual {
+.we-acte:nth-child(0) .we-acte-visual {
   background-image: url('/images/acte-1.jpg');
 }
 
-.we-acte:nth-child(2) .we-acte-visual {
+.we-acte:nth-child(1) .we-acte-visual {
   background-image: url('/images/acte-2.jpg');
 }
 
-.we-acte:nth-child(3) .we-acte-visual {
+.we-acte:nth-child(2) .we-acte-visual {
   background-image: url('/images/acte-3.jpg');
 }
 
@@ -1572,6 +1572,7 @@ body {
   max-width: 900px;
   margin: 0 auto;
   letter-spacing: -0.02em;
+  color: white;
 }
 
 .we-transition-highlight {
