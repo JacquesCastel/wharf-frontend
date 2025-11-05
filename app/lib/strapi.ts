@@ -310,7 +310,7 @@ export async function getYou() {
     };
   } catch (error) {
     console.error('getYou error:', error);
-    return { hero: { titre: '', texte: '', video: null }, intro: {}, comprendre: { items: [] }, situations: { liste: [] }, approche: {}, closing: {} };
+    return { hero: { titre: '', texte: '', video: null }, intro:{ titre: '', texte: '' }, comprendre: { items: [] }, situations: { liste: [] }, approche: {}, closing: {} };
   }
 }
 
