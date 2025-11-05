@@ -287,9 +287,9 @@ export async function getYou() {
       comprendre: {
         titre: data?.comprendre_titre || '',
         items: [
-          { titre: data?.comprendre_item1_titre || '', texte: data?.comprendre_item1_texte || '' },
-          { titre: data?.comprendre_item2_titre || '', texte: data?.comprendre_item2_texte || '' },
-          { titre: data?.comprendre_item3_titre || '', texte: data?.comprendre_item3_texte || '' }
+          { titre: data?.comprendreitem1_titre || '', texte: data?.comprendreitem1_texte || '' },
+          { titre: data?.comprendreitem2_titre || '', texte: data?.comprendreitem2_texte || '' },
+          { titre: data?.comprendreitem3_titre || '', texte: data?.comprendreitem3_texte || '' }
         ],
         conclusion: data?.comprendre_conclusion || ''
       },
