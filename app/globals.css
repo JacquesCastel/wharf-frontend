@@ -1503,15 +1503,13 @@ body {
   border-radius: 0;
 }
 
-.we-acte:nth-child(0) .we-acte-visual {
+.we-timeline-container > .we-acte:nth-child(2) .we-acte-visual {
   background-image: url('/images/acte-1.jpg');
 }
-
-.we-acte:nth-child(1) .we-acte-visual {
+.we-timeline-container > .we-acte:nth-child(3) .we-acte-visual {
   background-image: url('/images/acte-2.jpg');
 }
-
-.we-acte:nth-child(2) .we-acte-visual {
+.we-timeline-container > .we-acte:nth-child(4) .we-acte-visual {
   background-image: url('/images/acte-3.jpg');
 }
 
