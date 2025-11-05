@@ -250,7 +250,7 @@ export async function getWork() {
 },
       closing: {
         titre: data?.closing_titre || 'Travaillons ensemble',
-        texte: blocksToHtml(data?.closing_texte),
+        texte: data?.closing_texte,
         subtext: data?.closing_subtext || 'Parlons-en.',
         lien: data?.closing_lien || '/contact',
         texte_bouton: data?.closing_texte_bouton || "Let's work together →"
