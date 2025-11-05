@@ -62,7 +62,7 @@ export default async function YouPage() {
       {/* INTRO */}
       <section className="you-intro">
         <div className="you-container">
-          <h2>{youData.intro.titre}</h2>
+          <h2>{youData.Intro.titre}</h2>
           <p>{youData.intro.texte}</p>
         </div>
       </section>
