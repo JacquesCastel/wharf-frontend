@@ -801,9 +801,10 @@ body {
 .card-split-left::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+  inset: 30% 0 0 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
 .card-split-title {
