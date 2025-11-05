@@ -194,13 +194,13 @@ you: {
   lien: '/you' 
 }
 },
-      manifesto: { texte: blocksToHtml(data?.manifesto_texte) || data?.manifesto_texte || '' },
+      manifesto: { contenu: blocksToHtml(data?.manifesto_contenu) || data?.manifesto_contenu || '' },
       cta: { titre: data?.cta_titre || 'YOU',texte: data?.cta_texte || '', lien: data?.cta_bouton_label || '/contact' },
       seo: { title: data?.seo_title || '', description: data?.seo_description || '', image: data?.seo_image || null }
     };
   } catch (error) {
     console.error('getHome error:', error);
-    return { hero: { titre: '', texte: '', video: null }, blocs: { we: { titre: 'WE', texte: '', lien: '/we' }, work: { titre: 'WORK', texte: '', lien: '/work' }, you: { titre: 'YOU', texte: '', lien: '/you' } }, manifesto: { texte: '' }, cta: { titre: '', lien: '/contact' }, seo: {} };
+    return { hero: { titre: '', texte: '', video: null }, blocs: { we: { titre: 'WE', texte: '', lien: '/we' }, work: { titre: 'WORK', texte: '', lien: '/work' }, you: { titre: 'YOU', texte: '', lien: '/you' } }, manifesto: { contenu: '' }, cta: { titre: '', lien: '/contact' }, seo: {} };
   }
 }
 

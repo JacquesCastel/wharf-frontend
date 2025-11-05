@@ -175,10 +175,10 @@ export default async function HomePage() {
               Révéler ce qui existe déjà
             </h2>
             <div className="manifesto-text-columns">
-              {homeData.manifesto.texte ? (
+              {homeData.manifesto.contenu ? (
                 <div 
                   className="manifesto-text"
-                  dangerouslySetInnerHTML={{ __html: homeData.manifesto.texte }}
+                  dangerouslySetInnerHTML={{ __html: homeData.manifesto.contenu }}
                 />
               ) : (
                 <>
