@@ -816,21 +816,21 @@ body {
 /* Cards avec images ET fallback gradients */
 .card-split-we .card-split-left {
   background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%);
-  background-image: url(/images/card-we.jpg);
+/*  background-image: url(/images/card-we.jpg); */
   background-size: cover;
   background-position: center;
 }
 
 .card-split-work .card-split-left {
   background: linear-gradient(135deg, #4ECDC4 0%, #6FD9D1 100%);
-  background-image: url(/images/card-work.jpg);
+/* C  background-image: url(/images/card-work.jpg); */
   background-size: cover;
   background-position: center;
 }
 
 .card-split-you .card-split-left {
   background: linear-gradient(135deg, #FFE500 0%, #FFED4D 100%);
-  background-image: url(/images/card-you.jpg);
+/*  background-image: url(/images/card-you.jpg); */
   background-size: cover;
   background-position: center;
 }
