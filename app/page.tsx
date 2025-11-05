@@ -127,7 +127,7 @@ export default async function HomePage() {
           <h2 className="card-split-title">{homeData.blocs.work.titre}</h2>
         </div>
         <div className="card-split-right">
-          <h3 className="card-split-subtitle">Votre titre ici</h3>
+          <h3 className="card-split-subtitle">Le design narratif</h3>
           <p className="card-split-content">
             {homeData.blocs.work.texte}
           </p>
@@ -150,7 +150,7 @@ export default async function HomePage() {
           <h2 className="card-split-title">{homeData.blocs.you.titre}</h2>
         </div>
         <div className="card-split-right">
-          <h3 className="card-split-subtitle">Votre titre ici</h3>
+          <h3 className="card-split-subtitle">La rencontre</h3>
           <p className="card-split-content">
             {homeData.blocs.you.texte}
           </p>
