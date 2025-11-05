@@ -991,8 +991,10 @@ body {
   line-height: 1.8;
   color: var(--color-secondary);
   margin: 0;
-  white-space: pre-line; /* respecte les retours chariot \n */
 }
+
+.manifesto-text p { margin: 0 0 16px; }
+.manifesto-text p:last-child { margin-bottom: 0; }
 
 .manifesto-text strong {
   color: var(--color-primary);
