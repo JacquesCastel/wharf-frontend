@@ -141,6 +141,8 @@
 
 [data-contrast="inverted"] .manifesto-text {
   color: #a1a1aa;
+  font-size: calc(1rem - 2px);
+  white-space: pre-line; /* respecte les retours chariot \n */
 }
 
 [data-contrast="inverted"] .cta-section {
