@@ -6034,3 +6034,12 @@ html[data-font-weight="bold"] .card-split-link {
 .projet-hero-img {
   object-fit: cover;
 }
+
+/* Manifeste : toujours 2px de moins que la base */
+:root { --manifesto-delta: 2px; }
+
+.manifesto-text {
+  font-size: calc(var(--font-size-base) - var(--manifesto-delta));
+}
+
+.manifesto-text { white-space: pre-line; }
