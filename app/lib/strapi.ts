@@ -122,7 +122,7 @@ export async function getWe() {
       } : null,
       closing: {
         titre: data?.closing_titre || 'Travaillons ensemble',
-        description: data?.closing_texte || '',
+        texte: data?.closing_texte || '',
         lien: data?.closing_lien || '/contact',
         texte_bouton: data?.closing_texte_bouton || 'Découvrir nos services →'
       },
