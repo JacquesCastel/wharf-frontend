@@ -78,76 +78,90 @@ export default async function HomePage() {
 
         {/* 3 ENTRY POINTS - CARDS AVEC IMAGES */}
         {/* Entry Points - Les 3 points d'entrée */}
-  
+  {/* 3 ENTRY POINTS - CARDS AVEC IMAGES */}
+{/* Entry Points - Les 3 points d'entrée */}
+<section className="entry-points">
+  <div className="container">
+    <div className="section-header">
+      <h2 className="section-title">Trois façons de nous découvrir</h2>
+      <p className="section-subtitle">
+        Que vous cherchiez à comprendre notre philosophie, explorer notre travail, 
+        ou identifier comment nous pouvons vous accompagner.
+      </p>
+    </div>
+    
+    <div className="cards-split">
+      {/* CARD 1 - WE */}
+      <div className="card-split card-split-we">
+        <div 
+          className="card-split-left"
+          style={homeData.blocs.we.image ? { 
+            backgroundImage: `url(${homeData.blocs.we.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          } : {}}
+        >
+          <h2 className="card-split-title">{homeData.blocs.we.titre}</h2>
+        </div>
+        <div className="card-split-right">
+          <h3 className="card-split-subtitle">Quand la parole se dilue</h3>
+          <p className="card-split-content">
+            {homeData.blocs.we.texte}
+          </p>
+          <a href={homeData.blocs.we.lien} className="card-split-link">
+            Découvrir notre approche →
+          </a>
+        </div>
+      </div>
 
-        <section className="entry-points">
-          <div className="container">
-            <div className="section-header">
-            <h2 className="section-title">Trois façons de nous découvrir</h2>
-            <p className="section-subtitle">
-              Que vous cherchiez à comprendre notre philosophie, explorer notre travail, 
-              ou identifier comment nous pouvons vous accompagner.
-            </p>
-          </div>
-            <div className="cards-split">
-              
-              {/* CARD 1 - WE */}
-              <div className="card-split card-split-we" style={homeData.blocs.we.image ? { backgroundImage: `url(${homeData.blocs.we.image})` } : {}}>
-                <div className="card-split-left">
-                  <h2 className="card-split-title">{homeData.blocs.we.titre}</h2>
-                </div>
-                <div className="card-split-right">
-                  <h3 className="card-split-subtitle">Quand la parole se dilue</h3>
-                  <p className="card-split-content">
-                    {homeData.blocs.we.texte}
-                  </p>
-                  <a href={homeData.blocs.we.lien} className="card-split-link">
-                    Découvrir notre approche →
-                  </a>
-                </div>
-              </div>
+      {/* CARD 2 - WORK */}
+      <div className="card-split card-split-work">
+        <div 
+          className="card-split-left"
+          style={homeData.blocs.work.image ? { 
+            backgroundImage: `url(${homeData.blocs.work.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          } : {}}
+        >
+          <h2 className="card-split-title">{homeData.blocs.work.titre}</h2>
+        </div>
+        <div className="card-split-right">
+          <h3 className="card-split-subtitle">Votre titre ici</h3>
+          <p className="card-split-content">
+            {homeData.blocs.work.texte}
+          </p>
+          <a href={homeData.blocs.work.lien} className="card-split-link">
+            Découvrir nos réalisations →
+          </a>
+        </div>
+      </div>
 
-              {/* CARD 2 - WORK */}
-              <div 
-  className="card-split card-split-work"
-  style={homeData.blocs.work.image ? { backgroundImage: `url(${homeData.blocs.work.image})` } : {}}
->
-                <div className="card-split-right">
-                  <h3 className="card-split-subtitle">Le design narratif</h3>
-                  <p className="card-split-content">
-                    {homeData.blocs.work.texte}
-                  </p>
-                  <a href={homeData.blocs.work.lien} className="card-split-link">
-                    Explorer nos services →
-                  </a>
-                </div>
-                <div className="card-split-left">
-                  <h2 className="card-split-title">{homeData.blocs.work.titre}</h2>
-                </div>
-              </div>
-
-              {/* CARD 3 - YOU */}
-              <div 
-  className="card-split card-split-you"
-  style={homeData.blocs.you.image ? { backgroundImage: `url(${homeData.blocs.you.image})` } : {}}
->
-                <div className="card-split-left">
-                  <h2 className="card-split-title">{homeData.blocs.you.titre}</h2>
-                </div>
-                <div className="card-split-right">
-                  <h3 className="card-split-subtitle">La rencontre</h3>
-                  <p className="card-split-content">
-                    {homeData.blocs.you.texte}
-                  </p>
-                  <a href={homeData.blocs.you.lien} className="card-split-link">
-                    Voir nos cas d'usage →
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
+      {/* CARD 3 - YOU */}
+      <div className="card-split card-split-you">
+        <div 
+          className="card-split-left"
+          style={homeData.blocs.you.image ? { 
+            backgroundImage: `url(${homeData.blocs.you.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          } : {}}
+        >
+          <h2 className="card-split-title">{homeData.blocs.you.titre}</h2>
+        </div>
+        <div className="card-split-right">
+          <h3 className="card-split-subtitle">Votre titre ici</h3>
+          <p className="card-split-content">
+            {homeData.blocs.you.texte}
+          </p>
+          <a href={homeData.blocs.you.lien} className="card-split-link">
+            Explorer vos besoins →
+          </a>
+        </div>
+      </div>
+    </div> {/* ← Fermeture de cards-split */}
+  </div> {/* ← Fermeture de container */}
+</section> {/* ← Fermeture de section */}
 
         {/* MANIFESTO ASYMÉTRIQUE */}
         <section className="manifesto">
