@@ -285,14 +285,14 @@ export async function getYou() {
         texte: data?.intro_texte || '',
       },
       comprendre: {
-        titre: data?.comprendre_titre || '',
-        items: [
-          { titre: data?.comprendreitem1_titre || '', texte: data?.comprendreitem1_texte || '' },
-          { titre: data?.comprendreitem2_titre || '', texte: data?.comprendreitem2_texte || '' },
-          { titre: data?.comprendreitem3_titre || '', texte: data?.comprendreitem3_texte || '' }
-        ],
-        conclusion: data?.comprendre_conclusion || ''
-      },
+  titre: data?.comprendre_titre || '',
+  items: [
+    { titre: data?.comprendre_1_titre || '', texte: data?.comprendre_1_texte || '' },
+    { titre: data?.comprendre_2_titre || '', texte: data?.comprendre_2_texte || '' },
+    { titre: data?.comprendre_3_titre || '', texte: data?.comprendre_3_texte || '' }
+  ],
+  conclusion: data?.comprendre_conclusion || ''
+},
       situations: {
         titre: data?.situations_titre || '',
         liste: (data?.situations || []).sort((a: any, b: any) => a.numero - b.numero)
