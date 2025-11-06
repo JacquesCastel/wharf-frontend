@@ -91,7 +91,7 @@ export default async function YouPage() {
       <section className="you-situations">
         <div className="you-container">
           <h2>Où commence votre récit ?</h2>
-          <p>Ces quatre situations ne sont pas des étapes imposées, mais des portes d’entrée. Elles répondent à des besoins différents et peuvent se combiner.
+          <center><p>Ces quatre situations ne sont pas des étapes imposées, mais des portes d’entrée. Elles répondent à des besoins différents et peuvent se combiner.
 Dans la pratique, beaucoup de projets suivent ce chemin naturel :</p>
 <p><strong>Clarifier le récit → Aligner la perception → Structurer la prise de parole → Incarner par la forme</strong></p>
 
@@ -99,7 +99,7 @@ Dans la pratique, beaucoup de projets suivent ce chemin naturel :</p>
 <p>Nous adaptons l’accompagnement : court et ciblé ou global et itératif.</p>
 <p>L’objectif reste le même : un récit fidèle, cohérent et crédible, qui crée de la confiance.</p>
 
-<p>Choisissez votre point de départ ci-dessous — on s’occupe du reste.</p>
+<p>Choisissez votre point de départ ci-dessous — on s’occupe du reste.</p></center>
           <div className="you-situations-grid">
             {youData.situations.liste.map((situation: { numero: number; titre: string; description: string }) => (
               <div key={situation.numero} className="you-situation">
