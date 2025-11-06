@@ -2510,7 +2510,7 @@ body {
 }
 
 .you-situation p {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.8;
   color: #555;
   margin-bottom: 24px;
@@ -2558,7 +2558,7 @@ body {
 }
 
 .you-approach-detail {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.8;
   color: #555;
   max-width: 900px;
@@ -2581,6 +2581,7 @@ body {
   margin-bottom: 20px;
   font-weight: 400;
   letter-spacing: -0.02em;
+  color:#FF6B35;
 }
 
 .you-closing p {
