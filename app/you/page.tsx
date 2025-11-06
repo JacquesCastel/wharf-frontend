@@ -116,7 +116,7 @@ export default async function YouPage() {
         </div>
       </section>
 
-      {/* NOTRE APPROCHE */}
+      {/* NOTRE APPROCHE 
       <section className="you-approach">
         <div className="you-container">
           <h2>{youData.approche.titre}</h2>
@@ -129,7 +129,7 @@ export default async function YouPage() {
             {youData.approche.detail}
           </p>
         </div>
-      </section>
+      </section>*/}
 
       {/* CTA FINAL */}
       <section className="you-closing">
