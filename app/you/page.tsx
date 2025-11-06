@@ -91,10 +91,10 @@ export default async function YouPage() {
       <section className="you-situations">
         <div className="you-container">
           <h2>Où commence votre récit ?</h2>
-          <center><p>Ces quatre situations ne sont pas des étapes imposées, mais des portes d’entrée. 
-            Elles répondent à des besoins différents et peuvent se combiner.
-Dans la pratique, beaucoup de projets suivent ce chemin naturel :</p>
-<p></p>
+          <center><p>Ces quatre situations ne sont pas des étapes imposées, mais des portes d’entrée.</p> 
+            <p>Elles répondent à des besoins différents et peuvent se combiner.</p>
+<p>Dans la pratique, beaucoup de projets suivent ce chemin naturel :</p>
+<p>&nbsp;</p>
 <p><strong>Clarifier le récit → Aligner la perception → Structurer la prise de parole → Incarner par la forme</strong></p>
 
 <p>Vous pouvez commencer où c’est le plus urgent (clarifier, diagnostiquer, préparer un temps fort, produire).</p>
