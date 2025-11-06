@@ -220,8 +220,8 @@ export async function getWork() {
         } : null
       },
       intro: {
-        paragraphe1: data?.intro_paragraphe1 || '',
-        paragraphe2: data?.intro_paragraphe2 || '',
+        paragraphe1: blocksToHtml(data?.intro_paragraphe1 || ''),
+        paragraphe2: blocksToHtml(data?.intro_paragraphe2 || ''),
         highlight: data?.intro_highlight || ''
       },
       methode: {
