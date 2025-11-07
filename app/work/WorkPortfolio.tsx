@@ -30,7 +30,7 @@ export default function WorkPortfolio() {
     const fetchProjets = async () => {
       try {
         const response = await fetch(
-          'http://91.99.170.150/api/projets?populate=*'
+          'https://admin.bywharf.com/api/projets?populate=*'
         );
         const data = await response.json();
         const allProjets = data.data || [];
@@ -142,7 +142,7 @@ export default function WorkPortfolio() {
                     <div className="work-project-image">
                       {projet.vignette_grille?.url && (
   <Image
-    src={`http://91.99.170.150${projet.vignette_grille.url}`}
+    src={`https://admin.bywharf.com${projet.vignette_grille.url}`}
     alt={projet.Titre}
     width={600}
     height={400}
