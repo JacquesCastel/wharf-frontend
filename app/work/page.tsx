@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getWork } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
 import WorkPortfolio from './WorkPortfolio';
+
 import Image from 'next/image';
 
 // Générer les métadonnées dynamiques
@@ -64,9 +65,9 @@ export default async function WorkPage() {
       <section className="work-intro">
         <div className="work-container">
           <div className="work-intro-text">
-            <p>{workData.intro.paragraphe1}</p>
-            <p>{workData.intro.paragraphe2}</p>
-            <p className="work-intro-highlight">{workData.intro.highlight}</p>
+            <div dangerouslySetInnerHTML={{ __html: workData.intro.paragraphe1 || '' }} />
+            <div dangerouslySetInnerHTML={{ __html: workData.intro.paragraphe2 || '' }} />
+            <div dangerouslySetInnerHTML={{ __html: workData.intro.highlight || '' }} />
           </div>
         </div>
       </section>
