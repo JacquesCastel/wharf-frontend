@@ -1507,6 +1507,7 @@ body {
   background-size: cover;
   background-position: center;
   border-radius: 0;
+  background-size: 80%;
 }
 
 .we-timeline-container > .we-acte:nth-child(2) .we-acte-visual {
