@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://91.99.170.150';
+const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bywharf.com';
 
 async function getProjet(id: string) {
@@ -39,14 +39,14 @@ export async function generateMetadata({
     };
   }
 
-  const titre = projet.Titre || projet.titre || 'Projet';
+  const titre = projet.titre || 'Projet';
   const description = projet.description_courte || `Découvrez le projet ${titre} réalisé par Wharf.`;
 
    // Image Open Graph (vignette ou hero)
   let ogImage = `${SITE_URL}/og-default.jpg`;
   
-  if (projet.vignette_grille?.url) {
-    ogImage = `${STRAPI_URL}${projet.vignette_grille.url}`;
+  if (projet.vignette?.url) {
+    ogImage = `${STRAPI_URL}${projet.vignette.url}`;
   } else if (projet.hero_image?.url) {
     ogImage = `${STRAPI_URL}${projet.hero_image.url}`;
   }
@@ -115,13 +115,11 @@ export default async function ProjetDetailPage({
   const prevProjet = currentIndex > 0 ? allProjets[currentIndex - 1] : null;
   const nextProjet = currentIndex < allProjets.length - 1 ? allProjets[currentIndex + 1] : null;
 
-  const attributes = projet.attributes || projet;
-
   return (
     <>
       {/* HERO */}
       <section className="projet-hero">
-        {attributes.hero_type === 'video' && attributes.hero_video_url ? (
+        {projet.hero_type === 'video' && projet.hero_media?.url ? (
           <video
             className="projet-hero-video"
             autoPlay
@@ -129,39 +127,40 @@ export default async function ProjetDetailPage({
             loop
             playsInline
           >
-            <source src={attributes.hero_video_url} type="video/mp4" />
+            <source src={`${STRAPI_URL}${projet.hero_media.url}`} type="video/mp4" />
           </video>
-        ) : attributes.hero_image?.data ? (
+        ) : projet.hero_image?.url ? (
           <div className="projet-hero-image">
-  <Image
-    src={`${STRAPI_URL}${attributes.hero_image.data.attributes.url}`}
-    alt={attributes.Titre || attributes.titre}
-    fill
-    className="projet-hero-img"
-    style={{ objectFit: 'cover' }}
-    priority
-  />
-</div>
+            <Image
+              src={`${STRAPI_URL}${projet.hero_image.url}`}
+              alt={projet.titre}
+              fill
+              className="projet-hero-img"
+              style={{ objectFit: 'cover' }}
+              priority
+              unoptimized={true}
+            />
+          </div>
         ) : null}
 
         <div className="projet-hero-overlay"></div>
         
-        {attributes.hero_titre_position === 'dessus' && (
+        {projet.hero_titre_position === 'dessus' && (
           <div className="projet-hero-content">
-            <h1>{attributes.Titre || attributes.titre}</h1>
-            <p className="projet-type">{attributes.type}</p>
+            <h1>{projet.titre}</h1>
+            <p className="projet-type">{projet.type}</p>
           </div>
         )}
       </section>
 
       {/* TITRE SOUS LE HERO */}
-      {attributes.hero_titre_position === 'dessous' && (
+      {projet.hero_titre_position === 'dessous' && (
         <section className="projet-header">
           <div className="projet-container">
-            <h1>{attributes.Titre || attributes.titre}</h1>
-            <p className="projet-type">{attributes.type}</p>
-            {attributes.description_courte && (
-              <p className="projet-description">{attributes.description_courte}</p>
+            <h1>{projet.titre}</h1>
+            <p className="projet-type">{projet.type}</p>
+            {projet.description_courte && (
+              <p className="projet-description">{projet.description_courte}</p>
             )}
           </div>
         </section>
@@ -170,9 +169,9 @@ export default async function ProjetDetailPage({
       {/* CONTENU DYNAMIQUE */}
       <section className="projet-content">
         <div className="projet-container">
-          {attributes.contenu?.map((bloc: any, index: number) => {
+          {projet.contenu?.map((bloc: any, index: number) => {
             switch (bloc.__component) {
-              case 'blocs.bloc-texte':
+              case 'bloc.texte-bloc':
                 return (
                   <div key={index} className="bloc-texte">
                     {bloc.titre && <h2>{bloc.titre}</h2>}
@@ -187,34 +186,35 @@ export default async function ProjetDetailPage({
                   </div>
                 );
 
-              case 'blocs.bloc-image':
-  return (
-    <div key={index} className="bloc-image">
-      {bloc.image?.data && (
-        <figure>
-          <Image
-            src={`${STRAPI_URL}${bloc.image.data.attributes.url}`}
-            alt={bloc.legende || ''}
-            width={1200}
-            height={800}
-            className="bloc-image-img"
-            loading="lazy"
-          />
-          {bloc.legende && (
-            <figcaption>{bloc.legende}</figcaption>
-          )}
-        </figure>
-      )}
-    </div>
-  );
+              case 'bloc.image-bloc':
+                return (
+                  <div key={index} className="bloc-image">
+                    {bloc.image?.url && (
+                      <figure>
+                        <Image
+                          src={`${STRAPI_URL}${bloc.image.url}`}
+                          alt={bloc.legende || ''}
+                          width={1200}
+                          height={800}
+                          className="bloc-image-img"
+                          loading="lazy"
+                          unoptimized={true}
+                        />
+                        {bloc.legende && (
+                          <figcaption>{bloc.legende}</figcaption>
+                        )}
+                      </figure>
+                    )}
+                  </div>
+                );
 
-              case 'blocs.bloc-video':
+              case 'bloc.video-bloc':
                 return (
                   <div key={index} className="bloc-video">
-                    {bloc.type_video === 'upload' && bloc.video_fichier?.data ? (
+                    {bloc.type_video === 'upload' && bloc.video_fichier?.url ? (
                       <video controls>
                         <source 
-                          src={`${STRAPI_URL}${bloc.video_fichier.data.attributes.url}`} 
+                          src={`${STRAPI_URL}${bloc.video_fichier.url}`} 
                           type="video/mp4" 
                         />
                       </video>
@@ -231,31 +231,32 @@ export default async function ProjetDetailPage({
                   </div>
                 );
 
-              case 'blocs.bloc-galerie':
-  return (
-    <div 
-      key={index} 
-      className="bloc-galerie"
-      style={{ 
-        gridTemplateColumns: `repeat(${bloc.colonnes || 3}, 1fr)` 
-      }}
-    >
-      {bloc.images?.data?.map((img: any, imgIndex: number) => (
-        <div key={imgIndex} className="galerie-item">
-          <Image
-            src={`${STRAPI_URL}${img.attributes.url}`}
-            alt={img.attributes.alternativeText || ''}
-            width={600}
-            height={400}
-            className="galerie-item-img"
-            loading="lazy"
-          />
-        </div>
-      ))}
-    </div>
-  );
+              case 'bloc.galerie-bloc':
+                return (
+                  <div 
+                    key={index} 
+                    className="bloc-galerie"
+                    style={{ 
+                      gridTemplateColumns: `repeat(${bloc.colonnes || 3}, 1fr)` 
+                    }}
+                  >
+                    {bloc.images?.map((img: any, imgIndex: number) => (
+                      <div key={imgIndex} className="galerie-item">
+                        <Image
+                          src={`${STRAPI_URL}${img.url}`}
+                          alt={img.alternativeText || ''}
+                          width={600}
+                          height={400}
+                          className="galerie-item-img"
+                          loading="lazy"
+                          unoptimized={true}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                );
 
-              case 'blocs.bloc-citation':
+              case 'bloc.citation-bloc':
                 return (
                   <div key={index} className="bloc-citation">
                     <blockquote>
@@ -288,7 +289,7 @@ export default async function ProjetDetailPage({
                 className="projet-nav-link projet-nav-prev"
               >
                 <span className="nav-label">← Projet précédent</span>
-                <span className="nav-titre">{prevProjet.attributes?.Titre || prevProjet.attributes?.titre}</span>
+                <span className="nav-titre">{prevProjet.titre}</span>
               </Link>
             ) : (
               <div></div>
@@ -300,7 +301,7 @@ export default async function ProjetDetailPage({
                 className="projet-nav-link projet-nav-next"
               >
                 <span className="nav-label">Projet suivant →</span>
-                <span className="nav-titre">{nextProjet.attributes?.Titre || nextProjet.attributes?.titre}</span>
+                <span className="nav-titre">{nextProjet.titre}</span>
               </Link>
             ) : (
               <div></div>
