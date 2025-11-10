@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://91.99.170.150';
+const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bywharf.com';
 
 /**
@@ -77,9 +77,9 @@ export const defaultMetadata: Metadata = {
     default: 'Wharf - Design Narratif & Communication Corporate',
     template: '%s | Wharf',
   },
-  description: 'Wharf révèle et exprime le sens profond des entreprises à travers le design narratif.',
+  description: 'Wharf révèle et exprime le sens profond des entreprises à travers le design narratif. Agence corporate et audiovisuelle',
   metadataBase: new URL(SITE_URL),
-  keywords: ['design narratif', 'communication corporate', 'storytelling', 'branding', 'stratégie narrative'],
+  keywords: ['design narratif', 'communication corporate', 'storytelling', 'branding', 'stratégie narrative', 'production audiovisuelle'],
   authors: [{ name: 'Wharf' }],
   creator: 'Wharf',
   publisher: 'Wharf',
