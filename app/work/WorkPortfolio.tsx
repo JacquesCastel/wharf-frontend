@@ -5,9 +5,9 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 interface Projet {
   id: number;
   documentId: string;
-  Titre: string;
+  titre: string;           // ← minuscule
   type: string;
-  vignette_grille: {
+  vignette: {             // ← vignette au lieu de vignette_grille
     url: string;
   };
 }
@@ -140,19 +140,19 @@ export default function WorkPortfolio() {
                 >
                   <a href={`/work/${projet.documentId}`} className="work-project-link">
                     <div className="work-project-image">
-                      {projet.vignette_grille?.url && (
-  <Image
-    src={`https://admin.bywharf.com${projet.vignette_grille.url}`}
-    alt={projet.Titre}
-    width={600}
-    height={400}
-    className="work-project-image"
-    loading="lazy"
-  />
-)}
+                      {projet.vignette?.url && (
+                        <Image
+                          src={`https://admin.bywharf.com${projet.vignette.url}`}
+                          alt={projet.titre}
+                          width={600}
+                          height={400}
+                          className="work-project-image"
+                          loading="lazy"
+                        />
+                      )}
                     </div>
                     <div className="work-project-overlay">
-                      <h3>{projet.Titre}</h3>
+                      <h3>{projet.titre}</h3>
                       <p>{projet.type}</p>
                     </div>
                   </a>
