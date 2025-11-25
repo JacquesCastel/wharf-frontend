@@ -1979,16 +1979,18 @@ body {
 }
 
 /* ============================================
-   PAGE WORK - EXPERTISES
+/* ============================================
+   PAGE WORK - EXPERTISES OPTIMISÉES
+   Remplacer les lignes 1982-2053 dans globals.css
    ============================================ */
 .work-expertises {
   padding: 120px 40px;
-  background: white;
+  background: var(--color-bg-secondary);
 }
 
 .work-expertises-title {
   font-family: var(--font-serif);
-  font-size: 48px;
+  font-size: 56px;
   text-align: center;
   margin-bottom: 80px;
   color: var(--color-primary);
@@ -1999,57 +2001,270 @@ body {
 .work-expertises-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .expertise {
-  background: #fafafa;
+  background: white;
   padding: 60px;
-  border: 1px solid #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.expertise:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-accent);
 }
 
 .expertise h3 {
   font-family: var(--font-serif);
-  font-size: 32px;
-  margin-bottom: 8px;
+  font-size: 36px;
+  margin-bottom: 12px;
   color: var(--color-primary);
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .expertise-subtitle {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--color-accent);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  display: block;
 }
 
-.expertise > p:nth-of-type(2) {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 30px;
+.expertise > p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-secondary);
+  margin-bottom: 32px;
 }
 
+/* ============================================
+   LISTES À PUCES - OPTIMISATION LISIBILITÉ
+   ============================================ */
+
+/* Container des listes */
+.expertise > div {
+  margin-top: 32px;
+  text-align: left;
+}
+
+/* Réinitialiser les listes */
 .expertise ul {
   list-style: none;
-  font-size: 15px;
-  line-height: 1.8;
-  color: #555;
+  padding: 0;
+  margin: 0;
 }
 
+/* Items de liste - LISIBILITÉ AMÉLIORÉE */
 .expertise ul li {
-  margin-bottom: 16px;
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-primary);
+  text-align: left;
 }
 
-.expertise ul li strong {
-  color: var(--color-primary);
+/* Puce personnalisée - Flèche visible */
+.expertise ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+/* Hover sur les items */
+.expertise ul li:hover {
+  color: var(--color-accent);
+  padding-left: 36px;
+  transition: all 0.2s ease;
+}
+
+.expertise ul li:hover::before {
+  transform: translateX(2px);
+}
+
+/* Listes imbriquées (si nécessaire) */
+.expertise ul ul {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.expertise ul ul li {
+  font-size: 15px;
+  color: var(--color-secondary);
+  margin-bottom: 12px;
+}
+
+.expertise ul ul li::before {
+  content: '•';
+  color: var(--color-secondary);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Texte en gras dans les listes */
+.expertise ul li strong,
+.expertise ul li b {
   font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* Texte en italique */
+.expertise ul li em,
+.expertise ul li i {
+  font-style: italic;
+  color: var(--color-secondary);
+}
+
+/* Paragraphes dans les listes (si présents) */
+.expertise ul li p {
+  margin: 8px 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .work-expertises-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .expertise {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-expertises {
+    padding: 80px 24px;
+  }
+
+  .work-expertises-title {
+    font-size: 40px;
+    margin-bottom: 60px;
+  }
+
+  .expertise {
+    padding: 32px 24px;
+  }
+
+  .expertise h3 {
+    font-size: 28px;
+  }
+
+  .expertise ul li {
+    font-size: 15px;
+    padding-left: 28px;
+  }
+}
+
+/* ============================================
+   MODES ACCESSIBILITÉ
+   ============================================ */
+
+/* Mode Inversé (Dark) */
+[data-contrast="inverted"] .work-expertises {
+  background: #1d1d1f;
+}
+
+[data-contrast="inverted"] .expertise {
+  background: #27272a;
+  border-color: #3f3f46;
+}
+
+[data-contrast="inverted"] .expertise:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+[data-contrast="inverted"] .expertise h3 {
+  color: #ffffff;
+}
+
+[data-contrast="inverted"] .expertise-subtitle {
+  color: var(--color-accent);
+}
+
+[data-contrast="inverted"] .expertise p {
+  color: #a1a1aa;
+}
+
+[data-contrast="inverted"] .expertise ul li {
+  color: #e4e4e7;
+}
+
+[data-contrast="inverted"] .expertise ul li::before {
+  color: var(--color-accent);
+}
+
+[data-contrast="inverted"] .expertise ul li:hover {
+  color: var(--color-accent);
+}
+
+/* Mode Contraste Élevé */
+[data-contrast="high"] .work-expertises {
+  background: #ffffff;
+}
+
+[data-contrast="high"] .expertise {
+  background: #ffffff;
+  border: 2px solid #000000;
+}
+
+[data-contrast="high"] .expertise:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+[data-contrast="high"] .expertise h3,
+[data-contrast="high"] .expertise ul li {
+  color: #000000;
+  font-weight: 600;
+}
+
+[data-contrast="high"] .expertise ul li::before {
+  color: #000000;
+  font-weight: 900;
+}
+
+[data-contrast="high"] .expertise-subtitle {
+  color: #000000;
+  font-weight: 700;
+}
+
+/* Augmentation de la taille de texte */
+[data-font-size="1"] .expertise ul li {
+  font-size: 17.6px;
+  line-height: 1.9;
+}
+
+[data-font-size="2"] .expertise ul li {
+  font-size: 19.2px;
+  line-height: 2;
+}
+
+[data-font-size="3"] .expertise ul li {
+  font-size: 20.8px;
+  line-height: 2.1;
+}
+
+/* Espacement des lignes augmenté */
+[data-line-spacing="true"] .expertise ul li {
+  line-height: 2.2;
+  margin-bottom: 28px;
 }
 
 /* ============================================
