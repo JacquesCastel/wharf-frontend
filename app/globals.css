@@ -1006,6 +1006,66 @@ body {
   margin-top: 60px;
 }
 
+/* Tablette (< 1024px) */
+@media (max-width: 1024px) {
+  .manifesto {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .manifesto-image {
+    height: 400px;
+    order: 1;
+  }
+  .manifesto-container {
+    order: 2;
+    padding: 60px 40px;
+  }
+  .manifesto-headline {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+  .manifesto {
+    grid-template-columns: 1fr;
+  }
+  .manifesto-image {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+  }
+  .manifesto-container {
+    padding: 60px 24px;
+  }
+  .manifesto-headline {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+  .manifesto-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .manifesto-text strong {
+    font-size: 16px;
+  }
+}
+
+/* Très petit mobile (< 480px) */
+@media (max-width: 480px) {
+  .manifesto-image {
+    height: 250px;
+  }
+  .manifesto-container {
+    padding: 40px 20px;
+  }
+  .manifesto-headline {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+}
+
 /* ============================================
    CTA SECTION - FULL WIDTH
    ============================================ */
