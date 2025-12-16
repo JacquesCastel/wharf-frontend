@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from "next";
 import Footer from './components/Footer'
 import AccessibilityWidget from './components/AccessibilityWidget'
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <HeaderWrapper />
         {children}
+<SpeedInsights />
         <Footer />
         <AccessibilityWidget />
       </body>
