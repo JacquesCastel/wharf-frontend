@@ -20,7 +20,7 @@ export default function RootLayout({
       <body>
         <HeaderWrapper />
         {children}
-<SpeedInsights />
+        <SpeedInsights />
         <Footer />
         <AccessibilityWidget />
       </body>
