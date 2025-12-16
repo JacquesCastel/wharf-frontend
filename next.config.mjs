@@ -10,8 +10,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '91.99.170.150',
+        protocol: 'https',
+        hostname: 'admin.bywharf.com',
         port: '',
         pathname: '/uploads/**',
       },
