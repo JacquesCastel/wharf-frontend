@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/clients/:path*",
+      "destination": "http://91.99.170.150/clients/:path*"
+    }
+  ]
+}
