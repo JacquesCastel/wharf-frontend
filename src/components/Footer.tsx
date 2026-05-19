@@ -46,7 +46,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="text-center text-xs text-zinc-500">
-          <p className="mb-2">© 2025 Wharf</p>
+          <p className="mb-2">© 2026 Wharf</p>
           <p className="italic">Là où la marque retrouve son sens</p>
         </div>
       </div>
