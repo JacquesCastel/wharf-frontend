@@ -148,7 +148,6 @@ export default function WorkPortfolio() {
                           height={400}
                           className="work-project-image"
                           loading="lazy"
-                          unoptimized={true}
                         />
                       )}
                     </div>

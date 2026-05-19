@@ -149,7 +149,6 @@ export default async function ProjetDetailPage({
               className="projet-hero-img"
               style={{ objectFit: 'cover' }}
               priority
-              unoptimized={true}
             />
           </div>
         ) : null}
@@ -209,8 +208,7 @@ export default async function ProjetDetailPage({
                           height={800}
                           className="bloc-image-img"
                           loading="lazy"
-                          unoptimized={true}
-                        />
+                                    />
                         {bloc.legende && (
                           <figcaption>{bloc.legende}</figcaption>
                         )}
@@ -260,8 +258,7 @@ export default async function ProjetDetailPage({
                           height={400}
                           className="galerie-item-img"
                           loading="lazy"
-                          unoptimized={true}
-                        />
+                                    />
                       </div>
                     ))}
                   </div>
