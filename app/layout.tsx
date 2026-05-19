@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import AccessibilityWidget from './components/AccessibilityWidget'
 import './globals.css'
 import HeaderWrapper from './components/HeaderWrapper';
+import { OrganizationJsonLd, WebSiteJsonLd } from './components/JsonLd';
 export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
   title: "Wharf - Design Narratif",
@@ -17,6 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
+      <head>
+        <OrganizationJsonLd />
+        <WebSiteJsonLd />
+      </head>
       <body>
         <HeaderWrapper />
         {children}

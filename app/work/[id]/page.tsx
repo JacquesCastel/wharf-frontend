@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ProjectJsonLd } from '../../components/JsonLd';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bywharf.com';
@@ -115,8 +116,18 @@ export default async function ProjetDetailPage({
   const prevProjet = currentIndex > 0 ? allProjets[currentIndex - 1] : null;
   const nextProjet = currentIndex < allProjets.length - 1 ? allProjets[currentIndex + 1] : null;
 
+  const ogImage = projet.hero_image?.url ? `${STRAPI_URL}${projet.hero_image.url}` : undefined;
+
   return (
     <>
+      <ProjectJsonLd
+        titre={projet.titre || 'Projet'}
+        description={projet.description_courte}
+        image={ogImage}
+        url={`${SITE_URL}/work/${params.id}`}
+        datePublished={projet.publishedAt}
+        client={projet.client}
+      />
       {/* HERO */}
       <section className="projet-hero">
         {projet.hero_type === 'video' && projet.hero_media?.url ? (
