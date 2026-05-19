@@ -818,7 +818,7 @@ body {
 /* Cards avec images ET fallback gradients */
 .card-split-we .card-split-left {
   background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%);
-  background-image: url(/images/we-home.png);
+  background-image: url(/images/acte-1.jpg);
   background-size: 80%;
   background-position: center;
 }
