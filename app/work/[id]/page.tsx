@@ -26,12 +26,13 @@ async function getProjet(id: string) {
 }
 
 // Générer les métadonnées dynamiques pour chaque projet
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: { id: string } 
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ id: string }>
 }): Promise<Metadata> {
-  const projet = await getProjet(params.id);
+  const { id } = await params;
+  const projet = await getProjet(id);
 
   if (!projet) {
     return {
@@ -45,7 +46,7 @@ export async function generateMetadata({
 
    // Image Open Graph (vignette ou hero)
   let ogImage = `${SITE_URL}/og-default.jpg`;
-  
+
   if (projet.vignette?.url) {
     ogImage = `${STRAPI_URL}${projet.vignette.url}`;
   } else if (projet.hero_image?.url) {
@@ -58,7 +59,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${titre} - Portfolio Wharf`,
       description,
-      url: `${SITE_URL}/work/${params.id}`,
+      url: `${SITE_URL}/work/${id}`,
       siteName: 'Wharf',
       images: [
         {
@@ -100,19 +101,20 @@ async function getAllProjets() {
   }
 }
 
-export default async function ProjetDetailPage({ 
-  params 
-}: { 
-  params: { id: string } 
+export default async function ProjetDetailPage({
+  params
+}: {
+  params: Promise<{ id: string }>
 }) {
-  const projet = await getProjet(params.id);
+  const { id } = await params;
+  const projet = await getProjet(id);
 
   if (!projet) {
     notFound();
   }
 
   const allProjets = await getAllProjets();
-  const currentIndex = allProjets.findIndex((p: any) => p.documentId === params.id);
+  const currentIndex = allProjets.findIndex((p: any) => p.documentId === id);
   const prevProjet = currentIndex > 0 ? allProjets[currentIndex - 1] : null;
   const nextProjet = currentIndex < allProjets.length - 1 ? allProjets[currentIndex + 1] : null;
 
@@ -124,7 +126,7 @@ export default async function ProjetDetailPage({
         titre={projet.titre || 'Projet'}
         description={projet.description_courte}
         image={ogImage}
-        url={`${SITE_URL}/work/${params.id}`}
+        url={`${SITE_URL}/work/${id}`}
         datePublished={projet.publishedAt}
         client={projet.client}
       />
