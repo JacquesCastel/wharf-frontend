@@ -335,6 +335,28 @@ body {
   transform: translateX(2px);
 }
 
+/* Bouton Espace client */
+.header-client-btn {
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  padding: 9px 18px;
+  border-radius: 980px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.header-client-btn:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
 /* Mobile Burger */
 .header-burger {
   display: none;

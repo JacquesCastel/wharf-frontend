@@ -91,6 +91,9 @@ export default function Header() {
           <Link href="/contact" className="header-contact-btn">
             CONTACT
           </Link>
+          <Link href="/login" className="header-client-btn">
+            Espace client
+          </Link>
         </nav>
 
         {/* Burger Mobile */}
@@ -118,12 +121,19 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
-              <Link 
+              <Link
                 href="/contact"
                 className="header-mobile-link header-mobile-contact header-contact-btn"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 CONTACT
+              </Link>
+              <Link
+                href="/login"
+                className="header-mobile-link header-client-btn"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Espace client
               </Link>
             </nav>
           </div>
