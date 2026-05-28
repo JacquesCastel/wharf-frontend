@@ -37,3 +37,9 @@ next-env.d.ts
 
 .env*.local
 .env.production
+
+# large assets & local-only folders
+public/*.mp4
+design_handoff_espace_client/
+strapi-files/
+test-results/
