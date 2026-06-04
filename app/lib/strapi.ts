@@ -195,7 +195,7 @@ you: {
 }
 },
       manifesto: { contenu: blocksToHtml(data?.manifesto_contenu) || data?.manifesto_contenu || '' },
-      cta: { titre: data?.cta_titre || 'YOU',texte: data?.cta_texte || '', lien: data?.cta_bouton_label || '/contact' },
+      cta: { titre: data?.cta_titre || 'YOU',texte: data?.cta_texte || '', lien: data?.cta_bouton_label || 'Démarrer la conversation', url: data?.cta_bouton_url || '/contact' },
       seo: { title: data?.seo_title || '', description: data?.seo_description || '', image: data?.seo_image || null }
     };
   } catch (error) {

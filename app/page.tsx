@@ -207,7 +207,7 @@ export default async function HomePage() {
             <p>
               {homeData.cta.texte}
             </p>
-            <a href={homeData.cta.lien} className="btn btn-primary">{homeData.cta.lien}</a>
+            <a href={homeData.cta.url} className="btn btn-primary">{homeData.cta.lien}</a>
           </div>
         </section>
 
