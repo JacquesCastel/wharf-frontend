@@ -675,7 +675,7 @@ body {
 }
 
 .hero-subtitle {
-  font-family: var(--font-serif);
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 26px;
   line-height: 1.4;
   color: var(--color-primary);
