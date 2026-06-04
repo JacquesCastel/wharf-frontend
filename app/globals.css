@@ -6361,7 +6361,7 @@ html[data-font-weight="bold"] .card-split-link {
   --highlight-deep: #2E9D95;
 
   /* Fonts espace client */
-  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  --client-font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
 
   /* Espacements */
