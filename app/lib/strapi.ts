@@ -1,6 +1,11 @@
 // lib/strapi.ts
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
 
+function mediaUrl(media: any): string | null {
+  const path = media?.url || media?.data?.attributes?.url;
+  return path ? new URL(path, STRAPI_URL).toString() : null;
+}
+
 // Fonction simple pour convertir les blocks
 function blocksToHtml(blocks: any): string {
   if (!blocks || !Array.isArray(blocks)) return '';
@@ -57,7 +62,7 @@ export async function getWe() {
     const url = `${STRAPI_URL}/api/page-we?populate=*`;
     console.log('Fetching WE from:', url);
     
-    const res = await fetch(url, { cache: 'no-store' });
+    const res = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
     
     if (!res.ok) {
       console.error('Strapi error:', res.status, res.statusText);
@@ -79,7 +84,7 @@ export async function getWe() {
         titre: data?.hero_titre || 'Notre approche',
         texte: data?.hero_texte || 'WE',
         video: data?.hero_video ? {
-          url: `${STRAPI_URL}${data.hero_video.url}`,
+          url: mediaUrl(data.hero_video) || '',
           alternativeText: data.hero_video.alternativeText || ''
         } : null
       },
@@ -135,7 +140,7 @@ export async function getWe() {
   } catch (error) {
     console.error('getWe error:', error);
     return {
-      hero: { titre: 'Notre approche', baseline: 'WE', video: null },
+      hero: { titre: 'Notre approche', texte: 'WE', video: null },
       actes: {
         acte1: { numero: 1, titre: 'Intention', contenu: '<p>Erreur de chargement</p>' },
         acte2: { numero: 2, titre: 'Perception', contenu: '<p>Erreur de chargement</p>' },
@@ -155,7 +160,7 @@ export async function getWe() {
 
 export async function getHome() {
   try {
-    const res = await fetch(`${STRAPI_URL}/api/page-home?populate=*`, { cache: 'no-store' });
+    const res = await fetch(`${STRAPI_URL}/api/page-home?populate=*`, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()).data;
 
@@ -164,7 +169,7 @@ export async function getHome() {
         titre: data?.hero_titre || '',
         texte: data?.hero_soustitre || '',
         video: data?.hero_video ? {
-          url: `${STRAPI_URL}${data.hero_video.url}`,
+          url: mediaUrl(data.hero_video) || '',
           alternativeText: data.hero_video.alternativeText || ''
         } : null
       },
@@ -172,25 +177,19 @@ export async function getHome() {
   we: { 
   titre: data?.bloc_we_titre || 'WE', 
   texte: data?.bloc_we_texte || '', 
-  image: data?.bloc_we_image?.data?.attributes?.url 
-    ? `${STRAPI_URL}${data.bloc_we_image.data.attributes.url}` 
-    : null, 
+  image: mediaUrl(data?.bloc_we_image),
   lien: '/we' 
 },
 work: { 
   titre: data?.bloc_work_titre || 'WORK', 
   texte: data?.bloc_work_texte || '', 
-  image: data?.bloc_work_image?.data?.attributes?.url 
-    ? `${STRAPI_URL}${data.bloc_work_image.data.attributes.url}` 
-    : null, 
+  image: mediaUrl(data?.bloc_work_image),
   lien: '/work' 
 },
 you: { 
   titre: data?.bloc_you_titre || 'YOU', 
   texte: data?.bloc_you_texte || '', 
-  image: data?.bloc_you_image?.data?.attributes?.url 
-    ? `${STRAPI_URL}${data.bloc_you_image.data.attributes.url}` 
-    : null, 
+  image: mediaUrl(data?.bloc_you_image),
   lien: '/you' 
 }
 },
@@ -206,7 +205,7 @@ you: {
 
 export async function getWork() {
   try {
-    const res = await fetch(`${STRAPI_URL}/api/page-work?populate=*`, { cache: 'no-store' });
+    const res = await fetch(`${STRAPI_URL}/api/page-work?populate=*`, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()).data;
 
@@ -215,7 +214,7 @@ export async function getWork() {
         titre: data?.hero_titre || 'Comment travaillons-nous ?',
         texte: data?.hero_texte || 'WORK',
         video: data?.hero_video ? {
-          url: `${STRAPI_URL}${data.hero_video.url}`,
+          url: mediaUrl(data.hero_video) || '',
           alternativeText: data.hero_video.alternativeText || ''
         } : null
       },
@@ -265,7 +264,7 @@ export async function getWork() {
 
 export async function getYou() {
   try {
-    const res = await fetch(`${STRAPI_URL}/api/page-you?populate=*`, { cache: 'no-store' });
+    const res = await fetch(`${STRAPI_URL}/api/page-you?populate=*`, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()).data;
 
@@ -274,7 +273,7 @@ export async function getYou() {
         titre: data?.hero_titre || 'Votre situation',
         texte: data?.hero_texte || '',
         video: data?.hero_video ? {
-          url: `${STRAPI_URL}${data.hero_video.url}`,
+          url: mediaUrl(data.hero_video) || '',
           alternativeText: data.hero_video.alternativeText || ''
         } : null
       },
@@ -318,7 +317,7 @@ export async function getYou() {
 
 export async function getContact() {
   try {
-    const res = await fetch(`${STRAPI_URL}/api/page-contact?populate=*`, { cache: 'no-store' });
+    const res = await fetch(`${STRAPI_URL}/api/page-contact?populate=*`, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()).data;
 
@@ -327,7 +326,7 @@ export async function getContact() {
         titre: data?.hero_titre || 'Parlons-en',
         baseline: data?.hero_texte || '',
         video: data?.hero_video ? {
-          url: `${STRAPI_URL}${data.hero_video.url}`,
+          url: mediaUrl(data.hero_video) || '',
           alternativeText: data.hero_video.alternativeText || ''
         } : null
       },
@@ -351,7 +350,7 @@ export async function getContact() {
 export async function getFooter() {
   
   try {
-    const res = await fetch(`${STRAPI_URL}/api/footer?populate=*`, { cache: 'no-store' });
+    const res = await fetch(`${STRAPI_URL}/api/footer?populate=*`, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()).data;
     return {
@@ -368,12 +367,12 @@ export async function getFooter() {
 
 export async function getNavigation() {
   try {
-    const res = await fetch(`${STRAPI_URL}/api/navigation?populate=*`, { cache: 'no-store' });
+    const res = await fetch(`${STRAPI_URL}/api/navigation?populate=*`, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()).data;
     return {
-      logo: data?.logo ? { url: `${STRAPI_URL}${data.logo.url}`, alternativeText: data.logo.alternativeText || '' } : null,
-      liens: data?.Link || [],
+      logo: data?.logo ? { url: mediaUrl(data.logo) || '', alternativeText: data.logo.alternativeText || '' } : null,
+      liens: (data?.liens_menu || data?.Link || []).filter((item: any) => typeof item.url === 'string' && typeof item.label === 'string'),
       cta_text: data?.cta_text || 'Contact',
       cta_url: data?.cta_url || '/contact'
     };

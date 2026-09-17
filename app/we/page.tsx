@@ -1,33 +1,34 @@
 import type { Metadata } from 'next';
 import { getWe } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
-import { markdownToHtml } from '../lib/strapi';
+import { pageSeo } from '../lib/editorial';
 
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
-  try {
-    const weData = await getWe();
-    return generateMetadataFromStrapi(
-      weData.seo?.title || 'Notre approche - Wharf Design Narratif',
-      weData.seo?.description || 'Découvrez notre méthode de design narratif pour révéler et exprimer l\'authenticité de votre entreprise.',
-      weData.seo?.image,
-      '/we'
-    );
-  } catch (error) {
-    console.error('Error generating metadata:', error);
-    return {
-      title: 'Notre approche - Wharf Design Narratif',
-      description: 'Découvrez notre méthode de design narratif pour révéler et exprimer l\'authenticité de votre entreprise.',
-    };
-  }
+  const data = await getWe();
+  return generateMetadataFromStrapi(pageSeo.we.title, pageSeo.we.description, data.seo?.image, '/we');
 }
 
 export default async function WePage() {
-  const weData = await getWe();
+  const data = await getWe();
+  const weData = {
+    ...data,
+    hero: { ...data.hero, titre: 'Le design narratif', texte: 'Relier la réalité de votre entreprise à ce que vos publics comprennent.\nNotre méthode pour concevoir votre stratégie, vos contenus et vos films.' },
+    actes: {
+      acte1: { titre: 'Constat — Quand la parole se dilue', contenu: '<p>Les messages se multiplient. Pourtant, les savoir-faire, les engagements et les transformations de l’entreprise restent parfois difficiles à comprendre.</p><p>Le point de départ : identifier ce que vos publics doivent percevoir et ce qui les en empêche.</p>' },
+      acte2: { titre: 'Conviction — Partir de ce qui existe', contenu: '<p>Une parole crédible s’appuie sur une réalité : les métiers, les pratiques, les personnes et les preuves.</p><p>Le design narratif organise cette matière pour construire un récit fidèle à votre entreprise et utile à vos publics.</p>' },
+      acte3: { titre: 'Mission — Donner une forme au récit', contenu: '<p>Nous traduisons ce récit en messages, en choix éditoriaux et en productions concrètes.</p><p>Une interview, un film corporate ou une série de contenus prolonge ainsi la même intention, dans un format adapté à son usage.</p>' },
+    },
+    piliers: {
+      pilier1: { titre: 'Conseil stratégique', contenu: '<p>Comprendre l’enjeu, écouter les parties prenantes et définir les messages. La plateforme narrative et la ligne éditoriale donnent une direction aux prises de parole.</p>' },
+      pilier2: { titre: 'Contenus & production vidéo', contenu: '<p>Concevoir les formats, préparer les intervenants, tourner et monter. Les contenus et les films donnent corps à la stratégie jusque dans les déclinaisons de diffusion.</p>' },
+    },
+    closing: { titre: 'De la méthode aux réalisations', texte: 'Découvrez comment notre travail prend forme dans les projets Wharf.', lien: '/work#realisations', texte_bouton: 'Découvrir nos réalisations →' },
+  };
 
   return (
-    <>
+    <main id="main-content">
       {/* HERO */}
       <section className="we-hero">
         {weData.hero.video ? (
@@ -118,15 +119,7 @@ export default async function WePage() {
       {/* TRANSITION */}
       <section className="we-transition">
         <h2 className="we-transition-quote">
-          {weData.transition.texte.split('stratégie rencontre la création').map((part: string, index: number) => (
-            index === 0 ? (
-              <span key={index}>
-                {part}<span className="we-transition-highlight">stratégie rencontre la création</span>
-              </span>
-            ) : (
-              <span key={index}>{part}</span>
-            )
-          ))}
+          Là où la <span className="we-transition-highlight">stratégie rencontre la création</span>
         </h2>
       </section>
 
@@ -147,6 +140,19 @@ export default async function WePage() {
         </div>
       </section>
 
+      <section className="editorial-section">
+        <div className="we-pillars-container">
+          <h2>Le design narratif en pratique</h2>
+          <ol className="editorial-steps">
+            <li><strong>Comprendre.</strong> Quel enjeu, quels publics et quelles perceptions faut-il faire évoluer ?</li>
+            <li><strong>Formuler.</strong> Quels messages et quelles preuves rendent votre récit crédible ?</li>
+            <li><strong>Produire.</strong> Quels contenus, quels intervenants et quels formats lui donnent corps ?</li>
+            <li><strong>Diffuser et évaluer.</strong> Quels canaux et quels critères permettront de juger le travail utile ?</li>
+          </ol>
+          <a href="/you" className="card-split-link">Partir de votre situation →</a>
+        </div>
+      </section>
+
       {/* CLOSING CTA */}
       <section className="we-closing">
         <h2>{weData.closing.titre}</h2>
@@ -155,6 +161,6 @@ export default async function WePage() {
           {weData.closing.texte_bouton}
         </a>
       </section>
-    </>
+    </main>
   );
 }

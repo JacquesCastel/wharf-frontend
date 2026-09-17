@@ -12,7 +12,7 @@ export function generateMetadataFromStrapi(
   seoImage?: any,
   path: string = ''
 ): Metadata {
-  const title = seoTitle || 'Wharf - Design Narratif';
+  const title = seoTitle || 'Wharf — Contenus & production vidéo B2B';
   const description = seoDescription || 'Design narratif et communication corporate';
   
   // URL de l'image Open Graph
@@ -74,10 +74,10 @@ export function generateMetadataFromStrapi(
  */
 export const defaultMetadata: Metadata = {
   title: {
-    default: 'Wharf - Design Narratif & Communication Corporate',
+    default: 'Wharf — Contenus & production vidéo B2B',
     template: '%s | Wharf',
   },
-  description: 'Wharf révèle et exprime le sens profond des entreprises à travers le design narratif. Agence corporate et audiovisuelle',
+  description: 'Wharf accompagne votre communication corporate, de la stratégie éditoriale aux contenus et à la production vidéo B2B.',
   metadataBase: new URL(SITE_URL),
   keywords: ['design narratif', 'communication corporate', 'storytelling', 'branding', 'stratégie narrative', 'production audiovisuelle'],
   authors: [{ name: 'Wharf' }],
@@ -93,13 +93,13 @@ export const defaultMetadata: Metadata = {
     locale: 'fr_FR',
     url: SITE_URL,
     siteName: 'Wharf',
-    title: 'Wharf - Design Narratif & Communication Corporate',
-    description: 'Wharf révèle et exprime le sens profond des entreprises à travers le design narratif.',
+    title: 'Wharf — Contenus & production vidéo B2B',
+    description: 'Wharf accompagne votre communication corporate, de la stratégie éditoriale aux contenus et à la production vidéo B2B.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Wharf - Design Narratif & Communication Corporate',
-    description: 'Wharf révèle et exprime le sens profond des entreprises à travers le design narratif.',
+    title: 'Wharf — Contenus & production vidéo B2B',
+    description: 'Wharf accompagne votre communication corporate, de la stratégie éditoriale aux contenus et à la production vidéo B2B.',
   },
   robots: {
     index: true,

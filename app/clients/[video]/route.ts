@@ -2,8 +2,8 @@ import { redirect } from 'next/navigation';
 
 export async function GET(
   request: Request,
-  { params }: { params: { video: string } }
+  { params }: { params: Promise<{ video: string }> }
 ) {
-  const { video } = params;
+  const { video } = await params;
   redirect(`https://admin.bywharf.com/uploads/${video}`);
 }

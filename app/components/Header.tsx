@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 
 interface MenuItem {
@@ -10,56 +10,24 @@ interface MenuItem {
 }
 
 interface NavigationData {
-  logo?: {
-    url: string;
-    alternativeText: string;
-  };
-  liens_menu?: MenuItem[];
+  logo: { url: string; alternativeText: string } | null;
+  liens: MenuItem[];
+  cta_text: string;
+  cta_url: string;
 }
 
-export default function Header() {
-  const [navData, setNavData] = useState<NavigationData | null>(null);
+export default function Header({ navigationData }: { navigationData: NavigationData }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const fetchNav = async () => {
-      try {
-        const response = await fetch('https://admin.bywharf.com/api/navigation?populate=*');
-        const data = await response.json();
-        
-        setNavData({
-          logo: data.data.logo ? {
-            url: `https://admin.bywharf.com${data.data.logo.url}`,
-            alternativeText: data.data.logo.alternativeText || 'Logo'
-          } : undefined,
-          liens_menu: data.data.liens_menu || []
-        });
-      } catch (error) {
-        console.error('Error fetching navigation:', error);
-        // Données par défaut
-        setNavData({
-          liens_menu: [
-            { id: 1, label: 'WE', url: '/we' },
-            { id: 2, label: 'WORK', url: '/work' },
-            { id: 3, label: 'YOU', url: '/you' }
-          ]
-        });
-      }
-    };
-    fetchNav();
-  }, []);
-
-  if (!navData) {
-    return (
-      <header className="header">
-        <div className="header-container">
-          <Link href="/" className="header-logo">
-            WHARF
-          </Link>
-        </div>
-      </header>
-    );
-  }
+  const defaultLinks = [
+    { id: 1, label: 'WE', url: '/we' },
+    { id: 2, label: 'WORK', url: '/work' },
+    { id: 3, label: 'YOU', url: '/you' },
+  ];
+  const links = navigationData.liens.length ? navigationData.liens : defaultLinks;
+  const navData = {
+    logo: navigationData.logo,
+    liens_menu: links.some(item => item.url.replace(/\/$/, '') === '/insights') ? links : [...links, { id: -1, label: 'INSIGHTS', url: '/insights' }],
+  };
 
   return (
     <header className="header">
@@ -101,6 +69,8 @@ export default function Header() {
           className="header-burger"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Menu"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="main-mobile-menu"
         >
           <span></span>
           <span></span>
@@ -109,7 +79,7 @@ export default function Header() {
 
         {/* Menu Mobile */}
         {mobileMenuOpen && (
-          <div className="header-mobile-menu">
+          <div className="header-mobile-menu" id="main-mobile-menu">
             <nav className="header-mobile-nav">
               {navData.liens_menu?.map((item) => (
                 <Link 

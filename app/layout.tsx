@@ -7,8 +7,8 @@ import HeaderWrapper from './components/HeaderWrapper';
 import { OrganizationJsonLd, WebSiteJsonLd } from './components/JsonLd';
 export const dynamic = 'force-dynamic';
 export const metadata: Metadata = {
-  title: "Wharf - Design Narratif",
-  description: "Agence de design narratif et de production audiovisuelle",
+  title: "Wharf — Contenus & production vidéo B2B",
+  description: "Stratégie éditoriale, contenus B2B et production vidéo. Le design narratif au service de votre communication corporate.",
 };
 
 export default function RootLayout({

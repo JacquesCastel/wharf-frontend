@@ -7,7 +7,7 @@ export function OrganizationJsonLd() {
     name: 'Wharf',
     url: SITE_URL,
     logo: `${SITE_URL}/images/logo-wharf.png`,
-    description: 'Wharf révèle et exprime le sens profond des entreprises à travers le design narratif.',
+    description: 'Wharf accompagne les entreprises dans leur communication corporate, de la stratégie éditoriale à la production vidéo B2B.',
     foundingLocation: {
       '@type': 'Place',
       addressCountry: 'FR',
@@ -28,6 +28,8 @@ export function OrganizationJsonLd() {
       'Communication corporate',
       'Stratégie de marque',
       'Production audiovisuelle',
+      'Contenus B2B',
+      'Stratégie éditoriale',
       'Storytelling',
       'Branding',
     ],
@@ -36,7 +38,7 @@ export function OrganizationJsonLd() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
     />
   );
 }
@@ -47,19 +49,15 @@ export function WebSiteJsonLd() {
     '@type': 'WebSite',
     name: 'Wharf',
     url: SITE_URL,
-    description: 'Agence de design narratif et de production audiovisuelle.',
+    description: 'Agence de contenus et de production vidéo B2B. STRATEGY + CONTENT + VIDEO.',
     inLanguage: 'fr-FR',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE_URL}/work?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
+
   };
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
     />
   );
 }
@@ -100,7 +98,7 @@ export function ProjectJsonLd({
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
     />
   );
 }

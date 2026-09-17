@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ProjectJsonLd } from '../../components/JsonLd';
+import { getPublishedProjects, projectMediaUrl } from '../../lib/projects';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bywharf.com';
@@ -48,14 +49,15 @@ export async function generateMetadata({
   let ogImage = `${SITE_URL}/og-default.jpg`;
 
   if (projet.vignette?.url) {
-    ogImage = `${STRAPI_URL}${projet.vignette.url}`;
+    ogImage = projectMediaUrl(projet.vignette.url);
   } else if (projet.hero_image?.url) {
-    ogImage = `${STRAPI_URL}${projet.hero_image.url}`;
+    ogImage = projectMediaUrl(projet.hero_image.url);
   }
 
   return {
     title: `${titre} - Portfolio Wharf`,
     description,
+    alternates: { canonical: `${SITE_URL}/work/${id}` },
     openGraph: {
       title: `${titre} - Portfolio Wharf`,
       description,
@@ -83,24 +85,6 @@ export async function generateMetadata({
   
 
 
-async function getAllProjets() {
-  try {
-    const response = await fetch(`${STRAPI_URL}/api/projets?populate=*`, {
-      cache: 'no-store'
-    });
-
-    if (!response.ok) {
-      return [];
-    }
-
-    const data = await response.json();
-    return data.data;
-  } catch (error) {
-    console.error('Error fetching projets:', error);
-    return [];
-  }
-}
-
 export default async function ProjetDetailPage({
   params
 }: {
@@ -113,12 +97,12 @@ export default async function ProjetDetailPage({
     notFound();
   }
 
-  const allProjets = await getAllProjets();
+  const allProjets = await getPublishedProjects() ?? [];
   const currentIndex = allProjets.findIndex((p: any) => p.documentId === id);
   const prevProjet = currentIndex > 0 ? allProjets[currentIndex - 1] : null;
   const nextProjet = currentIndex < allProjets.length - 1 ? allProjets[currentIndex + 1] : null;
 
-  const ogImage = projet.hero_image?.url ? `${STRAPI_URL}${projet.hero_image.url}` : undefined;
+  const ogImage = projet.hero_image?.url ? projectMediaUrl(projet.hero_image.url) : undefined;
 
   return (
     <>
@@ -140,12 +124,12 @@ export default async function ProjetDetailPage({
             loop
             playsInline
           >
-            <source src={`${STRAPI_URL}${projet.hero_media.url}`} type="video/mp4" />
+            <source src={projectMediaUrl(projet.hero_media.url)} type="video/mp4" />
           </video>
         ) : projet.hero_image?.url ? (
           <div className="projet-hero-image">
             <Image
-              src={`${STRAPI_URL}${projet.hero_image.url}`}
+              src={projectMediaUrl(projet.hero_image.url)}
               alt={projet.titre}
               fill
               className="projet-hero-img"
@@ -157,7 +141,7 @@ export default async function ProjetDetailPage({
 
         <div className="projet-hero-overlay"></div>
         
-        {projet.hero_titre_position === 'dessus' && (
+        {projet.hero_titre_position !== 'dessous' && (
           <div className="projet-hero-content">
             <h1>{projet.titre}</h1>
             <p className="projet-type">{projet.type}</p>
@@ -204,7 +188,7 @@ export default async function ProjetDetailPage({
                     {bloc.image?.url && (
                       <figure>
                         <Image
-                          src={`${STRAPI_URL}${bloc.image.url}`}
+                          src={projectMediaUrl(bloc.image.url)}
                           alt={bloc.legende || ''}
                           width={1200}
                           height={800}
@@ -225,7 +209,7 @@ export default async function ProjetDetailPage({
                     {bloc.type_video === 'upload' && bloc.video_fichier?.url ? (
                       <video controls>
                         <source 
-                          src={`${STRAPI_URL}${bloc.video_fichier.url}`} 
+                          src={projectMediaUrl(bloc.video_fichier.url)}
                           type="video/mp4" 
                         />
                       </video>
@@ -233,6 +217,7 @@ export default async function ProjetDetailPage({
                       <div className="video-embed">
                         <iframe
                           src={bloc.video_url}
+                          title={bloc.titre || `Vidéo du projet ${projet.titre}`}
                           frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
@@ -254,7 +239,7 @@ export default async function ProjetDetailPage({
                     {bloc.images?.map((img: any, imgIndex: number) => (
                       <div key={imgIndex} className="galerie-item">
                         <Image
-                          src={`${STRAPI_URL}${img.url}`}
+                          src={projectMediaUrl(img.url)}
                           alt={img.alternativeText || ''}
                           width={600}
                           height={400}

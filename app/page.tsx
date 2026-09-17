@@ -1,26 +1,12 @@
 import type { Metadata } from 'next';
 import { getHome } from './lib/strapi';
 import { generateMetadataFromStrapi } from './lib/metadata';
-import Image from 'next/image';
+import Offers from './components/Offers';
+import { pageSeo, positioning, description } from './lib/editorial';
 
-// Générer les métadonnées dynamiques
 export async function generateMetadata(): Promise<Metadata> {
-  try {
-    const homeData = await getHome();
-    
-    return generateMetadataFromStrapi(
-      homeData.seo?.title || 'Wharf - Design Narratif & Communication Corporate',
-      homeData.seo?.description || 'Wharf révèle et exprime le sens profond des entreprises à travers le design narratif.',
-      homeData.seo?.image,
-      '/' // path de la page
-    );
-  } catch (error) {
-    console.error('Error generating metadata:', error);
-    return {
-      title: 'Wharf - Design Narratif & Communication Corporate',
-      description: 'Wharf révèle et exprime le sens profond des entreprises à travers le design narratif.',
-    };
-  }
+  const data = await getHome();
+  return generateMetadataFromStrapi(pageSeo.home.title, pageSeo.home.description, data.seo?.image, '/');
 }
 
 export default async function HomePage() {
@@ -58,23 +44,19 @@ export default async function HomePage() {
           <div className="hero-overlay"></div>
           
           <div className="hero-container">
+            <p className="editorial-eyebrow">{positioning}</p>
             <h1 className="hero-title">
-              {homeData.hero.titre}
+              Des récits qui trouvent leur forme.
             </h1>
-            <p 
-  className="hero-subtitle"
-  dangerouslySetInnerHTML={{
-    __html: homeData.hero.texte
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\n/g, '<br>')
-  }}
-/>
+            <p className="hero-subtitle">{description}</p>
             <div className="hero-actions">
-              <a href="/we" className="btn btn-primary">Découvrir notre approche</a>
-              <a href="/contact" className="btn btn-secondary">Nous contacter</a>
+              <a href="/work" className="btn btn-primary">Découvrir nos expertises</a>
+              <a href="/contact" className="btn btn-secondary">Parlons de votre projet</a>
             </div>
           </div>
         </section>
+
+        <Offers compact />
 
         {/* 3 ENTRY POINTS - CARDS AVEC IMAGES */}
         {/* Entry Points - Les 3 points d'entrée */}
@@ -83,7 +65,7 @@ export default async function HomePage() {
 <section className="entry-points">
   <div className="container">
     <div className="section-header">
-      <h2 className="section-title">Trois façons de nous découvrir</h2>
+      <h2 className="section-title">Une approche, des réalisations, vos enjeux</h2>
       <p className="section-subtitle">
         Que vous cherchiez à comprendre notre philosophie, explorer notre travail, 
         ou identifier comment nous pouvons vous accompagner.
@@ -106,7 +88,7 @@ export default async function HomePage() {
         <div className="card-split-right">
           <h3 className="card-split-subtitle">Quand la parole se dilue</h3>
           <p className="card-split-content">
-            {homeData.blocs.we.texte}
+            Quand les messages se multiplient, nous cherchons ce qui rend votre entreprise singulière. Le design narratif relie cette réalité à une parole claire et aux formes qui l’incarnent.
           </p>
           <a href={homeData.blocs.we.lien} className="card-split-link">
             Découvrir notre approche →
@@ -127,9 +109,9 @@ export default async function HomePage() {
           <h2 className="card-split-title">{homeData.blocs.work.titre}</h2>
         </div>
         <div className="card-split-right">
-          <h3 className="card-split-subtitle">Le design narratif</h3>
+          <h3 className="card-split-subtitle">De la stratégie aux réalisations</h3>
           <p className="card-split-content">
-            {homeData.blocs.work.texte}
+            Conseil éditorial, contenus B2B, films et séries vidéo : nous concevons ce que nous produisons et produisons ce que nous concevons. Découvrez nos projets.
           </p>
           <a href={homeData.blocs.work.lien} className="card-split-link">
             Découvrir nos réalisations →
@@ -150,9 +132,9 @@ export default async function HomePage() {
           <h2 className="card-split-title">{homeData.blocs.you.titre}</h2>
         </div>
         <div className="card-split-right">
-          <h3 className="card-split-subtitle">La rencontre</h3>
+          <h3 className="card-split-subtitle">Ce que vous voulez faire avancer</h3>
           <p className="card-split-content">
-            {homeData.blocs.you.texte}
+            Faire connaître votre entreprise, recruter, expliquer une transformation ou produire un film : partons de votre situation et du résultat que vous recherchez.
           </p>
           <a href={homeData.blocs.you.lien} className="card-split-link">
             Explorer vos besoins →
@@ -175,39 +157,30 @@ export default async function HomePage() {
               Révéler ce qui existe déjà
             </h2>
             <div className="manifesto-text-columns">
-              {homeData.manifesto.contenu ? (
-                <div 
-                  className="manifesto-text"
-                  dangerouslySetInnerHTML={{ __html: homeData.manifesto.contenu }}
-                />
-              ) : (
-                <>
-                  <p className="manifesto-text">
-                    Nous croyons que la communication n'est pas un vernis, mais le reflet d'une réalité. 
-                    Chaque organisation porte en elle un récit unique, souvent invisible ou mal compris.
-                  </p>
-                  <p className="manifesto-text">
-                    Notre rôle n'est pas de créer une fiction, mais de <strong>révéler ce qui existe déjà</strong>. 
-                    De transformer le décalage entre réalité et perception en une opportunité de réalignement authentique.
-                  </p>
-                  <p className="manifesto-text">
-                    Chez Wharf, nous pensons que combler l'écart, c'est créer de la confiance, 
-                    de la cohérence et de l'impact durable.
-                  </p>
-                </>
-              )}
+              <p className="manifesto-text">Quand la parole se dilue, la communication a besoin de retrouver son point d’appui : la réalité de l’entreprise.</p>
+              <p className="manifesto-text">Notre design narratif relie ce que vous êtes, ce que vous dites et ce que vos publics perçoivent. Il guide la stratégie comme les contenus et les images.</p>
+              <p className="manifesto-text"><a href="/we" className="card-split-link">Découvrir notre méthode →</a></p>
             </div>
+          </div>
+        </section>
+
+        <section className="editorial-section">
+          <div className="container">
+            <p className="editorial-eyebrow">INSIGHTS</p>
+            <h2>Partager les questions de notre métier</h2>
+            <p>Vidéo B2B, communication corporate, contenus et marque employeur : découvrez les sujets de notre prochaine rubrique d’expertise.</p>
+            <a href="/insights" className="card-split-link">Découvrir les thèmes →</a>
           </div>
         </section>
 
         {/* CTA FINAL */}
         <section className="cta-section">
           <div className="container">
-            <h2>{homeData.cta.titre}</h2>
+            <h2>Quel projet voulez-vous faire avancer ?</h2>
             <p>
-              {homeData.cta.texte}
+              Parlons de vos publics, de vos enjeux et de ce que votre communication doit rendre possible.
             </p>
-            <a href={homeData.cta.url} className="btn btn-primary">{homeData.cta.lien}</a>
+            <a href="/contact" className="btn btn-primary">Démarrer la conversation</a>
           </div>
         </section>
 

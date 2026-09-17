@@ -1,21 +1,9 @@
 import { MetadataRoute } from 'next';
+import { getPublishedProjects } from './lib/projects';
+
+export const dynamic = 'force-dynamic';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bywharf.com';
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
-
-async function getProjetsIds(): Promise<string[]> {
-  try {
-    const res = await fetch(`${STRAPI_URL}/api/projets?fields=documentId&pagination[pageSize]=100`, {
-      cache: 'no-store',
-    });
-    if (!res.ok) return [];
-    const data = await res.json();
-    return (data.data || []).map((p: any) => p.documentId as string).filter(Boolean);
-  } catch {
-    return [];
-  }
-}
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`,              lastModified: new Date(), changeFrequency: 'weekly',  priority: 1.0 },
@@ -26,7 +14,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/accessibilite`, lastModified: new Date(), changeFrequency: 'yearly',  priority: 0.3 },
   ];
 
-  const ids = await getProjetsIds();
+  const projects = await getPublishedProjects();
+  if (projects === null) throw new Error('Cannot generate a complete sitemap: portfolio unavailable');
+  const ids = projects.map(project => project.documentId);
   const projectPages: MetadataRoute.Sitemap = ids.map((id) => ({
     url: `${SITE_URL}/work/${id}`,
     lastModified: new Date(),

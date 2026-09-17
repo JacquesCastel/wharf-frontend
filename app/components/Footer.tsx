@@ -26,14 +26,14 @@ export default function Footer() {
            url: `https://admin.bywharf.com${data.data.Logo.url}`,
            alternativeText: data.data.Logo.alternativeText || 'Logo Wharf'
   } : undefined,
-          slogan: data.data.slogan || 'Design narratif & Communication corporate',
+          slogan: 'Contenus & production vidéo B2B',
           copyright: data.data.copyright || `© ${new Date().getFullYear()} Wharf. Tous droits réservés.`
         });
       } catch (error) {
         console.error('Error fetching footer:', error);
         setFooterData({
           Logo: undefined,
-          slogan: 'Design narratif & Communication corporate',
+          slogan: 'Contenus & production vidéo B2B',
           copyright: `© ${new Date().getFullYear()} Wharf. Tous droits réservés.`
         });
       }
@@ -58,9 +58,7 @@ export default function Footer() {
     'WHARF'
   )}
 </Link>
-            {footerData?.slogan && (
-              <p className="footer-slogan">{footerData.slogan}</p>
-            )}
+            <p className="footer-slogan">Contenus &amp; production vidéo B2B</p>
           </div>
 
           {/* 2 colonnes de navigation à droite */}
@@ -72,6 +70,7 @@ export default function Footer() {
                 <Link href="/we" className="footer-link">WE</Link>
                 <Link href="/work" className="footer-link">WORK</Link>
                 <Link href="/you" className="footer-link">YOU</Link>
+                <Link href="/insights" className="footer-link">INSIGHTS</Link>
                 <Link href="/contact" className="footer-link">CONTACT</Link>
               </nav>
             </div>
