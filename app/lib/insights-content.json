@@ -1,0 +1,220 @@
+[
+  {
+    "slug": "ia-communication-b2b-montrer-le-reel",
+    "theme": "communication-corporate",
+    "tag": "IA & crédibilité",
+    "title": "IA et communication B2B : que faut-il encore montrer de réel ?",
+    "seoTitle": "IA et communication B2B : la place du réel | Wharf",
+    "description": "Comment utiliser l’IA dans vos contenus B2B tout en conservant des preuves, une parole identifiable et une expertise crédible.",
+    "intro": "L’IA peut aider à formuler un message. Elle ne transforme pas une affirmation en preuve. Pour une entreprise B2B, la question éditoriale devient donc très concrète : que peut-on montrer, expliquer et documenter pour donner au public des raisons de nous croire ?",
+    "takeaway": "Réserver une place au réel, c’est rendre visibles les personnes, les choix et les faits qui soutiennent votre discours. L’IA peut assister ce travail ; elle ne remplace pas sa matière.",
+    "sections": [
+      {
+        "id": "preuve",
+        "title": "Une image convaincante peut-elle servir de preuve ?",
+        "paragraphs": [
+          "Un visuel illustrant une usine et une image tournée dans votre atelier n’ont pas le même rôle. Le premier aide à se représenter une idée. La seconde peut documenter un lieu et une situation, à condition d’en expliquer le contexte. Une belle image, à elle seule, ne démontre ni une compétence ni un résultat.",
+          "Exemple fictif : une société d’ingénierie veut présenter un nouveau procédé. Une animation peut rendre son fonctionnement compréhensible. Pour montrer que le procédé est effectivement utilisé, il faut d’autres éléments : une démonstration située, un intervenant identifié, des conditions d’essai et des observations vérifiables. Associer ces deux registres est plus utile que les confondre.",
+          "Avant de produire, attribuez un rôle à chaque contenu : illustrer, expliquer, témoigner ou documenter. Ce choix détermine ce que le lecteur est en droit d’en déduire."
+        ]
+      },
+      {
+        "id": "matiere",
+        "title": "Recueillir la matière que votre entreprise seule peut apporter",
+        "paragraphs": [
+          "Le savoir-faire se révèle souvent dans un détail : le contrôle ajouté à une étape, l’arbitrage entre deux solutions, l’erreur qui a conduit à changer une pratique. Ces éléments donnent une prise au lecteur. Ils lui permettent de comprendre comment vous travaillez, au-delà d’une promesse de qualité.",
+          "Pour préparer une interview, remplacez une question générale comme « Quelles sont vos valeurs ? » par une demande de situation précise. L’objectif est de recueillir des faits racontables, avec leurs limites, puis de choisir ceux qui répondent réellement aux questions du public."
+        ],
+        "items": [
+          "Quel problème concret avez-vous rencontré ?",
+          "Qu’avez-vous choisi de faire, et pour quelle raison ?",
+          "Que peut-on montrer pour expliquer ce choix ?",
+          "Quel résultat est observé, sur quelle période et avec quelles réserves ?"
+        ]
+      },
+      {
+        "id": "usage-ia",
+        "title": "Donner à l’IA un périmètre de travail clair",
+        "paragraphs": [
+          "Une organisation peut employer un outil d’IA pour proposer des plans à partir d’une matière approuvée, regrouper les thèmes d’un entretien ou préparer des variantes de titres. Ces usages restent des aides à vérifier. Une synthèse peut supprimer une nuance ; une reformulation peut transformer une hypothèse en certitude.",
+          "Conservez donc la source de chaque passage important : entretien, document, mesure ou référence publique. Relisez les citations à partir de l’enregistrement et faites confirmer les affirmations techniques par la personne compétente. Choisissez également les documents transmissibles à l’outil selon les règles de votre entreprise.",
+          "Les Content Credentials de la C2PA peuvent apporter des informations sur l’origine et l’historique d’un média. Cette provenance n’établit pas, à elle seule, la véracité du propos représenté. La vérification éditoriale reste un travail distinct."
+        ],
+        "source": {
+          "label": "C2PA — FAQ sur la provenance des contenus",
+          "url": "https://c2pa.org/faqs/"
+        }
+      },
+      {
+        "id": "seo",
+        "title": "SEO, réponses IA et autorité : donner des éléments vérifiables",
+        "paragraphs": [
+          "Google indique que les fondamentaux du SEO restent pertinents pour ses expériences de recherche générative et met en avant les contenus utiles apportant un point de vue original. Suivre ces recommandations ne garantit toutefois ni l’indexation ni une présence dans les réponses générées.",
+          "Notre recommandation éditoriale : publier une réponse précise, attribuer ses sources et la relier aux éléments qui permettent de l’évaluer. Un article peut expliquer une méthode ; un cas documenté en montre une application ; une vidéo donne accès à la parole de la personne concernée. Chaque format apporte alors une information complémentaire.",
+          "L’autorité se construit ici au sens de crédibilité auprès du lecteur. Elle ne se résume pas à un score SEO ni au nombre de contenus produits. Une entreprise devient plus facile à évaluer lorsqu’elle explicite ce qu’elle sait, comment elle le sait et où s’arrêtent ses conclusions."
+        ],
+        "source": {
+          "label": "Google Search Central — Recherche générative et SEO",
+          "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+        }
+      },
+      {
+        "id": "brief",
+        "title": "Un brief simple pour votre prochain contenu",
+        "paragraphs": [
+          "Commencez par écrire la question de votre public, puis la réponse que vous pouvez soutenir. Listez ensuite les pièces disponibles, les personnes à interroger et les éléments qui restent à vérifier. Décidez seulement après de la forme : article, interview, démonstration filmée ou combinaison de formats.",
+          "Cette discipline rejoint le design narratif : relier la réalité de l’entreprise, les messages qu’elle choisit de porter et la perception de ses publics. Un bon usage de l’IA s’inscrit dans cette chaîne. Il aide à travailler la matière sans lui attribuer une expérience qu’elle ne contient pas."
+        ]
+      }
+    ],
+    "cta": "Construire une prise de parole crédible",
+    "service": "/we",
+    "publishedAt": "2026-09-21",
+    "updatedAt": "2026-09-21",
+    "author": "Wharf"
+  },
+  {
+    "slug": "tournage-videos-articles-linkedin",
+    "theme": "video-b2b",
+    "tag": "Vidéo & visibilité",
+    "title": "Comment transformer un tournage en vidéos, articles et contenus LinkedIn ?",
+    "seoTitle": "Un tournage, des vidéos et des articles B2B | Wharf",
+    "description": "Préparez un tournage B2B pour en tirer des vidéos, un article et des contenus LinkedIn utiles, avec un rôle précis pour chaque format.",
+    "intro": "Un tournage peut alimenter plusieurs contenus si les questions, les images et les usages sont préparés ensemble. Le nombre de fichiers livrés n’est pas le bon point de départ : chaque déclinaison doit répondre à une question ou à un besoin de lecture différent.",
+    "takeaway": "Construire un dispositif de contenus commence avant le tournage : un sujet central, plusieurs questions, des images utiles et une destination définie pour chaque format.",
+    "sections": [
+      {
+        "id": "questions",
+        "title": "Partir d’un sujet, puis des questions du public",
+        "paragraphs": [
+          "Une interview de vingt minutes ne contient pas automatiquement dix bonnes vidéos. Si toutes les réponses restent générales, le découpage multipliera des messages similaires. Préparez plutôt une question centrale et quelques angles autonomes : le problème, la méthode, un choix difficile, une démonstration et les limites.",
+          "Exemple de dispositif fictif : une entreprise souhaite expliquer une opération de maintenance. Le film principal présente le problème et la démarche. Un extrait répond à une question de sécurité. L’article détaille les étapes. Une publication LinkedIn raconte un arbitrage technique et renvoie vers la ressource complète. Chaque élément a son propre intérêt."
+        ]
+      },
+      {
+        "id": "preparation",
+        "title": "Prévoir ce qui sera difficile à recréer après",
+        "paragraphs": [
+          "Les besoins de déclinaison influencent la captation. Un recadrage vertical peut couper un geste important ; une réponse trop dépendante de la question peut devenir incompréhensible en extrait. Prévoir ces usages évite de demander au montage de réparer un manque de matière.",
+          "Le brief doit préciser les destinations envisagées et les contraintes propres au sujet. Le dispositif exact dépendra des lieux, du nombre d’intervenants et du temps disponible. Il n’existe pas de quantité universelle de contenus que l’on puisse promettre pour une journée."
+        ],
+        "items": [
+          "Préparer des réponses compréhensibles même hors de l’entretien complet.",
+          "Recueillir les noms, fonctions et termes techniques pour les sous-titres.",
+          "Filmer les gestes, objets et situations nécessaires à l’explication.",
+          "Anticiper les cadrages horizontal et vertical selon les canaux retenus.",
+          "Identifier les validations nécessaires avant diffusion."
+        ]
+      },
+      {
+        "id": "declinaisons",
+        "title": "Écrire chaque format pour son usage",
+        "paragraphs": [
+          "Le film principal organise une progression. L’extrait court se concentre sur une idée. L’article apporte une lecture structurée : définition du problème, étapes, points de vigilance et ressources. Une transcription peut servir de base, mais elle demande un travail éditorial pour devenir une page utile.",
+          "Sur LinkedIn, le texte peut ouvrir une discussion en exposant un choix concret ou une question professionnelle. Le lecteur doit comprendre le propos sans devoir regarder immédiatement la vidéo. Sur le site, l’article peut approfondir le sujet et orienter vers une prestation ou une réalisation pertinente.",
+          "Conservez un inventaire simple des contenus : sujet, public, format, passage source, destination et statut de validation. Vous pourrez ainsi repérer les répétitions et les questions qui n’ont pas encore reçu de réponse."
+        ]
+      },
+      {
+        "id": "seo-video",
+        "title": "Donner à la vidéo une place claire sur le site",
+        "paragraphs": [
+          "Google recommande une page dédiée au visionnage lorsque l’objectif est de rendre une vidéo éligible aux fonctionnalités vidéo de ses résultats. La vidéo doit y constituer le contenu principal, être facile à repérer et accessible aux moteurs, avec une miniature appropriée. Une vidéo secondaire intégrée à un article ne remplit pas nécessairement ce rôle.",
+          "Choisissez donc la page en fonction de son usage : une page pour regarder un film, un article pour approfondir une question. Donnez-leur des titres descriptifs et reliez-les lorsque cela aide le visiteur. L’ajout d’une vidéo ne garantit pas à lui seul un meilleur classement.",
+          "Pour le lecteur, prévoyez aussi des sous-titres relus et une explication textuelle des informations essentielles. Les noms propres, unités et acronymes demandent une attention particulière après une transcription automatique."
+        ],
+        "source": {
+          "label": "Google Search Central — Bonnes pratiques SEO vidéo",
+          "url": "https://developers.google.com/search/docs/appearance/video"
+        }
+      },
+      {
+        "id": "mesure",
+        "title": "Évaluer ce que chaque contenu doit accomplir",
+        "paragraphs": [
+          "Avant la diffusion, choisissez un objectif par contenu. Une vidéo de découverte peut chercher à faire comprendre une activité ; un article de méthode, à répondre à une objection ; un cas client, à préparer une conversation commerciale. Les vues seules ne suffisent pas à distinguer ces usages.",
+          "Observez les données disponibles : lecture des vidéos, consultations des pages, clics vers les ressources liées et demandes entrantes. Complétez-les par les retours des équipes commerciales. Une vidéo peu vue peut être utile dans un échange précis ; un contenu très consulté peut attirer un public éloigné de votre offre.",
+          "Pour commencer, choisissez un sujet assez riche pour soutenir plusieurs angles, puis préparez un dispositif limité que vous pouvez réellement produire, valider et diffuser. La régularité viendra plus facilement d’une matière bien organisée que d’une multiplication de formats sans destination."
+        ]
+      }
+    ],
+    "cta": "Préparer un tournage et ses déclinaisons",
+    "service": "/work#video",
+    "publishedAt": "2026-09-21",
+    "updatedAt": "2026-09-21",
+    "author": "Wharf"
+  },
+  {
+    "slug": "cas-client-preuve-expertise",
+    "theme": "content-b2b",
+    "tag": "Autorité & contenus",
+    "title": "Comment construire un cas client qui démontre votre expertise ?",
+    "seoTitle": "Cas client B2B : démontrer votre expertise | Wharf",
+    "description": "Une trame pour rédiger un cas client B2B crédible : contexte, décisions, preuves, résultats et limites, sans inventer de chiffres.",
+    "intro": "Un cas client aide un prospect à comprendre comment vous traitez une situation proche de la sienne. Une galerie d’images montre une production ; un récit documenté explique le problème, les décisions et ce que le travail a permis d’observer.",
+    "takeaway": "Un cas utile permet de remonter de la conclusion aux faits. Le lecteur doit pouvoir distinguer la demande, la réponse produite et les effets réellement mesurés.",
+    "sections": [
+      {
+        "id": "situation",
+        "title": "Choisir une situation que le lecteur peut reconnaître",
+        "paragraphs": [
+          "Commencez par le contexte utile à la compréhension : activité, public, moment du projet et contrainte principale. Le nom du client peut rassurer, mais il ne suffit pas à expliquer pourquoi le travail était nécessaire. Une question comme « Que fallait-il faire comprendre, et à qui ? » donne souvent une meilleure entrée.",
+          "Exemple fictif : une entreprise reçoit des candidatures qui correspondent mal aux métiers proposés. Sa demande de vidéo peut répondre à un enjeu de compréhension du travail quotidien. Le cas gagnera à décrire cet enjeu avant de présenter le choix des portraits ou le nombre de films produits.",
+          "Cet exemple n’est pas un résultat client Wharf. Il illustre une règle de rédaction : partir de la situation d’achat pour permettre au lecteur de se reconnaître, sans laisser le format occuper toute la place."
+        ]
+      },
+      {
+        "id": "decisions",
+        "title": "Montrer les décisions qui ont compté",
+        "paragraphs": [
+          "Le savoir-faire apparaît dans les choix : pourquoi retenir ces intervenants, ces lieux, cet ordre de récit ou ce format ? Expliquez une ou deux décisions importantes, avec les contraintes qui les ont guidées. Vous rendez ainsi votre démarche compréhensible au-delà du livrable final.",
+          "Une trame courte suffit pour organiser la collecte. Chaque rubrique doit avoir une source : brief, entretien, document de production ou donnée de suivi. Une rubrique sans matière peut être omise plutôt que remplie avec une affirmation générale."
+        ],
+        "items": [
+          "Contexte : quelle situation a déclenché le projet ?",
+          "Problème : quel obstacle fallait-il traiter ?",
+          "Réponse : quel dispositif a été retenu ?",
+          "Parti pris : quels choix éditoriaux ou visuels ont guidé la réalisation ?",
+          "Production et diffusion : qu’a-t-on effectivement livré et où ?",
+          "Résultats et limites : qu’est-il possible de constater ?"
+        ]
+      },
+      {
+        "id": "resultats",
+        "title": "Séparer les livrables des résultats",
+        "paragraphs": [
+          "Avoir produit une série de films est un fait de production. Avoir amélioré la compréhension d’un métier est un effet qui demande une observation adaptée. Avoir augmenté les recrutements suppose encore d’examiner d’autres facteurs. Ne faites pas glisser le lecteur d’un niveau à l’autre sans preuve.",
+          "Si vous présentez un chiffre, précisez la source, la période, le périmètre et, lorsque c’est pertinent, le point de comparaison. Si vous disposez d’un retour qualitatif, attribuez-le à son auteur et conservez son sens. Un témoignage ne devient pas une mesure générale.",
+          "En l’absence de mesure, expliquez ce qui a été produit et comment cela a été utilisé. Vous pouvez montrer la cohérence de la réponse, le soin apporté à sa réalisation et les choix effectués. C’est déjà une matière informative, à condition de ne pas la présenter comme la démonstration d’un impact commercial."
+        ]
+      },
+      {
+        "id": "autorite",
+        "title": "Relier le cas à votre expertise et à vos contenus",
+        "paragraphs": [
+          "Google invite à rendre l’origine des contenus, les sources et les éléments d’expertise faciles à comprendre. Un cas client documenté peut contribuer à cet effort éditorial. Cela ne constitue pas une garantie de visibilité dans les résultats de recherche.",
+          "Notre recommandation : relier la fiche à la prestation concernée et à un article qui explique la méthode. Le cas montre une application ; l’article aide à prendre une décision ; la page de service précise l’accompagnement proposé. Ces liens doivent être utiles au lecteur, avec des intitulés qui annoncent leur destination.",
+          "Pour bâtir une autorité éditoriale, choisissez progressivement des cas qui répondent à des questions distinctes. Une accumulation de fiches disant toutes la même chose n’aide pas autant à évaluer vos compétences qu’un ensemble où chaque projet éclaire un enjeu particulier."
+        ],
+        "source": {
+          "label": "Google Search Central — Contenus utiles et fiables",
+          "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+        }
+      },
+      {
+        "id": "collecte",
+        "title": "Préparer la collecte dès le début du projet",
+        "paragraphs": [
+          "Réservez un moment pour documenter le point de départ et un autre pour faire le bilan. Rassemblez le brief, les décisions, les versions finales et les observations disponibles. Identifiez ensuite avec le client les éléments qui peuvent être publiés, les personnes citées et les éventuelles informations à retirer.",
+          "Avant publication, relisez la fiche comme un prospect : comprend-on le besoin sans connaître le client ? Les choix sont-ils expliqués ? Chaque résultat est-il étayé ? Peut-on distinguer les faits des interprétations ? Les visuels et les citations apportent-ils quelque chose à la démonstration ?",
+          "Commencez par un cas dont la matière est disponible. Une fiche précise et bien reliée au reste du site peut servir aux échanges commerciaux autant qu’à la lecture en ligne. Enrichissez-la lorsque de nouvelles observations deviennent disponibles, en mettant à jour sa date et ses conclusions."
+        ]
+      }
+    ],
+    "cta": "Structurer vos contenus et vos preuves",
+    "service": "/work#content",
+    "publishedAt": "2026-09-21",
+    "updatedAt": "2026-09-21",
+    "author": "Wharf"
+  }
+]

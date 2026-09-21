@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { articles, articlePath, publishedTopics } from './lib/insights';
 import { getPublishedProjects } from './lib/projects';
 
 export const dynamic = 'force-dynamic';
@@ -24,5 +25,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...projectPages];
+  const blogPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/insights`, lastModified: new Date('2026-09-21'), changeFrequency: 'monthly', priority: 0.8 },
+    ...publishedTopics.map(topic => ({ url: `${SITE_URL}/insights/${topic.slug}`, lastModified: new Date(Math.max(...articles.filter(article => article.theme === topic.slug).map(article => Date.parse(article.updatedAt)))) })),
+    ...articles.map(article => ({ url: `${SITE_URL}${articlePath(article)}`, lastModified: new Date(article.updatedAt) })),
+  ];
+  return [...staticPages, ...projectPages, ...blogPages];
 }

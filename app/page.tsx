@@ -168,8 +168,8 @@ export default async function HomePage() {
           <div className="container">
             <p className="editorial-eyebrow">INSIGHTS</p>
             <h2>Partager les questions de notre métier</h2>
-            <p>Vidéo B2B, communication corporate, contenus et marque employeur : découvrez les sujets de notre prochaine rubrique d’expertise.</p>
-            <a href="/insights" className="card-split-link">Découvrir les thèmes →</a>
+            <p>IA, visibilité, autorité et vidéo B2B : découvrez nos premiers articles pour rendre votre expertise plus visible et plus crédible.</p>
+            <a href="/insights" className="card-split-link">Lire les articles →</a>
           </div>
         </section>
 

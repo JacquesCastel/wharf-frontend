@@ -1,12 +1,12 @@
 // Contenus de l’audit Wharf. Les médias et les réalisations restent gérés dans Strapi.
-export const positioning = 'Agence de contenus & production vidéo B2B';
+export const positioning = 'Agence de stratégie, contenus & production vidéo B2B';
 export const description = 'Wharf accompagne les entreprises dans leur communication corporate, de la stratégie éditoriale à la production audiovisuelle.';
 export const pageSeo = {
   home: { title: 'Wharf — Contenus & production vidéo B2B', description },
   we: { title: 'WE — Le design narratif, méthode Wharf', description: 'Du constat à la création : découvrez comment le design narratif relie stratégie, contenus et vidéo à la réalité de votre entreprise.' },
   work: { title: 'WORK — Stratégie, contenus & vidéo B2B | Wharf', description: 'Stratégie éditoriale, contenus B2B et production vidéo : découvrez les expertises Wharf et nos réalisations.' },
   you: { title: 'YOU — Vos enjeux de communication B2B | Wharf', description: 'Visibilité, parole dirigeante, recrutement, transformation, réseaux sociaux ou film corporate : partons de votre besoin.' },
-  insights: { title: 'INSIGHTS — Vidéo & communication B2B | Wharf', description: 'Les prochains sujets Wharf : vidéo B2B, communication corporate, contenus B2B et marque employeur.' },
+  insights: { title: 'INSIGHTS — Vidéo & communication B2B | Wharf', description: 'Analyses et guides sur l’IA, la visibilité, la crédibilité des entreprises et la production de contenus B2B.' },
 };
 export const offers = [
   { id: 'strategy', name: 'STRATEGY', title: 'Donner une direction à votre communication', description: 'Clarifier ce que votre entreprise veut faire comprendre, à qui et pourquoi. Le design narratif relie votre réalité aux messages que vous portez.', items: ['Communication corporate', 'Plateforme narrative', 'Stratégie éditoriale', 'Marque employeur', 'Communication du changement', 'Prise de parole dirigeant'] },
