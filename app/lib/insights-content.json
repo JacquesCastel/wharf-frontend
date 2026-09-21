@@ -1,5 +1,136 @@
 [
   {
+    "slug": "ai-overviews-impact-statistiques-seo",
+    "theme": "content-b2b",
+    "tag": "AI Overviews & mesure",
+    "title": "AI Overviews : pourquoi vos statistiques SEO peuvent changer",
+    "seoTitle": "AI Overviews : quel impact sur vos statistiques SEO ?",
+    "description": "Impressions, clics, trafic et conversions : comment comprendre l’effet possible des AI Overviews sur vos statistiques et adapter votre suivi.",
+    "intro": "Vos impressions sur Google progressent, mais les visites de votre site diminuent. Le référencement a-t-il échoué ? Les AI Overviews peuvent contribuer à ce décalage : une réponse affichée directement dans Google peut satisfaire une question sans visite supplémentaire. Pour comprendre ce qui se passe, il faut distinguer visibilité, clics et résultats commerciaux.",
+    "takeaway": "Une baisse de trafic ne prouve pas, à elle seule, un effet des AI Overviews. Croisez Search Console, vos données de fréquentation et vos demandes commerciales, à périmètre comparable. Être cité, être visité et être choisi restent trois résultats différents.",
+    "publishedAt": "2026-09-21",
+    "updatedAt": "2026-09-21",
+    "author": "Wharf",
+    "cta": "Relier votre stratégie de contenus à vos objectifs",
+    "service": "/work#strategy",
+    "sections": [
+      {
+        "id": "comprendre",
+        "title": "Ce que les AI Overviews changent dans le parcours de recherche",
+        "paragraphs": [
+          "Les AI Overviews sont les synthèses générées par Google dans certaines pages de résultats, accompagnées de liens vers des ressources. Un internaute peut y trouver une première réponse, poursuivre ses recherches ou consulter un site. La présence d’un lien ne signifie donc pas automatiquement une visite.",
+          "Google comptabilise comme clic un lien vers une page externe depuis un AI Overview. Ses liens partagent la position attribuée au bloc dans les résultats. La position moyenne ne décrit donc pas à elle seule la place visuelle de votre lien, ni la probabilité qu’un internaute le consulte.",
+          "Pour une entreprise B2B, cela invite à séparer deux questions : notre expertise est-elle visible sur les sujets importants ? Cette visibilité amène-t-elle des personnes à consulter nos ressources puis à entrer en relation ? Les réponses peuvent évoluer différemment."
+        ],
+        "source": {
+          "url": "https://support.google.com/webmasters/answer/7042828?hl=en",
+          "label": "Google Search Console — Comptabilisation des impressions, positions et clics",
+          "accessedAt": "2026-09-21"
+        }
+      },
+      {
+        "id": "etude",
+        "title": "Ce que montre l’étude Pew — et ce qu’elle ne prouve pas",
+        "paragraphs": [
+          "Pew Research Center a analysé la navigation de 900 adultes aux États-Unis en mars 2025, sur un ensemble de 68 879 recherches Google distinctes. Un clic vers un résultat traditionnel a été observé dans 8 % des visites de pages avec résumé IA, contre 15 % sans résumé. Un clic sur une source du résumé a été observé dans 1 % des visites avec résumé.",
+          "Il s’agit de comportements observés dans un échantillon américain, pas d’une prévision de baisse du trafic de votre site. Les recherches avec et sans résumé ne sont pas nécessairement comparables. La présence des résumés a été reconstituée en avril 2025 ; elle peut varier dans le temps. Cette étude ne démontre donc pas à elle seule un effet causal uniforme, ni son ampleur sur un marché B2B français.",
+          "Le signal mérite néanmoins d’être examiné : la réponse et le clic peuvent se dissocier. Appliquer directement l’écart de cette étude à votre audience serait une extrapolation injustifiée."
+        ],
+        "source": {
+          "url": "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/",
+          "label": "Pew Research Center — Analyse publiée le 22 juillet 2025",
+          "accessedAt": "2026-09-21"
+        }
+      },
+      {
+        "id": "indicateurs",
+        "title": "Des impressions en hausse peuvent accompagner moins de clics",
+        "paragraphs": [
+          "Le taux de clic, ou CTR, correspond aux clics divisés par les impressions. Une présence plus fréquente peut donc s’accompagner d’un CTR inférieur et de moins de visites. Ce scénario peut être compatible avec une évolution des résultats Google, mais aussi avec de nouvelles requêtes, une audience différente ou un titre moins attractif.",
+          "Exemple entièrement fictif, à périmètre de mesure identique : un site reçoit 50 000 impressions et 2 000 clics sur une première période, puis 60 000 impressions et 1 500 clics sur la suivante. Le tableau illustre le calcul ; il ne décrit ni un client Wharf ni un effet mesuré des AI Overviews.",
+          "Le CTR recule ici de 1,5 point, soit 37,5 % en variation relative. Les impressions augmentent de 20 % et les clics baissent de 25 %. Trois indicateurs, trois évolutions : résumer cette situation par « le SEO progresse » ou « le SEO s’effondre » ferait perdre une partie de l’information."
+        ],
+        "table": {
+          "caption": "Exemple fictif : visibilité et clics peuvent diverger",
+          "headers": [
+            "Indicateur",
+            "Période A",
+            "Période B",
+            "Évolution"
+          ],
+          "rows": [
+            [
+              "Impressions",
+              "50 000",
+              "60 000",
+              "+20 %"
+            ],
+            [
+              "Clics",
+              "2 000",
+              "1 500",
+              "−25 %"
+            ],
+            [
+              "CTR",
+              "4 %",
+              "2,5 %",
+              "−1,5 point"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "search-console",
+        "title": "Ce que Search Console permet de suivre en septembre 2026",
+        "paragraphs": [
+          "Google a annoncé le 3 juin 2026 des rapports consacrés aux fonctionnalités de recherche générative, puis indiqué un déploiement mondial achevé au 31 août. Ces rapports donnent une vue dédiée des impressions ; ces données restent aussi comprises dans le rapport global de performance. Il ne faut donc pas additionner mécaniquement les deux vues.",
+          "Le rapport Search couvre AI Overviews et AI Mode. La documentation présente les impressions par page, pays, appareil et date. Elle ne fournit pas dans ce rapport dédié les clics, les requêtes ou un CTR propre aux AI Overviews. Il ne permet donc pas de calculer directement combien de visites ces seuls résumés ont gagnées ou fait perdre.",
+          "L’absence de données peut notamment correspondre à un volume d’impressions insuffisant. Une impression mesure l’affichage d’un lien selon les règles de Google, pas toutes les mentions de votre marque ni la lecture attentive de votre contenu. Utilisez ce rapport comme un indicateur de visibilité."
+        ],
+        "source": {
+          "url": "https://support.google.com/webmasters/answer/16984139?hl=en",
+          "label": "Google — Rapport de performance de l’IA générative dans Search",
+          "accessedAt": "2026-09-21"
+        }
+      },
+      {
+        "id": "diagnostic",
+        "title": "Comment enquêter sur une baisse de trafic",
+        "paragraphs": [
+          "Commencez par comparer des périodes de même durée et, si votre activité est saisonnière, une période équivalente de l’année précédente. Conservez les mêmes filtres. Séparez les recherches de marque, les questions informatives et les besoins plus proches d’un achat. Une moyenne globale peut masquer des évolutions opposées.",
+          "Une diminution des clics observée dans Search Console et une baisse des sessions dans votre outil de mesure sont deux signaux à rapprocher, pas deux nombres censés être identiques. Les clics et les sessions sont des unités différentes ; le consentement, le déclenchement des balises et les paramètres de mesure peuvent aussi modifier les écarts.",
+          "Vérifiez les autres explications avant de conclure : problème d’indexation, redirection, changement de titre, perte de positions, baisse de la demande, saisonnalité ou modification du suivi. Un contrôle ponctuel de quelques résultats Google peut éclairer l’analyse, mais ne reconstitue pas toutes les pages vues par vos visiteurs."
+        ],
+        "items": [
+          "Search Console : suivre les clics, impressions, CTR et positions par groupe de pages et de requêtes.",
+          "Rapport IA générative : observer l’évolution des impressions sur les mêmes pages, pays et appareils.",
+          "Outil de fréquentation : examiner les sessions issues de Google et les actions effectuées sur les pages d’entrée.",
+          "Suivi commercial : rapprocher les demandes reçues, leur qualification et les opportunités réellement ouvertes.",
+          "Journal de suivi : noter les changements du site et de la mesure pour interpréter les ruptures."
+        ]
+      },
+      {
+        "id": "conversions",
+        "title": "Un meilleur taux de conversion peut masquer moins de demandes",
+        "paragraphs": [
+          "Autre exemple fictif : 1 000 sessions génèrent 20 demandes, soit un taux de 2 %. Sur la période suivante, 600 sessions génèrent 18 demandes, soit 3 %. Le taux progresse, mais le nombre de demandes diminue. Pour juger le résultat, regardez aussi leur qualification et leur valeur potentielle.",
+          "Il est possible que des visiteurs arrivent mieux informés après une recherche enrichie par l’IA. Cela reste une hypothèse à confronter à vos données et aux échanges commerciaux. Ne présumez pas que des visites moins nombreuses seront automatiquement meilleures.",
+          "Une hausse des recherches de marque ou des accès directs peut également mériter attention. Elle ne prouve pas une influence des AI Overviews : une campagne, une recommandation ou une autre prise de parole peut produire un signal similaire. Une question ouverte sur la découverte de votre entreprise peut compléter le suivi, sans constituer une attribution parfaite."
+        ]
+      },
+      {
+        "id": "strategie",
+        "title": "Donner une raison de consulter votre site",
+        "paragraphs": [
+          "Notre recommandation pour un site B2B : continuer à répondre clairement aux questions, puis apporter une matière qui aide à décider. Un cas documenté, une démonstration, une comparaison argumentée ou une vidéo d’expert peuvent donner au lecteur une raison d’approfondir le sujet. Leur intérêt vient de ce qu’ils expliquent et démontrent.",
+          "Pour Wharf, le lien entre stratégie, contenus et vidéo se joue ici : choisir les questions importantes pour vos publics, recueillir des éléments vérifiables et leur donner une forme utile. Cette démarche contribue à la crédibilité de la marque ; elle ne garantit pas d’être sélectionné par Google.",
+          "Votre reporting peut tenir en trois lignes de lecture : visibilité sur les sujets prioritaires, visites et actions sur le site, demandes et opportunités qualifiées. Les AI Overviews invitent à élargir l’analyse au-delà du trafic. Ils ne dispensent ni de mesurer les pertes, ni de vérifier la valeur créée."
+        ]
+      }
+    ]
+  },
+  {
     "slug": "ia-communication-b2b-montrer-le-reel",
     "theme": "communication-corporate",
     "tag": "IA & crédibilité",
@@ -42,7 +173,8 @@
         ],
         "source": {
           "label": "C2PA — FAQ sur la provenance des contenus",
-          "url": "https://c2pa.org/faqs/"
+          "url": "https://c2pa.org/faqs/",
+          "accessedAt": "2026-09-18"
         }
       },
       {
@@ -55,7 +187,8 @@
         ],
         "source": {
           "label": "Google Search Central — Recherche générative et SEO",
-          "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+          "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+          "accessedAt": "2026-09-18"
         }
       },
       {
@@ -125,7 +258,8 @@
         ],
         "source": {
           "label": "Google Search Central — Bonnes pratiques SEO vidéo",
-          "url": "https://developers.google.com/search/docs/appearance/video"
+          "url": "https://developers.google.com/search/docs/appearance/video",
+          "accessedAt": "2026-09-18"
         }
       },
       {
@@ -198,7 +332,8 @@
         ],
         "source": {
           "label": "Google Search Central — Contenus utiles et fiables",
-          "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+          "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+          "accessedAt": "2026-09-18"
         }
       },
       {
