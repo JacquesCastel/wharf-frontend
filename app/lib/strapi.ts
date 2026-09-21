@@ -354,14 +354,15 @@ export async function getFooter() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()).data;
     return {
-      logo: data?.Logo ? { url: `${STRAPI_URL}${data.Logo.url}`, alternativeText: data.Logo.alternativeText || '' } : null,
+      logo: data?.Logo ? { url: mediaUrl(data.Logo) || '', alternativeText: data.Logo.alternativeText || '' } : null,
+      copyright: data?.copyright || '',
       email: data?.email || '',
       telephone: data?.telephone || '',
       sections: (data?.sections || []).map((s: any) => ({ titre: s.titre, liens: s.liens || [] }))
     };
   } catch (error) {
     console.error('getFooter error:', error);
-    return { logo: null, email: '', telephone: '', sections: [] };
+    return { logo: null, copyright: '', email: '', telephone: '', sections: [] };
   }
 }
 

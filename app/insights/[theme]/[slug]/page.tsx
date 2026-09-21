@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { theme, slug } = await params;
   const article = getArticle(theme, slug);
   if (!article) notFound();
-  const base = generateMetadataFromStrapi(article.seoTitle, article.description, undefined, articlePath(article));
+  const base = generateMetadataFromStrapi(article.seoTitle, article.description, { url: `${SITE_URL}/og?theme=${encodeURIComponent(theme)}&slug=${encodeURIComponent(slug)}` }, articlePath(article));
   return { ...base, authors: [{ name: article.author, url: `${SITE_URL}/we` }], openGraph: { ...base.openGraph, type: 'article', publishedTime: article.publishedAt, modifiedTime: article.updatedAt, authors: [article.author] } };
 }
 export default async function ArticlePage({ params }: Props) {

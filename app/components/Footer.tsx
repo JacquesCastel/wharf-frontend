@@ -1,97 +1,56 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { getFooter } from '../lib/strapi';
+import { positioning } from '../lib/editorial';
+import { publishedTopics } from '../lib/insights';
 
-interface FooterData {
-  Logo?: {
-    url: string;
-    alternativeText: string;
-  };
-  slogan?: string;
-  copyright?: string;
-}
-
-export default function Footer() {
-  const [footerData, setFooterData] = useState<FooterData | null>(null);
-
-  useEffect(() => {
-    const fetchFooter = async () => {
-      try {
-        const response = await fetch('https://admin.bywharf.com/api/footer?populate=*');
-        const data = await response.json();
-        
-        setFooterData({
-          Logo: data.data.Logo ? {
-           url: `https://admin.bywharf.com${data.data.Logo.url}`,
-           alternativeText: data.data.Logo.alternativeText || 'Logo Wharf'
-  } : undefined,
-          slogan: 'Contenus & production vidéo B2B',
-          copyright: data.data.copyright || `© ${new Date().getFullYear()} Wharf. Tous droits réservés.`
-        });
-      } catch (error) {
-        console.error('Error fetching footer:', error);
-        setFooterData({
-          Logo: undefined,
-          slogan: 'Contenus & production vidéo B2B',
-          copyright: `© ${new Date().getFullYear()} Wharf. Tous droits réservés.`
-        });
-      }
-    };
-    fetchFooter();
-  }, []);
-
+export default async function Footer() {
+  const data = await getFooter();
+  const groups = [
+    { title: 'Wharf', links: [
+      { href: '/we', label: 'L’agence et notre méthode' },
+      { href: '/work', label: 'Expertises et réalisations' },
+      { href: '/you', label: 'Vos enjeux de communication' },
+      { href: '/contact', label: 'Parlons de votre projet' },
+    ] },
+    { title: 'Nos expertises', links: [
+      { href: '/work#strategy', label: 'Stratégie de communication' },
+      { href: '/work#content', label: 'Création de contenus B2B' },
+      { href: '/work#video', label: 'Production vidéo' },
+    ] },
+    { title: 'Analyses et conseils', links: [
+      { href: '/insights', label: 'Tous les articles' },
+      ...publishedTopics.map(topic => ({ href: `/insights/${topic.slug}`, label: topic.title })),
+    ] },
+  ];
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-content">
-          {/* Logo + Slogan à gauche */}
           <div className="footer-left">
-            <Link href="/" className="footer-logo">
-  {footerData?.Logo ? (
-    <img 
-      src={footerData.Logo.url} 
-      alt={footerData.Logo.alternativeText || 'Logo Wharf'}
-      style={{ height: '200px' }}
-    />
-  ) : (
-    'WHARF'
-  )}
-</Link>
-            <p className="footer-slogan">Contenus &amp; production vidéo B2B</p>
+            <Link href="/" className="footer-logo" aria-label="Wharf — accueil">
+              <img src={data.logo?.url || '/images/logo-wharf.png'} alt="Wharf" />
+            </Link>
+            <p className="footer-slogan">{positioning}</p>
+            <a href="mailto:contact@bywharf.com" className="footer-contact-link">contact@bywharf.com</a>
           </div>
-
-          {/* 2 colonnes de navigation à droite */}
           <div className="footer-right">
-            {/* Colonne 1 : Pages principales */}
-            <div className="footer-column">
-              <h3 className="footer-column-title">Navigation</h3>
-              <nav className="footer-nav">
-                <Link href="/we" className="footer-link">WE</Link>
-                <Link href="/work" className="footer-link">WORK</Link>
-                <Link href="/you" className="footer-link">YOU</Link>
-                <Link href="/insights" className="footer-link">INSIGHTS</Link>
-                <Link href="/contact" className="footer-link">CONTACT</Link>
-              </nav>
-            </div>
-
-            {/* Colonne 2 : Accessibilité */}
-            <div className="footer-column">
-              <h3 className="footer-column-title">Accessibilité</h3>
-              <nav className="footer-nav">
-                <Link href="/accessibilite" className="footer-link">Accessibilité</Link>
-                <Link href="/accessibilite/engagement" className="footer-link">Engagement</Link>
-              </nav>
-            </div>
+            {groups.map(group => (
+              <div className="footer-column" key={group.title}>
+                <h2 className="footer-column-title">{group.title}</h2>
+                <nav className="footer-nav" aria-label={`Pied de page — ${group.title}`}>
+                  {group.links.map(link => <Link key={link.href} href={link.href} className="footer-link">{link.label}</Link>)}
+                </nav>
+              </div>
+            ))}
           </div>
         </div>
-
-        {/* Copyright en bas */}
-        {footerData?.copyright && (
-          <div className="footer-bottom">
-            <p className="footer-copyright">{footerData.copyright}</p>
-          </div>
-        )}
+        <div className="footer-bottom">
+          <nav className="footer-utility" aria-label="Pied de page — accessibilité">
+            <Link href="/accessibilite" className="footer-link">Accessibilité</Link>
+            <Link href="/accessibilite/engagement" className="footer-link">Notre engagement d’accessibilité</Link>
+          </nav>
+          <p className="footer-copyright">{data.copyright || `© ${new Date().getFullYear()} Wharf. Tous droits réservés.`}</p>
+        </div>
       </div>
     </footer>
   );

@@ -16,7 +16,7 @@ export function generateMetadataFromStrapi(
   const description = seoDescription || 'Design narratif et communication corporate';
   
   // URL de l'image Open Graph
-  let ogImage = `${SITE_URL}/og-default.jpg`; // Image par défaut
+  let ogImage = `${SITE_URL}/og`; // Image par défaut
   
   if (seoImage?.url) {
     ogImage = seoImage.url.startsWith('http') 
