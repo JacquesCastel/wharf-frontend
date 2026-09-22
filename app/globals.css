@@ -7145,8 +7145,8 @@ html[data-font-weight="bold"] .card-split-link {
 .insight-table thead { background: var(--color-bg-secondary); }
 
 /* Navigation de pied de page : expertises et rubriques publiées. */
-.footer-right { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
-.footer-content { gap: 48px; }
+.footer-right { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.footer-content { grid-template-columns: minmax(200px, 1fr) minmax(0, 3fr); gap: 48px; }
 .footer-utility { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 32px; margin-bottom: 24px; }
 @media (max-width: 1024px) {
   .footer-content { grid-template-columns: 1fr; gap: 40px; }
@@ -7154,4 +7154,19 @@ html[data-font-weight="bold"] .card-split-link {
 @media (max-width: 600px) {
   .footer-right { grid-template-columns: 1fr; gap: 32px; }
   .footer-utility { flex-direction: column; align-items: center; }
+}
+
+.footer-description { max-width: 34rem; font-size: 14px; line-height: 1.7; color: var(--color-primary); }
+.footer-description a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.footer .footer-link { color: var(--color-primary); line-height: 1.55; }
+.footer .footer-link:hover { color: var(--color-accent); }
+.footer-reading { border-top: 1px solid var(--color-border); padding: 32px 0; }
+.footer-reading-list { list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.footer-reading-list li { display: flex; flex-direction: column; gap: 8px; }
+.footer-reading-topic { color: var(--color-primary); font-size: 12px; }
+@media (min-width: 601px) and (max-width: 900px) {
+  .footer-right { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .footer-reading-list { grid-template-columns: 1fr; gap: 24px; }
 }
