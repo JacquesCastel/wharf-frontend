@@ -38,7 +38,6 @@ export default async function Footer() {
               <img src={data.logo?.url || '/images/logo-wharf.png'} alt="Wharf" />
             </Link>
             <p className="footer-slogan">{positioning}</p>
-            <p className="footer-description">Wharf accompagne les entreprises dans leur communication corporate : clarifier leur récit, faire vivre leur expertise et l’incarner en images. Découvrez <Link href="/we">notre approche du design narratif</Link>.</p>
             <a href="mailto:contact@bywharf.com" className="footer-contact-link">contact@bywharf.com</a>
           </div>
           <div className="footer-right">
@@ -71,6 +70,7 @@ export default async function Footer() {
             <Link href="/accessibilite/engagement" className="footer-link">Notre engagement d’accessibilité</Link>
           </nav>
           <p className="footer-copyright">{data.copyright || `© ${new Date().getFullYear()} Wharf. Tous droits réservés.`}</p>
+          <p className="footer-description">Wharf accompagne les entreprises dans leur communication corporate : clarifier leur récit, faire vivre leur expertise et l’incarner en images. Découvrez <Link href="/we">notre approche du design narratif</Link>.</p>
         </div>
       </div>
     </footer>
