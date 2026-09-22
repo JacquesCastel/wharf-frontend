@@ -1,5 +1,108 @@
 [
   {
+    "slug": "strategie-editoriale-b2b-questions-acheteurs",
+    "theme": "content-b2b",
+    "tag": "Stratégie éditoriale",
+    "title": "Stratégie éditoriale B2B : partir des questions qui font décider",
+    "seoTitle": "Stratégie éditoriale B2B : quelles questions traiter ?",
+    "description": "Choisissez vos sujets B2B à partir des décisions de vos acheteurs : questions, preuves disponibles, formats et critères pour prioriser votre calendrier.",
+    "intro": "Pour construire une stratégie éditoriale B2B, commencez par les questions auxquelles vos futurs clients doivent répondre avant de choisir. Le calendrier vient ensuite. Une fréquence de publication organise le travail ; elle ne dit pas ce qui mérite d’être publié. Notre proposition : relier chaque sujet à une décision, à une personne concernée et à une preuve disponible. Vous pourrez alors expliquer pourquoi un article, une interview ou une vidéo doit exister, au-delà de la nécessité de remplir une case.",
+    "takeaway": "Un bon sujet aide un lecteur identifié à avancer sur une question précise. Avant de le programmer, vérifiez la décision qu’il éclaire, la matière dont vous disposez et la prochaine étape utile au lecteur.",
+    "publishedAt": "2026-09-22",
+    "updatedAt": "2026-09-22",
+    "author": "Wharf",
+    "cta": "Donner une direction à votre stratégie éditoriale B2B",
+    "service": "/work#strategy",
+    "sections": [
+      {
+        "id": "decision",
+        "title": "Choisir une décision avant de choisir un format",
+        "paragraphs": [
+          "Un thème comme « la transformation » laisse beaucoup de possibilités et peu de critères pour trancher. Une question comme « comment présenter un changement d’organisation à des équipes qui ne travaillent pas sur le même site ? » donne déjà une direction. Elle permet de préciser les personnes concernées, les objections à traiter et les informations à recueillir.",
+          "Nous conseillons de formuler le rôle du contenu en une phrase : après l’avoir consulté, le lecteur pourra mieux comparer, préparer, expliquer ou décider quelque chose. Si cette phrase reste vague, resserrez le sujet. « Comprendre notre expertise » devient par exemple « savoir quelles informations réunir avant de demander un devis de film corporate ».",
+          "Cette approche laisse aussi une place aux contenus de découverte. Un lecteur peut avoir besoin de nommer un problème avant de comparer des prestataires. Il ne faut pas transformer chaque article en argumentaire commercial : certains contenus servent d’abord à rendre une situation compréhensible."
+        ]
+      },
+      {
+        "id": "collecter",
+        "title": "Recueillir les questions avec leur contexte",
+        "paragraphs": [
+          "Préparez une courte séance avec les personnes qui échangent avec les prospects et les clients. Demandez des questions réellement entendues, puis leur contexte : à quel moment sont-elles apparues ? Qui les posait ? Quelle information manquait pour avancer ? Une question isolée peut conduire à une réponse trop générale.",
+          "Par exemple fictif, « combien coûte une vidéo ? » peut recouvrir plusieurs besoins : établir une enveloppe, comparer deux propositions ou défendre un budget en interne. Ces trois situations appellent des contenus différents. La première demande une explication des postes de coût ; la deuxième, des critères de comparaison ; la troisième, un lien entre objectifs et moyens.",
+          "Consignez les formulations sans reproduire de données confidentielles. Une liste de questions constitue une matière de départ, pas une enquête représentative de tout votre marché. Croisez les retours disponibles et gardez visibles les sujets qui reposent encore sur une hypothèse."
+        ]
+      },
+      {
+        "id": "preuve",
+        "title": "Vérifier la matière avant de promettre un article",
+        "paragraphs": [
+          "Pour chaque question, identifiez ce qui rendra la réponse concrète : un processus à expliquer, un choix à commenter, une démonstration à filmer ou une personne capable de préciser les limites. Un titre séduisant ne compense pas une réponse sans matière. Si la preuve manque, programmez d’abord sa collecte.",
+          "Google recommande de produire des contenus utiles à une audience identifiée, avec une contribution originale et des informations permettant d’en apprécier la fiabilité. Sa documentation précise également qu’il n’existe pas de nombre de mots préféré. Ce sont des recommandations de qualité, pas une garantie de positionnement.",
+          "Notre traduction éditoriale : associer à chaque sujet une pièce disponible et une question encore ouverte. Pour expliquer un tournage, un planning commenté peut suffire. Pour annoncer des résultats, il faut des données vérifiables et leur périmètre. Si vous ne les avez pas, choisissez un angle de méthode plutôt qu’une promesse de performance."
+        ],
+        "source": {
+          "label": "Google Search Central — Créer du contenu utile, fiable et people-first",
+          "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+          "accessedAt": "2026-09-22"
+        }
+      },
+      {
+        "id": "prioriser",
+        "title": "Arbitrer avec une grille de décisions éditoriales",
+        "paragraphs": [
+          "La grille suivante illustre un cas entièrement fictif : une entreprise souhaite expliquer une offre de maintenance industrielle. Elle sert à comparer des sujets possibles ; elle ne décrit aucun client ni résultat de Wharf. Les priorités dépendent ici de la disponibilité des informations et des questions à résoudre.",
+          "Vous pouvez reprendre ces colonnes pour votre propre calendrier. Ajoutez un responsable de collecte et une échéance réaliste. Un sujet important mais insuffisamment documenté peut rester prioritaire pour la recherche, sans devenir immédiatement prioritaire pour la publication."
+        ],
+        "table": {
+          "caption": "Exemple fictif : relier une question à une matière et à un format",
+          "headers": [
+            "Question du lecteur",
+            "Matière nécessaire",
+            "Format envisagé",
+            "Arbitrage"
+          ],
+          "rows": [
+            [
+              "Que comprend une intervention ?",
+              "Étapes et exclusions validées",
+              "Article avec schéma du processus",
+              "À rédiger si le périmètre est stabilisé"
+            ],
+            [
+              "Comment préparer l’accès au site ?",
+              "Liste de préparation validée par les équipes",
+              "Guide pratique",
+              "À publier lorsque la liste est vérifiée"
+            ],
+            [
+              "Quels résultats peut-on espérer ?",
+              "Mesures, contexte et limites documentés",
+              "Cas détaillé",
+              "À reporter si les données manquent"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "diffusion",
+        "title": "Donner un rôle à chaque format et à chaque lien",
+        "paragraphs": [
+          "Une fois le sujet cadré, choisissez le format qui permet de répondre clairement. Une vidéo peut montrer un geste ou rendre audible un raisonnement. Un article facilite une explication structurée et la consultation d’une liste. Une interview apporte de la valeur si la personne interrogée précise des arbitrages, des conditions et des limites.",
+          "Les déclinaisons doivent conserver cette utilité. Un extrait publié sur un réseau peut poser une question et orienter vers la réponse complète. Sur le site, un lien vers une expertise aide le lecteur à comprendre l’accompagnement proposé ; un lien vers un autre article permet d’approfondir. Vérifiez que chaque destination tient la promesse du lien.",
+          "Prévoyez enfin une revue régulière des sujets publiés. Les retours commerciaux peuvent révéler une explication manquante ; les consultations et les demandes peuvent suggérer un intérêt à examiner. Aucun de ces signaux ne prouve isolément qu’un contenu a déclenché une vente. Documentez les observations avant de réorienter toute la ligne éditoriale."
+        ]
+      },
+      {
+        "id": "commencer",
+        "title": "Commencer par trois questions bien documentées",
+        "paragraphs": [
+          "Pour votre prochaine réunion éditoriale, apportez trois questions réellement recueillies. Pour chacune, nommez le lecteur, la décision à éclairer, la matière disponible et la prochaine étape utile. Vous obtiendrez un ensemble de sujets argumentés, que l’équipe pourra accepter, préciser ou reporter.",
+          "La cadence de publication devient alors un engagement de production réaliste. Elle laisse le temps de recueillir les éléments qui feront la différence. Pour Wharf, relier stratégie, contenus et vidéo commence par ce travail de clarification : savoir ce que l’on veut faire comprendre et avec quoi on peut le démontrer."
+        ]
+      }
+    ]
+  },
+  {
     "slug": "ai-overviews-impact-statistiques-seo",
     "theme": "content-b2b",
     "tag": "AI Overviews & mesure",
