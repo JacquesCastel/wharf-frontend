@@ -1,5 +1,122 @@
 [
   {
+    "slug": "preparer-interview-dirigeant-video",
+    "theme": "video-b2b",
+    "tag": "Parole dirigeante & vidéo",
+    "title": "Comment préparer une interview de dirigeant qui apporte du concret ?",
+    "seoTitle": "Interview de dirigeant : préparer une vidéo concrète",
+    "description": "Un guide pour préparer une interview de dirigeant : angle, questions, exemples, tournage et validation, avec une trame à adapter à votre entreprise.",
+    "intro": "Une interview de dirigeant se prépare en définissant ce que le public doit comprendre, puis en recueillant les faits et les exemples qui rendront la réponse utile. Commencez par un angle précis, un échange préparatoire et quelques questions ouvertes. Vous pourrez ensuite organiser le tournage et la validation. Ce guide propose une méthode de préparation éditoriale pour une vidéo B2B : expliquer une décision, partager une conviction ou éclairer une transformation, avec une parole qui reste celle de la personne interrogée.",
+    "takeaway": "Pour chaque message, préparez un exemple et une relance. Une interview devient concrète lorsque le dirigeant explique une situation, un choix et ses conséquences, en précisant ce qui reste incertain.",
+    "publishedAt": "2026-09-24",
+    "updatedAt": "2026-09-24",
+    "author": "Wharf",
+    "cta": "Préparer votre prochaine prise de parole en vidéo",
+    "service": "/you#dirigeants",
+    "sections": [
+      {
+        "id": "angle",
+        "title": "1. Écrire le besoin du public en une phrase",
+        "paragraphs": [
+          "Précisez d’abord qui regardera l’interview et dans quelle situation. Des collaborateurs concernés par une réorganisation ne se posent pas nécessairement les mêmes questions que des prospects découvrant une offre. Choisissez un public prioritaire pour cette vidéo, quitte à prévoir ensuite un autre traitement du sujet.",
+          "Formulez le résultat attendu de la consultation : « Après cette interview, le spectateur comprendra pourquoi nous faisons ce choix et ce qu’il change pour lui. » Cette phrase devient un critère de sélection. Un passage intéressant mais extérieur à ce besoin pourra trouver sa place ailleurs.",
+          "Préparez aussi la question la plus difficile que ce public pourrait poser. Dans un exemple fictif de lancement de service, elle pourrait être : « Qu’est-ce qui change réellement par rapport à votre offre actuelle ? » Si l’entretien évite cette question, la vidéo risque de laisser intacte la principale interrogation du lecteur ou du spectateur."
+        ]
+      },
+      {
+        "id": "preparation",
+        "title": "2. Recueillir des exemples avant de rédiger les questions",
+        "paragraphs": [
+          "Lors de l’échange préparatoire, demandez au dirigeant de raconter des situations. Quelle observation a conduit à la décision ? Quelles options ont été examinées ? Quel compromis a été nécessaire ? Notez les mots employés naturellement, les faits à vérifier et les sujets sur lesquels la réponse reste incomplète.",
+          "Transformez ces éléments en une fiche courte : objectif, public, messages essentiels, exemples disponibles et points à confirmer. Identifiez la personne capable de vérifier chaque chiffre ou chaque affirmation technique. Un exemple anonyme doit lui aussi rester fidèle à une situation réelle ; anonymiser ne permet pas de transformer les faits.",
+          "Partagez le cadre et les grands thèmes avec l’intervenant. Notre conseil est de préparer les idées sans imposer la mémorisation de chaque réponse. Si une formulation exacte est indispensable, par exemple pour décrire le périmètre d’une offre, isolez-la et vérifiez-la plutôt que de figer tout l’entretien."
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "3. Construire une trame qui fait préciser les réponses",
+        "paragraphs": [
+          "Le tableau propose une trame éditoriale à adapter, et non un questionnaire obligatoire. Chaque question poursuit un objectif différent. Vous pouvez en supprimer certaines si elles ne servent pas l’angle retenu, ou approfondir une réponse qui apporte une information nouvelle.",
+          "Posez une seule question à la fois. Une accumulation de demandes dans la même phrase peut rendre difficile une réponse précise. Lorsqu’un mot reste abstrait — innovation, proximité, agilité — demandez ce qu’il désigne dans une situation identifiable. Laissez également la possibilité de dire qu’un résultat est encore inconnu."
+        ],
+        "table": {
+          "caption": "Trame de préparation pour une interview de dirigeant",
+          "headers": [
+            "Objectif",
+            "Question à adapter",
+            "Relance possible"
+          ],
+          "rows": [
+            [
+              "Poser le contexte",
+              "Qu’est-ce qui vous a amené à prendre cette décision ?",
+              "Quelle situation vous a alerté ?"
+            ],
+            [
+              "Expliquer le choix",
+              "Qu’avez-vous décidé de faire ?",
+              "Quelle autre option avez-vous écartée, et pourquoi ?"
+            ],
+            [
+              "Rendre concret",
+              "Qu’est-ce que cela change pour les personnes concernées ?",
+              "Pouvez-vous décrire un exemple ?"
+            ],
+            [
+              "Préciser les limites",
+              "Qu’est-ce qui reste à résoudre ?",
+              "De quoi dépend la suite ?"
+            ],
+            [
+              "Ouvrir une perspective",
+              "Quelle est la prochaine étape ?",
+              "Comment saura-t-on qu’elle a été franchie ?"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "tournage",
+        "title": "4. Préparer les conditions de tournage et de consultation",
+        "paragraphs": [
+          "Repérez un lieu compatible avec une conversation audible : écoutez les équipements, les passages et la résonance de la pièce. Réservez un temps de test avant l’entretien. Prévoyez les contraintes d’accès, les personnes présentes et les éventuelles images complémentaires nécessaires pour expliquer le sujet.",
+          "Indiquez à l’intervenant où regarder et à qui il répond. Expliquez qu’une reprise est possible, puis laissez la réponse se terminer avant de relancer. Si la question doit disparaître au montage, vérifiez que la réponse restera compréhensible seule. Une phrase qui commence par « cela » peut nécessiter une courte reformulation.",
+          "Anticipez aussi l’accessibilité. Le W3C recommande d’intégrer ces besoins dès la préparation : sous-titres, transcription, description des informations visuelles selon le contenu et lecteur adapté. Prévoyez les livrables concernés et leur vérification dans le planning, plutôt que de les découvrir au moment de publier."
+        ],
+        "source": {
+          "label": "W3C WAI — Planning Audio and Video Media",
+          "url": "https://www.w3.org/WAI/media/av/planning/",
+          "accessedAt": "2026-09-24"
+        }
+      },
+      {
+        "id": "validation",
+        "title": "5. Organiser une validation qui protège le sens",
+        "paragraphs": [
+          "Désignez en amont les personnes qui valideront le fond, les éléments factuels et la version finale. Précisez ce qui relève de chacune : une donnée erronée, une information confidentielle ou un passage ambigu ne se traite pas comme une préférence de formulation. Rassemblez les retours pour éviter des demandes contradictoires.",
+          "Au montage, vérifiez que les coupes préservent le sens de la réponse. Une réserve ou une condition peut être indispensable pour comprendre une affirmation. Regardez ensuite chaque extrait de façon indépendante : conserve-t-il le contexte nécessaire ? Son titre promet-il exactement ce que la personne explique ?",
+          "Relisez les sous-titres, notamment les noms propres, les nombres et les termes métier. Vérifiez les informations inscrites à l’écran et les liens accompagnant la vidéo. Pour une publication sur le site, prévoyez un titre explicite, une présentation du sujet et une prochaine étape pertinente pour le public visé."
+        ]
+      },
+      {
+        "id": "brief",
+        "title": "Le brief à réunir avant de fixer la date",
+        "paragraphs": [
+          "Votre préparation peut tenir sur une page. Elle doit permettre à l’intervenant, à la communication et à l’équipe de production de partager le même objectif. Les décisions encore ouvertes doivent rester visibles : mieux vaut reporter une affirmation que lui donner une certitude qu’elle n’a pas.",
+          "Cette méthode ne garantit ni une audience ni un effet commercial. Elle aide à construire une interview plus claire et vérifiable. Le bon critère de relecture reste simple : après avoir regardé la vidéo, une personne extérieure peut-elle expliquer le point de vue du dirigeant et les éléments sur lesquels il repose ?"
+        ],
+        "items": [
+          "Le public prioritaire et la question à éclairer.",
+          "L’angle, les messages et les exemples disponibles.",
+          "Les faits à vérifier et les personnes responsables.",
+          "Les questions, les relances et les limites à expliciter.",
+          "Le lieu, les conditions sonores et les images complémentaires.",
+          "Les livrables, l’accessibilité, les validations et les destinations de diffusion."
+        ]
+      }
+    ]
+  },
+  {
     "slug": "strategie-editoriale-b2b-questions-acheteurs",
     "theme": "content-b2b",
     "tag": "Stratégie éditoriale",
