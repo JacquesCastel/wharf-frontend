@@ -1,5 +1,105 @@
 [
   {
+    "slug": "livre-blanc-b2b-valeur-au-dela-brochure",
+    "theme": "content-b2b",
+    "tag": "Publications & contenus de fond",
+    "title": "Livre blanc B2B : quelle valeur apporter au-delà d’une brochure commerciale ?",
+    "seoTitle": "Livre blanc B2B : apporter plus qu’une brochure",
+    "description": "Un livre blanc B2B utile apporte des critères, des preuves et des limites pour décider. Comment distinguer cette valeur d’un simple argumentaire commercial ?",
+    "intro": "Un livre blanc B2B mérite le temps de son lecteur lorsqu’il l’aide à comprendre un problème, à comparer des options ou à préparer une décision. Sa valeur tient à ce qu’il permet de faire après la lecture. Présenter une offre est légitime ; promettre un éclairage de fond engage davantage. Avant de lancer la rédaction, posez cette question : que pourra utiliser le lecteur, même s’il ne travaille jamais avec votre entreprise ?",
+    "takeaway": "Le bon critère : une personne extérieure peut-elle reprendre un raisonnement, un outil ou des critères pour avancer dans sa propre situation ? La profondeur vient de la matière et des arbitrages expliqués, pas du nombre de pages.",
+    "publishedAt": "2026-09-29",
+    "updatedAt": "2026-09-29",
+    "author": "Wharf",
+    "cta": "Concevoir un livre blanc qui donne du fond à votre expertise",
+    "service": "/work#content",
+    "sections": [
+      {
+        "id": "promesse",
+        "title": "Une promesse de lecture à tenir",
+        "paragraphs": [
+          "Une brochure répond principalement à une question : que propose cette entreprise ? Un livre blanc peut partir d’une interrogation plus large : comment traiter un problème que rencontre son public ? Cette distinction est un choix éditorial, pas une règle universelle de format. Les deux documents peuvent être utiles, à condition que le titre et la présentation annoncent clairement leur rôle.",
+          "Le décalage apparaît quand un document promet de décrypter un enjeu, puis consacre presque toutes ses pages aux avantages d’une solution. Le lecteur ne dispose alors que d’une réponse déjà choisie. Pour apporter davantage, il faut expliquer les critères du choix, les alternatives et les conditions dans lesquelles la recommandation reste pertinente.",
+          "Une entreprise peut défendre un point de vue. Elle gagne à rendre son raisonnement examinable : sur quelles observations repose-t-il ? À quelles situations s’applique-t-il ? Qu’est-ce qui pourrait conduire à choisir autrement ? Cette transparence donne au lecteur les moyens de juger la proposition."
+        ]
+      },
+      {
+        "id": "matiere",
+        "title": "La valeur repose sur une matière que l’on peut examiner",
+        "paragraphs": [
+          "Avant la mise en page, faites l’inventaire de ce que vous pouvez réellement apporter : une méthode explicitée, des entretiens documentés, des données dont le périmètre est connu, une comparaison argumentée ou un retour d’expérience autorisé. Accumuler des tendances générales ne suffit pas à éclairer une décision précise.",
+          "Il n’est pas nécessaire de produire une enquête pour chaque livre blanc. Une expertise technique peut devenir utile lorsqu’elle explique un mécanisme avec ses conditions et ses exceptions. En revanche, quelques conversations ne doivent pas être présentées comme une étude représentative. Nommez la nature de la matière utilisée, sa date et ses limites.",
+          "La contribution peut aussi être une synthèse. Dans ce cas, rendez les sources consultables et expliquez votre travail : quels rapprochements faites-vous ? Quel désaccord subsiste ? Quelle conséquence en tirez-vous pour le public visé ? Le lecteur doit pouvoir distinguer les faits rapportés, votre interprétation et vos conseils."
+        ]
+      },
+      {
+        "id": "exemple",
+        "title": "Passer d’une promesse de solution à une aide au choix",
+        "paragraphs": [
+          "Prenons un exemple entièrement fictif : un éditeur de logiciels souhaite publier sur le remplacement des tableurs dans les équipes commerciales. Une présentation de ses fonctionnalités constitue une brochure. Un livre blanc pourrait plutôt examiner la question suivante : à quel moment une organisation a-t-elle besoin de revoir son suivi commercial ?",
+          "Le sujet laisse place à plusieurs réponses, dont l’amélioration des pratiques existantes. L’éditeur peut exposer sa conviction tout en traitant les contraintes de reprise des données, de formation et de responsabilité. Il apporte alors une base de discussion entre les équipes et leur direction, sans prétendre que toutes les entreprises doivent acheter le même outil.",
+          "Le tableau ci-dessous propose des transformations éditoriales pour ce scénario fictif. Ce sont des pistes de travail ; aucune ne constitue une preuve de performance commerciale."
+        ],
+        "table": {
+          "caption": "Exemple fictif : donner une utilité concrète à un livre blanc",
+          "headers": [
+            "Point de départ commercial",
+            "Apport possible pour le lecteur"
+          ],
+          "rows": [
+            [
+              "Notre outil centralise les informations.",
+              "Des critères pour identifier les informations dispersées qui gênent réellement le travail."
+            ],
+            [
+              "Notre solution est simple à déployer.",
+              "Les conditions à réunir, les tâches à prévoir et les difficultés possibles d’une migration."
+            ],
+            [
+              "Nous améliorons la collaboration.",
+              "Une grille de responsabilités pour décider qui saisit, vérifie et utilise les données."
+            ],
+            [
+              "Demandez une démonstration.",
+              "Une liste de questions à examiner avant de rencontrer plusieurs fournisseurs."
+            ]
+          ]
+        }
+      },
+      {
+        "id": "usage",
+        "title": "Concevoir un document qui peut circuler et servir",
+        "paragraphs": [
+          "Un responsable marketing peut lire seul le document, puis en partager un passage avec sa direction ou un collègue. Notre conseil : permettre à chaque partie de rester compréhensible avec son contexte. Un tableau doit préciser son périmètre ; un chiffre doit garder sa source ; une recommandation doit conserver les conditions qui l’accompagnent.",
+          "La mise en forme contribue à cette utilisation : titres explicites, légendes, définitions et repères de version. Un schéma n’apporte quelque chose que s’il aide à saisir une relation ou une séquence. Les pages décoratives et les formules abstraites ne remplacent pas l’explication attendue.",
+          "Le PDF peut convenir à un document à conserver. Google indique que ce format fait partie des types de fichiers dont il peut indexer le contenu. Cela ne garantit ni indexation effective ni classement. Nous conseillons aussi une page web de présentation qui expose la question, le public concerné et la contribution du document : le visiteur doit pouvoir apprécier son intérêt avant de le télécharger."
+        ],
+        "source": {
+          "label": "Google Search Central — Types de fichiers indexables",
+          "url": "https://developers.google.com/search/docs/crawling-indexing/indexable-file-types",
+          "accessedAt": "2026-09-29"
+        }
+      },
+      {
+        "id": "mesure",
+        "title": "Mesurer la consultation sans lui faire dire une intention d’achat",
+        "paragraphs": [
+          "Le choix d’un accès libre ou d’un formulaire dépend de votre objectif et de la relation proposée. Dans les deux cas, un téléchargement ne démontre pas à lui seul que le document a été lu, compris ou utilisé. Il ne prouve pas davantage l’existence d’un projet d’achat.",
+          "Séparez les observations disponibles : visites de la page, téléchargements mesurés, demandes reçues et retours explicites sur le contenu. Un échange commercial peut indiquer qu’un lecteur a utilisé une grille ; il ne permet pas d’attribuer automatiquement une vente au livre blanc. Pour comprendre son utilité, demandez quelle partie a aidé et quelle question reste ouverte.",
+          "Prévoyez enfin une personne responsable des mises à jour. Un document qui présente des fonctionnalités, des pratiques ou des données évolutives doit porter une date et être revu lorsque sa matière change. Sa valeur se joue aussi dans cette maintenance."
+        ]
+      },
+      {
+        "id": "decision",
+        "title": "Avant de produire, vérifier ce que le lecteur emportera",
+        "paragraphs": [
+          "Faites relire la promesse du document par une personne proche du public visé. Demandez-lui ce qu’elle s’attend à apprendre et dans quelle situation elle s’en servirait. Ce retour exploratoire aide à repérer un angle flou ; il ne constitue pas une validation de marché.",
+          "Pour décider de lancer la production, réunissez trois éléments : une question délimitée, une matière vérifiable et un apport réutilisable. Si l’un manque, complétez le travail préparatoire ou choisissez un format plus court. L’objectif éditorial est de transformer votre expertise en une ressource utile, avec un lien clair vers l’accompagnement que vous proposez."
+        ]
+      }
+    ]
+  },
+  {
     "slug": "preparer-interview-dirigeant-video",
     "theme": "video-b2b",
     "tag": "Parole dirigeante & vidéo",
