@@ -31,6 +31,7 @@ export default function AdminRunningHead() {
         <Link href="/admin" className={pathname === '/admin' ? 'nav-active' : ''}>
           Projets
         </Link>
+        <Link href="/clients">Vidéos et fichiers</Link>
         <Link href="/admin/projets/nouveau" className={pathname === '/admin/projets/nouveau' ? 'nav-active' : ''}>
           + Nouveau projet
         </Link>

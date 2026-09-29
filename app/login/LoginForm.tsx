@@ -28,7 +28,10 @@ export default function LoginForm() {
       setError('Identifiants incorrects. Vérifiez votre adresse et mot de passe.');
     } else {
       const session = await getSession();
-      router.push(session?.user.role === 'admin' ? '/admin' : '/sommaire');
+      const destination = session?.user.role === 'admin'
+        ? (searchParams.get('callbackUrl') === '/clients' ? '/clients' : '/admin')
+        : '/sommaire';
+      router.push(destination);
     }
   }
 
