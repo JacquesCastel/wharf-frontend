@@ -4,7 +4,7 @@ export default function Offers({ compact = false }: { compact?: boolean }) {
   return (
     <section className="work-expertises editorial-offers" aria-labelledby="offers-title">
       <div className="work-container">
-        <h2 id="offers-title" className="work-expertises-title">STRATEGY + CONTENT + VIDEO</h2>
+        <h2 id="offers-title" className="work-expertises-title">STRATEGY + CONTENT + VIDEO + CRÉATION IA</h2>
         <div className="work-expertises-grid editorial-offers-grid">
           {offers.map(offer => (
             <article key={offer.id} id={offer.id} className="expertise">

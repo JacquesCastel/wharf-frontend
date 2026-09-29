@@ -17,6 +17,7 @@ export default async function Footer() {
       { href: '/work#strategy', label: 'Stratégie de communication' },
       { href: '/work#content', label: 'Création de contenus B2B' },
       { href: '/work#video', label: 'Production vidéo' },
+      { href: '/work#creation-ia', label: 'Création image & vidéo IA' },
     ] },
     { title: 'Vos enjeux', links: [
       { href: '/you#dirigeants', label: 'Prise de parole dirigeante' },

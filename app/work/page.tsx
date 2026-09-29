@@ -23,7 +23,7 @@ export default async function WorkPage() {
         <div className="work-hero-content">
           <p className="editorial-eyebrow">WORK</p>
           <h1>Stratégie, contenus & vidéo B2B</h1>
-          <p className="work-hero-subtitle">Wharf conçoit ce qu’il produit et produit ce qu’il conçoit. Du premier message au film final, une même intention guide le travail.</p>
+          <p className="work-hero-subtitle">Wharf conçoit ce qu’il produit et produit ce qu’il conçoit. Du premier message au film final, une même intention guide le travail. Tournage, création d’images et de films par l’IA, production hybride : le parti pris sert votre récit.</p>
         </div>
       </section>
       <Offers />
