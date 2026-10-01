@@ -1,5 +1,115 @@
 [
   {
+    "slug": "construire-sommaire-livre-blanc-question-client",
+    "theme": "content-b2b",
+    "tag": "Méthode éditoriale",
+    "title": "Construire le sommaire d’un livre blanc à partir d’une question client",
+    "seoTitle": "Livre blanc B2B : construire un sommaire utile",
+    "description": "Une méthode pour transformer une question client en sommaire de livre blanc B2B : progression, preuves, exemple de plan et vérification avant rédaction.",
+    "intro": "Pour construire le sommaire d’un livre blanc, partez d’une question client précise, puis décomposez le chemin nécessaire pour y répondre. Chaque partie doit lever une difficulté et apporter une matière utile : explication, critère, exemple ou outil. Le plan devient ainsi un guide de rédaction partagé, plutôt qu’une liste de thèmes à remplir. Voici une méthode pour passer de la question entendue en rendez-vous à un sommaire que vous pouvez confier à votre équipe ou à une agence.",
+    "takeaway": "Pour chaque chapitre, associez une question du lecteur, une réponse attendue et une preuve à réunir. Si vous ne pouvez pas préciser ces trois éléments, le chapitre demande encore du travail avant la rédaction.",
+    "publishedAt": "2026-10-01",
+    "updatedAt": "2026-10-01",
+    "author": "Wharf",
+    "cta": "Construire votre prochain livre blanc avec Wharf",
+    "service": "/work#content",
+    "sections": [
+      {
+        "id": "question",
+        "title": "1. Transformer une question entendue en question de travail",
+        "paragraphs": [
+          "Notez la formulation du client avec son contexte. Qui pose la question ? À quel moment du projet ? Que cherche cette personne à décider ou à expliquer à ses collègues ? « Comment mieux communiquer ? » est trop large pour orienter un livre blanc. « Comment informer les équipes d’un changement d’outil sans multiplier les messages contradictoires ? » donne déjà un public, une situation et une difficulté.",
+          "Pour la suite, prenons un exemple entièrement fictif : une entreprise de services souhaite aider des responsables communication à préparer le lancement d’un nouvel outil interne. La question retenue est : « Que faut-il préparer pour que les équipes comprennent le changement et sachent où trouver de l’aide ? » Elle ne décrit aucun client ni projet de Wharf.",
+          "Précisez aussi ce que le document ne traitera pas. Ici, nous écartons le choix du logiciel et sa configuration technique. Écrire ces limites évite de transformer le sommaire en inventaire de tout ce que l’entreprise sait faire."
+        ]
+      },
+      {
+        "id": "resultat",
+        "title": "2. Définir ce que le lecteur pourra produire",
+        "paragraphs": [
+          "Complétez une phrase : « Après la lecture, cette personne pourra… » Choisissez un résultat observable à son échelle : comparer des options, préparer une réunion, rédiger un brief ou repérer les informations manquantes. « Comprendre nos solutions » ne précise pas encore ce que le lecteur emportera.",
+          "Dans notre exemple fictif, le résultat visé est une fiche de préparation de la communication du lancement : publics concernés, changements à expliquer, informations disponibles, relais et questions en attente. Cette fiche fournit le point d’arrivée du document. Les chapitres devront donner les éléments nécessaires pour la compléter.",
+          "Ce résultat est une intention éditoriale, pas une promesse de réussite du projet. Le livre blanc ne peut pas garantir l’adoption d’un outil. Il peut proposer une démarche et aider le responsable communication à préparer les échanges avec les autres équipes."
+        ]
+      },
+      {
+        "id": "collecte",
+        "title": "3. Recueillir les sous-questions et la matière disponible",
+        "paragraphs": [
+          "Interrogez les personnes qui connaissent le sujet : experts internes, équipes en contact avec les clients et responsables opérationnels. Demandez des questions réellement rencontrées, des points de désaccord et des documents existants. Conservez la distinction entre une observation documentée et une intuition à vérifier.",
+          "Classez ensuite les questions selon leur rôle : comprendre la situation, examiner les choix, préparer l’action et vérifier la suite. Regroupez celles qui appellent la même réponse. Une objection importante mérite sa place dans le raisonnement, même si elle complique votre recommandation.",
+          "En face de chaque groupe, indiquez la matière disponible et ce qui manque. Une procédure validée peut étayer une explication ; un entretien peut éclairer un arbitrage. Un chiffre exige une source et un périmètre. Si la matière n’existe pas, prévoyez sa collecte ou réduisez la portée de la réponse."
+        ]
+      },
+      {
+        "id": "plan",
+        "title": "4. Organiser une progression, puis tester un premier plan",
+        "paragraphs": [
+          "Placez les prérequis avant les décisions qu’ils éclairent. Le lecteur doit pouvoir comprendre les termes et les contraintes avant de choisir une action. Évitez les chapitres qui reproduisent simplement l’organisation de vos services : le parcours de lecture doit suivre la question annoncée.",
+          "Voici un sommaire possible pour notre exemple fictif. Les ressources indiquées sont à produire ou à recueillir ; elles ne sont pas présentées comme déjà disponibles. Ce plan doit être ajusté aux informations obtenues auprès des personnes concernées."
+        ],
+        "table": {
+          "caption": "Exemple fictif de sommaire : préparer la communication d’un changement d’outil",
+          "headers": [
+            "Chapitre proposé",
+            "Question à résoudre",
+            "Matière à préparer"
+          ],
+          "rows": [
+            [
+              "1. Décrire ce qui change dans le travail",
+              "Quelles tâches et quelles équipes sont concernées ?",
+              "Une comparaison des usages actuels et futurs, vérifiée par les métiers."
+            ],
+            [
+              "2. Distinguer les décisions des points ouverts",
+              "Que peut-on annoncer avec certitude ?",
+              "Une liste datée des décisions, des incertitudes et de leurs responsables."
+            ],
+            [
+              "3. Préparer les réponses aux questions des équipes",
+              "Quelles difficultés faut-il expliquer ?",
+              "Des questions recueillies et des réponses validées avec leurs limites."
+            ],
+            [
+              "4. Choisir les relais et les moments de communication",
+              "Qui transmet quoi, à quel moment ?",
+              "Une trame de planning et une répartition des responsabilités."
+            ],
+            [
+              "5. Organiser l’aide et les retours",
+              "Où les équipes trouveront-elles une réponse ?",
+              "Une fiche des contacts, des ressources et du traitement des questions."
+            ]
+          ]
+        }
+      },
+      {
+        "id": "titres",
+        "title": "5. Écrire des titres qui annoncent un contenu précis",
+        "paragraphs": [
+          "Relisez uniquement les titres. Font-ils comprendre le chemin proposé ? Remplacez les intitulés vagues comme « Les enjeux » ou « Notre vision » par la question traitée ou l’action préparée. Deux titres presque interchangeables signalent souvent des chapitres à fusionner ou à mieux délimiter.",
+          "Pour une version web, prévoyez également une hiérarchie de titres cohérente. Le W3C explique que les titres structurent le contenu et peuvent servir à la navigation avec les technologies d’assistance. Il recommande de les imbriquer selon leurs niveaux et d’éviter les sauts de niveau lorsque c’est possible. La structure doit donc exister dans le document, au-delà de la taille visuelle des caractères.",
+          "À ce stade, ajoutez sous chaque titre une courte note de rédaction : réponse attendue, source ou exemple, limite à mentionner et transition vers la partie suivante. Ce document de travail permet de discuter du fond avant de consacrer du temps au style ou à la maquette."
+        ],
+        "source": {
+          "label": "W3C WAI — Headings : structurer une page avec des titres",
+          "url": "https://www.w3.org/WAI/tutorials/page-structure/headings/",
+          "accessedAt": "2026-10-01"
+        }
+      },
+      {
+        "id": "validation",
+        "title": "6. Valider le sommaire avant de rédiger les pages",
+        "paragraphs": [
+          "Faites relire le plan par un expert du sujet et, si possible, une personne proche du public visé. Demandez-leur quelle réponse ils attendent sous chaque titre, ce qui manque et ce qui leur semble superflu. Ces retours servent à corriger le plan ; ils ne constituent pas une enquête représentative.",
+          "Vérifiez ensuite la capacité de production : qui fournit chaque information, qui en vérifie l’exactitude et quelle matière doit rester confidentielle ? Un chapitre sans responsable ni source identifiée risque de devenir une suite de généralités. Mieux vaut résoudre ce manque avant de lancer la rédaction.",
+          "Vous pouvez maintenant arrêter une première version du sommaire et répartir le travail. Gardez la possibilité de le faire évoluer si les entretiens révèlent une question importante. Pour commencer, réunissez sur une page la question centrale, le public, le résultat attendu et le tableau des chapitres : vous disposerez d’un brief éditorial concret."
+        ]
+      }
+    ]
+  },
+  {
     "slug": "livre-blanc-b2b-valeur-au-dela-brochure",
     "theme": "content-b2b",
     "tag": "Publications & contenus de fond",
