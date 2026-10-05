@@ -1,4 +1,5 @@
 import { offers } from '../lib/editorial';
+import FogBackdrop from './FogBackdrop';
 import { articles, articlePath } from '../lib/insights';
 
 function OfferReading({ id }: { id: string }) {
@@ -29,6 +30,7 @@ export default function Offers({ compact = false }: { compact?: boolean }) {
         </div>
         {offers.filter(offer => offer.id === 'creation-ia').map(offer => (
           <article key={offer.id} id={offer.id} className="expertise editorial-ai-offer">
+            <FogBackdrop />
             <p className="expertise-subtitle">Une compétence de création, au service de vos contenus</p>
             <h3>{offer.title}</h3>
             <p>{offer.description}</p>
