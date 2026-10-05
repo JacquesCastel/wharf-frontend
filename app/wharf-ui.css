@@ -475,3 +475,4 @@ html:not([data-contrast="high"]):not([data-contrast="inverted"]) :is(.wharf-publ
 
 /* Le titre doit rester lisible au-dessus du film, malgré la couleur globale des headings. */
 .wharf-project .projet-hero-content h1 { color: white; }
+.wharf-project .bloc-texte-content p { color: var(--color-primary); }
