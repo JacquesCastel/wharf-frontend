@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_editorial_source",
+  "info": {
+    "displayName": "Source documentée"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": false
+    },
+    "url": {
+      "type": "string",
+      "required": false
+    },
+    "accessedAt": {
+      "type": "date"
+    },
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "organization": {
+      "type": "string",
+      "required": false
+    },
+    "publicationDate": {
+      "type": "date"
+    }
+  }
+}

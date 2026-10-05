@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_editorial_research",
+  "info": {
+    "displayName": "Méthode et périmètre"
+  },
+  "options": {},
+  "attributes": {
+    "series": {
+      "type": "enumeration",
+      "enum": [
+        "observatoire-wharf"
+      ]
+    },
+    "period": {
+      "type": "string",
+      "required": false
+    },
+    "scope": {
+      "type": "text"
+    },
+    "method": {
+      "type": "text"
+    },
+    "limitations": {
+      "type": "text"
+    },
+    "question": {
+      "type": "text"
+    },
+    "sample": {
+      "type": "text"
+    },
+    "findings": {
+      "type": "component",
+      "component": "editorial.text",
+      "repeatable": true
+    },
+    "analysis": {
+      "type": "text"
+    },
+    "sources": {
+      "type": "component",
+      "component": "editorial.source",
+      "repeatable": true
+    }
+  }
+}

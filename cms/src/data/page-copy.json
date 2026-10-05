@@ -1,0 +1,1073 @@
+{
+  "home": {
+    "name": "Home — Accueil",
+    "texts": {
+      "page-1": {
+        "label": "WE",
+        "value": "WE"
+      },
+      "page-2": {
+        "label": "Le design narratif",
+        "value": "Le design narratif"
+      },
+      "page-3": {
+        "label": "Une méthode pour relier ce que vous êtes, ce que vous dites et ce que vos publics perçoivent.",
+        "value": "Une méthode pour relier ce que vous êtes, ce que vous dites et ce que vos publics perçoivent."
+      },
+      "page-4": {
+        "label": "WORK",
+        "value": "WORK"
+      },
+      "page-5": {
+        "label": "De l’intention à l’image",
+        "value": "De l’intention à l’image"
+      },
+      "page-6": {
+        "label": "Stratégie, création éditoriale et production vidéo : une même intention, jusque dans la réalisation.",
+        "value": "Stratégie, création éditoriale et production vidéo : une même intention, jusque dans la réalisation."
+      },
+      "page-7": {
+        "label": "YOU",
+        "value": "YOU"
+      },
+      "page-8": {
+        "label": "Votre point de départ",
+        "value": "Votre point de départ"
+      },
+      "page-9": {
+        "label": "Faire connaître votre entreprise, recruter, expliquer une transformation ou produire un film.",
+        "value": "Faire connaître votre entreprise, recruter, expliquer une transformation ou produire un film."
+      },
+      "page-10": {
+        "label": "Révéler ce qui",
+        "value": "Révéler ce qui "
+      },
+      "page-11": {
+        "label": "existe déjà",
+        "value": "existe déjà"
+      },
+      "page-12": {
+        "label": "Découvrir nos expertises",
+        "value": "Découvrir nos expertises "
+      },
+      "page-13": {
+        "label": "↗",
+        "value": "↗"
+      },
+      "page-14": {
+        "label": "L’agence, le travail, vos enjeux",
+        "value": "L’agence, le travail, vos enjeux"
+      },
+      "page-15": {
+        "label": "Trois portes d’entrée.",
+        "value": "Trois portes d’entrée."
+      },
+      "page-16": {
+        "label": "↗",
+        "value": "↗"
+      },
+      "page-17": {
+        "label": "Notre manifeste",
+        "value": "Notre manifeste"
+      },
+      "page-18": {
+        "label": "Quand la parole",
+        "value": "Quand la parole"
+      },
+      "page-19": {
+        "label": "se dilue.",
+        "value": "se dilue."
+      },
+      "page-20": {
+        "label": "La communication a besoin de retrouver son point d’appui : la réalité de l’entreprise.",
+        "value": "La communication a besoin de retrouver son point d’appui : la réalité de l’entreprise."
+      },
+      "page-21": {
+        "label": "De nouveaux récits se construisent à partir de cette matière. Notre design narratif relie ce que vou",
+        "value": "De nouveaux récits se construisent à partir de cette matière. Notre design narratif relie ce que vous êtes, ce que vous dites et ce que vos publics perçoivent. Il guide la stratégie comme les contenus et les images."
+      },
+      "page-22": {
+        "label": "Découvrir notre méthode →",
+        "value": "Découvrir notre méthode →"
+      },
+      "page-23": {
+        "label": "INSIGHTS",
+        "value": "INSIGHTS"
+      },
+      "page-24": {
+        "label": "Partager les questions",
+        "value": "Partager les questions"
+      },
+      "page-25": {
+        "label": "de notre métier.",
+        "value": "de notre métier."
+      },
+      "page-26": {
+        "label": "Des guides et des analyses sur la stratégie éditoriale, la communication corporate et la production ",
+        "value": "Des guides et des analyses sur la stratégie éditoriale, la communication corporate et la production vidéo B2B."
+      },
+      "page-27": {
+        "label": "Tous les articles →",
+        "value": "Tous les articles →"
+      },
+      "page-28": {
+        "label": "La suite commence avec vous",
+        "value": "La suite commence avec vous"
+      },
+      "page-29": {
+        "label": "Quel projet voulez-vous",
+        "value": "Quel projet voulez-vous"
+      },
+      "page-30": {
+        "label": "faire avancer ?",
+        "value": "faire avancer ?"
+      },
+      "page-31": {
+        "label": "Parlons de vos publics, de vos enjeux et de ce que votre communication doit rendre possible.",
+        "value": "Parlons de vos publics, de vos enjeux et de ce que votre communication doit rendre possible."
+      },
+      "page-32": {
+        "label": "Démarrer la conversation",
+        "value": "Démarrer la conversation"
+      },
+      "positioning": {
+        "label": "Positionnement de l’agence",
+        "value": "Agence de stratégie, contenus & production vidéo B2B"
+      },
+      "description": {
+        "label": "Présentation de l’agence",
+        "value": "Wharf accompagne la communication corporate des entreprises B2B, de la stratégie éditoriale aux contenus et à la production vidéo."
+      }
+    },
+    "seo": {
+      "title": "Wharf — Stratégie, contenus & production vidéo B2B",
+      "description": "Wharf accompagne la communication corporate des entreprises B2B, de la stratégie éditoriale aux contenus et à la production vidéo."
+    }
+  },
+  "we": {
+    "name": "WE — Notre approche",
+    "texts": {
+      "we-page-3": {
+        "label": "Constat — Quand la parole se dilue",
+        "value": "Constat — Quand la parole se dilue"
+      },
+      "we-page-4": {
+        "label": "Les messages se multiplient. Pourtant, les savoir-faire, les engagements et les transformations de l",
+        "value": "Les messages se multiplient. Pourtant, les savoir-faire, les engagements et les transformations de l’entreprise restent parfois difficiles à comprendre.\n\nLe point de départ : identifier ce que vos publics doivent percevoir et ce qui les en empêche."
+      },
+      "we-page-5": {
+        "label": "Conviction — Partir de ce qui existe",
+        "value": "Conviction — Partir de ce qui existe"
+      },
+      "we-page-6": {
+        "label": "Une parole crédible s’appuie sur une réalité : les métiers, les pratiques, les personnes et les preu",
+        "value": "Une parole crédible s’appuie sur une réalité : les métiers, les pratiques, les personnes et les preuves.\n\nLe design narratif organise cette matière pour construire un récit fidèle à votre entreprise et utile à vos publics."
+      },
+      "we-page-7": {
+        "label": "Mission — Donner une forme au récit",
+        "value": "Mission — Donner une forme au récit"
+      },
+      "we-page-8": {
+        "label": "Nous traduisons ce récit en messages, en choix éditoriaux et en productions concrètes. Une interview",
+        "value": "Nous traduisons ce récit en messages, en choix éditoriaux et en productions concrètes.\n\nUne interview, un film corporate ou une série de contenus prolonge ainsi la même intention, dans un format adapté à son usage."
+      },
+      "we-page-9": {
+        "label": "Conseil stratégique",
+        "value": "Conseil stratégique"
+      },
+      "we-page-10": {
+        "label": "Comprendre l’enjeu, écouter les parties prenantes et définir les messages. La plateforme narrative e",
+        "value": "Comprendre l’enjeu, écouter les parties prenantes et définir les messages. La plateforme narrative et la ligne éditoriale donnent une direction aux prises de parole."
+      },
+      "we-page-13": {
+        "label": "De la méthode aux réalisations",
+        "value": "De la méthode aux réalisations"
+      },
+      "we-page-14": {
+        "label": "Découvrez comment notre travail prend forme dans les projets Wharf.",
+        "value": "Découvrez comment notre travail prend forme dans les projets Wharf."
+      },
+      "we-page-15": {
+        "label": "WE / Notre approche",
+        "value": "WE / Notre approche"
+      },
+      "we-page-16": {
+        "label": "Le design",
+        "value": "Le design "
+      },
+      "we-page-17": {
+        "label": "narratif.",
+        "value": "narratif."
+      },
+      "we-page-18": {
+        "label": "Relier la réalité de votre entreprise à ce que vos publics comprennent. Notre méthode pour concevoir",
+        "value": "Relier la réalité de votre entreprise à ce que vos publics comprennent. Notre méthode pour concevoir votre stratégie, vos contenus et vos films."
+      },
+      "we-page-19": {
+        "label": "Découvrir notre approche ↓",
+        "value": "Découvrir notre approche ↓"
+      },
+      "we-page-20": {
+        "label": "1",
+        "value": "1"
+      },
+      "we-page-21": {
+        "label": "Acte 1",
+        "value": "Acte 1"
+      },
+      "we-page-22": {
+        "label": "2",
+        "value": "2"
+      },
+      "we-page-23": {
+        "label": "Acte 2",
+        "value": "Acte 2"
+      },
+      "we-page-24": {
+        "label": "3",
+        "value": "3"
+      },
+      "we-page-25": {
+        "label": "Acte 3",
+        "value": "Acte 3"
+      },
+      "we-page-26": {
+        "label": "Là où la",
+        "value": "Là où la "
+      },
+      "we-page-27": {
+        "label": "stratégie rencontre la création",
+        "value": "stratégie rencontre la création"
+      },
+      "we-page-28": {
+        "label": "Une méthode, trois expertises",
+        "value": "Une méthode, trois expertises"
+      },
+      "we-page-29": {
+        "label": "STRATEGY",
+        "value": "STRATEGY"
+      },
+      "we-page-30": {
+        "label": "Explorer la stratégie →",
+        "value": "Explorer la stratégie →"
+      },
+      "we-page-31": {
+        "label": "CONTENT",
+        "value": "CONTENT"
+      },
+      "we-page-32": {
+        "label": "Création éditoriale",
+        "value": "Création éditoriale"
+      },
+      "we-page-33": {
+        "label": "Organiser la matière, choisir un angle et écrire. Articles, publications, contenus web et audio déve",
+        "value": "Organiser la matière, choisir un angle et écrire. Articles, publications, contenus web et audio développent vos messages et font vivre votre expertise."
+      },
+      "we-page-34": {
+        "label": "Explorer les contenus →",
+        "value": "Explorer les contenus →"
+      },
+      "we-page-35": {
+        "label": "VIDEO",
+        "value": "VIDEO"
+      },
+      "we-page-36": {
+        "label": "Production vidéo",
+        "value": "Production vidéo"
+      },
+      "we-page-37": {
+        "label": "Du scénario au montage, les images incarnent votre point de vue. Le tournage, la création IA ou leur",
+        "value": "Du scénario au montage, les images incarnent votre point de vue. Le tournage, la création IA ou leur association donnent forme au parti pris retenu."
+      },
+      "we-page-38": {
+        "label": "Explorer la vidéo →",
+        "value": "Explorer la vidéo →"
+      },
+      "we-page-39": {
+        "label": "Le design narratif en pratique",
+        "value": "Le design narratif en pratique"
+      },
+      "we-page-40": {
+        "label": "Diagnostic.",
+        "value": "Diagnostic."
+      },
+      "we-page-41": {
+        "label": "Écouter les parties prenantes, identifier les publics et les difficultés de compréhension.",
+        "value": " Écouter les parties prenantes, identifier les publics et les difficultés de compréhension."
+      },
+      "we-page-42": {
+        "label": "Stratégie.",
+        "value": "Stratégie."
+      },
+      "we-page-43": {
+        "label": "Définir l’objectif, les priorités et le rôle de chaque prise de parole.",
+        "value": " Définir l’objectif, les priorités et le rôle de chaque prise de parole."
+      },
+      "we-page-44": {
+        "label": "Récit.",
+        "value": "Récit."
+      },
+      "we-page-45": {
+        "label": "Organiser les messages autour des faits, des personnes et des preuves disponibles.",
+        "value": " Organiser les messages autour des faits, des personnes et des preuves disponibles."
+      },
+      "we-page-46": {
+        "label": "Contenus.",
+        "value": "Contenus."
+      },
+      "we-page-47": {
+        "label": "Choisir les sujets et les formats, écrire et préparer les intervenants.",
+        "value": " Choisir les sujets et les formats, écrire et préparer les intervenants."
+      },
+      "we-page-48": {
+        "label": "Production.",
+        "value": "Production."
+      },
+      "we-page-49": {
+        "label": "Donner forme aux contenus : tournage, création visuelle, montage et déclinaisons.",
+        "value": " Donner forme aux contenus : tournage, création visuelle, montage et déclinaisons."
+      },
+      "we-page-50": {
+        "label": "Diffuser et évaluer.",
+        "value": "Diffuser et évaluer."
+      },
+      "we-page-51": {
+        "label": "Quels canaux et quels critères permettront de juger le travail utile ?",
+        "value": " Quels canaux et quels critères permettront de juger le travail utile ?"
+      },
+      "we-page-52": {
+        "label": "Partir de votre situation →",
+        "value": "Partir de votre situation →"
+      },
+      "we-page-53": {
+        "label": "La méthode dans un projet",
+        "value": "La méthode dans un projet"
+      },
+      "we-page-54": {
+        "label": "Une conviction mise en scène",
+        "value": "Une conviction mise en scène"
+      },
+      "we-page-55": {
+        "label": "Dans son film d’autopromotion « Au café du commerce », Wharf part d’une conviction : lorsque l’on ne",
+        "value": "Dans son film d’autopromotion « Au café du commerce », Wharf part d’une conviction : lorsque l’on ne prend pas la parole, les autres le font à notre place. Le café devient la métaphore de cette scène publique où chacun observe et commente."
+      },
+      "we-page-56": {
+        "label": "Une intention, un point de vue, une forme : la fiction donne corps à cette idée et permet de la part",
+        "value": "Une intention, un point de vue, une forme : la fiction donne corps à cette idée et permet de la partager."
+      },
+      "we-page-57": {
+        "label": "Découvrir le concept et le film →",
+        "value": "Découvrir le concept et le film →"
+      }
+    },
+    "seo": {
+      "title": "WE — Le design narratif, méthode Wharf",
+      "description": "Du constat à la création : découvrez comment le design narratif relie stratégie, contenus et vidéo à la réalité de votre entreprise."
+    }
+  },
+  "work": {
+    "name": "WORK — Expertises",
+    "texts": {
+      "work-page-1": {
+        "label": "WORK / Expertises & réalisations",
+        "value": "WORK / Expertises & réalisations"
+      },
+      "work-page-2": {
+        "label": "Stratégie,",
+        "value": "Stratégie, "
+      },
+      "work-page-3": {
+        "label": "contenus & vidéo B2B.",
+        "value": "contenus & vidéo B2B."
+      },
+      "work-page-4": {
+        "label": "Wharf conçoit ce qu’il produit et produit ce qu’il conçoit. Du premier message au film final, une mê",
+        "value": "Wharf conçoit ce qu’il produit et produit ce qu’il conçoit. Du premier message au film final, une même intention guide le travail."
+      },
+      "work-page-5": {
+        "label": "Réalisations ↓",
+        "value": "Réalisations ↓"
+      },
+      "work-page-6": {
+        "label": "Strategy",
+        "value": "Strategy"
+      },
+      "work-page-7": {
+        "label": "Content",
+        "value": "Content"
+      },
+      "work-page-8": {
+        "label": "Video",
+        "value": "Video"
+      },
+      "work-page-9": {
+        "label": "Création IA",
+        "value": "Création IA"
+      },
+      "work-page-10": {
+        "label": "Une intention, du conseil à la production",
+        "value": "Une intention, du conseil à la production"
+      },
+      "work-page-11": {
+        "label": "Le design narratif relie vos enjeux aux contenus qui les incarnent.",
+        "value": "Le design narratif relie vos enjeux aux contenus qui les incarnent."
+      },
+      "work-page-12": {
+        "label": "Comprendre votre situation, vos publics et l’objectif de communication. Définir les messages et les ",
+        "value": "Comprendre votre situation, vos publics et l’objectif de communication. Définir les messages et les preuves à mobiliser."
+      },
+      "work-page-13": {
+        "label": "Construire le parti pris éditorial, les formats et le dispositif de production. Préparer les sujets ",
+        "value": "Construire le parti pris éditorial, les formats et le dispositif de production. Préparer les sujets et les intervenants."
+      },
+      "work-page-14": {
+        "label": "Produire et décliner",
+        "value": "Produire et décliner"
+      },
+      "work-page-15": {
+        "label": "Réaliser les contenus et les films, puis les adapter aux canaux de diffusion et aux usages définis e",
+        "value": "Réaliser les contenus et les films, puis les adapter aux canaux de diffusion et aux usages définis ensemble."
+      },
+      "work-page-16": {
+        "label": "Découvrir le design narratif →",
+        "value": "Découvrir le design narratif →"
+      },
+      "work-page-17": {
+        "label": "Préparer votre prochain projet",
+        "value": "Préparer votre prochain projet"
+      },
+      "work-page-18": {
+        "label": "Des repères pour choisir vos contenus et préparer leur production.",
+        "value": "Des repères pour choisir vos contenus et préparer leur production."
+      },
+      "work-page-19": {
+        "label": "Un sujet à clarifier, un contenu à produire ?",
+        "value": "Un sujet à clarifier, un contenu à produire ?"
+      },
+      "work-page-20": {
+        "label": "Partons de votre besoin pour construire le bon accompagnement.",
+        "value": "Partons de votre besoin pour construire le bon accompagnement."
+      },
+      "work-page-21": {
+        "label": "Parlons de votre projet →",
+        "value": "Parlons de votre projet →"
+      }
+    },
+    "seo": {
+      "title": "WORK — Stratégie, contenus & vidéo B2B | Wharf",
+      "description": "Stratégie éditoriale, contenus B2B, production vidéo et création d’images et de films par l’IA : découvrez les expertises Wharf."
+    }
+  },
+  "you": {
+    "name": "YOU — Vos enjeux",
+    "texts": {
+      "you-page-1": {
+        "label": "YOU / Vos enjeux",
+        "value": "YOU / Vos enjeux"
+      },
+      "you-page-2": {
+        "label": "Que voulez-vous",
+        "value": "Que voulez-vous "
+      },
+      "you-page-3": {
+        "label": "faire avancer ?",
+        "value": "faire avancer ?"
+      },
+      "you-page-4": {
+        "label": "Faire connaître votre entreprise, recruter, expliquer un changement ou produire un film : commençons",
+        "value": "Faire connaître votre entreprise, recruter, expliquer un changement ou produire un film : commençons par ce que vous avez besoin de réussir."
+      },
+      "you-page-5": {
+        "label": "Explorer vos besoins ↓",
+        "value": "Explorer vos besoins ↓"
+      },
+      "you-page-6": {
+        "label": "Vous voulez…",
+        "value": "Vous voulez…"
+      },
+      "you-page-7": {
+        "label": "Six points de départ, à combiner selon vos enjeux, vos ressources et votre calendrier.",
+        "value": "Six points de départ, à combiner selon vos enjeux, vos ressources et votre calendrier."
+      },
+      "you-page-8": {
+        "label": "Les réponses possibles :",
+        "value": "Les réponses possibles :"
+      },
+      "you-page-9": {
+        "label": "→",
+        "value": " →"
+      },
+      "you-page-10": {
+        "label": "À lire :",
+        "value": "À lire : "
+      },
+      "you-page-11": {
+        "label": "Parlons de ce besoin →",
+        "value": "Parlons de ce besoin →"
+      },
+      "you-page-12": {
+        "label": "Avant le format, comprendre l’enjeu",
+        "value": "Avant le format, comprendre l’enjeu"
+      },
+      "you-page-13": {
+        "label": "Votre objectif",
+        "value": "Votre objectif"
+      },
+      "you-page-14": {
+        "label": "Que voulez-vous obtenir et pourquoi est-ce devenu important ?",
+        "value": "Que voulez-vous obtenir et pourquoi est-ce devenu important ?"
+      },
+      "you-page-15": {
+        "label": "Vos publics",
+        "value": "Vos publics"
+      },
+      "you-page-16": {
+        "label": "Que doivent-ils comprendre, ressentir ou pouvoir faire ?",
+        "value": "Que doivent-ils comprendre, ressentir ou pouvoir faire ?"
+      },
+      "you-page-17": {
+        "label": "Votre situation",
+        "value": "Votre situation"
+      },
+      "you-page-18": {
+        "label": "Qu’est-ce qui freine aujourd’hui votre communication ? De quelles ressources et de quel calendrier d",
+        "value": "Qu’est-ce qui freine aujourd’hui votre communication ? De quelles ressources et de quel calendrier disposez-vous ?"
+      },
+      "you-page-19": {
+        "label": "L’accompagnement peut être ciblé sur une production ou aller de la stratégie aux contenus.",
+        "value": "L’accompagnement peut être ciblé sur une production ou aller de la stratégie aux contenus."
+      },
+      "you-page-20": {
+        "label": "Explorer nos expertises et réalisations →",
+        "value": "Explorer nos expertises et réalisations →"
+      },
+      "you-page-21": {
+        "label": "Parlons de votre situation",
+        "value": "Parlons de votre situation"
+      },
+      "you-page-22": {
+        "label": "Un besoin précis ou une question encore ouverte : c’est un bon point de départ.",
+        "value": "Un besoin précis ou une question encore ouverte : c’est un bon point de départ."
+      },
+      "you-page-23": {
+        "label": "Démarrer la conversation →",
+        "value": "Démarrer la conversation →"
+      },
+      "situation-visibilite-titre": {
+        "label": "Faire connaître votre entreprise — titre",
+        "value": "Faire connaître votre entreprise"
+      },
+      "situation-visibilite-description": {
+        "label": "Faire connaître votre entreprise — description",
+        "value": "Votre expertise mérite d’être mieux comprise. Clarifions votre message et les preuves qui aideront vos publics à reconnaître votre valeur."
+      },
+      "situation-visibilite-formats": {
+        "label": "Faire connaître votre entreprise — formats",
+        "value": "Communication corporate, stratégie éditoriale, contenus B2B."
+      },
+      "situation-visibilite-link-0": {
+        "label": "Faire connaître votre entreprise — lien 1",
+        "value": "Clarifier votre positionnement"
+      },
+      "situation-visibilite-link-1": {
+        "label": "Faire connaître votre entreprise — lien 2",
+        "value": "Faire vivre votre expertise"
+      },
+      "situation-dirigeants-titre": {
+        "label": "Donner la parole à vos dirigeants — titre",
+        "value": "Donner la parole à vos dirigeants"
+      },
+      "situation-dirigeants-description": {
+        "label": "Donner la parole à vos dirigeants — description",
+        "value": "Vous avez une vision ou une conviction à partager. Construisons une prise de parole claire, incarnée et adaptée à ceux qui doivent l’entendre."
+      },
+      "situation-dirigeants-formats": {
+        "label": "Donner la parole à vos dirigeants — formats",
+        "value": "Conseil éditorial, interview, LinkedIn, vidéo."
+      },
+      "situation-dirigeants-link-0": {
+        "label": "Donner la parole à vos dirigeants — lien 1",
+        "value": "Préparer la prise de parole"
+      },
+      "situation-dirigeants-link-1": {
+        "label": "Donner la parole à vos dirigeants — lien 2",
+        "value": "Produire une interview"
+      },
+      "situation-recrutement-titre": {
+        "label": "Attirer et recruter — titre",
+        "value": "Attirer et recruter"
+      },
+      "situation-recrutement-description": {
+        "label": "Attirer et recruter — description",
+        "value": "Faire découvrir vos métiers et votre environnement de travail aide les candidats à se projeter. Partons de la réalité vécue par vos équipes."
+      },
+      "situation-recrutement-formats": {
+        "label": "Attirer et recruter — formats",
+        "value": "Marque employeur, témoignages collaborateurs, campagnes vidéo."
+      },
+      "situation-recrutement-link-0": {
+        "label": "Attirer et recruter — lien 1",
+        "value": "Construire la marque employeur"
+      },
+      "situation-recrutement-link-1": {
+        "label": "Attirer et recruter — lien 2",
+        "value": "Filmer les métiers et les équipes"
+      },
+      "situation-transformation-titre": {
+        "label": "Expliquer une transformation — titre",
+        "value": "Expliquer une transformation"
+      },
+      "situation-transformation-description": {
+        "label": "Expliquer une transformation — description",
+        "value": "Vos équipes ont besoin de comprendre ce qui change et ce que cela implique. Rendons la transformation concrète et donnons la parole à ceux qui la vivent."
+      },
+      "situation-transformation-formats": {
+        "label": "Expliquer une transformation — formats",
+        "value": "Communication interne, récit du changement, films et contenus pédagogiques."
+      },
+      "situation-transformation-link-0": {
+        "label": "Expliquer une transformation — lien 1",
+        "value": "Cadrer le récit du changement"
+      },
+      "situation-transformation-link-1": {
+        "label": "Expliquer une transformation — lien 2",
+        "value": "Créer les contenus pédagogiques"
+      },
+      "situation-reseaux-titre": {
+        "label": "Produire régulièrement pour vos réseaux — titre",
+        "value": "Produire régulièrement pour vos réseaux"
+      },
+      "situation-reseaux-description": {
+        "label": "Produire régulièrement pour vos réseaux — description",
+        "value": "Vous souhaitez prendre la parole dans la durée. Organisons les sujets, les tournages et les déclinaisons autour de vos priorités éditoriales."
+      },
+      "situation-reseaux-formats": {
+        "label": "Produire régulièrement pour vos réseaux — formats",
+        "value": "Stratégie social media, journées de tournage, séries vidéo, déclinaisons."
+      },
+      "situation-reseaux-link-0": {
+        "label": "Produire régulièrement pour vos réseaux — lien 1",
+        "value": "Organiser les contenus"
+      },
+      "situation-reseaux-link-1": {
+        "label": "Produire régulièrement pour vos réseaux — lien 2",
+        "value": "Produire une série vidéo"
+      },
+      "situation-film-titre": {
+        "label": "Produire un film — titre",
+        "value": "Produire un film"
+      },
+      "situation-film-description": {
+        "label": "Produire un film — description",
+        "value": "Vous avez un sujet, une échéance ou un brief. Définissons le parti pris, les moyens et les formats nécessaires pour lui donner forme."
+      },
+      "situation-film-formats": {
+        "label": "Produire un film — formats",
+        "value": "Conception, réalisation, production, postproduction."
+      },
+      "situation-film-link-0": {
+        "label": "Produire un film — lien 1",
+        "value": "Concevoir et produire le film"
+      },
+      "situation-film-link-1": {
+        "label": "Produire un film — lien 2",
+        "value": "Explorer la création IA"
+      }
+    },
+    "seo": {
+      "title": "YOU — Vos enjeux de communication B2B | Wharf",
+      "description": "Visibilité, parole dirigeante, recrutement, transformation, réseaux sociaux ou film corporate : partons de votre besoin."
+    }
+  },
+  "contact": {
+    "name": "Contact",
+    "texts": {
+      "contact-page-1": {
+        "label": "CONTACT / Vous & Wharf",
+        "value": "CONTACT / Vous & Wharf"
+      },
+      "contact-page-2": {
+        "label": "Parlons de",
+        "value": "Parlons de"
+      },
+      "contact-page-3": {
+        "label": "votre projet.",
+        "value": "votre projet."
+      },
+      "contact-page-4": {
+        "label": "Un besoin précis, une idée à explorer ou une question encore ouverte. Partons de ce que vous voulez ",
+        "value": "Un besoin précis, une idée à explorer ou une question encore ouverte. Partons de ce que vous voulez faire avancer."
+      },
+      "contact-page-5": {
+        "label": "Le point de départ",
+        "value": "Le point de départ"
+      },
+      "contact-page-6": {
+        "label": "Quelques mots",
+        "value": "Quelques mots"
+      },
+      "contact-page-7": {
+        "label": "suffisent.",
+        "value": "suffisent."
+      },
+      "contact-page-8": {
+        "label": "Stratégie de communication, contenus B2B, film ou création d’images par l’IA : dites-nous ce que vou",
+        "value": "Stratégie de communication, contenus B2B, film ou création d’images par l’IA : dites-nous ce que vous avez en tête."
+      },
+      "contact-page-9": {
+        "label": "Vous pouvez préciser votre objectif, vos publics et votre calendrier. Le format peut encore rester à",
+        "value": "Vous pouvez préciser votre objectif, vos publics et votre calendrier. Le format peut encore rester à définir."
+      },
+      "contact-page-10": {
+        "label": "Vous préférez nous écrire directement ?",
+        "value": "Vous préférez nous écrire directement ?"
+      },
+      "contact-page-11": {
+        "label": "↗",
+        "value": "↗"
+      },
+      "contact-page-12": {
+        "label": "Explorer nos expertises →",
+        "value": "Explorer nos expertises →"
+      },
+      "contact-page-13": {
+        "label": "Partir de votre situation →",
+        "value": "Partir de votre situation →"
+      }
+    },
+    "seo": {
+      "title": "Contact — Parlons de votre projet | Wharf",
+      "description": "Échangeons sur votre projet de communication B2B : stratégie, contenus, production vidéo ou création d’images et de films par l’IA."
+    }
+  },
+  "insights": {
+    "name": "INSIGHTS — Blog",
+    "texts": {
+      "insights-page-1": {
+        "label": "INSIGHTS / LE BLOG WHARF",
+        "value": "INSIGHTS / LE BLOG WHARF"
+      },
+      "insights-page-2": {
+        "label": "Éclairer vos choix de communication.",
+        "value": "Éclairer vos choix de communication."
+      },
+      "insights-page-3": {
+        "label": "Stratégie éditoriale, communication corporate, vidéo et IA : des guides pour préparer vos projets et",
+        "value": "Stratégie éditoriale, communication corporate, vidéo et IA : des guides pour préparer vos projets et des analyses pour comprendre ce qui change. Chaque article distingue les conseils, les exemples et les faits documentés."
+      },
+      "insights-page-4": {
+        "label": "Explorer par thème",
+        "value": "Explorer par thème"
+      },
+      "insights-page-5": {
+        "label": "Explorer par format",
+        "value": "Explorer par format"
+      },
+      "insights-page-6": {
+        "label": "De la réflexion à votre projet",
+        "value": "De la réflexion à votre projet"
+      },
+      "insights-page-7": {
+        "label": "Relions vos enjeux aux messages, aux contenus et aux films qui peuvent les servir.",
+        "value": "Relions vos enjeux aux messages, aux contenus et aux films qui peuvent les servir."
+      },
+      "insights-page-8": {
+        "label": "Échanger avec Wharf →",
+        "value": "Échanger avec Wharf →"
+      }
+    },
+    "seo": {
+      "title": "INSIGHTS — Stratégie, contenus & vidéo B2B | Wharf",
+      "description": "Guides et analyses Wharf sur la stratégie éditoriale, les contenus, la vidéo, la communication corporate et les enjeux de visibilité B2B."
+    }
+  },
+  "global": {
+    "name": "Textes communs, offres et pied de page",
+    "texts": {
+      "components-Offers-1": {
+        "label": "Pour préparer votre projet :",
+        "value": "Pour préparer votre projet : "
+      },
+      "components-Offers-2": {
+        "label": "STRATEGY + CONTENT + VIDEO",
+        "value": "STRATEGY + CONTENT + VIDEO"
+      },
+      "components-Offers-3": {
+        "label": "Penser le fond.",
+        "value": "Penser le fond."
+      },
+      "components-Offers-4": {
+        "label": "Créer la forme.",
+        "value": "Créer la forme."
+      },
+      "components-Offers-5": {
+        "label": "→",
+        "value": " →"
+      },
+      "components-Offers-6": {
+        "label": "Une compétence de création, au service de vos contenus",
+        "value": "Une compétence de création, au service de vos contenus"
+      },
+      "components-Offers-7": {
+        "label": "→",
+        "value": " →"
+      },
+      "components-Footer-8": {
+        "label": "Wharf",
+        "value": "Wharf"
+      },
+      "components-Footer-9": {
+        "label": "L’agence et notre méthode",
+        "value": "L’agence et notre méthode"
+      },
+      "components-Footer-10": {
+        "label": "Expertises et réalisations",
+        "value": "Expertises et réalisations"
+      },
+      "components-Footer-11": {
+        "label": "Vos enjeux de communication",
+        "value": "Vos enjeux de communication"
+      },
+      "components-Footer-12": {
+        "label": "Parlons de votre projet",
+        "value": "Parlons de votre projet"
+      },
+      "components-Footer-13": {
+        "label": "Nos expertises",
+        "value": "Nos expertises"
+      },
+      "components-Footer-14": {
+        "label": "Stratégie de communication",
+        "value": "Stratégie de communication"
+      },
+      "components-Footer-15": {
+        "label": "Création de contenus B2B",
+        "value": "Création de contenus B2B"
+      },
+      "components-Footer-16": {
+        "label": "Production vidéo",
+        "value": "Production vidéo"
+      },
+      "components-Footer-17": {
+        "label": "Création image & vidéo IA",
+        "value": "Création image & vidéo IA"
+      },
+      "components-Footer-18": {
+        "label": "Vos enjeux",
+        "value": "Vos enjeux"
+      },
+      "components-Footer-19": {
+        "label": "Prise de parole dirigeante",
+        "value": "Prise de parole dirigeante"
+      },
+      "components-Footer-20": {
+        "label": "Marque employeur et recrutement",
+        "value": "Marque employeur et recrutement"
+      },
+      "components-Footer-21": {
+        "label": "Communication du changement",
+        "value": "Communication du changement"
+      },
+      "components-Footer-22": {
+        "label": "Film corporate",
+        "value": "Film corporate"
+      },
+      "components-Footer-23": {
+        "label": "Analyses et conseils",
+        "value": "Analyses et conseils"
+      },
+      "components-Footer-24": {
+        "label": "Tous les articles",
+        "value": "Tous les articles"
+      },
+      "components-Footer-25": {
+        "label": "contact@bywharf.com",
+        "value": "contact@bywharf.com"
+      },
+      "components-Footer-26": {
+        "label": "À lire sur le blog Wharf",
+        "value": "À lire sur le blog Wharf"
+      },
+      "components-Footer-27": {
+        "label": "Accessibilité",
+        "value": "Accessibilité"
+      },
+      "components-Footer-28": {
+        "label": "Notre engagement d’accessibilité",
+        "value": "Notre engagement d’accessibilité"
+      },
+      "components-Footer-29": {
+        "label": "Wharf accompagne les entreprises dans leur communication corporate : clarifier leur récit, faire viv",
+        "value": "Wharf accompagne les entreprises dans leur communication corporate : clarifier leur récit, faire vivre leur expertise et l’incarner en images. Découvrez "
+      },
+      "components-Footer-30": {
+        "label": "notre approche du design narratif",
+        "value": "notre approche du design narratif"
+      },
+      "components-Footer-31": {
+        "label": ".",
+        "value": "."
+      },
+      "work-WorkPortfolio-32": {
+        "label": "WHARF / WORK",
+        "value": "WHARF / WORK"
+      },
+      "work-WorkPortfolio-33": {
+        "label": "Nos réalisations.",
+        "value": "Nos réalisations."
+      },
+      "work-WorkPortfolio-34": {
+        "label": "Les réalisations sont momentanément indisponibles.",
+        "value": "Les réalisations sont momentanément indisponibles. "
+      },
+      "work-WorkPortfolio-35": {
+        "label": "Réessayer",
+        "value": "Réessayer"
+      },
+      "work-WorkPortfolio-36": {
+        "label": "ou",
+        "value": " ou "
+      },
+      "work-WorkPortfolio-37": {
+        "label": "contactez-nous pour découvrir notre travail",
+        "value": "contactez-nous pour découvrir notre travail"
+      },
+      "work-WorkPortfolio-38": {
+        "label": ".",
+        "value": "."
+      },
+      "work-WorkPortfolio-39": {
+        "label": "Les réalisations seront présentées ici prochainement.",
+        "value": "Les réalisations seront présentées ici prochainement. "
+      },
+      "work-WorkPortfolio-40": {
+        "label": "Échangeons sur votre projet",
+        "value": "Échangeons sur votre projet"
+      },
+      "work-WorkPortfolio-41": {
+        "label": ".",
+        "value": "."
+      },
+      "work-WorkPortfolio-42": {
+        "label": "Tous les projets (",
+        "value": "Tous les projets ("
+      },
+      "work-WorkPortfolio-43": {
+        "label": ")",
+        "value": ")"
+      },
+      "work-WorkPortfolio-44": {
+        "label": "(",
+        "value": " ("
+      },
+      "work-WorkPortfolio-45": {
+        "label": ")",
+        "value": ")"
+      },
+      "work-WorkPortfolio-46": {
+        "label": "–",
+        "value": "–"
+      },
+      "work-WorkPortfolio-47": {
+        "label": "sur",
+        "value": " sur "
+      },
+      "work-WorkPortfolio-48": {
+        "label": "réalisations · page",
+        "value": " réalisations · page "
+      },
+      "work-WorkPortfolio-49": {
+        "label": "sur",
+        "value": " sur "
+      },
+      "work-WorkPortfolio-50": {
+        "label": "WHARF / WORK",
+        "value": "WHARF / WORK"
+      },
+      "work-WorkPortfolio-51": {
+        "label": "Découvrir le projet →",
+        "value": "Découvrir le projet →"
+      },
+      "work-WorkPortfolio-52": {
+        "label": "← Réalisations précédentes",
+        "value": "← Réalisations précédentes"
+      },
+      "work-WorkPortfolio-53": {
+        "label": "Réalisations suivantes →",
+        "value": "Réalisations suivantes →"
+      },
+      "work-WorkPortfolio-54": {
+        "label": "Toutes les réalisations →",
+        "value": "Toutes les réalisations →"
+      },
+      "offer-strategy-name": {
+        "label": "STRATEGY — name",
+        "value": "STRATEGY"
+      },
+      "offer-strategy-title": {
+        "label": "STRATEGY — title",
+        "value": "Donner une direction à votre communication"
+      },
+      "offer-strategy-description": {
+        "label": "STRATEGY — description",
+        "value": "Clarifier ce que votre entreprise veut faire comprendre, à qui et pourquoi. Le design narratif relie votre réalité aux messages que vous portez."
+      },
+      "offer-strategy-items": {
+        "label": "STRATEGY — prestations (une par ligne)",
+        "value": "Communication corporate\nPlateforme narrative\nStratégie éditoriale\nMarque employeur\nCommunication du changement\nPrise de parole dirigeant"
+      },
+      "offer-content-name": {
+        "label": "CONTENT — name",
+        "value": "CONTENT"
+      },
+      "offer-content-title": {
+        "label": "CONTENT — title",
+        "value": "Donner du fond à vos prises de parole"
+      },
+      "offer-content-description": {
+        "label": "CONTENT — description",
+        "value": "Concevoir et rédiger les contenus qui expliquent votre activité, valorisent vos expertises et nourrissent le dialogue avec vos publics. Articles, publications, contenus web et audio : une même exigence éditoriale, en communication interne comme externe."
+      },
+      "offer-content-items": {
+        "label": "CONTENT — prestations (une par ligne)",
+        "value": "Articles, dossiers et livres blancs\nMagazines, newsletters et rapports d’activité\nContenus de sites et pages d’expertise\nCas clients, interviews et portraits\nTribunes et prises de parole dirigeantes\nPodcasts et récits audio\nAdaptations pour les réseaux sociaux"
+      },
+      "offer-video-name": {
+        "label": "VIDEO — name",
+        "value": "VIDEO"
+      },
+      "offer-video-title": {
+        "label": "VIDEO — title",
+        "value": "Donner corps à votre récit"
+      },
+      "offer-video-description": {
+        "label": "VIDEO — description",
+        "value": "Concevoir et produire les images qui incarnent votre entreprise, de la préparation du tournage à la postproduction et aux formats de diffusion."
+      },
+      "offer-video-items": {
+        "label": "VIDEO — prestations (une par ligne)",
+        "value": "Film corporate et film de marque\nInterview dirigeant\nPortrait collaborateur\nSérie vidéo\nMotion design\nSocial video et captation"
+      },
+      "offer-creation-ia-name": {
+        "label": "CRÉATION IA — name",
+        "value": "CRÉATION IA"
+      },
+      "offer-creation-ia-title": {
+        "label": "CRÉATION IA — title",
+        "value": "Création d’images et de films par l’IA"
+      },
+      "offer-creation-ia-description": {
+        "label": "CRÉATION IA — description",
+        "value": "Imaginer un univers, choisir un style, donner vie à un scénario. Wharf associe direction artistique et intelligence artificielle pour créer vos images et vos films, du concept au montage final. Une liberté de création élargie, au service de votre récit et de votre identité."
+      },
+      "offer-creation-ia-items": {
+        "label": "CRÉATION IA — prestations (une par ligne)",
+        "value": "Concept, scénario et direction artistique\nCréation d’images et d’univers visuels\nAnimation et production vidéo IA\nVoix-off, musique et création sonore\nMontage, finitions et déclinaisons\nFilms de marque, contenus de campagne et formats courts\nCréation générative ou production hybride avec tournage"
+      },
+      "positioning": {
+        "label": "Positionnement du pied de page",
+        "value": "Agence de stratégie, contenus & production vidéo B2B"
+      }
+    }
+  }
+}

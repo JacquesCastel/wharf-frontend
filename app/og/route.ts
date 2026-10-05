@@ -1,14 +1,14 @@
 import { ImageResponse } from 'next/og';
 import { createElement as h } from 'react';
-import { getArticle } from '../lib/insights';
-import { positioning } from '../lib/editorial';
+import { getLiveArticle, getPageCopy } from '../lib/cms-content';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const theme = searchParams.get('theme');
   const slug = searchParams.get('slug');
-  const article = theme && slug ? getArticle(theme, slug) : undefined;
+  const article = theme && slug ? await getLiveArticle(theme, slug) : undefined;
   if ((theme || slug) && !article) return new Response('Article introuvable', { status: 404 });
+  const positioning = (await getPageCopy('home')).text('positioning');
   return new ImageResponse(
     h('div', { style: { display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%', height: '100%', padding: '64px', background: '#161616', color: '#f5f2e9', fontFamily: 'sans-serif' } },
       h('div', { style: { display: 'flex', justifyContent: 'space-between', fontSize: 26 } },

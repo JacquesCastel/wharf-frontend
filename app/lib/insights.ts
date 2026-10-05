@@ -1,4 +1,3 @@
-import content from './insights-content.json';
 import { insightTopics, offers, situations } from './editorial';
 import { getInsightAuthor, insightAuthors } from './insights-authors';
 
@@ -49,11 +48,13 @@ export type InsightArticle = {
   };
 };
 // Reject malformed evidence and duplicate URLs before they can be published.
-const seen = new Set<string>();
+
 const validDate = (value: string) => /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
 const validSource = (source: InsightSource) => Boolean(source.label?.trim()) && /^https?:\/\//.test(source.url) && validDate(source.accessedAt) && (!source.publishedAt || validDate(source.publishedAt));
 const servicePaths = new Set(['/we', ...offers.map(offer => `/work#${offer.id}`), ...situations.map(situation => `/you#${situation.id}`)]);
-export const articles: InsightArticle[] = (content as InsightArticle[]).map(article => {
+export function validateInsights(content: InsightArticle[]): InsightArticle[] {
+const seen = new Set<string>();
+return content.map(article => {
   if (!insightFormats.some(format => format.slug === article.format)) throw new Error(`Unknown Insights format: ${article.slug}`);
   if (!insightTopics.some(topic => topic.slug === article.theme)) throw new Error(`Unknown Insights theme: ${article.slug}`);
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article.slug) || seen.has(article.slug)) throw new Error(`Invalid or duplicate Insights slug: ${article.slug}`);
@@ -80,13 +81,10 @@ export const articles: InsightArticle[] = (content as InsightArticle[]).map(arti
   if (entry.research && (entry.research.sources.some(source => !validSource(source)) || (entry.research.series && entry.research.series !== 'observatoire-wharf'))) throw new Error(`Invalid research source or series: ${entry.slug}`);
   return entry;
 }).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
-export const publishedAuthors = insightAuthors.filter(author => articles.some(article => article.authorId === author.slug));
+}
 export const articlePath = (article: InsightArticle) => `/insights/${article.theme}/${article.slug}`;
 export const formatPath = (slug: string) => `/insights/formats/${slug}`;
 export const getArticleFormat = (article: InsightArticle) => insightFormats.find(format => format.slug === article.format);
-export const publishedFormats = insightFormats.filter(format => articles.some(article => article.format === format.slug));
-export const publishedTopics = insightTopics.filter(topic => articles.some(article => article.theme === topic.slug));
-export const getArticle = (theme: string, slug: string) => articles.find(article => article.theme === theme && article.slug === slug);
 export const formatDate = (date: string) => new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(date));
 export const readingMinutes = (article: InsightArticle) => Math.max(1, Math.ceil([article.intro, article.takeaway ?? '', ...article.sections.flatMap(section => [section.title, ...section.paragraphs, ...(section.items ?? []), ...(section.table?.rows.flat() ?? [])])].join(' ').split(/\s+/).length / 200));
-export const relatedArticles = (article: InsightArticle) => articles.filter(item => item.slug !== article.slug).sort((a, b) => Number(b.theme === article.theme) - Number(a.theme === article.theme)).slice(0, 3);
+export const relatedArticles = (article: InsightArticle, items: InsightArticle[]) => items.filter(item => item.slug !== article.slug).sort((a, b) => Number(b.theme === article.theme) - Number(a.theme === article.theme)).slice(0, 3);

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_editorial_text",
+  "info": {
+    "displayName": "Texte"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    }
+  }
+}

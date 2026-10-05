@@ -8,5 +8,5 @@ export const OrganizationJsonLd = () => <JsonLd data={organizationSchema()} />;
 export const WebSiteJsonLd = () => <JsonLd data={websiteSchema()} />;
 export const WebPageJsonLd = (props: Parameters<typeof webPageSchema>[0]) => <JsonLd data={webPageSchema(props)} />;
 export const BreadcrumbJsonLd = ({ items }: { items: Parameters<typeof breadcrumbsSchema>[0] }) => <JsonLd data={breadcrumbsSchema(items)} />;
-export const ServicesJsonLd = () => <JsonLd data={servicesSchema()} />;
+export const ServicesJsonLd = ({ items }: { items?: Parameters<typeof servicesSchema>[0] }) => <JsonLd data={servicesSchema(items)} />;
 export const ProjectJsonLd = (props: Parameters<typeof projectSchema>[0]) => <JsonLd data={projectSchema(props)} />;

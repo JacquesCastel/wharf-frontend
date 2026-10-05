@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_editorial_table",
+  "info": {
+    "displayName": "Tableau"
+  },
+  "options": {},
+  "attributes": {
+    "caption": {
+      "type": "string",
+      "required": false
+    },
+    "headers": {
+      "type": "component",
+      "component": "editorial.text",
+      "repeatable": true
+    },
+    "rows": {
+      "type": "component",
+      "component": "editorial.table-row",
+      "repeatable": true
+    }
+  }
+}

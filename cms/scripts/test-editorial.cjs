@@ -1,0 +1,25 @@
+const path=require('node:path'),fs=require('node:fs'),assert=require('node:assert/strict');
+const project=process.cwd();assert.match(project,/strapi-cms-20261005\/project$/,'Ce test modifie exclusivement la copie privée de test.');
+const req=require('node:module').createRequire(path.join(project,'package.json'));const {createStrapi}=req('@strapi/strapi');const {articleUid,pageUid,deepPopulate,toArticle,toArticleInput}=req(path.join(project,'dist/src/api/wharf-content/utils/content.js'));
+(async()=>{const app=await createStrapi({appDir:project,distDir:path.join(project,'dist')}).load();try{
+ const originals=JSON.parse(fs.readFileSync(path.join(project,'../insights-content.json'),'utf8'));
+ const view=async()=>{const ctx={set(){},body:null};await app.controller('api::wharf-content.wharf-content').find(ctx);return ctx.body.data;};
+ const first=originals[0];let entry=await app.documents(articleUid).findFirst({status:'draft',filters:{slug:first.slug},populate:deepPopulate(app,articleUid)});
+ assert.equal((await view()).articles.length,8);assert.deepEqual((await view()).articles.find(a=>a.slug===first.slug),first);
+ await app.documents(articleUid).update({documentId:entry.documentId,data:{title:'Test isolé de brouillon'}});
+ assert.equal((await view()).articles.find(a=>a.slug===first.slug).title,first.title);console.log('PASS draft_is_private');
+ await app.documents(articleUid).publish({documentId:entry.documentId});assert.equal((await view()).articles.find(a=>a.slug===first.slug).title,'Test isolé de brouillon');console.log('PASS publication_updates_public_api');
+ await assert.rejects(()=>app.documents(articleUid).update({documentId:entry.documentId,data:{slug:'adresse-modifiee'}}),/URL/);console.log('PASS published_url_is_stable');
+ await app.documents(articleUid).unpublish({documentId:entry.documentId});assert.ok(!(await view()).articles.some(a=>a.slug===first.slug));console.log('PASS unpublish_removes_article');
+ await app.documents(articleUid).update({documentId:entry.documentId,data:toArticleInput(first)});await app.documents(articleUid).publish({documentId:entry.documentId});
+ const invalid=toArticleInput(first);const section=invalid.sections.find(s=>s.table);assert.ok(section);section.table.rows[0].cells.pop();
+ await app.documents(articleUid).update({documentId:entry.documentId,data:invalid});await assert.rejects(()=>app.documents(articleUid).publish({documentId:entry.documentId}),/table/);console.log('PASS malformed_table_is_rejected');
+ assert.deepEqual((await view()).articles.find(a=>a.slug===first.slug),first);
+ await app.documents(articleUid).update({documentId:entry.documentId,data:toArticleInput(first)});await app.documents(articleUid).publish({documentId:entry.documentId});
+ const page=await app.documents(pageUid).findFirst({filters:{slug:'home'},status:'draft',populate:deepPopulate(app,pageUid)});const texts=page.texts.map(({id,repere,libelle,texte})=>({id,repere,libelle,texte}));const before=(await view()).pages.find(p=>p.slug==='home');
+ const edited=texts.map((text,i)=>({...text,texte:i===0?'Test isolé de texte':text.texte}));await app.documents(pageUid).update({documentId:page.documentId,data:{texts:edited}});assert.equal((await view()).pages.find(p=>p.slug==='home').texts[texts[0].repere],before.texts[texts[0].repere]);
+ await app.documents(pageUid).publish({documentId:page.documentId});assert.equal((await view()).pages.find(p=>p.slug==='home').texts[texts[0].repere],'Test isolé de texte');console.log('PASS page_changes_use_published_copy');
+ await app.documents(pageUid).update({documentId:page.documentId,data:{texts}});await app.documents(pageUid).publish({documentId:page.documentId});
+ for(const original of originals)assert.deepEqual((await view()).articles.find(a=>a.slug===original.slug),original);
+ assert.equal((await view()).pages.length,7);console.log('ALL_CMS_INTEGRATION_CHECKS_PASSED');
+}finally{await app.destroy()}})().catch(e=>{console.error(e.stack);process.exitCode=1});

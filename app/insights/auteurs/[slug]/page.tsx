@@ -1,7 +1,8 @@
+import { getInsights } from '../../../lib/cms-content';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { articles, publishedAuthors } from '../../../lib/insights';
+
 import { authorPath } from '../../../lib/insights-authors';
 import { absoluteUrl } from '../../../lib/site';
 import { generateMetadataFromStrapi } from '../../../lib/metadata';
@@ -10,12 +11,14 @@ import JsonLd, { BreadcrumbJsonLd } from '../../../components/JsonLd';
 import InsightCards from '../../../components/InsightCards';
 type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props) {
+  const { publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
   const { slug } = await params;
   const author = publishedAuthors.find(author => author.slug === slug);
   if (!author) notFound();
   return generateMetadataFromStrapi(`${author.name} — Auteur Insights | Wharf`, author.bio, author.photo ? { ...author.photo, url: absoluteUrl(author.photo.url) } : undefined, authorPath(slug));
 }
 export default async function AuthorPage({ params }: Props) {
+  const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
   const { slug } = await params;
   const author = publishedAuthors.find(author => author.slug === slug);
   if (!author) notFound();

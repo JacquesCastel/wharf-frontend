@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_editorial_table_row",
+  "info": {
+    "displayName": "Ligne du tableau"
+  },
+  "options": {},
+  "attributes": {
+    "cells": {
+      "type": "component",
+      "component": "editorial.text",
+      "repeatable": true
+    }
+  }
+}

@@ -1,9 +1,10 @@
+import { getInsights, getLiveArticle } from '../../../lib/cms-content';
 import { getPublishedProjects } from '../../../lib/projects';
 import { CAFE_PROJECT_ID } from '../../../lib/project-editorial';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { articlePath, getArticle, publishedTopics, formatDate, readingMinutes, getArticleFormat, formatPath, relatedArticles } from '../../../lib/insights';
+import { articlePath, formatDate, readingMinutes, getArticleFormat, formatPath, relatedArticles } from '../../../lib/insights';
 import { generateMetadataFromStrapi } from '../../../lib/metadata';
 import InsightCards from '../../../components/InsightCards';
 import { SITE_URL } from '../../../lib/site';
@@ -15,14 +16,15 @@ import { offers, situations } from '../../../lib/editorial';
 type Props = { params: Promise<{ theme: string; slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { theme, slug } = await params;
-  const article = getArticle(theme, slug);
+  const article = await getLiveArticle(theme, slug);
   if (!article) notFound();
   const base = generateMetadataFromStrapi(article.seoTitle, article.description, { url: `${SITE_URL}/og?theme=${encodeURIComponent(theme)}&slug=${encodeURIComponent(slug)}` }, articlePath(article));
   return { ...base, authors: [{ name: articleAuthor(article).name, url: articleAuthor(article).url }], openGraph: { ...base.openGraph, type: 'article', publishedTime: article.publishedAt, modifiedTime: article.updatedAt, authors: [articleAuthor(article).url] } };
 }
 export default async function ArticlePage({ params }: Props) {
+  const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
   const { theme, slug } = await params;
-  const article = getArticle(theme, slug);
+  const article = await getLiveArticle(theme, slug);
   if (!article) notFound();
   const topic = publishedTopics.find(topic => topic.slug === theme)!;
   const format = getArticleFormat(article);
@@ -64,6 +66,6 @@ export default async function ArticlePage({ params }: Props) {
       <footer className="insight-article-cta"><h2>{article.cta}</h2><p>Découvrez <Link href={article.service}>{serviceLabel}</Link>, puis parlons de votre situation.</p><Link href="/contact" className="btn btn-primary">Parlons de votre projet →</Link></footer>
     </article>
     {linkedProjects.length > 0 && <section className="editorial-section"><div className="work-container"><h2>Réalisations liées</h2><ul>{linkedProjects.map(project => <li key={project.documentId}><Link href={`/work/${project.documentId}`}>{project.titre}</Link>{project.description_courte && <p>{project.description_courte}</p>}</li>)}</ul></div></section>}
-    <section className="editorial-section"><div className="work-container"><h2>Pour poursuivre la réflexion</h2><InsightCards items={relatedArticles(article)} headingLevel={3} /></div></section>
+    <section className="editorial-section"><div className="work-container"><h2>Pour poursuivre la réflexion</h2><InsightCards items={relatedArticles(article, articles)} headingLevel={3} /></div></section>
   </main>;
 }

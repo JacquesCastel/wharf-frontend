@@ -13,6 +13,7 @@ module.exports = function load(file, overrides = {}) {
     const context = { exports: {}, process: { env: {} }, URL, URLSearchParams, console, AbortSignal, fetch };
     modules.set(filename, context.exports);
     context.require = name => {
+      if (Object.hasOwn(overrides, name)) return overrides[name];
       if (!name.startsWith('.')) return require(name);
       const base = path.resolve(path.dirname(filename), name);
       const target = ['', '.ts', '.tsx', '.json'].map(ext => base + ext).find(candidate => fs.existsSync(candidate) && fs.statSync(candidate).isFile());

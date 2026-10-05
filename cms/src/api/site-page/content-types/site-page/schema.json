@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "site_pages",
+  "info": {
+    "singularName": "site-page",
+    "pluralName": "site-pages",
+    "displayName": "Pages du site"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "enumeration",
+      "enum": [
+        "home",
+        "we",
+        "work",
+        "you",
+        "contact",
+        "insights",
+        "global"
+      ],
+      "required": true,
+      "unique": true
+    },
+    "texts": {
+      "type": "component",
+      "component": "editorial.page-text",
+      "repeatable": true
+    },
+    "seoTitle": {
+      "type": "string",
+      "required": false
+    },
+    "seoDescription": {
+      "type": "text"
+    }
+  }
+}

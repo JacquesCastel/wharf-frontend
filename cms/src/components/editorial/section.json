@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_editorial_section",
+  "info": {
+    "displayName": "Section de l’article"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "anchor": {
+      "type": "string",
+      "required": false
+    },
+    "paragraphs": {
+      "type": "component",
+      "component": "editorial.text",
+      "repeatable": true
+    },
+    "items": {
+      "type": "component",
+      "component": "editorial.text",
+      "repeatable": true
+    },
+    "table": {
+      "type": "component",
+      "component": "editorial.table",
+      "repeatable": false
+    },
+    "source": {
+      "type": "component",
+      "component": "editorial.source",
+      "repeatable": false
+    }
+  }
+}

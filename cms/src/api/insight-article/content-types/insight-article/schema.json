@@ -1,0 +1,114 @@
+{
+  "kind": "collectionType",
+  "collectionName": "insight_articles",
+  "info": {
+    "singularName": "insight-article",
+    "pluralName": "insight-articles",
+    "displayName": "Articles du blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "video-b2b",
+        "communication-corporate",
+        "content-b2b",
+        "marque-employeur"
+      ],
+      "default": "content-b2b"
+    },
+    "format": {
+      "type": "enumeration",
+      "enum": [
+        "guides",
+        "analyses",
+        "observations",
+        "etudes"
+      ],
+      "default": "guides"
+    },
+    "tag": {
+      "type": "string",
+      "required": false
+    },
+    "seoTitle": {
+      "type": "string",
+      "required": false
+    },
+    "description": {
+      "type": "text"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "takeaway": {
+      "type": "text"
+    },
+    "author": {
+      "type": "enumeration",
+      "enum": [
+        "Wharf"
+      ],
+      "default": "Wharf"
+    },
+    "publicationDate": {
+      "type": "date"
+    },
+    "revisionDate": {
+      "type": "date"
+    },
+    "cta": {
+      "type": "string",
+      "required": false
+    },
+    "service": {
+      "type": "enumeration",
+      "enum": [
+        "/we",
+        "/work#strategy",
+        "/work#content",
+        "/work#video",
+        "/work#creation-ia",
+        "/you#visibilite",
+        "/you#dirigeants",
+        "/you#recrutement",
+        "/you#transformation",
+        "/you#reseaux",
+        "/you#film"
+      ],
+      "default": "/work#content"
+    },
+    "sections": {
+      "type": "component",
+      "component": "editorial.section",
+      "repeatable": true
+    },
+    "research": {
+      "type": "component",
+      "component": "editorial.research",
+      "repeatable": false
+    },
+    "relatedProjectIds": {
+      "type": "component",
+      "component": "editorial.text",
+      "repeatable": true
+    },
+    "canonicalPath": {
+      "type": "string",
+      "private": true
+    }
+  }
+}

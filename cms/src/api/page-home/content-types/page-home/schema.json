@@ -1,0 +1,97 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_homes",
+  "info": {
+    "singularName": "page-home",
+    "pluralName": "page-homes",
+    "displayName": "Médias — Accueil"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_titre": {
+      "type": "string"
+    },
+    "hero_soustitre": {
+      "type": "text"
+    },
+    "hero_video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "bloc_we_titre": {
+      "type": "string"
+    },
+    "bloc_we_texte": {
+      "type": "text"
+    },
+    "bloc_we_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "bloc_work_titre": {
+      "type": "string"
+    },
+    "bloc_work_texte": {
+      "type": "string"
+    },
+    "bloc_you_titre": {
+      "type": "string"
+    },
+    "bloc_work_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "bloc_you_texte": {
+      "type": "string"
+    },
+    "bloc_you_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "manifesto_titre": {
+      "type": "string"
+    },
+    "manifesto_contenu": {
+      "type": "blocks"
+    },
+    "cta_titre": {
+      "type": "string"
+    },
+    "cta_texte": {
+      "type": "text"
+    },
+    "cta_bouton_label": {
+      "type": "string"
+    },
+    "cta_bouton_url": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_contacts",
+  "info": {
+    "singularName": "page-contact",
+    "pluralName": "page-contacts",
+    "displayName": "Adresse de contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_titre": {
+      "type": "string"
+    },
+    "hero_texte": {
+      "type": "text"
+    },
+    "intro_texte": {
+      "type": "text"
+    },
+    "closing_texte": {
+      "type": "text"
+    },
+    "email": {
+      "type": "email"
+    }
+  }
+}

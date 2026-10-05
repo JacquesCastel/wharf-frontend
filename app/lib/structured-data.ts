@@ -24,7 +24,7 @@ export const breadcrumbsSchema = (items: { name: string; path: string }[]): Sche
   '@context': 'https://schema.org', '@type': 'BreadcrumbList',
   itemListElement: items.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: absoluteUrl(item.path) })),
 });
-export const servicesSchema = (): Schema[] => offers.map(offer => ({
+export const servicesSchema = (items = offers): Schema[] => items.map(offer => ({
   '@context': 'https://schema.org', '@type': 'Service', '@id': serviceId(offer.id),
   name: offer.id === 'strategy' ? 'Stratégie de communication B2B' : offer.id === 'content' ? 'Création de contenus B2B' : offer.id === 'video' ? 'Production vidéo B2B' : offer.title,
   description: offer.description, url: absoluteUrl(`/work#${offer.id}`), provider: { '@id': ORGANIZATION_ID },

@@ -1,18 +1,21 @@
+import { getInsights } from '../../lib/cms-content';
 import { WebPageJsonLd, BreadcrumbJsonLd } from '../../components/JsonLd';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { articles, publishedTopics } from '../../lib/insights';
+
 import { generateMetadataFromStrapi } from '../../lib/metadata';
 import InsightCards from '../../components/InsightCards';
 type Props = { params: Promise<{ theme: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
   const { theme } = await params;
   const topic = publishedTopics.find(topic => topic.slug === theme);
   if (!topic) notFound();
   return generateMetadataFromStrapi(`${topic.title} — INSIGHTS | Wharf`, topic.description, undefined, `/insights/${theme}`);
 }
 export default async function ThemePage({ params }: Props) {
+  const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
   const { theme } = await params;
   const topic = publishedTopics.find(topic => topic.slug === theme);
   if (!topic) notFound();

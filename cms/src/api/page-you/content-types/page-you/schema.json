@@ -1,0 +1,79 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_yous",
+  "info": {
+    "singularName": "page-you",
+    "pluralName": "page-yous",
+    "displayName": "Page You"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    }
+  },
+  "attributes": {
+    "hero_titre": {
+      "type": "string"
+    },
+    "hero_texte": {
+      "type": "text"
+    },
+    "hero_video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Intro_titre": {
+      "type": "string"
+    },
+    "intro_texte": {
+      "type": "text"
+    },
+    "comprendre_titre": {
+      "type": "string"
+    },
+    "comprendre_1_titre": {
+      "type": "string"
+    },
+    "comprendre_1_texte": {
+      "type": "text"
+    },
+    "comprendre_2_titre": {
+      "type": "string"
+    },
+    "comprendre_2_texte": {
+      "type": "text"
+    },
+    "comprendre_3_titre": {
+      "type": "string"
+    },
+    "comprendre_3_texte": {
+      "type": "text"
+    },
+    "situations": {
+      "type": "component",
+      "component": "situation.situation",
+      "repeatable": true
+    },
+    "closing_texte": {
+      "type": "text"
+    },
+    "closing_titre": {
+      "type": "string"
+    },
+    "closing_lien": {
+      "type": "string"
+    },
+    "closing_texte_bouton": {
+      "type": "string"
+    }
+  }
+}

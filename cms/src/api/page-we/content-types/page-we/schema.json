@@ -1,0 +1,70 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_wes",
+  "info": {
+    "singularName": "page-we",
+    "pluralName": "page-wes",
+    "displayName": "Page WE"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    }
+  },
+  "attributes": {
+    "hero_titre": {
+      "type": "string"
+    },
+    "hero_texte": {
+      "type": "text"
+    },
+    "hero_video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
+    },
+    "acte1_titre": {
+      "type": "string"
+    },
+    "acte1_contenu": {
+      "type": "blocks"
+    },
+    "acte2_titre": {
+      "type": "string"
+    },
+    "acte2_contenu": {
+      "type": "blocks"
+    },
+    "acte3_titre": {
+      "type": "string"
+    },
+    "acte3_contenu": {
+      "type": "blocks"
+    },
+    "transition_texte": {
+      "type": "text"
+    },
+    "pilier1_titre": {
+      "type": "string"
+    },
+    "pilier1_contenu": {
+      "type": "blocks"
+    },
+    "pilier2_titre": {
+      "type": "string"
+    },
+    "pilier2_contenu": {
+      "type": "blocks"
+    },
+    "closing_texte": {
+      "type": "string"
+    }
+  }
+}

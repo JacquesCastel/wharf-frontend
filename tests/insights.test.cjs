@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const loadModule = require('./load-module.cjs');
 const current = JSON.parse(fs.readFileSync(path.join(__dirname, '../app/lib/insights-content.json'), 'utf8'));
-const load = (articles = current) => loadModule('app/lib/insights.ts', { 'app/lib/insights-content.json': articles });
+const load = (articles = current) => loadModule('app/lib/insights-import.ts', { 'app/lib/insights-content.json': articles });
 test('published taxonomy includes only populated formats and themes', () => {
   const data = load();
   assert.equal(data.publishedFormats.map(x => x.slug).join(','), 'guides,analyses');

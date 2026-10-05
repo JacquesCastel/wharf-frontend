@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_editorial_page_text",
+  "info": {
+    "displayName": "Texte de la page"
+  },
+  "options": {},
+  "attributes": {
+    "libelle": {
+      "type": "string",
+      "required": true
+    },
+    "repere": {
+      "type": "string",
+      "required": true
+    },
+    "texte": {
+      "type": "text"
+    }
+  }
+}

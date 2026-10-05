@@ -1,32 +1,36 @@
+import { getPageCopy, getInsights } from '../lib/cms-content';
 import Link from 'next/link';
 import { getFooter } from '../lib/strapi';
 import { positioning } from '../lib/editorial';
-import { articles, articlePath, publishedTopics } from '../lib/insights';
+import { articlePath } from '../lib/insights';
 
 export default async function Footer() {
+  const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
+  const copy = await getPageCopy('global');
+  const t = copy.text;
   const data = await getFooter();
   const latestArticles = [...articles].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)).slice(0, 3);
   const groups = [
-    { title: 'Wharf', links: [
-      { href: '/we', label: 'L’agence et notre méthode' },
-      { href: '/work', label: 'Expertises et réalisations' },
-      { href: '/you', label: 'Vos enjeux de communication' },
-      { href: '/contact', label: 'Parlons de votre projet' },
+    { title: t("components-Footer-8"), links: [
+      { href: '/we', label: t("components-Footer-9") },
+      { href: '/work', label: t("components-Footer-10") },
+      { href: '/you', label: t("components-Footer-11") },
+      { href: '/contact', label: t("components-Footer-12") },
     ] },
-    { title: 'Nos expertises', links: [
-      { href: '/work#strategy', label: 'Stratégie de communication' },
-      { href: '/work#content', label: 'Création de contenus B2B' },
-      { href: '/work#video', label: 'Production vidéo' },
-      { href: '/work#creation-ia', label: 'Création image & vidéo IA' },
+    { title: t("components-Footer-13"), links: [
+      { href: '/work#strategy', label: t("components-Footer-14") },
+      { href: '/work#content', label: t("components-Footer-15") },
+      { href: '/work#video', label: t("components-Footer-16") },
+      { href: '/work#creation-ia', label: t("components-Footer-17") },
     ] },
-    { title: 'Vos enjeux', links: [
-      { href: '/you#dirigeants', label: 'Prise de parole dirigeante' },
-      { href: '/you#recrutement', label: 'Marque employeur et recrutement' },
-      { href: '/you#transformation', label: 'Communication du changement' },
-      { href: '/you#film', label: 'Film corporate' },
+    { title: t("components-Footer-18"), links: [
+      { href: '/you#dirigeants', label: t("components-Footer-19") },
+      { href: '/you#recrutement', label: t("components-Footer-20") },
+      { href: '/you#transformation', label: t("components-Footer-21") },
+      { href: '/you#film', label: t("components-Footer-22") },
     ] },
-    { title: 'Analyses et conseils', links: [
-      { href: '/insights', label: 'Tous les articles' },
+    { title: t("components-Footer-23"), links: [
+      { href: '/insights', label: t("components-Footer-24") },
       ...publishedTopics.map(topic => ({ href: `/insights/${topic.slug}`, label: topic.title })),
     ] },
   ];
@@ -38,8 +42,8 @@ export default async function Footer() {
             <Link href="/" className="footer-logo" aria-label="Wharf — accueil">
               <img src={data.logo?.url || '/images/logo-wharf.png'} alt="Wharf" width={data.logo?.width || 1100} height={data.logo?.height || 454} loading="lazy" decoding="async" />
             </Link>
-            <p className="footer-slogan">{positioning}</p>
-            <a href="mailto:contact@bywharf.com" className="footer-contact-link">contact@bywharf.com</a>
+            <p className="footer-slogan">{t("positioning")}</p>
+            <a href="mailto:contact@bywharf.com" className="footer-contact-link">{t("components-Footer-25")}</a>
           </div>
           <div className="footer-right">
             {groups.map(group => (
@@ -53,7 +57,7 @@ export default async function Footer() {
           </div>
         </div>
         <section className="footer-reading" aria-labelledby="footer-reading-title">
-          <h2 id="footer-reading-title" className="footer-column-title">À lire sur le blog Wharf</h2>
+          <h2 id="footer-reading-title" className="footer-column-title">{t("components-Footer-26")}</h2>
           <nav aria-label="Pied de page — derniers articles">
             <ul className="footer-reading-list">
               {latestArticles.map(article => (
@@ -67,11 +71,11 @@ export default async function Footer() {
         </section>
         <div className="footer-bottom">
           <nav className="footer-utility" aria-label="Pied de page — accessibilité">
-            <Link href="/accessibilite" className="footer-link">Accessibilité</Link>
-            <Link href="/accessibilite/engagement" className="footer-link">Notre engagement d’accessibilité</Link>
+            <Link href="/accessibilite" className="footer-link">{t("components-Footer-27")}</Link>
+            <Link href="/accessibilite/engagement" className="footer-link">{t("components-Footer-28")}</Link>
           </nav>
           <p className="footer-copyright">{data.copyright || `© ${new Date().getFullYear()} Wharf. Tous droits réservés.`}</p>
-          <p className="footer-description">Wharf accompagne les entreprises dans leur communication corporate : clarifier leur récit, faire vivre leur expertise et l’incarner en images. Découvrez <Link href="/we">notre approche du design narratif</Link>.</p>
+          <p className="footer-description">{t("components-Footer-29")}<Link href="/we">{t("components-Footer-30")}</Link>{t("components-Footer-31")}</p>
         </div>
       </div>
     </footer>

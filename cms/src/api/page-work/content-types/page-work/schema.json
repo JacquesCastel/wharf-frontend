@@ -1,0 +1,77 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_works",
+  "info": {
+    "singularName": "page-work",
+    "pluralName": "page-works",
+    "displayName": "Page Work"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    }
+  },
+  "attributes": {
+    "hero_titre": {
+      "type": "string"
+    },
+    "hero_texte": {
+      "type": "text"
+    },
+    "hero_video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "intro_paragraphe1": {
+      "type": "blocks"
+    },
+    "intro_paragraphe2": {
+      "type": "blocks"
+    },
+    "mouvement1_titre": {
+      "type": "string"
+    },
+    "mouvement1_texte": {
+      "type": "text"
+    },
+    "mouvement2_titre": {
+      "type": "string"
+    },
+    "mouvement2_texte": {
+      "type": "text"
+    },
+    "mouvement3_titre": {
+      "type": "string"
+    },
+    "mouvement3_texte": {
+      "type": "text"
+    },
+    "expertises_titre": {
+      "type": "string"
+    },
+    "expertise1_titre": {
+      "type": "string"
+    },
+    "expertise1_contenu": {
+      "type": "blocks"
+    },
+    "expertise2_titre": {
+      "type": "string"
+    },
+    "expertise2_contenu": {
+      "type": "blocks"
+    },
+    "closing_texte": {
+      "type": "text"
+    }
+  }
+}

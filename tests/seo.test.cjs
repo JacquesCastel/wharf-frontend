@@ -27,7 +27,7 @@ test('a documented author creates Person -> worksFor -> Organization without cha
   assert.equal(nodes[0].worksFor['@id'], data.organizationSchema()['@id']);
   assert.equal(nodes[1].author['@id'], nodes[0]['@id']);
   assert.equal(nodes[1].url, `https://bywharf.com/insights/${article.theme}/${article.slug}`);
-  const validated = load('app/lib/insights.ts', { ...overrides, 'app/lib/insights-content.json': [{ ...article, author: person.name, authorId: person.slug }] });
+  const validated = load('app/lib/insights-import.ts', { ...overrides, 'app/lib/insights-content.json': [{ ...article, author: person.name, authorId: person.slug }] });
   assert.equal(validated.publishedAuthors.length, 1);
 });
 test('video evidence is emitted only with a real upload date, thumbnail and playable source', () => {
@@ -42,7 +42,7 @@ test('video evidence is emitted only with a real upload date, thumbnail and play
   assert.equal(nodes[0].video[0]['@id'], nodes[1]['@id']);
 });
 test('duplicate URLs, unknown authors, invalid dates, sources and table dimensions block publication', () => {
-  const validate = entries => load('app/lib/insights.ts', { 'app/lib/insights-content.json': entries });
+  const validate = entries => load('app/lib/insights-import.ts', { 'app/lib/insights-content.json': entries });
   assert.throws(() => validate([{ ...article, relatedProjectIds: ['test', 'test'] }]), /Invalid related project IDs/);
   assert.throws(() => load('app/lib/insights-authors.ts', { 'app/lib/insights-authors.json': [{ slug: 'test', name: 'Fixture', role: 'Test', bio: 'Test', expertise: ['Test'], updatedAt: '2026-02-31' }] }), /Incomplete or duplicate/);
   assert.throws(() => validate([article, article]), /duplicate Insights slug/);
