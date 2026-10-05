@@ -472,3 +472,6 @@ html:not([data-contrast="high"]):not([data-contrast="inverted"]) :is(.wharf-publ
 .wharf-header .wharf-skip-link:focus { transform: translateY(0); }
 
 .wharf-project .project-video-control { position: absolute; z-index: 2; bottom: 18px; right: 24px; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 12px; border: 1px solid rgba(255,255,255,.5); color: white; background: rgba(0,0,0,.45); font: 400 12px/1.4 var(--font-sans); cursor: pointer; }
+
+/* Le titre doit rester lisible au-dessus du film, malgré la couleur globale des headings. */
+.wharf-project .projet-hero-content h1 { color: white; }
