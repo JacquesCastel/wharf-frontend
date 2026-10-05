@@ -422,14 +422,14 @@ html:not([data-contrast="high"]):not([data-contrast="inverted"]) :is(.wharf-publ
 :is([data-contrast="high"], [data-contrast="inverted"]) .wharf-header .header-nav-link::after { background: currentColor; }
 
 
-/* Brume cinéma : image originale, mouvements lents et texte protégé par un voile. */
+/* Brume cinéma : deux dérives visibles dès l’entrée, texte protégé par un voile. */
 .wharf-public .editorial-ai-offer { position: relative; isolation: isolate; overflow: hidden; background: #25282b; color: white; padding-bottom: clamp(72px, 7vw, 96px); }
 .wharf-public .editorial-ai-offer > :not(.ai-fog-scene):not(.ai-fog-control) { position: relative; z-index: 1; }
 .ai-fog-scene { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .wharf-public .editorial-ai-offer > .ai-fog-scene { margin: 0; }
 .ai-fog-layer { position: absolute; inset: -12%; background: url('/images/creation-ia-fog-v1.webp') center / cover no-repeat; }
-.ai-fog-layer-far { animation: wharf-fog-far 64s ease-in-out infinite alternate; }
-.ai-fog-layer-near { inset: -22%; opacity: .22; mix-blend-mode: screen; background-position: 65% center; animation: wharf-fog-near 43s ease-in-out infinite alternate; }
+.ai-fog-layer-far { animation: wharf-fog-far 30s ease-in-out -9s infinite alternate; }
+.ai-fog-layer-near { inset: -22%; opacity: .4; mix-blend-mode: screen; background-position: 65% center; animation: wharf-fog-near 18s ease-in-out -6s infinite alternate; }
 .ai-fog-scene[data-running="false"] .ai-fog-layer { animation-play-state: paused; }
 .ai-fog-scene[data-running="true"] .ai-fog-layer { will-change: transform; }
 .ai-fog-shade { position: absolute; inset: 0; background: rgba(12, 14, 16, .64); }
@@ -440,12 +440,12 @@ html:not([data-contrast="high"]):not([data-contrast="inverted"]) :is(.wharf-publ
 .wharf-public .editorial-ai-offer > .ai-fog-control { position: absolute; z-index: 2; bottom: 18px; right: 24px; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 12px; border: 1px solid rgba(255, 255, 255, .5); border-radius: 0; color: white; background: rgba(0, 0, 0, .2); font: 400 12px/1.4 var(--font-sans); cursor: pointer; }
 .wharf-public .ai-fog-control:hover { background: rgba(0, 0, 0, .4); }
 @keyframes wharf-fog-far {
-  from { transform: translate3d(-2%, 1%, 0) scale(1.02); }
-  to { transform: translate3d(2%, -2%, 0) scale(1.10); }
+  from { transform: translate3d(-5%, 3%, 0) rotate(-2deg) scale(1.10); }
+  to { transform: translate3d(5%, -3%, 0) rotate(2deg) scale(1.18); }
 }
 @keyframes wharf-fog-near {
-  from { transform: translate3d(4%, 3%, 0) scale(1.07); }
-  to { transform: translate3d(-4%, -3%, 0) scale(1.20); }
+  from { transform: translate3d(8%, 5%, 0) rotate(3deg) scale(1.16); opacity: .32; }
+  to { transform: translate3d(-8%, -5%, 0) rotate(-3deg) scale(1.25); opacity: .48; }
 }
 @media (max-width: 760px) {
   .wharf-public .editorial-ai-offer ul { columns: 1; }

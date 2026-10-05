@@ -4,7 +4,7 @@ Créé le 5 octobre 2026 avec l’outil intégré **imagegen**, puis converti en
 
 Asset final : `public/images/creation-ia-fog-v1.webp` — 1 672 × 941 px, 80 618 octets. L’original généré est conservé par imagegen.
 
-Le bloc IA conserve son titre, ses textes, ses liens et son ancre `/work#creation-ia`. Deux couches de la même image produisent une dérive lente (43 et 64 secondes, allers-retours continus). La lecture se met en pause lorsque le bloc s’éloigne de l’écran ; une commande Pause/Animer est disponible. L’animation est désactivée avec `prefers-reduced-motion` et le fond décoratif est masqué dans les modes de contraste du site. L’image reste décorative pour les lecteurs d’écran. Un voile sombre constant protège la lisibilité ; même sur un pixel blanc de l’image, le contraste du texte blanc dépasse 5:1.
+Le bloc IA conserve son titre, ses textes, ses liens et son ancre `/work#creation-ia`. Deux couches de la même image produisent une dérive perceptible (18 et 30 secondes, allers-retours continus), avec translation, rotation légère et variation de densité. Des décalages de départ placent les couches en mouvement dès l’entrée du bloc. Le 5 octobre 2026, ce mouvement a été renforcé après le retour de Jacques : la première version (43 et 64 secondes) paraissait immobile. La lecture se met en pause lorsque le bloc s’éloigne de l’écran ; une commande Pause/Animer est disponible. L’animation est désactivée avec `prefers-reduced-motion` et le fond décoratif est masqué dans les modes de contraste du site. L’image reste décorative pour les lecteurs d’écran. Un voile sombre constant protège la lisibilité ; même sur un pixel blanc de l’image, le contraste du texte blanc dépasse 5:1.
 
 ## Prompt utilisé
 
