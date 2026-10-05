@@ -1,5 +1,5 @@
 /* Direction Wharf : immersion cinéma, composition éditoriale ouverte.
-   Les styles de contenu sont limités aux cinq pages publiques de la refonte. */
+   Les styles de contenu sont limités aux pages publiques de Wharf. */
 body { margin: 0; }
 .wharf-public { --wharf-space: clamp(24px, 4.5vw, 80px); --wharf-rule: var(--color-border); color: var(--color-primary); background: var(--color-bg); }
 .wharf-public *, .wharf-header *, .footer * { box-sizing: border-box; }
@@ -343,3 +343,69 @@ body { margin: 0; }
 }
 [data-contrast="inverted"] .wharf-contact .contact-form-group :is(input, textarea)::placeholder { color: #b6b6b6; }
 [data-contrast="high"] .wharf-contact .contact-form-group :is(input, select, textarea) { border: 1px solid black; background-color: white; }
+
+
+/* Couleur Wharf : le rouge du logo, du papier chaud et des accents répartis. */
+:is(.wharf-public, .insights-page, .wharf-project, .wharf-header, .footer) {
+  --wharf-accent: var(--color-accent);
+  --wharf-accent-hover: var(--color-accent-hover);
+  --wharf-deep: #50242e;
+  --wharf-on-deep: #ffffff;
+  --wharf-tint: color-mix(in srgb, var(--color-accent) 8%, var(--color-bg));
+}
+html:not([data-contrast="high"]):not([data-contrast="inverted"]) :is(.wharf-public, .insights-page, .wharf-project, .wharf-header, .footer) {
+  --color-accent: #b22f43;
+  --color-accent-hover: #902337;
+  --color-bg: #fcf9f5;
+  --color-bg-secondary: #f3ece8;
+  --color-border: #d8c9c2;
+}
+:is(.insights-page, .wharf-project) { background: var(--color-bg); color: var(--color-primary); }
+.wharf-public .wharf-masthead h1,
+#main-content.insights-page h1,
+.wharf-project .projet-header h1 { color: var(--wharf-accent); }
+#main-content.wharf-public > :not(.film-hero):not(.wharf-manifesto) .editorial-eyebrow,
+#main-content:is(.wharf-public, .insights-page, .wharf-project) :is(.expertise-subtitle, .we-acte-label, .mouvement-number, .you-situation-number, .insight-format-link, .insight-browse-label, .projet-type),
+#main-content.insights-page .editorial-eyebrow,
+.wharf-project .editorial-eyebrow,
+.footer :is(.footer-column-title, .footer-reading-topic) { color: var(--wharf-accent); }
+#main-content.wharf-project .projet-hero .projet-type { color: white; }
+#main-content:is(.wharf-public, .insights-page, .wharf-project) :is(.card-split-link, .wharf-section-nav a, .offer-reading a, .you-situation-link, .you-situation-reading a, .contact-direct a, .contact-reset-button),
+.insights-page .insight-article a:not(.btn),
+.footer .footer-contact-link { color: var(--wharf-accent); }
+#main-content:is(.wharf-public, .insights-page, .wharf-project) .card-split-link:hover,
+.insights-page .insight-article a:not(.btn):hover,
+.footer .footer-link:hover { color: var(--wharf-accent-hover); opacity: 1; }
+.wharf-header:not(.wharf-header-film) :is(.header-nav-link[aria-current="page"], .header-contact-btn),
+.wharf-header .header-mobile-link[aria-current="page"] { color: var(--wharf-accent); }
+.wharf-header .header-mobile-contact { color: var(--wharf-accent) !important; }
+.wharf-public .wharf-entry-image span:last-child { color: white; background: var(--wharf-accent); padding: 0 10px; }
+.wharf-public .editorial-ai-offer { background: var(--wharf-tint); padding: clamp(32px, 5vw, 64px) clamp(20px, 4vw, 48px); border-top: 2px solid var(--wharf-accent); }
+.wharf-public :is(.expertise, .we-pillar, .mouvement, .you-understand-item, .insight-card) { border-top-color: var(--wharf-accent); }
+.wharf-public .expertise:hover, .wharf-public .we-pillar:hover, .wharf-public .mouvement:hover, .wharf-public .you-understand-item:hover { border-top-color: var(--wharf-accent); }
+.wharf-insights .insight-card:first-child { background: var(--wharf-tint); }
+.wharf-public .work-filter { color: var(--wharf-accent); border-color: var(--wharf-accent); }
+.wharf-public .work-filter:hover, .wharf-public .work-filter.active { background: var(--wharf-accent); color: var(--color-bg); }
+.wharf-public .wharf-manifesto,
+.wharf-public .we-transition,
+.wharf-public :is(.cta-section, .we-closing, .work-closing, .you-closing) { background: var(--wharf-deep); color: var(--wharf-on-deep); }
+.wharf-public .we-transition :is(h2, .we-transition-highlight),
+.wharf-public :is(.cta-section, .we-closing, .work-closing, .you-closing) :is(h2, p, a),
+#main-content.wharf-public .wharf-manifesto .card-split-link { color: var(--wharf-on-deep); }
+.wharf-public :is(.cta-section, .we-closing, .work-closing, .you-closing) :is(.btn, .we-cta-button, .work-cta-button, .you-cta-button) { border-bottom-color: currentColor; }
+.wharf-contact .contact-submit-button,
+.wharf-contact .contact-submit-button:hover:not(:disabled),
+.insights-page .insight-article .btn-primary { background: var(--wharf-accent); border-color: var(--wharf-accent); color: var(--color-bg); }
+.insights-page .insight-article .btn-primary:hover { background: var(--wharf-accent-hover); border-color: var(--wharf-accent-hover); }
+.wharf-contact .contact-form-group :is(input, select, textarea):focus-visible { outline-color: var(--wharf-accent); border-color: var(--wharf-accent); }
+.insights-page :is(.insight-takeaway, .insight-toc) { background: var(--wharf-tint); border-left-color: var(--wharf-accent); }
+.insights-page .insight-article-cta { border-top-color: var(--wharf-accent); }
+.footer .footer-reading { border-top: 2px solid var(--wharf-accent); }
+[data-contrast="high"] :is(.wharf-public, .insights-page, .wharf-project, .wharf-header, .footer),
+[data-contrast="inverted"] :is(.wharf-public, .insights-page, .wharf-project, .wharf-header, .footer) {
+  --wharf-accent: var(--color-primary);
+  --wharf-accent-hover: var(--color-primary);
+  --wharf-deep: var(--color-bg-secondary);
+  --wharf-on-deep: var(--color-primary);
+  --wharf-tint: var(--color-bg-secondary);
+}

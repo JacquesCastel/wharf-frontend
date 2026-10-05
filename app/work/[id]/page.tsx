@@ -109,7 +109,7 @@ export default async function ProjetDetailPage({
   const ogImage = projet.hero_image?.url ? projectMediaUrl(projet.hero_image.url) : undefined;
 
   return (
-    <main id="main-content">
+    <main id="main-content" className="wharf-project">
       <ProjectJsonLd
         titre={projet.titre || 'Projet'}
         description={summary}
