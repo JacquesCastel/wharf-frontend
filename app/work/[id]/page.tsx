@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ProjectJsonLd } from '../../components/JsonLd';
 import { getPublishedProjects, projectMediaUrl } from '../../lib/projects';
+import { getProjectEditorial } from '../../lib/project-editorial';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bywharf.com';
@@ -43,10 +44,10 @@ export async function generateMetadata({
   }
 
   const titre = projet.titre || 'Projet';
-  const description = projet.description_courte || `Découvrez le projet ${titre} réalisé par Wharf.`;
+  const description = getProjectEditorial(projet)?.summary || projet.description_courte || `Découvrez le projet ${titre} réalisé par Wharf.`;
 
    // Image Open Graph (vignette ou hero)
-  let ogImage = `${SITE_URL}/og-default.jpg`;
+  let ogImage = `${SITE_URL}/og`;
 
   if (projet.vignette?.url) {
     ogImage = projectMediaUrl(projet.vignette.url);
@@ -97,6 +98,9 @@ export default async function ProjetDetailPage({
     notFound();
   }
 
+  const editorial = getProjectEditorial(projet);
+  const summary = editorial?.summary ?? projet.description_courte;
+  const projectType = editorial?.format ?? projet.type;
   const allProjets = await getPublishedProjects() ?? [];
   const currentIndex = allProjets.findIndex((p: any) => p.documentId === id);
   const prevProjet = currentIndex > 0 ? allProjets[currentIndex - 1] : null;
@@ -105,13 +109,14 @@ export default async function ProjetDetailPage({
   const ogImage = projet.hero_image?.url ? projectMediaUrl(projet.hero_image.url) : undefined;
 
   return (
-    <>
+    <main id="main-content">
       <ProjectJsonLd
         titre={projet.titre || 'Projet'}
-        description={projet.description_courte}
+        description={summary}
         image={ogImage}
         url={`${SITE_URL}/work/${id}`}
         datePublished={projet.publishedAt}
+        dateModified={editorial?.updatedAt ?? projet.updatedAt}
         client={projet.client}
       />
       {/* HERO */}
@@ -144,7 +149,7 @@ export default async function ProjetDetailPage({
         {projet.hero_titre_position !== 'dessous' && (
           <div className="projet-hero-content">
             <h1>{projet.titre}</h1>
-            <p className="projet-type">{projet.type}</p>
+            <p className="projet-type">{projectType}</p>
           </div>
         )}
       </section>
@@ -154,9 +159,9 @@ export default async function ProjetDetailPage({
         <section className="projet-header">
           <div className="projet-container">
             <h1>{projet.titre}</h1>
-            <p className="projet-type">{projet.type}</p>
-            {projet.description_courte && (
-              <p className="projet-description">{projet.description_courte}</p>
+            <p className="projet-type">{projectType}</p>
+            {summary && (
+              <p className="projet-description">{summary}</p>
             )}
           </div>
         </section>
@@ -165,7 +170,23 @@ export default async function ProjetDetailPage({
       {/* CONTENU DYNAMIQUE */}
       <section className="projet-content">
         <div className="projet-container">
-          {projet.contenu?.map((bloc: any, index: number) => {
+          {editorial ? (
+            <>
+              <div className="bloc-texte">
+                <p className="editorial-eyebrow">Wharf · Film d’autopromotion</p>
+                <p className="projet-description">Prendre la parole, avant que les autres ne parlent pour vous.</p>
+              </div>
+              {editorial.sections.map(section => <div className="bloc-texte" key={section.title}>
+                <h2>{section.title}</h2>
+                <div className="bloc-texte-content">{section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
+              </div>)}
+              <div className="bloc-video">
+                <h2>Voir le film</h2>
+                <div className="video-embed"><iframe src={editorial.videoUrl} title="Au café du commerce — film d’autopromotion Wharf" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen /></div>
+                <p><a href={editorial.videoLink}>Voir « Au café du commerce » sur YouTube →</a></p>
+              </div>
+            </>
+          ) : projet.contenu?.map((bloc: any, index: number) => {
             switch (bloc.__component) {
               case 'bloc.texte-bloc':
                 return (
@@ -207,7 +228,7 @@ export default async function ProjetDetailPage({
                 return (
                   <div key={index} className="bloc-video">
                     {bloc.type_video === 'upload' && bloc.video_fichier?.url ? (
-                      <video controls>
+                      <video controls preload="metadata">
                         <source 
                           src={projectMediaUrl(bloc.video_fichier.url)}
                           type="video/mp4" 
@@ -218,6 +239,7 @@ export default async function ProjetDetailPage({
                         <iframe
                           src={bloc.video_url}
                           title={bloc.titre || `Vidéo du projet ${projet.titre}`}
+                          loading="lazy"
                           frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
@@ -274,6 +296,11 @@ export default async function ProjetDetailPage({
         </div>
       </section>
 
+      <section className="editorial-section"><div className="projet-container">
+        <h2>Du récit à votre prochain projet</h2>
+        <p>Découvrez nos <Link href="/work#strategy">expertises de conseil</Link>, notre <Link href="/work#content">création de contenus</Link> et notre <Link href="/work#video">production vidéo</Link>.</p>
+        <Link href="/insights" className="card-split-link">Explorer nos guides et analyses →</Link>
+      </div></section>
       {/* NAVIGATION PROJET PRÉCÉDENT / SUIVANT */}
       <section className="projet-navigation">
         <div className="projet-container">
@@ -310,7 +337,7 @@ export default async function ProjetDetailPage({
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
 

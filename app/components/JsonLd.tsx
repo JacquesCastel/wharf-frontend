@@ -68,6 +68,7 @@ export function ProjectJsonLd({
   image,
   url,
   datePublished,
+  dateModified,
   client,
 }: {
   titre: string;
@@ -75,6 +76,7 @@ export function ProjectJsonLd({
   image?: string;
   url: string;
   datePublished?: string;
+  dateModified?: string;
   client?: string;
 }) {
   const schema: Record<string, any> = {
@@ -93,6 +95,7 @@ export function ProjectJsonLd({
   if (description) schema.description = description;
   if (image) schema.image = image;
   if (datePublished) schema.datePublished = datePublished;
+  if (dateModified) schema.dateModified = dateModified;
   if (client) schema.contributor = { '@type': 'Organization', name: client };
 
   return (

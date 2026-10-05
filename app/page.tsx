@@ -2,6 +2,11 @@ import type { Metadata } from 'next';
 import { getHome } from './lib/strapi';
 import { generateMetadataFromStrapi } from './lib/metadata';
 import Offers from './components/Offers';
+import FilmHero from './components/FilmHero';
+import WorkPortfolio from './work/WorkPortfolio';
+import { getPublishedProjects } from './lib/projects';
+import InsightCards from './components/InsightCards';
+import { articles } from './lib/insights';
 import { pageSeo, positioning, description } from './lib/editorial';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -10,181 +15,58 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const homeData = await getHome();
-
-
-  return (
-    <>
-      {/* MAIN CONTENT */}
-      <main id="main-content">
-        
-        {/* HERO AVEC VIDÉO */}
-        <section className="hero">
-          {homeData.hero.video ? (
-            <video 
-              className="hero-video" 
-              autoPlay 
-              muted 
-              loop 
-              playsInline
-            >
-              <source src={homeData.hero.video.url} type="video/mp4" />
-            </video>
-          ) : (
-            <video 
-              className="hero-video" 
-              autoPlay 
-              muted 
-              loop 
-              playsInline
-            >
-              <source src="https://bywharf.com/wp-content/uploads/2025/10/vidintro.mp4" type="video/mp4" />
-            </video>
-          )}
-          <div className="hero-overlay"></div>
-          
-          <div className="hero-container">
-            <p className="editorial-eyebrow">{positioning}</p>
-            <h1 className="hero-title">
-              Des récits qui trouvent leur forme.
-            </h1>
-            <p className="hero-subtitle">{description}</p>
-            <div className="hero-actions">
-              <a href="/work" className="btn btn-primary">Découvrir nos expertises</a>
-              <a href="/contact" className="btn btn-secondary">Parlons de votre projet</a>
-            </div>
-          </div>
-        </section>
-
-        <Offers compact />
-
-        {/* 3 ENTRY POINTS - CARDS AVEC IMAGES */}
-        {/* Entry Points - Les 3 points d'entrée */}
-  {/* 3 ENTRY POINTS - CARDS AVEC IMAGES */}
-{/* Entry Points - Les 3 points d'entrée */}
-<section className="entry-points">
-  <div className="container">
-    <div className="section-header">
-      <h2 className="section-title">Une approche, des réalisations, vos enjeux</h2>
-      <p className="section-subtitle">
-        Que vous cherchiez à comprendre notre philosophie, explorer notre travail, 
-        ou identifier comment nous pouvons vous accompagner.
-      </p>
-    </div>
-    
-    <div className="cards-split">
-      {/* CARD 1 - WE */}
-      <div className="card-split card-split-we">
-        <div 
-          className="card-split-left"
-          style={homeData.blocs.we.image ? { 
-            backgroundImage: `url(${homeData.blocs.we.image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          } : {}}
-        >
-          <h2 className="card-split-title">{homeData.blocs.we.titre}</h2>
-        </div>
-        <div className="card-split-right">
-          <h3 className="card-split-subtitle">Quand la parole se dilue</h3>
-          <p className="card-split-content">
-            Quand les messages se multiplient, nous cherchons ce qui rend votre entreprise singulière. Le design narratif relie cette réalité à une parole claire et aux formes qui l’incarnent.
-          </p>
-          <a href={homeData.blocs.we.lien} className="card-split-link">
-            Découvrir notre approche →
-          </a>
-        </div>
+  const [homeData, projects] = await Promise.all([getHome(), getPublishedProjects()]);
+  const entries = [
+    { label: 'WE', href: '/we', image: homeData.blocs.we.image || '/images/card-we.jpg', title: 'Le design narratif', text: 'Une méthode pour relier ce que vous êtes, ce que vous dites et ce que vos publics perçoivent.' },
+    { label: 'WORK', href: '/work', image: homeData.blocs.work.image || '/images/card-work.jpg', title: 'De l’intention à l’image', text: 'Stratégie, création éditoriale et production vidéo : une même intention, jusque dans la réalisation.' },
+    { label: 'YOU', href: '/you', image: homeData.blocs.you.image || '/images/card-you.jpg', title: 'Votre point de départ', text: 'Faire connaître votre entreprise, recruter, expliquer une transformation ou produire un film.' },
+  ];
+  return <main id="main-content" className="wharf-public wharf-home">
+    <FilmHero videoSrc={homeData.hero.video?.url || 'https://bywharf.com/wp-content/uploads/2025/10/vidintro.mp4'}>
+      <p className="editorial-eyebrow">{positioning}</p>
+      <h1 id="home-title">Révéler ce qui <br /><em>existe déjà</em></h1>
+      <div className="film-hero-intro">
+        <p>{description}</p>
+        <a href="/work" className="film-link">Découvrir nos expertises <span aria-hidden="true">↗</span></a>
       </div>
+    </FilmHero>
 
-      {/* CARD 2 - WORK */}
-      <div className="card-split card-split-work">
-        <div 
-          className="card-split-left"
-          style={homeData.blocs.work.image ? { 
-            backgroundImage: `url(${homeData.blocs.work.image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          } : {}}
-        >
-          <h2 className="card-split-title">{homeData.blocs.work.titre}</h2>
-        </div>
-        <div className="card-split-right">
-          <h3 className="card-split-subtitle">De la stratégie aux réalisations</h3>
-          <p className="card-split-content">
-            Conseil éditorial, contenus B2B, films et séries vidéo : nous concevons ce que nous produisons et produisons ce que nous concevons. Découvrez nos projets.
-          </p>
-          <a href={homeData.blocs.work.lien} className="card-split-link">
-            Découvrir nos réalisations →
-          </a>
-        </div>
+    <WorkPortfolio projects={projects} compact />
+    <Offers compact />
+
+    <section className="wharf-entry-section" aria-labelledby="entry-title">
+      <div className="wharf-container">
+        <div className="wharf-section-heading"><p className="editorial-eyebrow">L’agence, le travail, vos enjeux</p><h2 id="entry-title">Trois portes d’entrée.</h2></div>
+        <div className="wharf-entries">{entries.map(entry => <a className="wharf-entry" href={entry.href} key={entry.label}>
+          <div className="wharf-entry-image" style={{ backgroundImage: `url(${entry.image})` }}><span>{entry.label}</span><span aria-hidden="true">↗</span></div>
+          <h3>{entry.title}</h3><p>{entry.text}</p>
+        </a>)}</div>
       </div>
+    </section>
 
-      {/* CARD 3 - YOU */}
-      <div className="card-split card-split-you">
-        <div 
-          className="card-split-left"
-          style={homeData.blocs.you.image ? { 
-            backgroundImage: `url(${homeData.blocs.you.image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          } : {}}
-        >
-          <h2 className="card-split-title">{homeData.blocs.you.titre}</h2>
-        </div>
-        <div className="card-split-right">
-          <h3 className="card-split-subtitle">Ce que vous voulez faire avancer</h3>
-          <p className="card-split-content">
-            Faire connaître votre entreprise, recruter, expliquer une transformation ou produire un film : partons de votre situation et du résultat que vous recherchez.
-          </p>
-          <a href={homeData.blocs.you.lien} className="card-split-link">
-            Explorer vos besoins →
-          </a>
-        </div>
+    <section className="wharf-manifesto" aria-labelledby="manifesto-title">
+      <div className="wharf-manifesto-image" style={{ backgroundImage: 'url(https://admin.bywharf.com/uploads/manifeste_b8fb418ca3.png)' }} aria-hidden="true" />
+      <div className="wharf-manifesto-copy">
+        <p className="editorial-eyebrow">Notre manifeste</p>
+        <h2 id="manifesto-title">Quand la parole<br />se dilue.</h2>
+        <p>La communication a besoin de retrouver son point d’appui : la réalité de l’entreprise.</p>
+        <p>De nouveaux récits se construisent à partir de cette matière. Notre design narratif relie ce que vous êtes, ce que vous dites et ce que vos publics perçoivent. Il guide la stratégie comme les contenus et les images.</p>
+        <a href="/we" className="card-split-link">Découvrir notre méthode →</a>
       </div>
-    </div> {/* ← Fermeture de cards-split */}
-  </div> {/* ← Fermeture de container */}
-</section> {/* ← Fermeture de section */}
+    </section>
 
-        {/* MANIFESTO ASYMÉTRIQUE */}
-        <section className="manifesto">
-          <div 
-            className="manifesto-image"
-            style={{ backgroundImage: 'url(https://admin.bywharf.com/uploads/manifeste_b8fb418ca3.png)' }}
-          ></div>
-          <div className="manifesto-container">
-            <div className="manifesto-label">Notre manifeste</div>
-            <h2 className="manifesto-headline">
-              Révéler ce qui existe déjà
-            </h2>
-            <div className="manifesto-text-columns">
-              <p className="manifesto-text">Quand la parole se dilue, la communication a besoin de retrouver son point d’appui : la réalité de l’entreprise.</p>
-              <p className="manifesto-text">Notre design narratif relie ce que vous êtes, ce que vous dites et ce que vos publics perçoivent. Il guide la stratégie comme les contenus et les images.</p>
-              <p className="manifesto-text"><a href="/we" className="card-split-link">Découvrir notre méthode →</a></p>
-            </div>
-          </div>
-        </section>
+    <section className="editorial-section"><div className="wharf-container">
+      <div className="wharf-section-heading"><p className="editorial-eyebrow">INSIGHTS</p><h2>Partager les questions<br />de notre métier.</h2></div>
+      <p>Des guides et des analyses sur la stratégie éditoriale, la communication corporate et la production vidéo B2B.</p>
+      <InsightCards items={articles.slice(0, 3)} headingLevel={3} />
+      <a href="/insights" className="card-split-link">Tous les articles →</a>
+    </div></section>
 
-        <section className="editorial-section">
-          <div className="container">
-            <p className="editorial-eyebrow">INSIGHTS</p>
-            <h2>Partager les questions de notre métier</h2>
-            <p>IA, visibilité, autorité et vidéo B2B : découvrez nos premiers articles pour rendre votre expertise plus visible et plus crédible.</p>
-            <a href="/insights" className="card-split-link">Lire les articles →</a>
-          </div>
-        </section>
-
-        {/* CTA FINAL */}
-        <section className="cta-section">
-          <div className="container">
-            <h2>Quel projet voulez-vous faire avancer ?</h2>
-            <p>
-              Parlons de vos publics, de vos enjeux et de ce que votre communication doit rendre possible.
-            </p>
-            <a href="/contact" className="btn btn-primary">Démarrer la conversation</a>
-          </div>
-        </section>
-
-      </main>
-    </>
-  );
+    <section className="cta-section"><div className="wharf-container">
+      <p className="editorial-eyebrow">La suite commence avec vous</p>
+      <h2>Quel projet voulez-vous<br />faire avancer ?</h2>
+      <p>Parlons de vos publics, de vos enjeux et de ce que votre communication doit rendre possible.</p>
+      <a href="/contact" className="btn btn-primary">Démarrer la conversation</a>
+    </div></section>
+  </main>;
 }

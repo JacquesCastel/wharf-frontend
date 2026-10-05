@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { articles, articlePath, getArticle, publishedTopics, formatDate, readingMinutes } from '../../../lib/insights';
+import { articlePath, getArticle, publishedTopics, formatDate, readingMinutes, getArticleFormat, formatPath, relatedArticles } from '../../../lib/insights';
 import { generateMetadataFromStrapi } from '../../../lib/metadata';
 import InsightCards from '../../../components/InsightCards';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bywharf.com';
@@ -18,9 +18,10 @@ export default async function ArticlePage({ params }: Props) {
   const article = getArticle(theme, slug);
   if (!article) notFound();
   const topic = publishedTopics.find(topic => topic.slug === theme)!;
+  const format = getArticleFormat(article);
   const url = `${SITE_URL}${articlePath(article)}`;
   const schema = [
-    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: article.title, description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt, author: { '@type': 'Organization', name: article.author, url: `${SITE_URL}/we` }, publisher: { '@type': 'Organization', name: 'Wharf', url: SITE_URL }, mainEntityOfPage: url, url, inLanguage: 'fr-FR', articleSection: topic.title },
+    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: article.title, description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt, author: { '@type': 'Organization', name: article.author, url: `${SITE_URL}/we` }, publisher: { '@type': 'Organization', name: 'Wharf', url: SITE_URL }, mainEntityOfPage: url, url, inLanguage: 'fr-FR', articleSection: topic.title, genre: format?.title, image: `${SITE_URL}/og?theme=${encodeURIComponent(theme)}&slug=${encodeURIComponent(slug)}` },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Insights', item: `${SITE_URL}/insights` }, { '@type': 'ListItem', position: 2, name: topic.title, item: `${SITE_URL}/insights/${theme}` }, { '@type': 'ListItem', position: 3, name: article.title, item: url }] },
   ];
   return <main id="main-content" className="insights-page">
@@ -28,15 +29,25 @@ export default async function ArticlePage({ params }: Props) {
     <article className="insight-article">
       <header className="insight-article-header">
         <nav aria-label="Fil d’Ariane"><Link href="/insights">Insights</Link> / <Link href={`/insights/${theme}`}>{topic.title}</Link></nav>
-        <p className="editorial-eyebrow">{article.tag}</p><h1>{article.title}</h1>
+        <p className="editorial-eyebrow">{article.tag}</p>
+        {format && <Link className="insight-format-link" href={formatPath(format.slug)}>{format.label}</Link>}<h1>{article.title}</h1>
         <p className="insight-meta">Par <Link href="/we">{article.author}</Link> · <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time> · {readingMinutes(article)} min de lecture</p>
         <p className="insight-lead">{article.intro}</p>
       </header>
       <aside className="insight-takeaway" aria-label="À retenir"><strong>À retenir</strong><p>{article.takeaway}</p></aside>
       <nav className="insight-toc" aria-label="Sommaire de l’article"><h2>Dans cet article</h2><ol>{article.sections.map(section => <li key={section.id}><a href={`#${section.id}`}>{section.title}</a></li>)}</ol></nav>
       {article.sections.map(section => <section key={section.id} id={section.id} className="insight-section"><h2>{section.title}</h2>{section.paragraphs.map((p, i) => <p key={i}>{p}</p>)}{section.items && <ul>{section.items.map(item => <li key={item}>{item}</li>)}</ul>}{section.table && <div className="insight-table-wrap"><table className="insight-table"><caption>{section.table.caption}</caption><thead><tr>{section.table.headers.map(header => <th key={header} scope="col">{header}</th>)}</tr></thead><tbody>{section.table.rows.map((row, index) => <tr key={index}>{row.map((cell, column) => column === 0 ? <th key={column} scope="row">{cell}</th> : <td key={column}>{cell}</td>)}</tr>)}</tbody></table></div>}{section.source && <p className="insight-source">Source : <a href={section.source.url}>{section.source.label}</a> — consultée le {formatDate(section.source.accessedAt)}.</p>}</section>)}
+      {article.research && <section className="insight-section" aria-labelledby="research-method">
+        <h2 id="research-method">Méthode et périmètre</h2>
+        {article.research.series === 'observatoire-wharf' && <p className="editorial-eyebrow">Observatoire Wharf</p>}
+        <p><strong>Période étudiée :</strong> {article.research.period}</p>
+        <p><strong>Périmètre :</strong> {article.research.scope}</p>
+        <p>{article.research.method}</p>
+        <h3>Limites de l’étude</h3><p>{article.research.limitations}</p>
+        <ul>{article.research.sources.map(source => <li key={source.url}><a href={source.url}>{source.label}</a> — consultée le {formatDate(source.accessedAt)}.</li>)}</ul>
+      </section>}
       <footer className="insight-article-cta"><h2>{article.cta}</h2><p>Découvrez <Link href={article.service}>notre approche et nos expertises</Link>, puis parlons de votre situation.</p><Link href="/contact" className="btn btn-primary">Parlons de votre projet →</Link></footer>
     </article>
-    <section className="editorial-section"><div className="work-container"><h2>Pour poursuivre la réflexion</h2><InsightCards items={articles.filter(item => item.slug !== slug)} /></div></section>
+    <section className="editorial-section"><div className="work-container"><h2>Pour poursuivre la réflexion</h2><InsightCards items={relatedArticles(article)} headingLevel={3} /></div></section>
   </main>;
 }

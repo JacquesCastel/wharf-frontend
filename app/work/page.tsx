@@ -4,6 +4,8 @@ import { generateMetadataFromStrapi } from '../lib/metadata';
 import { getPublishedProjects } from '../lib/projects';
 import { pageSeo } from '../lib/editorial';
 import Offers from '../components/Offers';
+import InsightCards from '../components/InsightCards';
+import { articles } from '../lib/insights';
 import WorkPortfolio from './WorkPortfolio';
 
 export const dynamic = 'force-dynamic';
@@ -12,22 +14,18 @@ export async function generateMetadata(): Promise<Metadata> {
   return generateMetadataFromStrapi(pageSeo.work.title, pageSeo.work.description, data.seo?.image, '/work');
 }
 export default async function WorkPage() {
-  const [data, projects] = await Promise.all([getWork(), getPublishedProjects()]);
+  const projects = await getPublishedProjects();
   return (
-    <main id="main-content">
-      <section className="work-hero">
-        <video className="work-hero-video" autoPlay muted loop playsInline aria-hidden="true">
-          <source src={data.hero.video?.url || 'https://bywharf.com/wp-content/uploads/2025/10/vidintro.mp4'} type="video/mp4" />
-        </video>
-        <div className="work-hero-overlay" />
-        <div className="work-hero-content">
-          <p className="editorial-eyebrow">WORK</p>
-          <h1>Stratégie, contenus & vidéo B2B</h1>
-          <p className="work-hero-subtitle">Wharf conçoit ce qu’il produit et produit ce qu’il conçoit. Du premier message au film final, une même intention guide le travail. Tournage, création d’images et de films par l’IA, production hybride : le parti pris sert votre récit.</p>
+    <main id="main-content" className="wharf-public wharf-work">
+      <section className="wharf-masthead" aria-labelledby="work-title">
+        <p className="editorial-eyebrow">WORK / Expertises & réalisations</p>
+        <div><h1 id="work-title">Stratégie, <br />contenus & vidéo B2B.</h1>
+          <p>Wharf conçoit ce qu’il produit et produit ce qu’il conçoit. Du premier message au film final, une même intention guide le travail.</p>
+          <nav className="wharf-section-nav" aria-label="Explorer WORK"><a href="#realisations">Réalisations ↓</a><a href="#strategy">Strategy</a><a href="#content">Content</a><a href="#video">Video</a><a href="#creation-ia">Création IA</a></nav>
         </div>
       </section>
-      <Offers />
       <WorkPortfolio projects={projects} />
+      <Offers />
       <section className="work-methode">
         <div className="work-container">
           <h2>Une intention, du conseil à la production</h2>
@@ -42,6 +40,11 @@ export default async function WorkPage() {
           <a href="/we" className="card-split-link">Découvrir le design narratif →</a>
         </div>
       </section>
+      <section className="editorial-section"><div className="work-container">
+        <h2>Préparer votre prochain projet</h2>
+        <p>Des repères pour choisir vos contenus et préparer leur production.</p>
+        <InsightCards items={articles.filter(article => article.format === 'guides').slice(0, 3)} headingLevel={3} />
+      </div></section>
       <section className="work-closing">
         <div className="work-container">
           <h2>Un sujet à clarifier, un contenu à produire ?</h2>

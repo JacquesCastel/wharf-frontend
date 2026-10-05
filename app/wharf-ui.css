@@ -1,0 +1,345 @@
+/* Direction Wharf : immersion cinéma, composition éditoriale ouverte.
+   Les styles de contenu sont limités aux cinq pages publiques de la refonte. */
+body { margin: 0; }
+.wharf-public { --wharf-space: clamp(24px, 4.5vw, 80px); --wharf-rule: var(--color-border); color: var(--color-primary); background: var(--color-bg); }
+.wharf-public *, .wharf-header *, .footer * { box-sizing: border-box; }
+.wharf-public :is(.wharf-container, .work-container, .you-container, .we-pillars-container, .we-timeline-container) { max-width: 1600px; width: 100%; margin-inline: auto; padding-inline: var(--wharf-space); }
+.wharf-public :is(h1, h2, h3) { text-wrap: balance; overflow-wrap: break-word; }
+.wharf-public h1 { font-family: var(--font-heading-serif); font-size: clamp(48px, 6.7vw, 108px); font-weight: 400; line-height: 1.09; letter-spacing: -.035em; }
+.wharf-public h1 em { font-weight: inherit; }
+#main-content.wharf-public h2 { font-size: clamp(32px, 4vw, 62px); font-weight: 400; line-height: 1.18; letter-spacing: -.025em; }
+#main-content.wharf-public h3 { font-size: clamp(24px, 2.3vw, 36px); line-height: 1.28; font-weight: 400; }
+.wharf-public p { line-height: 1.7; }
+.wharf-public .editorial-eyebrow { font: 500 11px/1.6 'IBM Plex Mono', monospace; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 26px; color: inherit; }
+.wharf-public .wharf-section-heading { margin-bottom: clamp(32px, 4vw, 64px); }
+.wharf-public .wharf-section-heading h2 { text-align: left; margin: 0; }
+.wharf-public .card-split-link { font: 500 14px/1.7 var(--font-sans); letter-spacing: 0; text-transform: none; color: inherit; border: 0; border-bottom: 1px solid currentColor; border-radius: 0; padding: 0 0 6px; background: none; display: inline-block; text-decoration: none; transition: opacity 180ms; }
+.wharf-public .card-split-link:hover { opacity: .7; transform: none; }
+.wharf-public :is(a, button):focus-visible, .wharf-header :is(a, button):focus-visible { outline: 2px solid var(--color-accent); outline-offset: 6px; }
+.wharf-public [id] { scroll-margin-top: 32px; }
+
+/* Navigation : compacte sur papier, superposée uniquement au film d’accueil. */
+.wharf-header.header { position: relative; padding: 28px 0; background: var(--color-bg); backdrop-filter: none; border: 0; color: var(--color-primary); }
+.wharf-header .header-container { max-width: 1600px; padding-inline: clamp(24px, 4.5vw, 80px); gap: 48px; }
+.wharf-header .header-logo { flex: 0 0 auto; color: inherit; }
+.wharf-header .header-logo img { width: auto; max-width: 160px; object-fit: contain; }
+.wharf-header .header-nav { justify-content: flex-end; gap: clamp(20px, 2.8vw, 44px); flex: 1; width: auto; }
+.wharf-header :is(.header-nav-link, .header-contact-btn, .header-client-btn) { font: 500 12px/1.6 var(--font-sans); letter-spacing: .05em; color: inherit; padding: 8px 0; background: none; border: 0; border-radius: 0; text-decoration: none; }
+.wharf-header .header-contact-btn { margin-left: 20px; }
+.wharf-header .header-client-btn { font-size: 11px; text-transform: none; }
+.wharf-header .header-nav-link::after { left: 0; transform: none; height: 1px; background: currentColor; }
+.wharf-header .header-nav-link[aria-current="page"]::after { width: 100%; }
+.wharf-header :is(.header-nav-link, .header-contact-btn, .header-client-btn):hover { color: inherit; background: none; letter-spacing: .05em; padding: 8px 0; opacity: .7; }
+.wharf-header-film.header { position: absolute; inset: 0 0 auto; z-index: 100; color: white; background: transparent; }
+.wharf-header-film .header-logo img { filter: brightness(0) invert(1); }
+.wharf-header-film .header-burger span { background: white; }
+.wharf-header .header-mobile-menu { background: var(--color-bg); color: var(--color-primary); backdrop-filter: none; padding: 24px 0 32px; border-bottom: 1px solid var(--color-border); max-height: calc(100dvh - 90px); overflow-y: auto; }
+.wharf-header .header-mobile-nav { padding-inline: 24px; }
+.wharf-header .header-mobile-link { color: var(--color-primary); font-size: 22px; padding: 12px 0; }
+.wharf-header .header-mobile-contact { background: transparent; color: var(--color-primary) !important; text-align: left; border-radius: 0; margin-top: 0; }
+.wharf-header .header-mobile-nav .header-client-btn { font-size: 14px; }
+
+/* Film d’ouverture : l’image garde sa netteté et le texte se détache par un voile. */
+.film-hero { min-height: 760px; min-height: max(680px, 100svh); position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: flex-end; background: #141414; color: white; }
+.film-hero-media, .film-hero-shade { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.film-hero-media :is(img, video) { width: 100%; height: 100%; object-fit: cover; }
+.film-hero-media video { position: absolute; inset: 0; }
+.film-hero-media video[hidden] { display: none; }
+.film-hero-shade { background: linear-gradient(180deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.15) 25%, rgba(0,0,0,.66) 100%); }
+.film-hero-content { padding: 160px var(--wharf-space) 64px; width: 100%; max-width: 1600px; margin-inline: auto; }
+.film-hero .editorial-eyebrow { color: white; }
+.wharf-public .film-hero h1 { color: white; font-size: clamp(58px, 8.5vw, 136px); max-width: 1200px; margin: 0 0 40px; }
+.film-hero-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+.film-hero-intro p { color: #fff; font-size: 16px; max-width: 470px; }
+.film-link { color: white; text-decoration: none; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,.6); padding-bottom: 8px; white-space: nowrap; }
+.film-link span { padding-left: 32px; }
+.film-hero-bottom { width: calc(100% - 2 * var(--wharf-space)); max-width: calc(1600px - 2 * var(--wharf-space)); margin-inline: auto; border-top: 1px solid rgba(255,255,255,.35); padding: 18px 0; display: flex; justify-content: space-between; align-items: center; }
+.film-hero-bottom :is(a, button) { color: white; background: transparent; border: 0; text-decoration: none; font: 400 12px/1.5 var(--font-sans); min-height: 44px; display: inline-flex; align-items: center; gap: 24px; padding: 0; cursor: pointer; }
+
+/* Ouvertures des pages intérieures : une rubrique et un grand titre. */
+.wharf-masthead { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; max-width: 1600px; margin: auto; padding: clamp(70px, 9vw, 140px) var(--wharf-space) clamp(70px, 8vw, 120px); }
+.wharf-masthead > .editorial-eyebrow { padding-top: 14px; }
+.wharf-masthead h1 { margin-bottom: 32px; }
+.wharf-masthead > div > p { font-size: 18px; max-width: 650px; margin-bottom: 32px; }
+.wharf-section-nav { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 40px; }
+.wharf-section-nav a { font: 500 12px/1.6 'IBM Plex Mono', monospace; color: inherit; text-decoration: none; border-bottom: 1px solid var(--wharf-rule); padding: 10px 0; }
+.wharf-section-nav a:hover { border-color: currentColor; }
+
+/* Réalisations : une image généreuse, un récit visible, aucun survol nécessaire. */
+.wharf-public .work-portfolio { padding: clamp(64px, 7vw, 110px) 0; background: var(--color-bg); }
+.wharf-public .work-masonry.editorial-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; grid-auto-rows: auto; }
+.wharf-public .work-masonry-item { grid-row: auto; margin: 0; }
+.wharf-public .work-project-link { height: auto; border: 0; background: none; color: inherit; border-radius: 0; overflow: visible; text-decoration: none; }
+.wharf-public .work-project-image { height: auto; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 0; background: var(--color-bg-secondary); }
+.wharf-public .work-project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms; }
+.wharf-public .work-project-link:hover .work-project-image img { transform: scale(1.025); }
+.wharf-public .work-project-caption { padding: 28px 0 0; }
+.wharf-public .work-project-caption h3 { font-size: clamp(28px, 3vw, 46px); margin: 0 0 20px; }
+.wharf-public .work-project-caption p { font-size: 16px; margin-bottom: 24px; }
+.wharf-public .work-project-caption .editorial-eyebrow { font-size: 11px; }
+.wharf-public .project-featured { grid-template-columns: 1fr; }
+.wharf-public .project-featured .work-project-link { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); align-items: center; gap: clamp(32px, 5vw, 80px); }
+.wharf-public .project-featured .work-project-caption { padding: 0; }
+.wharf-public .work-portfolio > .work-container > .card-split-link { margin-top: 36px; }
+.wharf-public .work-filters { justify-content: flex-start; gap: 12px; margin: 0 0 28px; }
+.wharf-public .work-filter { font: 400 13px/1.5 var(--font-sans); color: inherit; padding: 12px 18px; border: 1px solid var(--wharf-rule); border-radius: 0; background: none; }
+.wharf-public .work-filter:hover, .wharf-public .work-filter.active { background: var(--color-primary); color: var(--color-bg); transform: none; box-shadow: none; }
+
+/* Expertises ouvertes, séparées par des filets plutôt que par des cartes. */
+.wharf-public .editorial-offers { padding: clamp(64px, 7vw, 110px) 0; background: var(--color-bg-secondary); }
+.wharf-public .editorial-offers-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.wharf-public .expertise { min-width: 0; padding: 28px 0 0; background: none; border: 0; border-top: 1px solid var(--wharf-rule); border-radius: 0; box-shadow: none; transform: none; text-align: left; }
+.wharf-public .expertise:hover { transform: none; box-shadow: none; background: none; border-color: var(--wharf-rule); }
+.wharf-public .expertise :is(h3, p, li) { color: inherit; }
+.wharf-public .expertise h3 { margin-bottom: 24px; }
+.wharf-public .expertise-subtitle { font: 500 12px/1.6 'IBM Plex Mono', monospace; letter-spacing: .12em; color: inherit; margin-bottom: 28px; }
+.wharf-public .expertise > p:not(.expertise-subtitle) { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
+.wharf-public .expertise ul { list-style: none; padding: 0; margin: 28px 0; }
+.wharf-public .expertise li { padding: 8px 0; margin: 0; font-size: 14px; line-height: 1.6; border-bottom: 1px solid var(--wharf-rule); }
+.wharf-public .expertise li::before { display: none; }
+.wharf-public .expertise li:hover { transform: none; color: inherit; }
+.wharf-public .expertise .offer-reading { font-size: 13px; }
+.wharf-public .editorial-ai-offer { text-align: center; margin-top: clamp(64px, 8vw, 120px); padding: 64px 0 0; }
+.wharf-public .editorial-ai-offer > p:not(.expertise-subtitle) { max-width: 740px; margin-inline: auto; }
+.wharf-public .editorial-ai-offer ul { max-width: 900px; margin-inline: auto; text-align: left; column-gap: 48px; }
+#main-content.wharf-public .editorial-ai-offer h3 { font-size: clamp(32px, 4vw, 54px); }
+
+/* Entrées de l’accueil et manifeste. */
+.wharf-entry-section { padding: clamp(64px, 7vw, 110px) 0; }
+.wharf-entries { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.wharf-entry { text-decoration: none; color: inherit; }
+.wharf-entry-image { aspect-ratio: 4 / 5; background-size: cover; background-position: center; display: flex; justify-content: space-between; align-items: flex-end; padding: 24px; color: white; box-shadow: inset 0 -120px 100px -80px rgba(0,0,0,.8); }
+.wharf-entry-image span:first-child { font: 400 clamp(48px, 5vw, 80px)/1 var(--font-heading-serif); }
+.wharf-entry-image span:last-child { font-size: 26px; }
+.wharf-entry h3 { margin-top: 28px; margin-bottom: 16px; }
+.wharf-entry p { font-size: 15px; max-width: 380px; }
+.wharf-entry:hover .wharf-entry-image span:last-child { transform: translate(3px,-3px); }
+.wharf-manifesto { display: grid; grid-template-columns: 1fr 1fr; background: #181818; color: white; }
+.wharf-manifesto-image { min-height: 580px; background-position: center; background-size: cover; }
+.wharf-manifesto-copy { padding: clamp(48px, 6vw, 100px); align-self: center; }
+.wharf-manifesto-copy :is(h2, p) { color: inherit; }
+.wharf-manifesto-copy h2 { margin-bottom: 36px; }
+.wharf-manifesto-copy > p:not(.editorial-eyebrow) { font-size: 16px; margin-bottom: 24px; max-width: 560px; }
+
+/* WE : garder les trois actes, libérer les images et la méthode. */
+.wharf-public .we-actes-timeline { padding: 0 0 clamp(64px, 8vw, 120px); background: var(--color-bg); }
+.wharf-public .we-timeline-container { gap: clamp(48px, 7vw, 100px); }
+.wharf-public .we-timeline-line, .wharf-public .we-acte-number { display: none; }
+.wharf-public .we-acte { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(32px, 7vw, 110px); direction: ltr; }
+.wharf-public .we-acte-visual { aspect-ratio: 4 / 3; background-size: cover; background-repeat: no-repeat; }
+.wharf-public .we-acte-content { padding: 0; background: none; }
+.wharf-public .we-acte-content h2 { font-size: clamp(30px, 3.2vw, 48px); }
+.wharf-public .we-acte-label { color: inherit; font: 500 11px/1.6 'IBM Plex Mono', monospace; letter-spacing: .12em; margin-bottom: 24px; }
+.wharf-public .we-acte-text { color: inherit; }
+.wharf-public .we-transition { padding: clamp(64px, 8vw, 120px) var(--wharf-space); background: #181818; }
+.wharf-public .we-transition-highlight { color: white; font-style: italic; }
+.wharf-public .we-pillars { padding: clamp(64px, 7vw, 110px) 0; background: var(--color-bg); }
+.wharf-public .we-pillars-title { text-align: left; margin-bottom: 64px; }
+.wharf-public .editorial-pillars-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.wharf-public .we-pillar { padding: 28px 0 0; border: 0; border-top: 1px solid var(--wharf-rule); background: none; text-align: left; align-items: flex-start; cursor: default; }
+.wharf-public .we-pillar::before { display: none; }
+.wharf-public .we-pillar:hover { box-shadow: none; transform: none; border-color: var(--wharf-rule); background: none; }
+.wharf-public .we-pillar :is(h3, p) { color: inherit; }
+.wharf-public .we-pillar h3 { margin-bottom: 24px; }
+.wharf-public .we-pillar .card-split-link { margin-top: 24px; }
+.wharf-public .editorial-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 64px; padding-left: 24px; max-width: none; }
+.wharf-public .editorial-steps li { padding: 24px 0; margin: 0; border-top: 1px solid var(--wharf-rule); font-size: 16px; }
+
+/* Méthode et YOU : des lignes lisibles, des parcours explicites. */
+.wharf-public .work-methode, .wharf-public .you-understand { padding: clamp(64px, 7vw, 110px) 0; background: var(--color-bg-secondary); }
+.wharf-public .work-methode h2, .wharf-public .you-understand h2 { text-align: left; }
+.wharf-public .work-methode-intro { text-align: left; margin: 0 0 48px; max-width: 680px; color: inherit; }
+.wharf-public .work-mouvements, .wharf-public .you-understand-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.wharf-public :is(.mouvement, .you-understand-item) { padding: 28px 0; text-align: left; background: none; border: 0; border-top: 1px solid var(--wharf-rule); border-radius: 0; cursor: default; transform: none; box-shadow: none; }
+.wharf-public :is(.mouvement, .you-understand-item):hover { transform: none; box-shadow: none; background: none; border-color: var(--wharf-rule); }
+.wharf-public :is(.mouvement, .you-understand-item) :is(h3, p) { color: inherit; }
+.wharf-public .mouvement-number { font: 400 12px/1.6 'IBM Plex Mono', monospace; color: inherit; margin-bottom: 24px; }
+.wharf-public .mouvement:hover .mouvement-number { transform: none; }
+.wharf-public :is(.mouvement, .you-understand-item) h3 { margin-bottom: 20px; }
+.wharf-public :is(.mouvement, .you-understand-item) p { font-size: 16px; }
+.wharf-public .you-situations { padding: 0 0 clamp(64px, 8vw, 120px); background: var(--color-bg); }
+.wharf-public .you-situations h2 { text-align: left; margin-bottom: 20px; }
+.wharf-public .you-situations .editorial-intro { text-align: left; margin: 0 0 48px; color: inherit; }
+.wharf-public .you-situations-grid { display: block; }
+.wharf-public .you-situation { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 7vw, 100px); padding: 40px 0; border: 0; border-top: 1px solid var(--wharf-rule); border-radius: 0; background: none; box-shadow: none; transform: none; }
+.wharf-public .you-situation:hover { background: none; box-shadow: none; transform: none; border-color: var(--wharf-rule); }
+.you-situation-heading { display: grid; grid-template-columns: 40px 1fr; gap: 24px; }
+.wharf-public .you-situation-number { color: inherit; font: 400 12px/1.6 'IBM Plex Mono', monospace; padding-top: 8px; margin: 0; }
+.wharf-public .you-situation h3 { margin: 0; color: inherit; font-size: clamp(28px, 3vw, 44px); }
+.wharf-public .you-situation p { font-size: 16px; color: inherit; margin-bottom: 24px; }
+.wharf-public .you-situation-paths { display: flex; flex-wrap: wrap; gap: 16px 24px; }
+.wharf-public .you-situation-paths li + li { margin: 0; }
+.wharf-public .you-situation-link { font-size: 14px; color: inherit; border: 0; padding: 0; }
+.wharf-public .you-understand-conclusion { text-align: left; margin: 24px 0; color: inherit; font-size: 17px; }
+
+/* INSIGHTS : une mise en page de revue, sans illustration artificielle. */
+.wharf-public.editorial-section, .wharf-public .editorial-section { padding: clamp(64px, 7vw, 110px) 0; background: var(--color-bg); }
+.wharf-public .editorial-section > :is(.work-container, .we-pillars-container) { padding-inline: var(--wharf-space); }
+.wharf-public .editorial-section > div > p { font-size: 17px; max-width: 700px; }
+.wharf-public .insight-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin: 48px 0; }
+.wharf-public .insight-card { display: flex; flex-direction: column; padding: 28px 0 0; border: 0; border-top: 1px solid var(--wharf-rule); background: none; color: inherit; }
+.wharf-public .insight-card .editorial-eyebrow { font-size: 10px; margin-bottom: 24px; }
+#main-content.wharf-public .insight-card :is(h2, h3) { font-size: clamp(24px, 2.2vw, 34px); line-height: 1.3; margin-bottom: 24px; letter-spacing: -.01em; }
+.wharf-public .insight-card > p:not(.editorial-eyebrow) { font-size: 15px; margin-bottom: 24px; }
+.wharf-public .insight-card > .insight-meta { font-size: 12px; margin-top: auto; }
+.wharf-public .insight-card > .card-split-link { align-self: flex-start; }
+.wharf-public.wharf-insights { padding-top: 0; }
+.wharf-insights > .editorial-section { padding-top: clamp(64px, 8vw, 120px); }
+.wharf-insights h1 { max-width: 1000px; margin-bottom: 32px; }
+.wharf-insights .editorial-intro { text-align: left; max-width: 750px; margin: 0 0 48px; }
+.wharf-insights .insight-browse-label { font: 500 11px/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em; margin-top: 28px; }
+.wharf-insights .insight-card:first-child { grid-column: span 2; padding: 40px; background: var(--color-bg-secondary); border-top: 0; }
+#main-content.wharf-insights .insight-card:first-child h2 { font-size: clamp(30px, 3.5vw, 48px); }
+
+/* Conclusions : une conversation, avec une seule action. */
+.wharf-public :is(.cta-section, .we-closing, .work-closing, .you-closing) { padding: clamp(64px, 8vw, 130px) 0; background: #181818; color: white; text-align: left; }
+.wharf-public :is(.cta-section, .we-closing, .work-closing, .you-closing) :is(h2, p) { color: white; text-align: left; }
+.wharf-public :is(.cta-section, .we-closing, .work-closing, .you-closing) h2 { max-width: 1000px; margin-bottom: 28px; }
+.wharf-public :is(.cta-section, .we-closing, .work-closing, .you-closing) p { max-width: 650px; margin: 0 0 32px; font-size: 17px; white-space: normal; }
+.wharf-public :is(.btn, .we-cta-button, .work-cta-button, .you-cta-button) { display: inline-flex; align-items: center; font: 500 14px/1.6 var(--font-sans); color: white; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,.6); border-radius: 0; padding: 12px 0; transform: none; box-shadow: none; text-decoration: none; }
+.wharf-public :is(.btn, .we-cta-button, .work-cta-button, .you-cta-button):hover { color: white; background: none; transform: none; padding: 12px 0; box-shadow: none; opacity: .7; }
+
+/* Pied de page et ses liens SEO, avec le bloc de lecture gris conservé. */
+.footer { padding: 80px 0 32px; background: var(--color-bg); }
+.footer .footer-container { max-width: 1600px; padding-inline: clamp(24px, 4.5vw, 80px); }
+.footer .footer-logo img { max-width: 150px; height: auto; }
+.footer .footer-slogan { font-size: 15px; line-height: 1.6; color: var(--color-primary); }
+.footer .footer-contact-link { color: var(--color-primary); font-size: 14px; }
+.footer .footer-column-title { font-size: 19px; margin-bottom: 24px; color: var(--color-primary); }
+.footer .footer-link { font-size: 13px; }
+.footer .footer-reading { background: #f1f1ef; border: 0; padding: 32px; }
+.footer .footer-reading-topic { font: 400 10px/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; }
+.footer .footer-bottom { padding-top: 32px; }
+.footer .footer-utility { justify-content: flex-start; }
+.footer .footer-copyright, .footer .footer-bottom .footer-description { text-align: left; margin-left: 0; color: var(--color-primary); }
+
+@media (max-width: 1100px) {
+  .wharf-header .header-container { gap: 24px; }
+  .wharf-header .header-nav { gap: 20px; }
+  .wharf-header .header-contact-btn { margin-left: 0; }
+  .wharf-public .insight-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wharf-public .editorial-offers-grid, .wharf-public .editorial-pillars-grid { gap: 24px; }
+  .footer .footer-content { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 900px) {
+  .wharf-header .header-nav { display: none; }
+  .wharf-header .header-burger { display: flex; }
+  .wharf-public .wharf-masthead { grid-template-columns: 1fr; gap: 16px; }
+  .wharf-masthead > .editorial-eyebrow { padding-top: 0; }
+  .wharf-public .editorial-offers-grid, .wharf-public .editorial-pillars-grid, .wharf-public .work-mouvements, .wharf-public .you-understand-grid { grid-template-columns: 1fr; gap: 32px; }
+  .wharf-public .expertise h3 { max-width: 620px; }
+  .wharf-public .expertise > p { max-width: 720px; }
+  .wharf-public .expertise ul { columns: 2; column-gap: 40px; }
+  .wharf-public .expertise li { break-inside: avoid; }
+  .wharf-public .project-featured .work-project-link { grid-template-columns: 1.4fr 1fr; gap: 28px; }
+  .wharf-manifesto { grid-template-columns: 1fr; }
+  .wharf-manifesto-image { min-height: 380px; }
+  .wharf-manifesto-copy { padding: 56px var(--wharf-space); }
+  .wharf-public .we-acte { gap: 32px; }
+  .wharf-public .you-situation { grid-template-columns: 1fr; gap: 28px; }
+  .you-situation-content { padding-left: 64px; }
+}
+@media (max-width: 760px) {
+  .wharf-public { --wharf-space: 24px; }
+  .wharf-header.header { padding: 22px 0; }
+  .wharf-header .header-logo img { height: 32px !important; max-width: 130px; }
+  .film-hero { min-height: max(760px, 100svh); }
+  .film-hero-content { padding-top: 140px; padding-bottom: 40px; }
+  .wharf-public .film-hero h1 { font-size: clamp(44px, 10vw, 76px); margin-bottom: 32px; }
+  .film-hero-intro { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .film-hero-intro p { font-size: 15px; }
+  .film-link { white-space: normal; }
+  .wharf-public .film-hero .editorial-eyebrow { font-size: 10px; max-width: 280px; }
+  .film-hero-bottom :is(a, button) { font-size: 11px; gap: 12px; }
+  .wharf-public .wharf-masthead { padding-top: 48px; padding-bottom: 56px; }
+  .wharf-masthead > div > p { font-size: 16px; }
+  .wharf-public .work-masonry.editorial-projects, .wharf-public .project-featured .work-project-link { grid-template-columns: 1fr; gap: 28px; }
+  .wharf-public .work-project-caption h3 { font-size: 32px; }
+  .wharf-entries { grid-template-columns: 1fr; gap: 48px; }
+  .wharf-entry-image { aspect-ratio: 4 / 3; }
+  .wharf-manifesto-image { min-height: 300px; }
+  .wharf-public .we-acte { grid-template-columns: 1fr; gap: 28px; }
+  .wharf-public .editorial-steps { grid-template-columns: 1fr; }
+  .wharf-public .you-situation { padding: 32px 0; }
+  .you-situation-heading { grid-template-columns: 28px 1fr; gap: 16px; }
+  .you-situation-content { padding-left: 44px; }
+  .wharf-public .you-situation-paths { display: block; }
+  .wharf-public .you-situation-paths li + li { margin-top: 16px; }
+  .wharf-public .insight-cards { grid-template-columns: 1fr; gap: 40px; }
+  .wharf-insights .insight-card:first-child { grid-column: auto; padding: 28px 24px; }
+  .footer .footer-right { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px; }
+  .footer .footer-reading-list { grid-template-columns: 1fr; gap: 24px; }
+  .footer .footer-reading { padding: 24px; }
+}
+@media (max-width: 380px) {
+  .wharf-public { --wharf-space: 20px; }
+  .wharf-public h1 { font-size: 40px; }
+  .wharf-public .film-hero h1 { font-size: 42px; }
+  .you-situation-content { padding-left: 0; }
+  .wharf-public .expertise ul { columns: 1; }
+  .footer .footer-right { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .wharf-public *, .wharf-header * { animation: none !important; transition: none !important; }
+}
+/* Respecter les choix de contraste du widget existant. */
+[data-contrast="high"] .wharf-header-film.header { color: black; background: white; }
+[data-contrast="high"] .wharf-header-film .header-logo img { filter: none; }
+[data-contrast="high"] .wharf-header-film .header-burger span { background: black; }
+[data-contrast="high"] .wharf-public .film-hero-shade { background: rgba(0,0,0,.8); }
+[data-contrast="inverted"] .footer .footer-reading { background: var(--color-bg-secondary); }
+
+
+/* CONTACT : même ouverture éditoriale, formulaire accessible sans écran d’attente. */
+.wharf-contact .wharf-masthead { padding-bottom: clamp(48px, 5vw, 80px); }
+.wharf-contact .contact-project-section { padding: 0 0 clamp(72px, 8vw, 128px); }
+.wharf-contact .contact-project-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); gap: clamp(48px, 8vw, 128px); align-items: start; }
+.wharf-contact .contact-project-intro { border-top: 1px solid var(--wharf-rule); padding-top: 32px; }
+#main-content.wharf-contact .contact-project-intro h2 { font-size: clamp(32px, 3.5vw, 52px); margin-bottom: 28px; }
+.wharf-contact .contact-project-intro > p:not(.editorial-eyebrow) { max-width: 450px; font-size: 16px; margin-bottom: 24px; color: inherit; }
+.wharf-contact .contact-direct { margin: 48px 0 32px; }
+.wharf-contact .contact-direct .editorial-eyebrow { margin-bottom: 16px; font-size: 10px; }
+.wharf-contact .contact-direct a { font-size: clamp(18px, 2vw, 25px); color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 8px; overflow-wrap: anywhere; }
+.wharf-contact .contact-direct a span { display: inline-block; margin-left: 16px; }
+.wharf-contact .contact-explore { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+.wharf-contact .contact-form-wrapper { max-width: none; margin: 0; min-width: 0; }
+.wharf-contact .contact-form { gap: 28px; }
+.wharf-contact .contact-form-fields { min-width: 0; margin: 0; padding: 0; border: 0; display: grid; gap: 28px; }
+.wharf-contact .contact-form-legend { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.wharf-contact .contact-field-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.wharf-contact .contact-form-group { min-width: 0; }
+.wharf-contact .contact-form-group label { font: 500 13px/1.6 var(--font-sans); text-transform: none; letter-spacing: 0; color: inherit; margin-bottom: 12px; }
+.wharf-contact .contact-form-group label span { font-weight: 400; }
+.wharf-contact .contact-form-group :is(input, select, textarea) { width: 100%; min-width: 0; border: 0; border-bottom: 1px solid var(--wharf-rule); border-radius: 0; box-shadow: none; color: var(--color-primary); background-color: var(--color-bg-secondary); padding: 16px 14px; font: 400 16px/1.6 var(--font-sans); }
+.wharf-contact .contact-form-group select { padding-right: 40px; }
+.wharf-contact .contact-form-group textarea { min-height: 180px; }
+.wharf-contact .contact-form-group :is(input, textarea)::placeholder { color: #686866; opacity: 1; }
+.wharf-contact .contact-form-group :is(input, select, textarea):focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-color: var(--color-primary); box-shadow: none; }
+.wharf-contact .contact-form-fields:disabled { opacity: .7; }
+.wharf-contact .contact-form-note { margin: 0; text-align: left; font-size: 12px; color: inherit; }
+.wharf-contact .contact-form-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+.wharf-contact .contact-submit-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 48px; padding: 16px 24px; min-height: 56px; color: var(--color-bg); background: var(--color-primary); border: 1px solid var(--color-primary); border-radius: 0; font: 500 14px/1.6 var(--font-sans); text-transform: none; letter-spacing: 0; transform: none; box-shadow: none; }
+.wharf-contact .contact-submit-button:hover:not(:disabled) { color: var(--color-bg); background: var(--color-primary); opacity: .85; transform: none; box-shadow: none; }
+.wharf-contact .contact-submit-button:disabled { cursor: wait; }
+.wharf-contact .contact-form-actions > p { font-size: 12px; max-width: 440px; color: inherit; }
+.wharf-contact .contact-success-message { padding: 40px; text-align: left; border: 1px solid var(--wharf-rule); color: inherit; background: var(--color-bg-secondary); }
+.wharf-contact .contact-success-message :is(h3, p) { color: inherit; }
+.wharf-contact .contact-success-message h3 { margin-bottom: 24px; }
+.wharf-contact .contact-reset-button { display: inline-block; background: none; color: inherit; border: 0; border-bottom: 1px solid currentColor; font: 500 14px/1.6 var(--font-sans); padding: 12px 0; margin-top: 28px; cursor: pointer; }
+.wharf-contact .contact-error-message { margin: 0; border: 1px solid currentColor; border-radius: 0; padding: 20px; color: inherit; background: var(--color-bg-secondary); }
+.wharf-contact .contact-error-message p { font-size: 14px; margin-bottom: 12px; }
+.wharf-contact .contact-error-message a { color: inherit; text-underline-offset: 4px; overflow-wrap: anywhere; }
+@media (max-width: 900px) {
+  .wharf-contact .contact-project-grid { grid-template-columns: 1fr; gap: 48px; }
+  .wharf-contact .contact-project-intro > p:not(.editorial-eyebrow) { max-width: 650px; }
+  .wharf-contact .contact-direct { margin-top: 32px; }
+  .wharf-contact .contact-explore { flex-direction: row; flex-wrap: wrap; gap: 16px 28px; }
+}
+@media (max-width: 600px) {
+  .wharf-contact .contact-field-pair { grid-template-columns: 1fr; }
+  .wharf-contact .contact-form-actions, .wharf-contact .contact-submit-button { width: 100%; }
+  .wharf-contact .contact-success-message { padding: 28px 24px; }
+}
+[data-contrast="inverted"] .wharf-contact .contact-form-group :is(input, textarea)::placeholder { color: #b6b6b6; }
+[data-contrast="high"] .wharf-contact .contact-form-group :is(input, select, textarea) { border: 1px solid black; background-color: white; }

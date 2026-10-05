@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { articles, articlePath, formatDate, readingMinutes, type InsightArticle } from '../lib/insights';
-export default function InsightCards({ items = articles }: { items?: InsightArticle[] }) {
+import { articles, articlePath, formatDate, readingMinutes, getArticleFormat, type InsightArticle } from '../lib/insights';
+export default function InsightCards({ items = articles, headingLevel = 2 }: { items?: InsightArticle[]; headingLevel?: 2 | 3 }) {
+  const Heading = headingLevel === 3 ? 'h3' : 'h2';
   return <div className="insight-cards">{items.map(article => <article key={article.slug} className="insight-card">
-    <p className="editorial-eyebrow">{article.tag}</p>
-    <h2><Link href={articlePath(article)}>{article.title}</Link></h2>
+    <p className="editorial-eyebrow">{getArticleFormat(article)?.label} · {article.tag}</p>
+    <Heading><Link href={articlePath(article)}>{article.title}</Link></Heading>
     <p>{article.description}</p>
     <p className="insight-meta"><time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time> · {readingMinutes(article)} min de lecture</p>
     <Link className="card-split-link" href={articlePath(article)}>Lire l’article →</Link>

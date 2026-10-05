@@ -107,7 +107,8 @@
           "Vous pouvez maintenant arrêter une première version du sommaire et répartir le travail. Gardez la possibilité de le faire évoluer si les entretiens révèlent une question importante. Pour commencer, réunissez sur une page la question centrale, le public, le résultat attendu et le tableau des chapitres : vous disposerez d’un brief éditorial concret."
         ]
       }
-    ]
+    ],
+    "format": "guides"
   },
   {
     "slug": "livre-blanc-b2b-valeur-au-dela-brochure",
@@ -207,7 +208,8 @@
           "Pour décider de lancer la production, réunissez trois éléments : une question délimitée, une matière vérifiable et un apport réutilisable. Si l’un manque, complétez le travail préparatoire ou choisissez un format plus court. L’objectif éditorial est de transformer votre expertise en une ressource utile, avec un lien clair vers l’accompagnement que vous proposez."
         ]
       }
-    ]
+    ],
+    "format": "analyses"
   },
   {
     "slug": "preparer-interview-dirigeant-video",
@@ -324,7 +326,8 @@
           "Les livrables, l’accessibilité, les validations et les destinations de diffusion."
         ]
       }
-    ]
+    ],
+    "format": "guides"
   },
   {
     "slug": "strategie-editoriale-b2b-questions-acheteurs",
@@ -427,7 +430,8 @@
           "La cadence de publication devient alors un engagement de production réaliste. Elle laisse le temps de recueillir les éléments qui feront la différence. Pour Wharf, relier stratégie, contenus et vidéo commence par ce travail de clarification : savoir ce que l’on veut faire comprendre et avec quoi on peut le démontrer."
         ]
       }
-    ]
+    ],
+    "format": "guides"
   },
   {
     "slug": "ai-overviews-impact-statistiques-seo",
@@ -558,7 +562,8 @@
           "Votre reporting peut tenir en trois lignes de lecture : visibilité sur les sujets prioritaires, visites et actions sur le site, demandes et opportunités qualifiées. Les AI Overviews invitent à élargir l’analyse au-delà du trafic. Ils ne dispensent ni de mesurer les pertes, ni de vérifier la valeur créée."
         ]
       }
-    ]
+    ],
+    "format": "analyses"
   },
   {
     "slug": "ia-communication-b2b-montrer-le-reel",
@@ -634,7 +639,8 @@
     "service": "/we",
     "publishedAt": "2026-09-21",
     "updatedAt": "2026-09-21",
-    "author": "Wharf"
+    "author": "Wharf",
+    "format": "analyses"
   },
   {
     "slug": "tournage-videos-articles-linkedin",
@@ -706,7 +712,8 @@
     "service": "/work#video",
     "publishedAt": "2026-09-21",
     "updatedAt": "2026-09-21",
-    "author": "Wharf"
+    "author": "Wharf",
+    "format": "guides"
   },
   {
     "slug": "cas-client-preuve-expertise",
@@ -780,6 +787,7 @@
     "service": "/work#content",
     "publishedAt": "2026-09-21",
     "updatedAt": "2026-09-21",
-    "author": "Wharf"
+    "author": "Wharf",
+    "format": "guides"
   }
 ]

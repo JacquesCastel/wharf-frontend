@@ -1,4 +1,5 @@
 import { cache } from 'react';
+import { getProjectEditorial } from './project-editorial';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
 export interface PublishedProject {
@@ -7,6 +8,7 @@ export interface PublishedProject {
   titre: string;
   type?: string;
   description_courte?: string;
+  updatedAt?: string;
   vignette?: { url: string; alternativeText?: string };
 }
 export function projectMediaUrl(path: string): string {
@@ -35,9 +37,11 @@ export const getPublishedProjects = cache(async (): Promise<PublishedProject[] |
         if (typeof project.documentId !== 'string' || typeof project.titre !== 'string') {
           throw new Error('Invalid project identity');
         }
+        const editorial = getProjectEditorial(project);
         projects.push({
           id: project.id, documentId: project.documentId, titre: project.titre,
-          type: project.type, description_courte: project.description_courte,
+          type: editorial?.format ?? project.type, description_courte: editorial?.summary ?? project.description_courte,
+          updatedAt: editorial?.updatedAt ?? project.updatedAt,
           vignette: project.vignette?.url ? {
             url: projectMediaUrl(project.vignette.url),
             alternativeText: project.vignette.alternativeText || '',

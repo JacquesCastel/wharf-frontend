@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { getWe } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
 import { pageSeo } from '../lib/editorial';
+import { getPublishedProjects } from '../lib/projects';
+import { CAFE_PROJECT_ID } from '../lib/project-editorial';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,7 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function WePage() {
-  const data = await getWe();
+  const [data, projects] = await Promise.all([getWe(), getPublishedProjects()]);
+  const cafeProject = projects?.find(project => project.documentId === CAFE_PROJECT_ID);
   const weData = {
     ...data,
     hero: { ...data.hero, titre: 'Le design narratif', texte: 'Relier la réalité de votre entreprise à ce que vos publics comprennent.\nNotre méthode pour concevoir votre stratégie, vos contenus et vos films.' },
@@ -28,47 +31,17 @@ export default async function WePage() {
   };
 
   return (
-    <main id="main-content">
-      {/* HERO */}
-      <section className="we-hero">
-        {weData.hero.video ? (
-          <video
-            className="we-hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src={weData.hero.video.url} type="video/mp4" />
-          </video>
-        ) : (
-          <video
-            className="we-hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src="https://bywharf.com/wp-content/uploads/2025/10/vidintro.mp4" type="video/mp4" />
-          </video>
-        )}
-        <div className="we-hero-content">
-          <h1>{weData.hero.titre}</h1>
-         <p 
-  className="we-hero-subtitle"
-  dangerouslySetInnerHTML={{
-    __html: weData.hero.texte
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')  // Gras Markdown
-      .replace(/\n/g, '<br>')  // Retours à la ligne
-      .replace(/fidèle/g, '<span class="we-hero-accent">fidèle</span>')  // Highlight
-  }}
-/>
-
+    <main id="main-content" className="wharf-public wharf-we">
+      <section className="wharf-masthead" aria-labelledby="we-title">
+        <p className="editorial-eyebrow">WE / Notre approche</p>
+        <div><h1 id="we-title">Le design <br /><em>narratif.</em></h1>
+          <p>Relier la réalité de votre entreprise à ce que vos publics comprennent. Notre méthode pour concevoir votre stratégie, vos contenus et vos films.</p>
+          <a href="#notre-approche" className="card-split-link">Découvrir notre approche ↓</a>
         </div>
       </section>
 
       {/* ACTES TIMELINE */}
-      <section className="we-actes-timeline">
+      <section className="we-actes-timeline" id="notre-approche">
         <div className="we-timeline-container">
           <div className="we-timeline-line"></div>
 
@@ -126,15 +99,25 @@ export default async function WePage() {
       {/* PILLARS */}
       <section className="we-pillars">
         <div className="we-pillars-container">
-          <h2 className="we-pillars-title">Nos deux piliers</h2>
-          <div className="we-pillars-grid">
+          <h2 className="we-pillars-title">Une méthode, trois expertises</h2>
+          <div className="we-pillars-grid editorial-pillars-grid">
             <div className="we-pillar">
+              <p className="editorial-eyebrow">STRATEGY</p>
               <h3>{weData.piliers.pilier1.titre}</h3>
               <div dangerouslySetInnerHTML={{ __html: weData.piliers.pilier1.contenu }} />
+              <a href="/work#strategy" className="card-split-link">Explorer la stratégie →</a>
             </div>
             <div className="we-pillar">
-              <h3>{weData.piliers.pilier2.titre}</h3>
-              <div dangerouslySetInnerHTML={{ __html: weData.piliers.pilier2.contenu }} />
+              <p className="editorial-eyebrow">CONTENT</p>
+              <h3>Création éditoriale</h3>
+              <p>Organiser la matière, choisir un angle et écrire. Articles, publications, contenus web et audio développent vos messages et font vivre votre expertise.</p>
+              <a href="/work#content" className="card-split-link">Explorer les contenus →</a>
+            </div>
+            <div className="we-pillar">
+              <p className="editorial-eyebrow">VIDEO</p>
+              <h3>Production vidéo</h3>
+              <p>Du scénario au montage, les images incarnent votre point de vue. Le tournage, la création IA ou leur association donnent forme au parti pris retenu.</p>
+              <a href="/work#video" className="card-split-link">Explorer la vidéo →</a>
             </div>
           </div>
         </div>
@@ -144,22 +127,34 @@ export default async function WePage() {
         <div className="we-pillars-container">
           <h2>Le design narratif en pratique</h2>
           <ol className="editorial-steps">
-            <li><strong>Comprendre.</strong> Quel enjeu, quels publics et quelles perceptions faut-il faire évoluer ?</li>
-            <li><strong>Formuler.</strong> Quels messages et quelles preuves rendent votre récit crédible ?</li>
-            <li><strong>Produire.</strong> Quels contenus, quels intervenants et quels formats lui donnent corps ?</li>
+            <li><strong>Diagnostic.</strong> Écouter les parties prenantes, identifier les publics et les difficultés de compréhension.</li>
+            <li><strong>Stratégie.</strong> Définir l’objectif, les priorités et le rôle de chaque prise de parole.</li>
+            <li><strong>Récit.</strong> Organiser les messages autour des faits, des personnes et des preuves disponibles.</li>
+            <li><strong>Contenus.</strong> Choisir les sujets et les formats, écrire et préparer les intervenants.</li>
+            <li><strong>Production.</strong> Donner forme aux contenus : tournage, création visuelle, montage et déclinaisons.</li>
             <li><strong>Diffuser et évaluer.</strong> Quels canaux et quels critères permettront de juger le travail utile ?</li>
           </ol>
           <a href="/you" className="card-split-link">Partir de votre situation →</a>
         </div>
       </section>
 
+      {cafeProject && <section className="editorial-section"><div className="we-pillars-container">
+        <p className="editorial-eyebrow">La méthode dans un projet</p>
+        <h2>Une conviction mise en scène</h2>
+        <p>Dans son film d’autopromotion « Au café du commerce », Wharf part d’une conviction : lorsque l’on ne prend pas la parole, les autres le font à notre place. Le café devient la métaphore de cette scène publique où chacun observe et commente.</p>
+        <p>Une intention, un point de vue, une forme : la fiction donne corps à cette idée et permet de la partager.</p>
+        <a href={`/work/${cafeProject.documentId}`} className="card-split-link">Découvrir le concept et le film →</a>
+      </div></section>}
+
       {/* CLOSING CTA */}
       <section className="we-closing">
+        <div className="we-pillars-container">
         <h2>{weData.closing.titre}</h2>
         <p>{weData.closing.texte}</p>
         <a href={weData.closing.lien} className="we-cta-button">
           {weData.closing.texte_bouton}
         </a>
+        </div>
       </section>
     </main>
   );

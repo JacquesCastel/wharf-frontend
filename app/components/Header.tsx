@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface MenuItem {
   id: number;
@@ -18,21 +19,35 @@ interface NavigationData {
 
 export default function Header({ navigationData }: { navigationData: NavigationData }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const burgerRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false);
+        burgerRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [mobileMenuOpen]);
   const defaultLinks = [
     { id: 1, label: 'WE', url: '/we' },
     { id: 2, label: 'WORK', url: '/work' },
     { id: 3, label: 'YOU', url: '/you' },
   ];
-  const links = navigationData.liens.length ? navigationData.liens : defaultLinks;
+  const links = (navigationData.liens.length ? navigationData.liens : defaultLinks)
+    .filter(item => item.url.replace(/\/$/, '') !== '/contact');
   const navData = {
     logo: navigationData.logo,
     liens_menu: links.some(item => item.url.replace(/\/$/, '') === '/insights') ? links : [...links, { id: -1, label: 'INSIGHTS', url: '/insights' }],
   };
 
   return (
-    <header className="header">
+    <header className={`header wharf-header${pathname === '/' ? ' wharf-header-film' : ''}`}>
       <div className="header-container">
-        <Link href="/" className="header-logo">
+        <Link href="/" className="header-logo" aria-label="Wharf — accueil">
           {navData.logo ? (
             <img 
               src={navData.logo.url} 
@@ -45,12 +60,13 @@ export default function Header({ navigationData }: { navigationData: NavigationD
         </Link>
 
         {/* Menu Desktop */}
-        <nav className="header-nav">
+        <nav className="header-nav" aria-label="Navigation principale">
           {navData.liens_menu?.map((item) => (
             <Link 
               key={item.id} 
               href={item.url}
               className="header-nav-link"
+              aria-current={pathname === item.url || pathname.startsWith(`${item.url}/`) ? 'page' : undefined}
             >
               {item.label}
             </Link>
@@ -66,9 +82,10 @@ export default function Header({ navigationData }: { navigationData: NavigationD
 
         {/* Burger Mobile */}
         <button 
+          ref={burgerRef}
           className="header-burger"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Menu"
+          aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
           aria-expanded={mobileMenuOpen}
           aria-controls="main-mobile-menu"
         >
@@ -80,12 +97,13 @@ export default function Header({ navigationData }: { navigationData: NavigationD
         {/* Menu Mobile */}
         {mobileMenuOpen && (
           <div className="header-mobile-menu" id="main-mobile-menu">
-            <nav className="header-mobile-nav">
+            <nav className="header-mobile-nav" aria-label="Navigation principale mobile">
               {navData.liens_menu?.map((item) => (
                 <Link 
                   key={item.id} 
                   href={item.url}
                   className="header-mobile-link"
+                  aria-current={pathname === item.url || pathname.startsWith(`${item.url}/`) ? 'page' : undefined}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
@@ -93,7 +111,7 @@ export default function Header({ navigationData }: { navigationData: NavigationD
               ))}
               <Link
                 href="/contact"
-                className="header-mobile-link header-mobile-contact header-contact-btn"
+                className="header-mobile-link header-mobile-contact"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 CONTACT
