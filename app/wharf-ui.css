@@ -349,7 +349,7 @@ body { margin: 0; }
 :is(.wharf-public, .insights-page, .wharf-project, .wharf-header, .footer) {
   --wharf-accent: var(--color-accent);
   --wharf-accent-hover: var(--color-accent-hover);
-  --wharf-deep: #50242e;
+  --wharf-deep: #3d3d3d;
   --wharf-on-deep: #ffffff;
   --wharf-tint: color-mix(in srgb, var(--color-accent) 8%, var(--color-bg));
 }
