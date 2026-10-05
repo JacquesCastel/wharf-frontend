@@ -207,7 +207,7 @@ body { margin: 0; }
 .footer .footer-contact-link { color: var(--color-primary); font-size: 14px; }
 .footer .footer-column-title { font-size: 19px; margin-bottom: 24px; color: var(--color-primary); }
 .footer .footer-link { font-size: 13px; }
-.footer .footer-reading { background: #f1f1ef; border: 0; padding: 32px; }
+.footer .footer-reading { background: #f4f5f7; border: 0; padding: 32px; }
 .footer .footer-reading-topic { font: 400 10px/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; }
 .footer .footer-bottom { padding-top: 32px; }
 .footer .footer-utility { justify-content: flex-start; }
@@ -345,25 +345,26 @@ body { margin: 0; }
 [data-contrast="high"] .wharf-contact .contact-form-group :is(input, select, textarea) { border: 1px solid black; background-color: white; }
 
 
-/* Couleur Wharf : le rouge du logo, du papier chaud et des accents répartis. */
+/* Couleur Wharf : palette du manifeste, fonds blancs et accents décoratifs. */
 :is(.wharf-public, .insights-page, .wharf-project, .wharf-header, .footer) {
   --wharf-accent: var(--color-accent);
   --wharf-accent-hover: var(--color-accent-hover);
   --wharf-deep: #3d3d3d;
   --wharf-on-deep: #ffffff;
-  --wharf-tint: color-mix(in srgb, var(--color-accent) 8%, var(--color-bg));
+  --wharf-tint: color-mix(in srgb, var(--color-accent) 4%, var(--color-bg));
+  --wharf-spectrum: linear-gradient(95deg, #668eb4 0%, #98c9b6 25%, #dcb7d6 52%, #efa588 75%, #e8cb88 100%);
 }
 html:not([data-contrast="high"]):not([data-contrast="inverted"]) :is(.wharf-public, .insights-page, .wharf-project, .wharf-header, .footer) {
-  --color-accent: #b22f43;
-  --color-accent-hover: #902337;
-  --color-bg: #fcf9f5;
-  --color-bg-secondary: #f3ece8;
-  --color-border: #d8c9c2;
+  --color-accent: #515b91;
+  --color-accent-hover: #3f4778;
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f6f7f9;
+  --color-border: #dddfe7;
 }
 :is(.insights-page, .wharf-project) { background: var(--color-bg); color: var(--color-primary); }
 .wharf-public .wharf-masthead h1,
 #main-content.insights-page h1,
-.wharf-project .projet-header h1 { color: var(--wharf-accent); }
+.wharf-project .projet-header h1 { color: var(--color-primary); }
 #main-content.wharf-public > :not(.film-hero):not(.wharf-manifesto) .editorial-eyebrow,
 #main-content:is(.wharf-public, .insights-page, .wharf-project) :is(.expertise-subtitle, .we-acte-label, .mouvement-number, .you-situation-number, .insight-format-link, .insight-browse-label, .projet-type),
 #main-content.insights-page .editorial-eyebrow,
@@ -408,7 +409,17 @@ html:not([data-contrast="high"]):not([data-contrast="inverted"]) :is(.wharf-publ
   --wharf-deep: var(--color-bg-secondary);
   --wharf-on-deep: var(--color-primary);
   --wharf-tint: var(--color-bg-secondary);
+  --wharf-spectrum: none;
 }
+
+
+/* Les couleurs douces restent sur les filets ; les textes gardent leur contraste. */
+.wharf-public :is(.expertise, .we-pillar, .mouvement, .you-understand-item, .insight-card),
+.insights-page :is(.insight-card, .insight-article-cta),
+.footer .footer-reading { border-image: var(--wharf-spectrum) 1; }
+.wharf-insights .insight-card:first-child { border-top: 2px solid var(--wharf-accent); }
+.wharf-header:not(.wharf-header-film) .header-nav-link::after { background: var(--wharf-spectrum, currentColor); }
+:is([data-contrast="high"], [data-contrast="inverted"]) .wharf-header .header-nav-link::after { background: currentColor; }
 
 
 /* Brume cinéma : image originale, mouvements lents et texte protégé par un voile. */
