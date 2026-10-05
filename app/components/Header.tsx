@@ -11,7 +11,7 @@ interface MenuItem {
 }
 
 interface NavigationData {
-  logo: { url: string; alternativeText: string } | null;
+  logo: { url: string; alternativeText: string; width?: number; height?: number } | null;
   liens: MenuItem[];
   cta_text: string;
   cta_url: string;
@@ -46,12 +46,16 @@ export default function Header({ navigationData }: { navigationData: NavigationD
 
   return (
     <header className={`header wharf-header${pathname === '/' ? ' wharf-header-film' : ''}`}>
+      <a className="wharf-skip-link" href="#main-content">Aller au contenu</a>
       <div className="header-container">
         <Link href="/" className="header-logo" aria-label="Wharf — accueil">
           {navData.logo ? (
             <img 
               src={navData.logo.url} 
-              alt={navData.logo.alternativeText}
+              alt={navData.logo.alternativeText || 'Wharf'}
+              width={navData.logo.width}
+              height={navData.logo.height}
+              decoding="async"
               style={{ height: '40px' }}
             />
           ) : (

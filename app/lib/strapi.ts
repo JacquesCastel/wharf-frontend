@@ -1,60 +1,39 @@
 // lib/strapi.ts
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
 
-function mediaUrl(media: any): string | null {
+function mediaUrl(media: { url?: string; data?: { attributes?: { url?: string } } } | null | undefined): string | null {
   const path = media?.url || media?.data?.attributes?.url;
   return path ? new URL(path, STRAPI_URL).toString() : null;
 }
 
-// Fonction simple pour convertir les blocks
-function blocksToHtml(blocks: any): string {
-  if (!blocks || !Array.isArray(blocks)) return '';
-  
-  try {
-    return blocks.map((block: any) => {
-      if (!block?.type) return '';
-      
-      switch (block.type) {
-        case 'paragraph':
-          if (!block.children) return '';
-          const paragraphText = block.children
-            .map((child: any) => {
-              let text = child?.text || '';
-              if (child?.bold) text = `<strong>${text}</strong>`;
-              if (child?.italic) text = `<em>${text}</em>`;
-              if (child?.underline) text = `<u>${text}</u>`;
-              return text;
-            })
-            .join('');
-          return `<p>${paragraphText}</p>`;
-        
-        case 'heading':
-          if (!block.children) return '';
-          const headingText = block.children.map((c: any) => c?.text || '').join('');
-          const level = Math.min(Math.max(block.level || 2, 1), 6);
-          return `<h${level}>${headingText}</h${level}>`;
-        
-        case 'list':
-          if (!block.children) return '';
-          const isOrdered = block.format === 'ordered';
-          const tag = isOrdered ? 'ol' : 'ul';
-          const items = block.children
-            .map((item: any) => {
-              if (!item?.children) return '<li></li>';
-              const itemText = item.children.map((c: any) => c?.text || '').join('');
-              return `<li>${itemText}</li>`;
-            })
-            .join('');
-          return `<${tag}>${items}</${tag}>`;
-        
-        default:
-          return '';
+type RichTextNode = { type?: string; text?: string; url?: string; bold?: boolean; italic?: boolean; underline?: boolean; level?: number; format?: string; children?: RichTextNode[] };
+const escapeHtml = (value: string) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+function renderInline(node: RichTextNode): string {
+  let text = typeof node.text === 'string' ? escapeHtml(node.text) : (node.children ?? []).map(renderInline).join('');
+  if (node.bold) text = `<strong>${text}</strong>`;
+  if (node.italic) text = `<em>${text}</em>`;
+  if (node.underline) text = `<u>${text}</u>`;
+  if (node.type === 'link' && node.url && /^(https?:\/\/|mailto:|tel:|\/|#)/i.test(node.url)) text = `<a href="${escapeHtml(node.url)}">${text}</a>`;
+  return text;
+}
+export function blocksToHtml(blocks: unknown, minHeadingLevel = 2): string {
+  if (!Array.isArray(blocks)) return '';
+  return (blocks as RichTextNode[]).map(block => {
+    if (!block || typeof block !== 'object') return '';
+    const content = (block.children ?? []).map(renderInline).join('');
+    switch (block.type) {
+      case 'paragraph': return `<p>${content}</p>`;
+      case 'heading': {
+        const level = Math.min(6, Math.max(minHeadingLevel, Number.isInteger(block.level) ? block.level! : minHeadingLevel));
+        return `<h${level}>${content}</h${level}>`;
       }
-    }).join('');
-  } catch (e) {
-    console.error('blocksToHtml error:', e);
-    return '';
-  }
+      case 'list': {
+        const tag = block.format === 'ordered' ? 'ol' : 'ul';
+        return `<${tag}>${(block.children ?? []).map(item => `<li>${(item.children ?? []).map(renderInline).join('')}</li>`).join('')}</${tag}>`;
+      }
+      default: return '';
+    }
+  }).join('');
 }
 
 export async function getWe() {
@@ -294,7 +273,7 @@ export async function getYou() {
 },
       situations: {
         titre: data?.situations_titre || '',
-        liste: (data?.situations || []).sort((a: any, b: any) => a.numero - b.numero)
+        liste: (data?.situations || []).sort((a: { numero: number }, b: { numero: number }) => a.numero - b.numero)
       },
       approche: {
         titre: data?.approche_titre || '',
@@ -354,11 +333,11 @@ export async function getFooter() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()).data;
     return {
-      logo: data?.Logo ? { url: mediaUrl(data.Logo) || '', alternativeText: data.Logo.alternativeText || '' } : null,
+      logo: data?.Logo ? { url: mediaUrl(data.Logo) || '', alternativeText: data.Logo.alternativeText || '', width: data.Logo.width, height: data.Logo.height } : null,
       copyright: data?.copyright || '',
       email: data?.email || '',
       telephone: data?.telephone || '',
-      sections: (data?.sections || []).map((s: any) => ({ titre: s.titre, liens: s.liens || [] }))
+      sections: (data?.sections || []).map((s: { titre: string; liens?: { label: string; url: string }[] }) => ({ titre: s.titre, liens: s.liens || [] }))
     };
   } catch (error) {
     console.error('getFooter error:', error);
@@ -372,8 +351,8 @@ export async function getNavigation() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()).data;
     return {
-      logo: data?.logo ? { url: mediaUrl(data.logo) || '', alternativeText: data.logo.alternativeText || '' } : null,
-      liens: (data?.liens_menu || data?.Link || []).filter((item: any) => typeof item.url === 'string' && typeof item.label === 'string'),
+      logo: data?.logo ? { url: mediaUrl(data.logo) || '', alternativeText: data.logo.alternativeText || '', width: data.logo.width, height: data.logo.height } : null,
+      liens: (data?.liens_menu || data?.Link || []).filter((item: { url?: string; label?: string }) => typeof item.url === 'string' && typeof item.label === 'string'),
       cta_text: data?.cta_text || 'Contact',
       cta_url: data?.cta_url || '/contact'
     };

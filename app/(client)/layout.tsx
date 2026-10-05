@@ -1,3 +1,5 @@
+import { privateRobots } from '../lib/site';
+export const metadata = { robots: privateRobots };
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { authOptions } from '../lib/auth';

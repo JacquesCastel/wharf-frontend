@@ -1,3 +1,4 @@
+import { ServicesJsonLd } from './JsonLd';
 import { offers } from '../lib/editorial';
 import FogBackdrop from './FogBackdrop';
 import { articles, articlePath } from '../lib/insights';
@@ -12,6 +13,7 @@ function OfferReading({ id }: { id: string }) {
 export default function Offers({ compact = false }: { compact?: boolean }) {
   return (
     <section className={`work-expertises editorial-offers${compact ? ' offers-compact' : ''}`} aria-labelledby="offers-title">
+      <ServicesJsonLd />
       <div className="work-container">
         <div className="wharf-section-heading"><p className="editorial-eyebrow">STRATEGY + CONTENT + VIDEO</p><h2 id="offers-title" className="work-expertises-title">Penser le fond.<br />Créer la forme.</h2></div>
         <div className="work-expertises-grid editorial-offers-grid">

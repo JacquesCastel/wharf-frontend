@@ -1,8 +1,8 @@
 // Contenus de l’audit Wharf. Les médias et les réalisations restent gérés dans Strapi.
-export const positioning = 'Agence de contenus & production vidéo B2B';
+export const positioning = 'Agence de stratégie, contenus & production vidéo B2B';
 export const description = 'Wharf accompagne la communication corporate des entreprises B2B, de la stratégie éditoriale aux contenus et à la production vidéo.';
 export const pageSeo = {
-  home: { title: 'Wharf — Contenus & production vidéo B2B', description },
+  home: { title: 'Wharf — Stratégie, contenus & production vidéo B2B', description },
   we: { title: 'WE — Le design narratif, méthode Wharf', description: 'Du constat à la création : découvrez comment le design narratif relie stratégie, contenus et vidéo à la réalité de votre entreprise.' },
   work: { title: 'WORK — Stratégie, contenus & vidéo B2B | Wharf', description: 'Stratégie éditoriale, contenus B2B, production vidéo et création d’images et de films par l’IA : découvrez les expertises Wharf.' },
   you: { title: 'YOU — Vos enjeux de communication B2B | Wharf', description: 'Visibilité, parole dirigeante, recrutement, transformation, réseaux sociaux ou film corporate : partons de votre besoin.' },

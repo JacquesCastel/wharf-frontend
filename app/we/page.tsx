@@ -1,3 +1,4 @@
+import { WebPageJsonLd } from '../components/JsonLd';
 import type { Metadata } from 'next';
 import { getWe } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
@@ -32,6 +33,7 @@ export default async function WePage() {
 
   return (
     <main id="main-content" className="wharf-public wharf-we">
+      <WebPageJsonLd path="/we" title={pageSeo.we.title} description={pageSeo.we.description} type="AboutPage" />
       <section className="wharf-masthead" aria-labelledby="we-title">
         <p className="editorial-eyebrow">WE / Notre approche</p>
         <div><h1 id="we-title">Le design <br /><em>narratif.</em></h1>

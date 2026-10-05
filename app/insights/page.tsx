@@ -1,3 +1,4 @@
+import { WebPageJsonLd } from '../components/JsonLd';
 import Link from 'next/link';
 import { generateMetadataFromStrapi } from '../lib/metadata';
 import { publishedTopics, publishedFormats, formatPath } from '../lib/insights';
@@ -6,6 +7,7 @@ import { pageSeo } from '../lib/editorial';
 export const metadata = generateMetadataFromStrapi(pageSeo.insights.title, pageSeo.insights.description, undefined, '/insights');
 export default function InsightsPage() {
   return <main id="main-content" className="insights-page wharf-public wharf-insights">
+      <WebPageJsonLd path="/insights" title={pageSeo.insights.title} description={pageSeo.insights.description} type="CollectionPage" />
     <section className="editorial-section"><div className="work-container">
       <p className="editorial-eyebrow">INSIGHTS / LE BLOG WHARF</p>
       <h1>Éclairer vos choix de communication.</h1>

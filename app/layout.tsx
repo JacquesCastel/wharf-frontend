@@ -1,5 +1,5 @@
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import type { Metadata } from "next";
+import { defaultMetadata } from './lib/metadata';
 import Footer from './components/Footer'
 import AccessibilityWidget from './components/AccessibilityWidget'
 import './globals.css'
@@ -7,10 +7,7 @@ import './wharf-ui.css'
 import HeaderWrapper from './components/HeaderWrapper';
 import { OrganizationJsonLd, WebSiteJsonLd } from './components/JsonLd';
 export const dynamic = 'force-dynamic';
-export const metadata: Metadata = {
-  title: "Wharf — Contenus & production vidéo B2B",
-  description: "Stratégie éditoriale, contenus B2B et production vidéo. Le design narratif au service de votre communication corporate.",
-};
+export const metadata = defaultMetadata;
 
 export default function RootLayout({
   children,
@@ -39,7 +36,7 @@ export default function RootLayout({
       <body>
         <HeaderWrapper />
         {children}
-<SpeedInsights />
+        {process.env.VERCEL === '1' && <SpeedInsights />}
         <Footer />
         <AccessibilityWidget />
       </body>

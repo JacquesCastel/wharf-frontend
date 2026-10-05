@@ -1,3 +1,4 @@
+import { WebPageJsonLd } from '../components/JsonLd';
 import type { Metadata } from 'next';
 import { getYou } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
@@ -12,6 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function YouPage() {
   return (
     <main id="main-content" className="wharf-public wharf-you">
+      <WebPageJsonLd path="/you" title={pageSeo.you.title} description={pageSeo.you.description} />
       <section className="wharf-masthead" aria-labelledby="you-title">
         <p className="editorial-eyebrow">YOU / Vos enjeux</p>
         <div><h1 id="you-title">Que voulez-vous <br /><em>faire avancer ?</em></h1>

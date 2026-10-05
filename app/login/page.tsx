@@ -1,3 +1,4 @@
+import { privateRobots } from '../lib/site';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { authOptions } from '../lib/auth';
@@ -5,7 +6,7 @@ import LoginForm from './LoginForm';
 import LoginSessionProvider from './LoginSessionProvider';
 
 export const metadata = {
-  title: 'Connexion — Espace client Wharf',
+  title: 'Connexion — Espace client Wharf', robots: privateRobots,
 };
 
 export default async function LoginPage() {
@@ -33,9 +34,9 @@ export default async function LoginPage() {
             </div>
             <div className="lh-body">
               <div className="lh-issue">Espace client — Édition privée</div>
-              <h1>L'atelier <em>continue</em> entre les rendez-vous.</h1>
+              <h1>L&apos;atelier <em>continue</em> entre les rendez-vous.</h1>
               <div className="lh-quote">
-                « Nous croyons qu'un récit de marque se travaille comme une revue :
+                « Nous croyons qu&apos;un récit de marque se travaille comme une revue :
                 par numéros, par chapitres, à voix nue.
                 Cet espace est la coulisse de ce travail. »
               </div>

@@ -1,23 +1,10 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
-const vm = require('node:vm');
-const ts = require('typescript');
 const path = require('node:path');
-const root = path.resolve(__dirname, '..');
-const current = JSON.parse(fs.readFileSync(path.join(root, 'app/lib/insights-content.json'), 'utf8'));
-function evaluate(file, dependencies) {
-  const source = fs.readFileSync(path.join(root, file), 'utf8');
-  const js = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, esModuleInterop: true, target: ts.ScriptTarget.ES2020 } }).outputText;
-  const context = { exports: {}, require: name => {
-    assert.ok(name in dependencies, `Unexpected dependency: ${name}`);
-    return dependencies[name];
-  }};
-  vm.runInNewContext(js, context, { filename: file });
-  return context.exports;
-}
-const editorial = evaluate('app/lib/editorial.ts', {});
-const load = (articles = current) => evaluate('app/lib/insights.ts', { './insights-content.json': articles, './editorial': editorial });
+const loadModule = require('./load-module.cjs');
+const current = JSON.parse(fs.readFileSync(path.join(__dirname, '../app/lib/insights-content.json'), 'utf8'));
+const load = (articles = current) => loadModule('app/lib/insights.ts', { 'app/lib/insights-content.json': articles });
 test('published taxonomy includes only populated formats and themes', () => {
   const data = load();
   assert.equal(data.publishedFormats.map(x => x.slug).join(','), 'guides,analyses');
@@ -39,7 +26,7 @@ test('invalid formats and undocumented studies are rejected', () => {
 });
 test('documented research enables its format without changing the article URL', () => {
   // Synthetic fixture only: never added to the published content file.
-  const article = { ...current[0], format: 'etudes', research: { series: 'observatoire-wharf', period: 'Test', scope: 'Test fixture', method: 'Synthetic test', limitations: 'Not real research', sources: [{ label: 'Fixture', url: 'https://example.com', accessedAt: '2026-10-02' }] } };
+  const article = { ...current[0], format: 'etudes', research: { series: 'observatoire-wharf', period: 'Test', scope: 'Test fixture', method: 'Synthetic test', question: 'Question fictive', sample: 'Échantillon fictif', findings: ['Résultat de test, non réel'], analysis: 'Analyse de test', limitations: 'Not real research', sources: [{ label: 'Fixture', url: 'https://example.com', accessedAt: '2026-10-02' }] } };
   const data = load([article]);
   assert.equal(data.publishedFormats[0].slug, 'etudes');
   assert.equal(data.articles[0].research.series, 'observatoire-wharf');

@@ -1,3 +1,4 @@
+import { WebPageJsonLd } from './components/JsonLd';
 import type { Metadata } from 'next';
 import { getHome } from './lib/strapi';
 import { generateMetadataFromStrapi } from './lib/metadata';
@@ -22,6 +23,7 @@ export default async function HomePage() {
     { label: 'YOU', href: '/you', image: homeData.blocs.you.image || '/images/card-you.jpg', title: 'Votre point de départ', text: 'Faire connaître votre entreprise, recruter, expliquer une transformation ou produire un film.' },
   ];
   return <main id="main-content" className="wharf-public wharf-home">
+      <WebPageJsonLd path="/" title={pageSeo.home.title} description={pageSeo.home.description} />
     <FilmHero videoSrc={homeData.hero.video?.url || 'https://bywharf.com/wp-content/uploads/2025/10/vidintro.mp4'}>
       <p className="editorial-eyebrow">{positioning}</p>
       <h1 id="home-title">Révéler ce qui <br /><em>existe déjà</em></h1>

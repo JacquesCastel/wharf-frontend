@@ -1,37 +1,16 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { useAmbientVideo } from '../lib/use-ambient-video';
 
 export default function FilmHero({ videoSrc, children }: { videoSrc: string; children: ReactNode }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [paused, setPaused] = useState(true);
-  const [unavailable, setUnavailable] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (!video) return;
-    const applyPreference = () => {
-      if (preference.matches) video.pause();
-      else void video.play().catch(() => setPaused(true));
-    };
-    applyPreference();
-    preference.addEventListener('change', applyPreference);
-    return () => preference.removeEventListener('change', applyPreference);
-  }, []);
-
-  function togglePlayback() {
-    const video = videoRef.current;
-    if (!video) return;
-    if (video.paused) void video.play().catch(() => setPaused(true));
-    else video.pause();
-  }
+  const { videoRef, paused, unavailable, togglePlayback, onPlay, onPause, onError } = useAmbientVideo();
 
   return <section className="film-hero" aria-labelledby="home-title">
     <div className="film-hero-media" aria-hidden="true">
       <Image src="/images/manifesto-bg.jpg" alt="" fill priority sizes="100vw" quality={75} />
-      <video ref={videoRef} muted loop playsInline preload="metadata" onPlay={() => setPaused(false)} onPause={() => setPaused(true)} onError={() => setUnavailable(true)} hidden={unavailable}>
+      <video ref={videoRef} muted loop playsInline preload="metadata" onPlay={onPlay} onPause={onPause} onError={onError} hidden={unavailable}>
         <source src={videoSrc} type="video/mp4" />
       </video>
     </div>

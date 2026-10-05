@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { WebPageJsonLd } from '../components/JsonLd';
 
 export default function AccessibilitePage() {
   const [fontSize, setFontSize] = useState(18);
@@ -94,7 +95,8 @@ export default function AccessibilitePage() {
   };
 
   return (
-    <main className="accessibility-page">
+    <main id="main-content" className="accessibility-page">
+      <WebPageJsonLd path="/accessibilite" title="Accessibilité — Personnalisez votre navigation | Wharf" description="Adaptez votre expérience sur bywharf.com : taille de police, contraste, interlignage et navigation au clavier." />
       
       {/* Hero */}
       <section className="accessibility-hero">
@@ -203,7 +205,7 @@ export default function AccessibilitePage() {
           <div className="control-block">
             <div className="control-header">
               <h2>Interlignage</h2>
-              <p>Ajustez l'espace entre les lignes pour améliorer le confort de lecture.</p>
+              <p>Ajustez l&apos;espace entre les lignes pour améliorer le confort de lecture.</p>
             </div>
             <div className="control-slider-wrapper">
               <div className="slider-controls">
@@ -239,8 +241,8 @@ export default function AccessibilitePage() {
               </div>
               <div className="slider-preview">
                 <p style={{ lineHeight: lineHeight }}>
-                  Ceci est un exemple de texte avec l'interlignage sélectionné. 
-                  L'espace entre les lignes s'adapte pour améliorer votre confort de lecture 
+                  Ceci est un exemple de texte avec l&apos;interlignage sélectionné.
+                  L&apos;espace entre les lignes s&apos;adapte pour améliorer votre confort de lecture
                   selon vos préférences personnelles.
                 </p>
               </div>
@@ -251,7 +253,7 @@ export default function AccessibilitePage() {
           <div className="control-block">
             <div className="control-header">
               <h2>Crénage (espacement des lettres)</h2>
-              <p>Ajustez l'espace entre les caractères pour faciliter la distinction des lettres.</p>
+              <p>Ajustez l&apos;espace entre les caractères pour faciliter la distinction des lettres.</p>
             </div>
             <div className="control-slider-wrapper">
               <div className="slider-controls">
@@ -287,7 +289,7 @@ export default function AccessibilitePage() {
               </div>
               <div className="slider-preview">
                 <p style={{ letterSpacing: `${letterSpacing}em` }}>
-                  Aperçu de l'espacement entre les lettres
+                  Aperçu de l&apos;espacement entre les lettres
                 </p>
               </div>
             </div>
@@ -297,7 +299,7 @@ export default function AccessibilitePage() {
           <div className="control-block">
             <div className="control-header">
               <h2>Graisse de police</h2>
-              <p>Modifiez l'épaisseur du texte selon vos préférences de lecture.</p>
+              <p>Modifiez l&apos;épaisseur du texte selon vos préférences de lecture.</p>
             </div>
             <div className="control-options">
               <button
@@ -362,25 +364,25 @@ export default function AccessibilitePage() {
             </div>
 
             <div className="info-card">
-              <h3>Lecteurs d'écran</h3>
+              <h3>Lecteurs d&apos;écran</h3>
               <p>
-                Ce site est optimisé pour les lecteurs d'écran avec une structure 
+                Ce site est optimisé pour les lecteurs d&apos;écran avec une structure
                 sémantique HTML5 et des descriptions alternatives pour toutes les images.
               </p>
             </div>
 
             <div className="info-card">
-              <h3>Normes respectées</h3>
+              <h3>Objectif d’accessibilité</h3>
               <p>
-                Ce site respecte les recommandations <strong>WCAG 2.1 niveau AA</strong> 
-                pour l'accessibilité web.
+                Nous visons les recommandations <strong>WCAG 2.1 niveau AA</strong>.
+                La conformité complète reste à établir par un audit d’accessibilité.
               </p>
             </div>
 
           </div>
 
           <div className="engagement-link">
-            <p>Vous voulez en savoir plus sur notre engagement envers l'accessibilité ?</p>
+            <p>Vous voulez en savoir plus sur notre engagement envers l&apos;accessibilité ?</p>
             <a href="/accessibilite/engagement" className="btn btn-primary">
               Notre engagement inclusif →
             </a>

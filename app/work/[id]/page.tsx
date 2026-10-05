@@ -1,31 +1,30 @@
+import ProjectHeroVideo from '../../components/ProjectHeroVideo';
+import { cache } from 'react';
+import { generateMetadataFromStrapi } from '../../lib/metadata';
+import { blocksToHtml } from '../../lib/strapi';
+import { SITE_URL } from '../../lib/site';
+import type { VideoEvidence } from '../../lib/structured-data';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ProjectJsonLd } from '../../components/JsonLd';
+import { ProjectJsonLd, WebPageJsonLd, BreadcrumbJsonLd } from '../../components/JsonLd';
 import { getPublishedProjects, projectMediaUrl } from '../../lib/projects';
 import { getProjectEditorial } from '../../lib/project-editorial';
 
+type ProjectMedia = { url: string; alternativeText?: string; width?: number; height?: number; createdAt?: string };
+type ProjectBlock = { __component: string; titre?: string; contenu?: unknown; image?: ProjectMedia; legende?: string; type_video?: string; video_fichier?: ProjectMedia; video_url?: string; colonnes?: number; images?: ProjectMedia[]; citation?: string; auteur?: string; fonction?: string; entreprise?: string };
+type ProjectData = { documentId: string; titre: string; type?: string; description_courte?: string; hero_type?: string; hero_image?: ProjectMedia; vignette?: ProjectMedia; hero_media?: ProjectMedia; hero_titre_position?: string; publishedAt?: string; updatedAt?: string; client?: unknown; contenu?: ProjectBlock[] };
+
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bywharf.com';
-
-async function getProjet(id: string) {
-  try {
-    const response = await fetch(`${STRAPI_URL}/api/projets/${id}?populate=*`, {
-      cache: 'no-store'
-    });
-
-    if (!response.ok) {
-      return null;
-    }
-
-    const data = await response.json();
-    return data.data;
-  } catch (error) {
-    console.error('Error fetching projet:', error);
-    return null;
-  }
-}
+const getProjet = cache(async (id: string) => {
+  const response = await fetch(`${STRAPI_URL}/api/projets/${encodeURIComponent(id)}?populate=*&status=published`, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error(`Project CMS HTTP ${response.status}`);
+  const project = (await response.json()).data as ProjectData | null;
+  if (project && (typeof project.documentId !== 'string' || typeof project.titre !== 'string')) throw new Error('Invalid project identity');
+  return project;
+});
 
 // Générer les métadonnées dynamiques pour chaque projet
 export async function generateMetadata({
@@ -36,55 +35,12 @@ export async function generateMetadata({
   const { id } = await params;
   const projet = await getProjet(id);
 
-  if (!projet) {
-    return {
-      title: 'Projet introuvable - Wharf',
-      description: 'Ce projet n\'existe pas.',
-    };
-  }
-
+  if (!projet) notFound();
   const titre = projet.titre || 'Projet';
   const description = getProjectEditorial(projet)?.summary || projet.description_courte || `Découvrez le projet ${titre} réalisé par Wharf.`;
-
-   // Image Open Graph (vignette ou hero)
-  let ogImage = `${SITE_URL}/og`;
-
-  if (projet.vignette?.url) {
-    ogImage = projectMediaUrl(projet.vignette.url);
-  } else if (projet.hero_image?.url) {
-    ogImage = projectMediaUrl(projet.hero_image.url);
-  }
-
-  return {
-    title: `${titre} - Portfolio Wharf`,
-    description,
-    alternates: { canonical: `${SITE_URL}/work/${id}` },
-    openGraph: {
-      title: `${titre} - Portfolio Wharf`,
-      description,
-      url: `${SITE_URL}/work/${id}`,
-      siteName: 'Wharf',
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: titre,
-        },
-      ],
-      locale: 'fr_FR',
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${titre} - Portfolio Wharf`,
-      description,
-      images: [ogImage],
-    },
-  };
+  const image = projet.vignette?.url ? projet.vignette : projet.hero_image;
+  return generateMetadataFromStrapi(`${titre} — Portfolio | Wharf`, description, image, `/work/${id}`);
 }
-  
-
 
 export default async function ProjetDetailPage({
   params
@@ -102,14 +58,24 @@ export default async function ProjetDetailPage({
   const summary = editorial?.summary ?? projet.description_courte;
   const projectType = editorial?.format ?? projet.type;
   const allProjets = await getPublishedProjects() ?? [];
-  const currentIndex = allProjets.findIndex((p: any) => p.documentId === id);
+  const currentIndex = allProjets.findIndex((p) => p.documentId === id);
   const prevProjet = currentIndex > 0 ? allProjets[currentIndex - 1] : null;
   const nextProjet = currentIndex < allProjets.length - 1 ? allProjets[currentIndex + 1] : null;
 
-  const ogImage = projet.hero_image?.url ? projectMediaUrl(projet.hero_image.url) : undefined;
+  const image = projet.hero_image?.url ? projet.hero_image : projet.vignette;
+  const ogImage = image?.url ? projectMediaUrl(image.url) : undefined;
+  const videos: VideoEvidence[] = [];
+  if (projet.hero_type === 'video' && projet.hero_media?.url && ogImage && summary && projet.hero_media.createdAt) {
+    videos.push({ name: projet.titre, description: summary, thumbnailUrl: ogImage, uploadDate: projet.hero_media.createdAt, contentUrl: projectMediaUrl(projet.hero_media.url), ...(editorial ? { embedUrl: editorial.videoUrl } : {}) });
+  }
+  const client = typeof projet.client === 'string' ? projet.client : undefined;
+  const isVideo = projet.hero_type === 'video' || /vidéo|video|film|fiction/i.test(projectType || '');
+
 
   return (
     <main id="main-content" className="wharf-project">
+      <WebPageJsonLd path={`/work/${id}`} title={projet.titre} description={summary || `Projet Wharf : ${projet.titre}`} about={{ '@id': `${SITE_URL}/work/${id}#project` }} dateModified={editorial?.updatedAt ?? projet.updatedAt} />
+      <BreadcrumbJsonLd items={[{ name: 'WORK', path: '/work' }, { name: projet.titre, path: `/work/${id}` }]} />
       <ProjectJsonLd
         titre={projet.titre || 'Projet'}
         description={summary}
@@ -117,25 +83,20 @@ export default async function ProjetDetailPage({
         url={`${SITE_URL}/work/${id}`}
         datePublished={projet.publishedAt}
         dateModified={editorial?.updatedAt ?? projet.updatedAt}
-        client={projet.client}
+        client={client}
+        videos={videos}
+        expertiseIds={isVideo ? ['video'] : []}
       />
       {/* HERO */}
       <section className="projet-hero">
         {projet.hero_type === 'video' && projet.hero_media?.url ? (
-          <video
-            className="projet-hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src={projectMediaUrl(projet.hero_media.url)} type="video/mp4" />
-          </video>
+          <ProjectHeroVideo src={projectMediaUrl(projet.hero_media.url)} poster={ogImage} title={projet.titre} />
         ) : projet.hero_image?.url ? (
           <div className="projet-hero-image">
             <Image
               src={projectMediaUrl(projet.hero_image.url)}
-              alt={projet.titre}
+              alt={projet.hero_image.alternativeText || projet.titre}
+              sizes="100vw"
               fill
               className="projet-hero-img"
               style={{ objectFit: 'cover' }}
@@ -145,7 +106,7 @@ export default async function ProjetDetailPage({
         ) : null}
 
         <div className="projet-hero-overlay"></div>
-        
+
         {projet.hero_titre_position !== 'dessous' && (
           <div className="projet-hero-content">
             <h1>{projet.titre}</h1>
@@ -170,6 +131,8 @@ export default async function ProjetDetailPage({
       {/* CONTENU DYNAMIQUE */}
       <section className="projet-content">
         <div className="projet-container">
+          <nav aria-label="Fil d’Ariane"><Link href="/work#realisations" className="card-split-link">← WORK / Réalisations</Link></nav>
+          {client && <p>Client : {client}</p>}
           {editorial ? (
             <>
               <div className="bloc-texte">
@@ -186,17 +149,17 @@ export default async function ProjetDetailPage({
                 <p><a href={editorial.videoLink}>Voir « Au café du commerce » sur YouTube →</a></p>
               </div>
             </>
-          ) : projet.contenu?.map((bloc: any, index: number) => {
+          ) : projet.contenu?.map((bloc, index) => {
             switch (bloc.__component) {
               case 'bloc.texte-bloc':
                 return (
                   <div key={index} className="bloc-texte">
                     {bloc.titre && <h2>{bloc.titre}</h2>}
-                    {bloc.contenu && (
-                      <div 
+                    {Array.isArray(bloc.contenu) && (
+                      <div
                         className="bloc-texte-content"
-                        dangerouslySetInnerHTML={{ 
-                          __html: renderBlocks(bloc.contenu) 
+                        dangerouslySetInnerHTML={{
+                          __html: blocksToHtml(bloc.contenu, bloc.titre ? 3 : 2)
                         }}
                       />
                     )}
@@ -210,12 +173,13 @@ export default async function ProjetDetailPage({
                       <figure>
                         <Image
                           src={projectMediaUrl(bloc.image.url)}
-                          alt={bloc.legende || ''}
-                          width={1200}
-                          height={800}
+                          alt={bloc.image.alternativeText || bloc.legende || ''}
+                          width={bloc.image.width || 1200}
+                          height={bloc.image.height || 800}
+                          sizes="(max-width: 760px) 100vw, 1200px"
                           className="bloc-image-img"
                           loading="lazy"
-                                    />
+                        />
                         {bloc.legende && (
                           <figcaption>{bloc.legende}</figcaption>
                         )}
@@ -229,9 +193,9 @@ export default async function ProjetDetailPage({
                   <div key={index} className="bloc-video">
                     {bloc.type_video === 'upload' && bloc.video_fichier?.url ? (
                       <video controls preload="metadata">
-                        <source 
+                        <source
                           src={projectMediaUrl(bloc.video_fichier.url)}
-                          type="video/mp4" 
+                          type="video/mp4"
                         />
                       </video>
                     ) : bloc.video_url ? (
@@ -251,23 +215,24 @@ export default async function ProjetDetailPage({
 
               case 'bloc.galerie-bloc':
                 return (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="bloc-galerie"
-                    style={{ 
-                      gridTemplateColumns: `repeat(${bloc.colonnes || 3}, 1fr)` 
+                    style={{
+                      gridTemplateColumns: `repeat(${bloc.colonnes || 3}, 1fr)`
                     }}
                   >
-                    {bloc.images?.map((img: any, imgIndex: number) => (
+                    {bloc.images?.map((img, imgIndex) => (
                       <div key={imgIndex} className="galerie-item">
                         <Image
                           src={projectMediaUrl(img.url)}
                           alt={img.alternativeText || ''}
-                          width={600}
-                          height={400}
+                          width={img.width || 600}
+                          height={img.height || 400}
+                          sizes="(max-width: 760px) 100vw, 400px"
                           className="galerie-item-img"
                           loading="lazy"
-                                    />
+                        />
                       </div>
                     ))}
                   </div>
@@ -299,14 +264,14 @@ export default async function ProjetDetailPage({
       <section className="editorial-section"><div className="projet-container">
         <h2>Du récit à votre prochain projet</h2>
         <p>Découvrez nos <Link href="/work#strategy">expertises de conseil</Link>, notre <Link href="/work#content">création de contenus</Link> et notre <Link href="/work#video">production vidéo</Link>.</p>
-        <Link href="/insights" className="card-split-link">Explorer nos guides et analyses →</Link>
+        <Link href={isVideo ? '/insights/video-b2b' : '/insights'} className="card-split-link">{isVideo ? 'Préparer votre production vidéo : guides et analyses →' : 'Explorer nos guides et analyses →'}</Link>
       </div></section>
       {/* NAVIGATION PROJET PRÉCÉDENT / SUIVANT */}
       <section className="projet-navigation">
         <div className="projet-container">
           <div className="projet-nav-grid">
             {prevProjet ? (
-              <Link 
+              <Link
                 href={`/work/${prevProjet.documentId}`}
                 className="projet-nav-link projet-nav-prev"
               >
@@ -318,7 +283,7 @@ export default async function ProjetDetailPage({
             )}
 
             {nextProjet ? (
-              <Link 
+              <Link
                 href={`/work/${nextProjet.documentId}`}
                 className="projet-nav-link projet-nav-next"
               >
@@ -339,46 +304,4 @@ export default async function ProjetDetailPage({
       </section>
     </main>
   );
-}
-
-// Fonction utilitaire pour convertir les blocs Strapi en HTML
-function renderBlocks(blocks: any): string {
-  if (!blocks || !Array.isArray(blocks)) return '';
-
-  return blocks.map((block: any) => {
-    switch (block.type) {
-      case 'paragraph':
-        const paragraphContent = block.children
-          .map((child: any) => {
-            if (child.bold) return `<strong>${child.text}</strong>`;
-            if (child.italic) return `<em>${child.text}</em>`;
-            if (child.underline) return `<u>${child.text}</u>`;
-            return child.text;
-          })
-          .join('');
-        return `<p>${paragraphContent}</p>`;
-
-      case 'heading':
-        const headingContent = block.children
-          .map((child: any) => child.text)
-          .join('');
-        return `<h${block.level}>${headingContent}</h${block.level}>`;
-
-      case 'list':
-        const listItems = block.children
-          .map((item: any) => {
-            const itemContent = item.children
-              .map((child: any) => child.text)
-              .join('');
-            return `<li>${itemContent}</li>`;
-          })
-          .join('');
-        return block.format === 'ordered' 
-          ? `<ol>${listItems}</ol>` 
-          : `<ul>${listItems}</ul>`;
-
-      default:
-        return '';
-    }
-  }).join('');
 }

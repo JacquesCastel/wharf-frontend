@@ -1,3 +1,5 @@
+import { privateRobots } from '../lib/site';
+export const metadata = { title: 'Démonstration typographique — Wharf', robots: privateRobots };
 export default function TypographyDemo() {
   return (
     <main className="pt-24 pb-12">
@@ -16,10 +18,10 @@ export default function TypographyDemo() {
               Retrouver le récit qui relie
             </h1>
             <p className="text-2xl text-zinc-700 mb-6 font-light">
-              Baseline : Dans une société où tout s'accélère, les entreprises disent vrai mais ne sont plus toujours entendues.
+              Baseline : Dans une société où tout s&apos;accélère, les entreprises disent vrai mais ne sont plus toujours entendues.
             </p>
             <p className="text-lg text-zinc-600 leading-relaxed" style={{ fontFamily: 'Lora, serif', fontWeight: 400 }}>
-              Ce style est très premium, très fin, très luxury. Parfait pour une agence haut de gamme. Très élégant mais peut sembler "vieux" pour une agence moderne.
+              Ce style est très premium, très fin, très luxury. Parfait pour une agence haut de gamme. Très élégant mais peut sembler &quot;vieux&quot; pour une agence moderne.
             </p>
           </div>
           <div className="mt-8 p-6 bg-zinc-50 rounded">
@@ -41,10 +43,10 @@ export default function TypographyDemo() {
               Retrouver le récit qui relie
             </h1>
             <p className="text-2xl text-zinc-700 mb-6 font-light">
-              Baseline : Dans une société où tout s'accélère, les entreprises disent vrai mais ne sont plus toujours entendues.
+              Baseline : Dans une société où tout s&apos;accélère, les entreprises disent vrai mais ne sont plus toujours entendues.
             </p>
             <p className="text-lg text-zinc-600 leading-relaxed">
-              Ce style est élégant ET moderne. C'est le meilleur équilibre pour une agence audiovisuelle. Fin, raffiné, premium mais contemporain. C'est ma recommandation pour Wharf.
+              Ce style est élégant ET moderne. C&apos;est le meilleur équilibre pour une agence audiovisuelle. Fin, raffiné, premium mais contemporain. C&apos;est ma recommandation pour Wharf.
             </p>
           </div>
           <div className="mt-8 p-6 bg-zinc-50 rounded">
@@ -66,10 +68,10 @@ export default function TypographyDemo() {
               Retrouver le récit qui relie
             </h1>
             <p className="text-2xl text-zinc-700 mb-6 font-light">
-              Baseline : Dans une société où tout s'accélère, les entreprises disent vrai mais ne sont plus toujours entendues.
+              Baseline : Dans une société où tout s&apos;accélère, les entreprises disent vrai mais ne sont plus toujours entendues.
             </p>
             <p className="text-lg text-zinc-600 leading-relaxed">
-              Ce style mélange classique et moderne avec une excellente lisibilité. Très élégant sans être "vieux". Bon pour une agence qui veut être intemporelle.
+              Ce style mélange classique et moderne avec une excellente lisibilité. Très élégant sans être &quot;vieux&quot;. Bon pour une agence qui veut être intemporelle.
             </p>
           </div>
           <div className="mt-8 p-6 bg-zinc-50 rounded">
@@ -91,10 +93,10 @@ export default function TypographyDemo() {
               Retrouver le récit qui relie
             </h1>
             <p className="text-3xl text-zinc-700 mb-6 font-light">
-              Baseline : Dans une société où tout s'accélère, les entreprises disent vrai mais ne sont plus toujours entendues.
+              Baseline : Dans une société où tout s&apos;accélère, les entreprises disent vrai mais ne sont plus toujours entendues.
             </p>
             <p className="text-lg text-zinc-600 leading-relaxed" style={{ fontFamily: 'Lora, serif' }}>
-              Ce style est très fin, très luxury, très haut de gamme. Parfait pour un site premium. Mais moins lisible, plus "fashion".
+              Ce style est très fin, très luxury, très haut de gamme. Parfait pour un site premium. Mais moins lisible, plus &quot;fashion&quot;.
             </p>
           </div>
           <div className="mt-8 p-6 bg-zinc-50 rounded">
@@ -116,10 +118,10 @@ export default function TypographyDemo() {
               Retrouver le récit qui relie
             </h1>
             <p className="text-2xl text-zinc-700 mb-6 font-light">
-              Baseline : Dans une société où tout s'accélère, les entreprises disent vrai mais ne sont plus toujours entendues.
+              Baseline : Dans une société où tout s&apos;accélère, les entreprises disent vrai mais ne sont plus toujours entendues.
             </p>
             <p className="text-lg text-zinc-600 leading-relaxed">
-              Ce style est intemporel, classique, très lisible. Parfait pour un site qui veut être "établi" et crédible. Moins moderne que Lora mais plus accessible.
+              Ce style est intemporel, classique, très lisible. Parfait pour un site qui veut être &quot;établi&quot; et crédible. Moins moderne que Lora mais plus accessible.
             </p>
           </div>
           <div className="mt-8 p-6 bg-zinc-50 rounded">
@@ -132,7 +134,7 @@ export default function TypographyDemo() {
         <div className="max-w-4xl mx-auto text-center pt-12 border-t border-zinc-200">
           <p className="text-zinc-700 mb-6">Laquelle vous plaît le plus ? 1, 2, 3, 4 ou 5 ?</p>
           <a href="/" className="inline-block px-6 py-2 bg-zinc-950 text-white hover:bg-zinc-800">
-            Retour à l'accueil
+            Retour à l&apos;accueil
           </a>
         </div>
       </div>

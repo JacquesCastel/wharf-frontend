@@ -1,3 +1,5 @@
+import { pageSeo } from '../lib/editorial';
+import { WebPageJsonLd } from '../components/JsonLd';
 import { getContact } from '../lib/strapi';
 import ContactForm from './ContactForm';
 
@@ -6,6 +8,7 @@ export default async function ContactPage() {
   const email = data.closing.email || 'contact@bywharf.com';
 
   return <main id="main-content" className="wharf-public wharf-contact">
+      <WebPageJsonLd path="/contact" title={pageSeo.contact.title} description={pageSeo.contact.description} type="ContactPage" />
     <section className="wharf-masthead" aria-labelledby="contact-title">
       <p className="editorial-eyebrow">CONTACT / Vous & Wharf</p>
       <div>

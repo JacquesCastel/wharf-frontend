@@ -36,7 +36,7 @@ export default async function Footer() {
         <div className="footer-content">
           <div className="footer-left">
             <Link href="/" className="footer-logo" aria-label="Wharf — accueil">
-              <img src={data.logo?.url || '/images/logo-wharf.png'} alt="Wharf" />
+              <img src={data.logo?.url || '/images/logo-wharf.png'} alt="Wharf" width={data.logo?.width || 1100} height={data.logo?.height || 454} loading="lazy" decoding="async" />
             </Link>
             <p className="footer-slogan">{positioning}</p>
             <a href="mailto:contact@bywharf.com" className="footer-contact-link">contact@bywharf.com</a>

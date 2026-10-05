@@ -9,7 +9,7 @@ export interface PublishedProject {
   type?: string;
   description_courte?: string;
   updatedAt?: string;
-  vignette?: { url: string; alternativeText?: string };
+  vignette?: { url: string; alternativeText?: string; width?: number; height?: number };
 }
 export function projectMediaUrl(path: string): string {
   return new URL(path, STRAPI_URL).toString();
@@ -44,7 +44,7 @@ export const getPublishedProjects = cache(async (): Promise<PublishedProject[] |
           updatedAt: editorial?.updatedAt ?? project.updatedAt,
           vignette: project.vignette?.url ? {
             url: projectMediaUrl(project.vignette.url),
-            alternativeText: project.vignette.alternativeText || '',
+            alternativeText: project.vignette.alternativeText || '', width: project.vignette.width, height: project.vignette.height,
           } : undefined,
         });
       }

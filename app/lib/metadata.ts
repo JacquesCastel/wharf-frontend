@@ -1,108 +1,39 @@
 import type { Metadata } from 'next';
+import { SITE_URL, absoluteUrl } from './site';
+import { pageSeo } from './editorial';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bywharf.com';
+type SeoImage = { url?: string; width?: number; height?: number; alternativeText?: string };
 
-/**
- * Génère les métadonnées SEO depuis les données Strapi
- */
+/** Shared metadata for CMS-backed and versioned public pages. */
 export function generateMetadataFromStrapi(
-  seoTitle: string,
-  seoDescription: string,
-  seoImage?: any,
-  path: string = ''
+  seoTitle: string, seoDescription: string, seoImage?: SeoImage | null, path = '/'
 ): Metadata {
-  const title = seoTitle || 'Wharf — Contenus & production vidéo B2B';
-  const description = seoDescription || 'Design narratif et communication corporate';
-  
-  // URL de l'image Open Graph
-  let ogImage = `${SITE_URL}/og`; // Image par défaut
-  
-  if (seoImage?.url) {
-    ogImage = seoImage.url.startsWith('http') 
-      ? seoImage.url 
-      : `${STRAPI_URL}${seoImage.url}`;
-  }
-
-  const url = `${SITE_URL}${path}`;
-
+  const title = seoTitle || pageSeo.home.title;
+  const description = seoDescription || pageSeo.home.description;
+  const ogImage = seoImage?.url ? new URL(seoImage.url, STRAPI_URL).toString() : absoluteUrl('/og');
+  const url = absoluteUrl(path);
   return {
-    title,
-    description,
-    metadataBase: new URL(SITE_URL),
-    alternates: {
-      canonical: url,
-    },
+    title: { absolute: title }, description, metadataBase: new URL(SITE_URL),
+    alternates: { canonical: url },
     openGraph: {
-      title,
-      description,
-      url,
-      siteName: 'Wharf',
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-      locale: 'fr_FR',
-      type: 'website',
+      title, description, url, siteName: 'Wharf', locale: 'fr_FR', type: 'website',
+      images: [{ url: ogImage, width: seoImage?.width || 1200, height: seoImage?.height || 630, alt: seoImage?.alternativeText || title }],
     },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [ogImage],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
+    twitter: { card: 'summary_large_image', title, description, images: [ogImage] },
+    robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 } },
   };
 }
 
-/**
- * Métadonnées par défaut pour le site
- */
 export const defaultMetadata: Metadata = {
-  title: {
-    default: 'Wharf — Contenus & production vidéo B2B',
-    template: '%s | Wharf',
-  },
-  description: 'Wharf accompagne votre communication corporate, de la stratégie éditoriale aux contenus et à la production vidéo B2B.',
-  metadataBase: new URL(SITE_URL),
-  keywords: ['design narratif', 'communication corporate', 'storytelling', 'branding', 'stratégie narrative', 'production audiovisuelle'],
-  authors: [{ name: 'Wharf' }],
-  creator: 'Wharf',
-  publisher: 'Wharf',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'fr_FR',
-    url: SITE_URL,
-    siteName: 'Wharf',
-    title: 'Wharf — Contenus & production vidéo B2B',
-    description: 'Wharf accompagne votre communication corporate, de la stratégie éditoriale aux contenus et à la production vidéo B2B.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Wharf — Contenus & production vidéo B2B',
-    description: 'Wharf accompagne votre communication corporate, de la stratégie éditoriale aux contenus et à la production vidéo B2B.',
-  },
-  robots: {
-    index: true,
-    follow: true,
+  title: pageSeo.home.title, description: pageSeo.home.description,
+  metadataBase: new URL(SITE_URL), creator: 'Wharf', publisher: 'Wharf',
+  formatDetection: { email: false, address: false, telephone: false },
+  openGraph: { type: 'website', locale: 'fr_FR', siteName: 'Wharf', title: pageSeo.home.title, description: pageSeo.home.description, images: [{ url: absoluteUrl('/og'), width: 1200, height: 630, alt: 'Wharf — Strategy + Content + Video' }] },
+  twitter: { card: 'summary_large_image', title: pageSeo.home.title, description: pageSeo.home.description, images: [absoluteUrl('/og')] },
+  robots: { index: true, follow: true },
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : {}),
+    ...(process.env.BING_SITE_VERIFICATION ? { other: { 'msvalidate.01': process.env.BING_SITE_VERIFICATION } } : {}),
   },
 };

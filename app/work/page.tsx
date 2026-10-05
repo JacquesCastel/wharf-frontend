@@ -1,3 +1,6 @@
+import { notFound } from 'next/navigation';
+import { WebPageJsonLd } from '../components/JsonLd';
+import { portfolioSelection, portfolioPath } from '../lib/portfolio-pagination';
 import type { Metadata } from 'next';
 import { getWork } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
@@ -9,14 +12,22 @@ import { articles } from '../lib/insights';
 import WorkPortfolio from './WorkPortfolio';
 
 export const dynamic = 'force-dynamic';
-export async function generateMetadata(): Promise<Metadata> {
-  const data = await getWork();
-  return generateMetadataFromStrapi(pageSeo.work.title, pageSeo.work.description, data.seo?.image, '/work');
+type Props = { searchParams: Promise<{ page?: string; type?: string }> };
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const [data, projects, query] = await Promise.all([getWork(), getPublishedProjects(), searchParams]);
+  const selection = portfolioSelection(projects, query);
+  if (!selection.valid) notFound();
+  const title = selection.page > 1 ? `WORK — Réalisations, page ${selection.page} | Wharf` : pageSeo.work.title;
+  const metadata = generateMetadataFromStrapi(title, pageSeo.work.description, data.seo?.image, portfolioPath(selection.page, selection.selectedType));
+  return selection.selectedType ? { ...metadata, robots: { index: false, follow: true } } : metadata;
 }
-export default async function WorkPage() {
-  const projects = await getPublishedProjects();
+export default async function WorkPage({ searchParams }: Props) {
+  const [projects, query] = await Promise.all([getPublishedProjects(), searchParams]);
+  const selection = portfolioSelection(projects, query);
+  if (!selection.valid) notFound();
   return (
     <main id="main-content" className="wharf-public wharf-work">
+      <WebPageJsonLd path={portfolioPath(selection.page, selection.selectedType)} title={pageSeo.work.title} description={pageSeo.work.description} type="CollectionPage" />
       <section className="wharf-masthead" aria-labelledby="work-title">
         <p className="editorial-eyebrow">WORK / Expertises & réalisations</p>
         <div><h1 id="work-title">Stratégie, <br />contenus & vidéo B2B.</h1>
@@ -24,7 +35,7 @@ export default async function WorkPage() {
           <nav className="wharf-section-nav" aria-label="Explorer WORK"><a href="#realisations">Réalisations ↓</a><a href="#strategy">Strategy</a><a href="#content">Content</a><a href="#video">Video</a><a href="#creation-ia">Création IA</a></nav>
         </div>
       </section>
-      <WorkPortfolio projects={projects} />
+      <WorkPortfolio projects={projects} page={selection.page} selectedType={selection.selectedType} />
       <Offers />
       <section className="work-methode">
         <div className="work-container">
