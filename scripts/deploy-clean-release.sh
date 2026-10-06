@@ -18,8 +18,9 @@ done
 cd "$release"
 npm ci
 NODE_OPTIONS=--max-old-space-size=1536 npm run build
-cp -r public .next/standalone/public
-cp -r .next/static .next/standalone/.next/static
+mkdir -p .next/standalone/public .next/standalone/.next/static
+cp -a public/. .next/standalone/public/
+cp -a .next/static/. .next/standalone/.next/static/
 for name in .env.local .env.production; do
   if [ -f "$release/$name" ]; then cp "$release/$name" "$release/.next/standalone/$name"; chmod 600 "$release/.next/standalone/$name"; fi
 done
