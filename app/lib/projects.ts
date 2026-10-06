@@ -1,4 +1,5 @@
 import { cache } from 'react';
+import { getProjectSeo } from './project-seo';
 import { getProjectEditorial } from './project-editorial';
 import { projectCategories, type PortfolioCategory } from './project-taxonomy';
 
@@ -43,7 +44,7 @@ export const getPublishedProjects = cache(async (): Promise<PublishedProject[] |
         projects.push({
           id: project.id, documentId: project.documentId, titre: project.titre,
           categories: projectCategories(project.categories),
-          type: editorial?.format ?? project.type, description_courte: editorial?.summary ?? project.description_courte,
+          type: editorial?.format ?? project.type, description_courte: getProjectSeo(project).summary,
           updatedAt: editorial?.updatedAt ?? project.updatedAt,
           vignette: project.vignette?.url ? {
             url: projectMediaUrl(project.vignette.url),

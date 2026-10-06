@@ -63,6 +63,22 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::categorie-portfolio.categorie-portfolio"
+    },
+    "description_courte": {
+      "type": "text"
+    },
+    "seo_title": {
+      "type": "string"
+    },
+    "seo_description": {
+      "type": "text"
+    },
+    "seo_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

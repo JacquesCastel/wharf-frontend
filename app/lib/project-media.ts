@@ -32,7 +32,7 @@ export function safeVideoLink(value?: string): string | undefined {
 export function seriesColumns(value?: number): number { return value && [1, 2, 3].includes(value) ? value : 2; }
 export function projectPopulate() {
   const query = new URLSearchParams({ status: 'published' });
-  for (const field of ['vignette', 'hero_media', 'categories']) query.set(`populate[${field}]`, 'true');
+  for (const field of ['vignette', 'hero_media', 'categories', 'seo_image']) query.set(`populate[${field}]`, 'true');
   query.set('populate[contenu][on][bloc.texte-bloc][populate]', '*');
   query.set('populate[contenu][on][bloc.image-bloc][populate][image]', 'true');
   query.set('populate[contenu][on][bloc.video-bloc][populate][video]', 'true');

@@ -64,3 +64,18 @@ Enregistrer puis **Publier** pour afficher les changements. Les blocs image, vid
 La configuration des catégories et du formulaire est idempotente : depuis le projet Strapi, exécuter `NODE_ENV=production /opt/wharf-node22/current/bin/node scripts/configure-portfolio.cjs`. Ce script crée seulement les catégories initiales manquantes et leur permission de lecture publique ; il ne modifie ni ne republie les fiches projets existantes.
 
 Avant de compiler le CMS après ajout de modèles, générer les types avec `node node_modules/@strapi/strapi/bin/strapi.js ts:generate-types`, puis compiler avec TypeScript. Les essais de création/publication de séries sont exécutés uniquement dans une copie SQLite privée ; aucune fiche fictive n’est publiée sur le site.
+
+## Résumé et SEO des réalisations — 6 octobre 2026
+
+Dans **Portfolio — Réalisations**, quatre champs facultatifs complètent chaque fiche :
+
+| Champ | Utilisation sur le site |
+| --- | --- |
+| Résumé du projet | Présentation visible sur la fiche et les cartes du portfolio ; description de la réalisation dans les données structurées. Il peut préciser le contexte, l’objectif, la démarche et les livrables. |
+| Titre SEO (facultatif) | Titre HTML, Open Graph et Twitter. Saisir le titre complet souhaité. Le H1 reste le champ **Titre**. Si vide, le titre est « Titre de la réalisation — Portfolio \| Wharf ». |
+| Méta-description (facultative) | Description HTML et des partages. Si vide, le résumé du projet est utilisé, puis la présentation existante du film d’autopromotion ou une description générique. |
+| Image de partage (facultative) | Visuel Open Graph et Twitter, distinct de la vignette et du média d’ouverture. Si vide, la vignette reste utilisée. |
+
+Enregistrer puis **Publier** : les modifications sont lues sans nouveau déploiement. Les nouveaux champs sont laissés vides sur les fiches existantes ; aucune réalisation n’est réécrite ou republiée automatiquement. Les URLs et le titre visible restent inchangés. Le résumé peut également compléter la description du balisage vidéo d’ouverture lorsque sa source, son affiche et sa date d’upload sont disponibles.
+
+Le contexte utile à la visibilité dans les moteurs et leurs réponses IA se rédige dans **Résumé du projet** et **Présentation de la réalisation**. Aucun champ GEO caché n’est ajouté. Pour les médias, utiliser le texte alternatif de la médiathèque et les titres/légendes des séries.

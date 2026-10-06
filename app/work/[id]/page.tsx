@@ -16,10 +16,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ProjectJsonLd, WebPageJsonLd, BreadcrumbJsonLd } from '../../components/JsonLd';
 import { getPublishedProjects, projectMediaUrl } from '../../lib/projects';
+import { getProjectSeo } from '../../lib/project-seo';
 import { getProjectEditorial } from '../../lib/project-editorial';
 
 type ProjectBlock = { __component: string; titre?: string; contenu?: unknown; image?: ProjectMedia; legende?: string; type_video?: string; video?: ProjectMedia; video_fichier?: ProjectMedia; video_url?: string; colonnes?: number; images?: ProjectMedia[]; elements?: ProjectMediaItem[]; citation?: string; auteur?: string; fonction?: string; entreprise?: string };
-type ProjectData = { documentId: string; titre: string; type?: string; categories?: PortfolioCategory[]; description_courte?: string; hero_type?: string; hero_image?: ProjectMedia; vignette?: ProjectMedia; hero_media?: ProjectMedia; hero_titre_position?: string; publishedAt?: string; updatedAt?: string; client?: unknown; contenu?: ProjectBlock[] };
+type ProjectData = { documentId: string; titre: string; type?: string; categories?: PortfolioCategory[]; description_courte?: string; seo_title?: string; seo_description?: string; seo_image?: ProjectMedia; hero_type?: string; hero_image?: ProjectMedia; vignette?: ProjectMedia; hero_media?: ProjectMedia; hero_titre_position?: string; publishedAt?: string; updatedAt?: string; client?: unknown; contenu?: ProjectBlock[] };
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
 const getProjet = cache(async (id: string) => {
@@ -41,10 +42,8 @@ export async function generateMetadata({
   const projet = await getProjet(id);
 
   if (!projet) notFound();
-  const titre = projet.titre || 'Projet';
-  const description = getProjectEditorial(projet)?.summary || projet.description_courte || `Découvrez le projet ${titre} réalisé par Wharf.`;
-  const image = projet.vignette?.url ? projet.vignette : projet.hero_image;
-  return generateMetadataFromStrapi(`${titre} — Portfolio | Wharf`, description, image, `/work/${id}`);
+  const seo = getProjectSeo(projet);
+  return generateMetadataFromStrapi(seo.title, seo.description, seo.image, `/work/${id}`);
 }
 
 export default async function ProjetDetailPage({
@@ -60,7 +59,8 @@ export default async function ProjetDetailPage({
   }
 
   const editorial = getProjectEditorial(projet);
-  const summary = editorial?.summary ?? projet.description_courte;
+  const seo = getProjectSeo(projet);
+  const summary = seo.summary;
   const projectType = editorial?.format ?? projet.type;
   const categories = projectCategories(projet.categories);
   const allProjets = await getPublishedProjects() ?? [];
@@ -90,7 +90,7 @@ export default async function ProjetDetailPage({
 
   return (
     <main id="main-content" className="wharf-project wharf-motion"><ScrollMotion />
-      <WebPageJsonLd path={`/work/${id}`} title={projet.titre} description={summary || `Projet Wharf : ${projet.titre}`} about={{ '@id': `${SITE_URL}/work/${id}#project` }} dateModified={editorial?.updatedAt ?? projet.updatedAt} />
+      <WebPageJsonLd path={`/work/${id}`} title={seo.title} description={seo.description} about={{ '@id': `${SITE_URL}/work/${id}#project` }} dateModified={editorial?.updatedAt ?? projet.updatedAt} />
       <BreadcrumbJsonLd items={[{ name: 'WORK', path: '/work' }, { name: projet.titre, path: `/work/${id}` }]} />
       <ProjectJsonLd
         titre={projet.titre || 'Projet'}
