@@ -251,7 +251,7 @@ export default async function ProjetDetailPage({
         <Link href={isVideo ? '/insights/video-b2b' : '/insights'} className="card-split-link">{isVideo ? 'Préparer votre production vidéo : guides et analyses →' : 'Explorer nos guides et analyses →'}</Link>
       </div></section>
       {/* NAVIGATION PROJET PRÉCÉDENT / SUIVANT */}
-      <section className="projet-navigation">
+      <section id="projet-navigation" className="projet-navigation" aria-label="Autres réalisations">
         <div className="projet-container">
           <div className="projet-nav-grid">
             {prevProjet ? (
@@ -259,11 +259,16 @@ export default async function ProjetDetailPage({
                 href={`/work/${prevProjet.documentId}`}
                 className="projet-nav-link projet-nav-prev"
               >
-                <span className="nav-label">← Projet précédent</span>
-                <span className="nav-titre">{prevProjet.titre}</span>
+                {prevProjet.vignette?.url && <span className="projet-nav-image">
+                  <Image src={prevProjet.vignette.url} alt="" width={prevProjet.vignette.width || 640} height={prevProjet.vignette.height || 400} sizes="(max-width: 760px) 88px, 144px" loading="lazy" />
+                </span>}
+                <span className="projet-nav-copy">
+                  <span className="nav-label">← Projet précédent</span>
+                  <span className="nav-titre">{prevProjet.titre}</span>
+                </span>
               </Link>
             ) : (
-              <div></div>
+              <div className="projet-nav-empty" aria-hidden="true" />
             )}
 
             {nextProjet ? (
@@ -271,11 +276,16 @@ export default async function ProjetDetailPage({
                 href={`/work/${nextProjet.documentId}`}
                 className="projet-nav-link projet-nav-next"
               >
-                <span className="nav-label">Projet suivant →</span>
-                <span className="nav-titre">{nextProjet.titre}</span>
+                {nextProjet.vignette?.url && <span className="projet-nav-image">
+                  <Image src={nextProjet.vignette.url} alt="" width={nextProjet.vignette.width || 640} height={nextProjet.vignette.height || 400} sizes="(max-width: 760px) 88px, 144px" loading="lazy" />
+                </span>}
+                <span className="projet-nav-copy">
+                  <span className="nav-label">Projet suivant →</span>
+                  <span className="nav-titre">{nextProjet.titre}</span>
+                </span>
               </Link>
             ) : (
-              <div></div>
+              <div className="projet-nav-empty" aria-hidden="true" />
             )}
           </div>
 
