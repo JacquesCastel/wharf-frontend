@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "geo_observations",
+  "info": {
+    "singularName": "geo-observation",
+    "pluralName": "geo-observations",
+    "displayName": "Observations GEO"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "observedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "engine": {
+      "type": "enumeration",
+      "enum": [
+        "chatgpt",
+        "gemini",
+        "perplexity",
+        "google_ai_overviews",
+        "other",
+        "google_ai_mode"
+      ],
+      "required": true
+    },
+    "model": {
+      "type": "string"
+    },
+    "searchEnabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "brandInQuestion": {
+      "type": "boolean",
+      "default": false
+    },
+    "outcome": {
+      "type": "enumeration",
+      "enum": [
+        "mentioned",
+        "cited",
+        "absent",
+        "not_tested"
+      ],
+      "default": "not_tested"
+    },
+    "citedUrl": {
+      "type": "string"
+    },
+    "evidenceReference": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

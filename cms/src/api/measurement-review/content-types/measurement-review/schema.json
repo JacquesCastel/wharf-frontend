@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "measurement_reviews",
+  "info": {
+    "singularName": "measurement-review",
+    "pluralName": "measurement-reviews",
+    "displayName": "Bilans mensuels"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "period": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "generatedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "audience": {
+      "type": "json"
+    },
+    "commercial": {
+      "type": "json"
+    },
+    "geo": {
+      "type": "json"
+    },
+    "searchConsoleClicks": {
+      "type": "integer",
+      "min": 0
+    },
+    "searchConsoleImpressions": {
+      "type": "integer",
+      "min": 0
+    },
+    "searchConsoleBrandClicks": {
+      "type": "integer",
+      "min": 0
+    },
+    "searchConsoleNonBrandClicks": {
+      "type": "integer",
+      "min": 0
+    },
+    "searchConsoleSource": {
+      "type": "string"
+    },
+    "searchConsoleImportedAt": {
+      "type": "datetime"
+    },
+    "analysis": {
+      "type": "text"
+    },
+    "priorities": {
+      "type": "text"
+    }
+  }
+}

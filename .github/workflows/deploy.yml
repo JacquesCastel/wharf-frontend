@@ -17,10 +17,9 @@ jobs:
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
             set -e
+            commit="${{ github.sha }}"
             cd /home/wharf/wharf-frontend
-            git pull origin main
-            npm ci
-            npm run build
-            cp -r public .next/standalone/public
-            cp -r .next/static .next/standalone/.next/static
-            pm2 restart wharf-frontend
+            git fetch origin main
+            git show "$commit:scripts/deploy-clean-release.sh" > /home/wharf/deploy-clean-release.sh
+            chmod 700 /home/wharf/deploy-clean-release.sh
+            bash /home/wharf/deploy-clean-release.sh "$commit"

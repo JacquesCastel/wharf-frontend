@@ -1,0 +1,5 @@
+.audience-panel {position:fixed;bottom:20px;left:20px;z-index:10000;width:min(460px,calc(100vw - 40px));padding:24px;background:#fff;color:#262626;border:1px solid #ccc;box-shadow:0 8px 40px #0002;font:14px/1.5 var(--font-sans,Arial,sans-serif);}
+.audience-panel p {margin:0 0 12px;}.audience-panel a {color:inherit;text-decoration:underline;}.audience-actions {display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;}
+.audience-actions button {background:#262626;color:#fff;border:1px solid #262626;padding:10px 20px;font:inherit;cursor:pointer;min-height:44px;}
+.audience-preferences {font:inherit;cursor:pointer;text-align:left;background:none;border:0;padding:0;color:inherit;text-decoration:underline;}
+.audience-actions button:focus-visible,.audience-preferences:focus-visible {outline:3px solid #b15f45;outline-offset:3px;}

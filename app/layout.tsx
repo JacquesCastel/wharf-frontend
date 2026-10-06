@@ -1,6 +1,12 @@
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { defaultMetadata } from './lib/metadata';
 import Footer from './components/Footer'
+import Measurement from './components/Measurement';
+import { getInsights } from './lib/cms-content';
+import { getPublishedProjects } from './lib/projects';
+import { articlePath, formatPath } from './lib/insights';
+import { authorPath } from './lib/insights-authors';
+import './measurement.css';
 import AccessibilityWidget from './components/AccessibilityWidget'
 import './globals.css'
 import './wharf-ui.css'
@@ -9,11 +15,14 @@ import { OrganizationJsonLd, WebSiteJsonLd } from './components/JsonLd';
 export const dynamic = 'force-dynamic';
 export const metadata = defaultMetadata;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
+  const projects = await getPublishedProjects() ?? [];
+  const paths = ['/', '/we', '/work', '/you', '/contact', '/insights', '/accessibilite', '/accessibilite/engagement', '/confidentialite', ...articles.map(articlePath), ...publishedTopics.map(topic => `/insights/${topic.slug}`), ...publishedFormats.map(format => formatPath(format.slug)), ...publishedAuthors.map(author => authorPath(author.slug)), ...projects.map(project => `/work/${project.documentId}`)];
   return (
     <html lang="fr">
       <head>
@@ -39,6 +48,7 @@ export default function RootLayout({
         {process.env.VERCEL === '1' && <SpeedInsights />}
         <Footer />
         <AccessibilityWidget />
+        <Measurement websiteId={process.env.UMAMI_WEBSITE_ID} paths={paths} />
       </body>
     </html>
   );

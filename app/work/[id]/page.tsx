@@ -1,3 +1,4 @@
+import TrackedFilm from '../../components/TrackedFilm';
 import ProjectHeroVideo from '../../components/ProjectHeroVideo';
 import { cache } from 'react';
 import { generateMetadataFromStrapi } from '../../lib/metadata';
@@ -145,7 +146,7 @@ export default async function ProjetDetailPage({
               </div>)}
               <div className="bloc-video">
                 <h2>Voir le film</h2>
-                <div className="video-embed"><iframe src={editorial.videoUrl} title="Au café du commerce — film d’autopromotion Wharf" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen /></div>
+                <div className="video-embed"><TrackedFilm src={editorial.videoUrl} title="Au café du commerce — film d’autopromotion Wharf" film={`${id}-film`} /></div>
                 <p><a href={editorial.videoLink}>Voir « Au café du commerce » sur YouTube →</a></p>
               </div>
             </>
@@ -192,22 +193,10 @@ export default async function ProjetDetailPage({
                 return (
                   <div key={index} className="bloc-video">
                     {bloc.type_video === 'upload' && bloc.video_fichier?.url ? (
-                      <video controls preload="metadata">
-                        <source
-                          src={projectMediaUrl(bloc.video_fichier.url)}
-                          type="video/mp4"
-                        />
-                      </video>
+                      <TrackedFilm native src={projectMediaUrl(bloc.video_fichier.url)} title={bloc.titre || `Film du projet ${projet.titre}`} film={`${id}-${index}`} />
                     ) : bloc.video_url ? (
                       <div className="video-embed">
-                        <iframe
-                          src={bloc.video_url}
-                          title={bloc.titre || `Vidéo du projet ${projet.titre}`}
-                          loading="lazy"
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        />
+                        <TrackedFilm src={bloc.video_url} title={bloc.titre || `Vidéo du projet ${projet.titre}`} film={`${id}-${index}`} />
                       </div>
                     ) : null}
                   </div>

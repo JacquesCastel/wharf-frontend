@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
+import { measure, needCode } from '../lib/measurement';
 
 const emptyForm = { name: '', email: '', organization: '', situation: '', message: '' };
 const needs = [
@@ -47,6 +48,7 @@ export default function ContactForm({ email }: { email: string }) {
         message: formData.message,
         to_email: 'contact@bywharf.com',
       });
+      measure('contact_form_success', { offer: needCode(formData.situation) });
       setSubmitted(true);
       setFormData(emptyForm);
     } catch {
@@ -98,7 +100,7 @@ export default function ContactForm({ email }: { email: string }) {
       </div>}
       <div className="contact-form-actions">
         <button type="submit" className="contact-submit-button" disabled={loading}>{loading ? 'Envoi en cours…' : 'Envoyer votre message'} <span aria-hidden="true">↗</span></button>
-        <p>Ces informations nous permettent de vous répondre au sujet de votre projet.</p>
+        <p>Ces informations nous permettent de vous répondre au sujet de votre projet. <a href="/confidentialite">Confidentialité</a>.</p>
       </div>
     </form>}
   </div>;

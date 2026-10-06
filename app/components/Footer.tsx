@@ -1,5 +1,6 @@
 import { getPageCopy, getInsights } from '../lib/cms-content';
 import Link from 'next/link';
+import { AudiencePreferencesButton } from './Measurement';
 import { getFooter } from '../lib/strapi';
 import { positioning } from '../lib/editorial';
 import { articlePath } from '../lib/insights';
@@ -71,6 +72,8 @@ export default async function Footer() {
         </section>
         <div className="footer-bottom">
           <nav className="footer-utility" aria-label="Pied de page — accessibilité">
+            <Link href="/confidentialite" className="footer-link">Confidentialité</Link>
+            <AudiencePreferencesButton />
             <Link href="/accessibilite" className="footer-link">{t("components-Footer-27")}</Link>
             <Link href="/accessibilite/engagement" className="footer-link">{t("components-Footer-28")}</Link>
           </nav>

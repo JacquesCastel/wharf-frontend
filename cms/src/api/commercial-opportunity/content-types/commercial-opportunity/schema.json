@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commercial_opportunities",
+  "info": {
+    "singularName": "commercial-opportunity",
+    "pluralName": "commercial-opportunitys",
+    "displayName": "Demandes commerciales"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "reference": {
+      "type": "string",
+      "required": true
+    },
+    "receivedAt": {
+      "type": "date",
+      "required": true
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": [
+        "google",
+        "ai_referral",
+        "article",
+        "portfolio",
+        "email",
+        "referral",
+        "other",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "offer": {
+      "type": "enumeration",
+      "enum": [
+        "strategy",
+        "content",
+        "video",
+        "creation_ia",
+        "employer_brand",
+        "internal",
+        "other"
+      ],
+      "default": "other"
+    },
+    "stage": {
+      "type": "enumeration",
+      "enum": [
+        "received",
+        "qualified",
+        "meeting",
+        "quote",
+        "signed",
+        "lost"
+      ],
+      "default": "received"
+    },
+    "qualifiedAt": {
+      "type": "date"
+    },
+    "meetingAt": {
+      "type": "date"
+    },
+    "quoteAt": {
+      "type": "date"
+    },
+    "signedAt": {
+      "type": "date"
+    },
+    "amount": {
+      "type": "decimal",
+      "min": 0
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}
