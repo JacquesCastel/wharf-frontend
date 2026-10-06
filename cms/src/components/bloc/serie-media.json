@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_bloc_series_media",
+  "info": {
+    "displayName": "Série d’images et de vidéos",
+    "description": "Images et films dans l’ordre de votre choix."
+  },
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "colonnes": {
+      "type": "integer",
+      "default": 2,
+      "min": 1,
+      "max": 3
+    },
+    "elements": {
+      "type": "component",
+      "repeatable": true,
+      "component": "bloc.media-item",
+      "required": true,
+      "min": 1
+    }
+  }
+}

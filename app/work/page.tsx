@@ -13,15 +13,15 @@ import InsightCards from '../components/InsightCards';
 import WorkPortfolio from './WorkPortfolio';
 
 export const dynamic = 'force-dynamic';
-type Props = { searchParams: Promise<{ page?: string; type?: string }> };
+type Props = { searchParams: Promise<{ page?: string; type?: string; categorie?: string }> };
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
   const seoCopy = await getPageCopy('work');
   const [data, projects, query] = await Promise.all([getWork(), getPublishedProjects(), searchParams]);
   const selection = portfolioSelection(projects, query);
   if (!selection.valid) notFound();
   const title = selection.page > 1 ? `WORK — Réalisations, page ${selection.page} | Wharf` : seoCopy.seo.title;
-  const metadata = generateMetadataFromStrapi(title, seoCopy.seo.description, data.seo?.image, portfolioPath(selection.page, selection.selectedType));
-  return selection.selectedType ? { ...metadata, robots: { index: false, follow: true } } : metadata;
+  const metadata = generateMetadataFromStrapi(title, seoCopy.seo.description, data.seo?.image, portfolioPath(selection.page, selection.selectedType, selection.selectedCategory));
+  return selection.selectedType || selection.selectedCategory ? { ...metadata, robots: { index: false, follow: true } } : metadata;
 }
 export default async function WorkPage({ searchParams }: Props) {
   const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
@@ -33,7 +33,7 @@ export default async function WorkPage({ searchParams }: Props) {
   if (!selection.valid) notFound();
   return (
     <main id="main-content" className="wharf-public wharf-work">
-      <WebPageJsonLd path={portfolioPath(selection.page, selection.selectedType)} title={seoCopy.seo.title} description={seoCopy.seo.description} type="CollectionPage" />
+      <WebPageJsonLd path={portfolioPath(selection.page, selection.selectedType, selection.selectedCategory)} title={seoCopy.seo.title} description={seoCopy.seo.description} type="CollectionPage" />
       <section className="wharf-masthead" aria-labelledby="work-title">
         <p className="editorial-eyebrow">{t("work-page-1")}</p>
         <div><h1 id="work-title">{t("work-page-2")}<br />{t("work-page-3")}</h1>
@@ -41,7 +41,7 @@ export default async function WorkPage({ searchParams }: Props) {
           <nav className="wharf-section-nav" aria-label="Explorer WORK"><a href="#realisations">{t("work-page-5")}</a><a href="#strategy">{t("work-page-6")}</a><a href="#content">{t("work-page-7")}</a><a href="#video">{t("work-page-8")}</a><a href="#creation-ia">{t("work-page-9")}</a></nav>
         </div>
       </section>
-      <WorkPortfolio projects={projects} page={selection.page} selectedType={selection.selectedType} />
+      <WorkPortfolio projects={projects} page={selection.page} selectedType={selection.selectedType} selectedCategory={selection.selectedCategory} />
       <Offers />
       <section className="work-methode">
         <div className="work-container">

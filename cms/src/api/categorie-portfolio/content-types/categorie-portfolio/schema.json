@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories_portfolio",
+  "info": {
+    "singularName": "categorie-portfolio",
+    "pluralName": "categories-portfolio",
+    "displayName": "Portfolio — Catégories"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nom",
+      "required": true
+    },
+    "ordre": {
+      "type": "integer",
+      "default": 100,
+      "min": 0
+    }
+  }
+}

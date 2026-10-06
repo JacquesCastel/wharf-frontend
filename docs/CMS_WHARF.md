@@ -6,7 +6,8 @@ CMS : https://admin.bywharf.com/admin. Se connecter avec le compte existant puis
 | --- | --- |
 | Articles du blog | Les 8 articles importés, les nouveaux brouillons, sections, paragraphes, listes, tableaux, sources, dates éditoriales et SEO. |
 | Pages du site | Home, WE, WORK, YOU, Contact, INSIGHTS et les textes communs : titres, introductions, offres, prestations, situations, boutons et textes du footer. |
-| Portfolio — Réalisations | Les projets du portfolio, leurs médias et les blocs éditoriaux existants. |
+| Portfolio — Réalisations | Les projets, leurs catégories, médias, séries d’images et de vidéos et blocs éditoriaux. |
+| Portfolio — Catégories | Les catégories des filtres : Stratégie, Contenus éditoriaux, Films & vidéos, Création IA. |
 | Médiathèque / Media Library | Les images, vidéos et fichiers. Les anciens uploads restent au même emplacement. |
 | Médias — Accueil | La vidéo d’accueil et les images des trois entrées WE, WORK et YOU. |
 | Adresse de contact | L’adresse email utilisée par le formulaire. |
@@ -47,3 +48,19 @@ Strapi 5.56.0 ; Node LTS 22 dédié sous `/opt/wharf-node22/current`. Le fronten
 Les ajouts/modifications du CMS sont versionnés dans `cms/`. Ce dossier contient une couche à appliquer au projet Strapi existant, pas un remplacement des contrôleurs, services, politiques ou lifecycles clients. `cms/scripts/import-editorial.cjs` importe les archives initiales sans écraser un contenu existant modifié. `cms/scripts/configure-editorial.cjs` configure les libellés et dispositions d’édition. `cms/scripts/test-editorial.cjs` refuse de fonctionner hors de la copie de test désignée.
 
 Sauvegardes privées du code, de PM2 et de SQLite dans `/root/wharf-maintenance/strapi-cms-20261005/`. Le déploiement du CMS utilise la base fraîche de production, jamais la copie de test. Les versions précédentes des dépendances et du build sont conservées pour un retour arrière.
+
+## Classer et présenter les réalisations — 6 octobre 2026
+
+Dans **Portfolio — Réalisations**, choisir une ou plusieurs **Catégories du portfolio**. Les catégories sont distinctes du champ libre **Format / type de réalisation**, qui sert à préciser la nature du projet. Par exemple, une série de films générés par IA peut être classée à la fois dans **Films & vidéos** et **Création IA** ; une série d’images peut être classée dans **Création IA**. Les filtres apparaissent sur WORK dès qu’une réalisation publiée utilise la catégorie. Les références non classées restent dans « Toutes ». Les anciennes URLs filtrées par `type` restent utilisables.
+
+Dans **Portfolio — Catégories**, ajouter une catégorie ou ajuster son nom et son ordre d’affichage. Conserver son adresse après utilisation pour préserver les liens de filtre. Les catégories vides ne sont pas affichées sur le site ; les pages filtrées sont en `noindex,follow` pour éviter de multiplier les variantes de WORK.
+
+Pour créer une série, ajouter dans **Présentation de la réalisation** le bloc **Série d’images et de vidéos**. Renseigner son titre et le nombre de colonnes (1 à 3). Ajouter des éléments **Image ou vidéo**, puis choisir un fichier image/vidéo dans la médiathèque OU un lien YouTube/Vimeo. Pour chaque élément, renseigner éventuellement un titre, une légende et une affiche pour une vidéo. Réordonner les éléments dans Strapi. Le site conserve leur ordre, les proportions des images, les contrôles des vidéos et passe sur une colonne sur mobile. Les vidéos ne démarrent pas automatiquement.
+
+Pour une démonstration IA en avant-vente, expliquer ce statut dans un bloc texte : ne pas présenter le test comme une commande ou une campagne diffusée. Aucun nouveau projet ni résultat client n’est créé par cette mise à jour.
+
+Enregistrer puis **Publier** pour afficher les changements. Les blocs image, vidéo, galerie, texte et citation existants sont conservés. Les fichiers vidéos du bloc `VideoBloc` sont lus depuis le champ `video` réel du CMS ; les médias des blocs et des séries sont chargés explicitement avec leurs sous-composants.
+
+La configuration des catégories et du formulaire est idempotente : depuis le projet Strapi, exécuter `NODE_ENV=production /opt/wharf-node22/current/bin/node scripts/configure-portfolio.cjs`. Ce script crée seulement les catégories initiales manquantes et leur permission de lecture publique ; il ne modifie ni ne republie les fiches projets existantes.
+
+Avant de compiler le CMS après ajout de modèles, générer les types avec `node node_modules/@strapi/strapi/bin/strapi.js ts:generate-types`, puis compiler avec TypeScript. Les essais de création/publication de séries sont exécutés uniquement dans une copie SQLite privée ; aucune fiche fictive n’est publiée sur le site.

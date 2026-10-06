@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_bloc_media_items",
+  "info": {
+    "displayName": "Image ou vidéo"
+  },
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "video_url": {
+      "type": "string"
+    },
+    "affiche": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "legende": {
+      "type": "text"
+    }
+  }
+}

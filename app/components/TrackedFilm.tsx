@@ -14,7 +14,7 @@ function loadYoutube() {
   });
   return youtubeReady;
 }
-export default function TrackedFilm({ src, title, film, native = false }: { src: string; title: string; film: string; native?: boolean }) {
+export default function TrackedFilm({ src, title, film, native = false, poster, mime }: { src: string; title: string; film: string; native?: boolean; poster?: string; mime?: string }) {
   const frame = useRef<HTMLIFrameElement>(null);
   const played = useRef(false);
   const count = () => { if (!played.current) { played.current = true; measure('film_play', { film }); } };
@@ -29,6 +29,6 @@ export default function TrackedFilm({ src, title, film, native = false }: { src:
     void loadYoutube().then(() => { if (active && frame.current && window.YT) player = new window.YT.Player(frame.current, { events: { onStateChange: event => { if (event.data === 1) count(); } } }); });
     return () => { active = false; player?.destroy(); };
   }, [src, native]);
-  if (native) return <video controls preload="metadata" playsInline aria-label={title} onPlay={count}><source src={src} type="video/mp4" /></video>;
+  if (native) return <video controls preload="metadata" playsInline poster={poster} aria-label={title} onPlay={count}><source src={src} type={mime || undefined} /></video>;
   return <iframe ref={frame} src={src} title={title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />;
 }

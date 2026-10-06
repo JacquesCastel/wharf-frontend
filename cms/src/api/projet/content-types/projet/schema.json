@@ -55,8 +55,14 @@
         "bloc.image-bloc",
         "bloc.video-bloc",
         "bloc.galerie-bloc",
-        "bloc.citation-bloc"
+        "bloc.citation-bloc",
+        "bloc.serie-media"
       ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::categorie-portfolio.categorie-portfolio"
     }
   }
 }

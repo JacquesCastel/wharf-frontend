@@ -1,5 +1,6 @@
 import { cache } from 'react';
 import { getProjectEditorial } from './project-editorial';
+import { projectCategories, type PortfolioCategory } from './project-taxonomy';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'https://admin.bywharf.com';
 export interface PublishedProject {
@@ -7,6 +8,7 @@ export interface PublishedProject {
   documentId: string;
   titre: string;
   type?: string;
+  categories?: PortfolioCategory[];
   description_courte?: string;
   updatedAt?: string;
   vignette?: { url: string; alternativeText?: string; width?: number; height?: number };
@@ -40,6 +42,7 @@ export const getPublishedProjects = cache(async (): Promise<PublishedProject[] |
         const editorial = getProjectEditorial(project);
         projects.push({
           id: project.id, documentId: project.documentId, titre: project.titre,
+          categories: projectCategories(project.categories),
           type: editorial?.format ?? project.type, description_courte: editorial?.summary ?? project.description_courte,
           updatedAt: editorial?.updatedAt ?? project.updatedAt,
           vignette: project.vignette?.url ? {
