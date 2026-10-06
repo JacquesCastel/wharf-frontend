@@ -1,3 +1,5 @@
+import ScrollMotion from '../../../components/ScrollMotion';
+import EditorialMark from '../../../components/EditorialMark';
 import { getInsights, getLiveArticle } from '../../../lib/cms-content';
 import { getPublishedProjects } from '../../../lib/projects';
 import { CAFE_PROJECT_ID } from '../../../lib/project-editorial';
@@ -22,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return { ...base, authors: [{ name: articleAuthor(article).name, url: articleAuthor(article).url }], openGraph: { ...base.openGraph, type: 'article', publishedTime: article.publishedAt, modifiedTime: article.updatedAt, authors: [articleAuthor(article).url] } };
 }
 export default async function ArticlePage({ params }: Props) {
-  const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
+  const { articles, publishedTopics } = await getInsights();
   const { theme, slug } = await params;
   const article = await getLiveArticle(theme, slug);
   if (!article) notFound();
@@ -34,15 +36,15 @@ export default async function ArticlePage({ params }: Props) {
   const situation = situations.find(situation => article.service === `/you#${situation.id}`);
   const situationLabels: Record<string, string> = { visibilite: 'notre accompagnement pour rendre votre expertise visible', dirigeants: 'notre accompagnement pour la parole dirigeante', recrutement: 'notre accompagnement en marque employeur', transformation: 'notre accompagnement pour expliquer une transformation', reseaux: 'notre accompagnement pour vos contenus réguliers', film: 'notre accompagnement pour produire un film' };
   const serviceLabel = offer ? ({ strategy: 'notre accompagnement en stratégie de communication', content: 'notre création de contenus B2B', video: 'notre production vidéo B2B', 'creation-ia': 'notre création d’images et de films par l’IA' }[offer.id]) : situation ? situationLabels[situation.id] : 'notre méthode de design narratif';
-  return <main id="main-content" className="insights-page">
+  return <main id="main-content" className="insights-page wharf-public wharf-article-page wharf-motion"><ScrollMotion />
     <JsonLd data={articleSchema(article, topic.title, format?.title ?? '')} />
     <WebPageJsonLd path={articlePath(article)} title={article.title} description={article.description} dateModified={article.updatedAt} />
     <BreadcrumbJsonLd items={[{ name: 'Insights', path: '/insights' }, { name: topic.title, path: `/insights/${theme}` }, { name: article.title, path: articlePath(article) }]} />
     <article className="insight-article">
       <header className="insight-article-header">
         <nav aria-label="Fil d’Ariane"><Link href="/insights">Insights</Link> / <Link href={`/insights/${theme}`}>{topic.title}</Link></nav>
-        <p className="editorial-eyebrow">{article.tag}</p>
-        {format && <Link className="insight-format-link" href={formatPath(format.slug)}>{format.label}</Link>}<h1>{article.title}</h1>
+        <div className="article-opening-labels" data-scroll-scene><div><p className="editorial-eyebrow">{article.tag}</p>
+        {format && <Link className="insight-format-link" href={formatPath(format.slug)}>{format.label}</Link>}</div><EditorialMark className="article-opening-art" variant={theme === "content-b2b" ? "frames" : "orbit"} /></div><h1>{article.title}</h1>
         <p className="insight-meta">Par <Link href={author.path}>{author.name}</Link> · <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time> · {readingMinutes(article)} min de lecture</p>
         {article.updatedAt !== article.publishedAt && <p className="insight-meta">Mis à jour le <time dateTime={article.updatedAt}>{formatDate(article.updatedAt)}</time></p>}
         <p className="insight-lead">{article.intro}</p>
@@ -66,6 +68,6 @@ export default async function ArticlePage({ params }: Props) {
       <footer className="insight-article-cta"><h2>{article.cta}</h2><p>Découvrez <Link href={article.service}>{serviceLabel}</Link>, puis parlons de votre situation.</p><Link href="/contact" className="btn btn-primary">Parlons de votre projet →</Link></footer>
     </article>
     {linkedProjects.length > 0 && <section className="editorial-section"><div className="work-container"><h2>Réalisations liées</h2><ul>{linkedProjects.map(project => <li key={project.documentId}><Link href={`/work/${project.documentId}`}>{project.titre}</Link>{project.description_courte && <p>{project.description_courte}</p>}</li>)}</ul></div></section>}
-    <section className="editorial-section"><div className="work-container"><h2>Pour poursuivre la réflexion</h2><InsightCards items={relatedArticles(article, articles)} headingLevel={3} /></div></section>
+    <section className="editorial-section"><div className="work-container"><h2>Pour poursuivre la réflexion</h2><InsightCards items={relatedArticles(article, articles)} headingLevel={3} composed /></div></section>
   </main>;
 }

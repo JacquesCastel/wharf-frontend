@@ -1,3 +1,5 @@
+import ScrollMotion from '../../components/ScrollMotion';
+import EditorialMark from '../../components/EditorialMark';
 import ProjectMediaSeries from '../../components/ProjectMediaSeries';
 import { projectCategories, type PortfolioCategory } from '../../lib/project-taxonomy';
 import { projectPopulate, mediaKind, videoEmbed, safeVideoLink, type ProjectMedia, type ProjectMediaItem } from '../../lib/project-media';
@@ -87,7 +89,7 @@ export default async function ProjetDetailPage({
 
 
   return (
-    <main id="main-content" className="wharf-project">
+    <main id="main-content" className="wharf-project wharf-motion"><ScrollMotion />
       <WebPageJsonLd path={`/work/${id}`} title={projet.titre} description={summary || `Projet Wharf : ${projet.titre}`} about={{ '@id': `${SITE_URL}/work/${id}#project` }} dateModified={editorial?.updatedAt ?? projet.updatedAt} />
       <BreadcrumbJsonLd items={[{ name: 'WORK', path: '/work' }, { name: projet.titre, path: `/work/${id}` }]} />
       <ProjectJsonLd
@@ -242,8 +244,8 @@ export default async function ProjetDetailPage({
         </div>
       </section>
 
-      <section className="editorial-section"><div className="projet-container">
-        <h2>Du récit à votre prochain projet</h2>
+      <section className="editorial-section project-next-scene" data-scroll-scene><div className="projet-container">
+        <div className="wharf-composed-heading"><h2>Du récit à votre prochain projet</h2><EditorialMark variant="frames" /></div>
         <p>Découvrez nos <Link href="/work#strategy">expertises de conseil</Link>, notre <Link href="/work#content">création de contenus</Link> et notre <Link href="/work#video">production vidéo</Link>.</p>
         {isAI && <p><Link href="/work#creation-ia">Découvrir la création d’images et de films par l’IA →</Link></p>}
         <Link href={isVideo ? '/insights/video-b2b' : '/insights'} className="card-split-link">{isVideo ? 'Préparer votre production vidéo : guides et analyses →' : 'Explorer nos guides et analyses →'}</Link>

@@ -1,9 +1,11 @@
+import Image from 'next/image';
+import ScrollMotion from '../components/ScrollMotion';
+import EditorialMark from '../components/EditorialMark';
 import { getPageCopy } from '../lib/cms-content';
 import { WebPageJsonLd } from '../components/JsonLd';
 import type { Metadata } from 'next';
 import { getWe } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
-import { pageSeo } from '../lib/editorial';
 import { getPublishedProjects } from '../lib/projects';
 import { CAFE_PROJECT_ID } from '../lib/project-editorial';
 
@@ -35,10 +37,11 @@ export default async function WePage() {
   };
 
   return (
-    <main id="main-content" className="wharf-public wharf-we">
+    <main id="main-content" className="wharf-public wharf-we wharf-motion">
+      <ScrollMotion />
       <WebPageJsonLd path="/we" title={seoCopy.seo.title} description={seoCopy.seo.description} type="AboutPage" />
-      <section className="wharf-masthead" aria-labelledby="we-title">
-        <p className="editorial-eyebrow">{t("we-page-15")}</p>
+      <section className="wharf-masthead" aria-labelledby="we-title" data-scroll-scene>
+        <div className="wharf-masthead-aside"><p className="editorial-eyebrow">{t("we-page-15")}</p><EditorialMark className="masthead-art" variant="arches" /></div>
         <div><h1 id="we-title">{t("we-page-16")}<br /><em>{t("we-page-17")}</em></h1>
           <p>{t("we-page-18")}</p>
           <a href="#notre-approche" className="card-split-link">{t("we-page-19")}</a>
@@ -51,9 +54,12 @@ export default async function WePage() {
           <div className="we-timeline-line"></div>
 
           {/* ACTE 1 */}
-          <div className="we-acte">
+          <div className="we-acte" data-scroll-scene>
             <div className="we-acte-number">{t("we-page-20")}</div>
-            <div className="we-acte-visual"></div>
+            <div className="we-acte-stage">
+              <span className="we-acte-plane" aria-hidden="true" data-scroll-shift="-95" data-scroll-turn="10" />
+              <div className="we-acte-visual"><Image src="/images/acte-1.jpg" alt="" fill sizes="(max-width: 900px) 90vw, 45vw" data-scroll-shift="42" /></div>
+            </div>
             <div className="we-acte-content">
               <div className="we-acte-label">{t("we-page-21")}</div>
               <h2>{weData.actes.acte1.titre}</h2>
@@ -65,9 +71,12 @@ export default async function WePage() {
           </div>
 
           {/* ACTE 2 */}
-          <div className="we-acte">
+          <div className="we-acte" data-scroll-scene>
             <div className="we-acte-number">{t("we-page-22")}</div>
-            <div className="we-acte-visual"></div>
+            <div className="we-acte-stage">
+              <span className="we-acte-plane" aria-hidden="true" data-scroll-shift="-95" data-scroll-turn="10" />
+              <div className="we-acte-visual"><Image src="/images/acte-2.jpg" alt="" fill sizes="(max-width: 900px) 90vw, 45vw" data-scroll-shift="42" /></div>
+            </div>
             <div className="we-acte-content">
               <div className="we-acte-label">{t("we-page-23")}</div>
               <h2>{weData.actes.acte2.titre}</h2>
@@ -79,9 +88,12 @@ export default async function WePage() {
           </div>
 
           {/* ACTE 3 */}
-          <div className="we-acte">
+          <div className="we-acte" data-scroll-scene>
             <div className="we-acte-number">{t("we-page-24")}</div>
-            <div className="we-acte-visual"></div>
+            <div className="we-acte-stage">
+              <span className="we-acte-plane" aria-hidden="true" data-scroll-shift="-95" data-scroll-turn="10" />
+              <div className="we-acte-visual"><Image src="/images/acte-3.jpg" alt="" fill sizes="(max-width: 900px) 90vw, 45vw" data-scroll-shift="42" /></div>
+            </div>
             <div className="we-acte-content">
               <div className="we-acte-label">{t("we-page-25")}</div>
               <h2>{weData.actes.acte3.titre}</h2>
@@ -95,7 +107,7 @@ export default async function WePage() {
       </section>
 
       {/* TRANSITION */}
-      <section className="we-transition">
+      <section className="we-transition" data-scroll-scene><span className="page-closing-orbit" aria-hidden="true" data-scroll-shift="-140" data-scroll-turn="20" />
         <h2 className="we-transition-quote">
           {t("we-page-26")}<span className="we-transition-highlight">{t("we-page-27")}</span>
         </h2>
@@ -152,7 +164,7 @@ export default async function WePage() {
       </div></section>}
 
       {/* CLOSING CTA */}
-      <section className="we-closing">
+      <section className="we-closing" data-scroll-scene><span className="page-closing-orbit" aria-hidden="true" data-scroll-shift="-140" data-scroll-turn="20" />
         <div className="we-pillars-container">
         <h2>{weData.closing.titre}</h2>
         <p>{weData.closing.texte}</p>

@@ -1,9 +1,10 @@
+import ScrollMotion from '../components/ScrollMotion';
+import EditorialMark from '../components/EditorialMark';
 import { getPageCopy, getInsights, getLiveSituations } from '../lib/cms-content';
 import { WebPageJsonLd } from '../components/JsonLd';
 import type { Metadata } from 'next';
 import { getYou } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
-import { pageSeo, situations } from '../lib/editorial';
 import { articlePath } from '../lib/insights';
 
 export const dynamic = 'force-dynamic';
@@ -13,16 +14,17 @@ export async function generateMetadata(): Promise<Metadata> {
   return generateMetadataFromStrapi(seoCopy.seo.title, seoCopy.seo.description, data.seo?.image, '/you');
 }
 export default async function YouPage() {
-  const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
+  const { articles } = await getInsights();
   const copy = await getPageCopy('you');
   const t = copy.text;
   const seoCopy = copy;
   const situations = await getLiveSituations();
   return (
-    <main id="main-content" className="wharf-public wharf-you">
+    <main id="main-content" className="wharf-public wharf-you wharf-motion">
+      <ScrollMotion />
       <WebPageJsonLd path="/you" title={seoCopy.seo.title} description={seoCopy.seo.description} />
-      <section className="wharf-masthead" aria-labelledby="you-title">
-        <p className="editorial-eyebrow">{t("you-page-1")}</p>
+      <section className="wharf-masthead" aria-labelledby="you-title" data-scroll-scene>
+        <div className="wharf-masthead-aside"><p className="editorial-eyebrow">{t("you-page-1")}</p><EditorialMark className="masthead-art" variant="orbit" /></div>
         <div><h1 id="you-title">{t("you-page-2")}<br /><em>{t("you-page-3")}</em></h1>
           <p>{t("you-page-4")}</p>
           <a href="#vos-besoins" className="card-split-link">{t("you-page-5")}</a>
@@ -36,7 +38,7 @@ export default async function YouPage() {
             {situations.map((situation, index) => {
               const reading = 'readingSlug' in situation ? articles.find(article => article.slug === situation.readingSlug) : undefined;
               return (
-              <article key={situation.id} id={situation.id} className="you-situation">
+              <article key={situation.id} id={situation.id} className="you-situation" data-scroll-scene><span className="you-situation-accent" aria-hidden="true" data-scroll-shift="-65" data-scroll-turn="10" />
                 <div className="you-situation-heading"><div className="you-situation-number">{String(index + 1).padStart(2, '0')}</div><h3>{situation.titre}</h3></div>
                 <div className="you-situation-content">
                 <p>{situation.description}</p>
@@ -67,7 +69,7 @@ export default async function YouPage() {
           <a href="/work" className="card-split-link">{t("you-page-20")}</a>
         </div>
       </section>
-      <section className="you-closing">
+      <section className="you-closing" data-scroll-scene><span className="page-closing-orbit" aria-hidden="true" data-scroll-shift="-140" data-scroll-turn="20" />
         <div className="you-container">
           <h2>{t("you-page-21")}</h2>
           <p>{t("you-page-22")}</p>

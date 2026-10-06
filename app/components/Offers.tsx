@@ -1,8 +1,8 @@
 import { getPageCopy, getInsights, getLiveOffers } from '../lib/cms-content';
 import { ServicesJsonLd } from './JsonLd';
-import { offers } from '../lib/editorial';
 import FogBackdrop from './FogBackdrop';
 import { articlePath } from '../lib/insights';
+import EditorialMark from './EditorialMark';
 
 function OfferReading({ id, articles, text: t }: { id: string; articles: import('../lib/insights').InsightArticle[]; text: (key: string) => string }) {
   const article = articles.find(item => item.service === `/work#${id}`)
@@ -12,7 +12,7 @@ function OfferReading({ id, articles, text: t }: { id: string; articles: import(
 }
 
 export default async function Offers({ compact = false }: { compact?: boolean }) {
-  const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
+  const { articles } = await getInsights();
   const copy = await getPageCopy('global');
   const t = copy.text;
   const offers = await getLiveOffers();
@@ -20,10 +20,11 @@ export default async function Offers({ compact = false }: { compact?: boolean })
     <section className={`work-expertises editorial-offers${compact ? ' offers-compact' : ''}`} aria-labelledby="offers-title">
       <ServicesJsonLd items={offers} />
       <div className="work-container">
-        <div className="wharf-section-heading"><p className="editorial-eyebrow">{t("components-Offers-2")}</p><h2 id="offers-title" className="work-expertises-title">{t("components-Offers-3")}<br />{t("components-Offers-4")}</h2></div>
+        <div className="wharf-section-heading wharf-composed-heading" data-scroll-scene><div><p className="editorial-eyebrow">{t("components-Offers-2")}</p><h2 id="offers-title" className="work-expertises-title">{t("components-Offers-3")}<br />{t("components-Offers-4")}</h2></div><EditorialMark variant={compact ? "orbit" : "frames"} /></div>
         <div className="work-expertises-grid editorial-offers-grid">
           {offers.filter(offer => offer.id !== 'creation-ia').map(offer => (
             <article key={offer.id} id={offer.id} className="expertise">
+              <span className={`offer-colour offer-colour-${offer.id}`} aria-hidden="true" />
               <p className="expertise-subtitle">{offer.name}</p>
               <h3>{offer.title}</h3>
               <p>{offer.description}</p>

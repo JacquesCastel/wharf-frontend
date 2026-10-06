@@ -7,8 +7,8 @@ import { useAmbientVideo } from '../lib/use-ambient-video';
 export default function FilmHero({ videoSrc, children }: { videoSrc: string; children: ReactNode }) {
   const { videoRef, paused, unavailable, togglePlayback, onPlay, onPause, onError } = useAmbientVideo();
 
-  return <section className="film-hero" aria-labelledby="home-title">
-    <div className="film-hero-media" aria-hidden="true">
+  return <section className="film-hero" aria-labelledby="home-title" data-scroll-scene>
+    <div className="film-hero-media" aria-hidden="true" data-scroll-shift="64">
       <Image src="/images/manifesto-bg.jpg" alt="" fill priority sizes="100vw" quality={75} />
       <video ref={videoRef} muted loop playsInline preload="metadata" onPlay={onPlay} onPause={onPause} onError={onError} hidden={unavailable}>
         <source src={videoSrc} type="video/mp4" />

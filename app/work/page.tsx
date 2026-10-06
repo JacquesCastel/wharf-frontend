@@ -1,3 +1,5 @@
+import ScrollMotion from '../components/ScrollMotion';
+import EditorialMark from '../components/EditorialMark';
 import { getPageCopy, getInsights } from '../lib/cms-content';
 import { notFound } from 'next/navigation';
 import { WebPageJsonLd } from '../components/JsonLd';
@@ -6,7 +8,6 @@ import type { Metadata } from 'next';
 import { getWork } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
 import { getPublishedProjects } from '../lib/projects';
-import { pageSeo } from '../lib/editorial';
 import Offers from '../components/Offers';
 import InsightCards from '../components/InsightCards';
 
@@ -24,7 +25,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   return selection.selectedType || selection.selectedCategory ? { ...metadata, robots: { index: false, follow: true } } : metadata;
 }
 export default async function WorkPage({ searchParams }: Props) {
-  const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
+  const { articles } = await getInsights();
   const copy = await getPageCopy('work');
   const t = copy.text;
   const seoCopy = copy;
@@ -32,16 +33,17 @@ export default async function WorkPage({ searchParams }: Props) {
   const selection = portfolioSelection(projects, query);
   if (!selection.valid) notFound();
   return (
-    <main id="main-content" className="wharf-public wharf-work">
+    <main id="main-content" className="wharf-public wharf-work wharf-motion">
+      <ScrollMotion />
       <WebPageJsonLd path={portfolioPath(selection.page, selection.selectedType, selection.selectedCategory)} title={seoCopy.seo.title} description={seoCopy.seo.description} type="CollectionPage" />
-      <section className="wharf-masthead" aria-labelledby="work-title">
-        <p className="editorial-eyebrow">{t("work-page-1")}</p>
+      <section className="wharf-masthead" aria-labelledby="work-title" data-scroll-scene>
+        <div className="wharf-masthead-aside"><p className="editorial-eyebrow">{t("work-page-1")}</p><EditorialMark className="masthead-art" variant="frames" /></div>
         <div><h1 id="work-title">{t("work-page-2")}<br />{t("work-page-3")}</h1>
           <p>{t("work-page-4")}</p>
           <nav className="wharf-section-nav" aria-label="Explorer WORK"><a href="#realisations">{t("work-page-5")}</a><a href="#strategy">{t("work-page-6")}</a><a href="#content">{t("work-page-7")}</a><a href="#video">{t("work-page-8")}</a><a href="#creation-ia">{t("work-page-9")}</a></nav>
         </div>
       </section>
-      <WorkPortfolio projects={projects} page={selection.page} selectedType={selection.selectedType} selectedCategory={selection.selectedCategory} />
+      <WorkPortfolio motion projects={projects} page={selection.page} selectedType={selection.selectedType} selectedCategory={selection.selectedCategory} />
       <Offers />
       <section className="work-methode">
         <div className="work-container">
@@ -60,9 +62,9 @@ export default async function WorkPage({ searchParams }: Props) {
       <section className="editorial-section"><div className="work-container">
         <h2>{t("work-page-17")}</h2>
         <p>{t("work-page-18")}</p>
-        <InsightCards items={articles.filter(article => article.format === 'guides').slice(0, 3)} headingLevel={3} />
+        <InsightCards items={articles.filter(article => article.format === 'guides').slice(0, 3)} headingLevel={3} composed />
       </div></section>
-      <section className="work-closing">
+      <section className="work-closing" data-scroll-scene><span className="page-closing-orbit" aria-hidden="true" data-scroll-shift="-140" data-scroll-turn="20" />
         <div className="work-container">
           <h2>{t("work-page-19")}</h2>
           <p>{t("work-page-20")}</p>

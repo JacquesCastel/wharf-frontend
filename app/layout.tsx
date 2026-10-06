@@ -10,6 +10,8 @@ import './measurement.css';
 import AccessibilityWidget from './components/AccessibilityWidget'
 import './globals.css'
 import './wharf-ui.css'
+import './wharf-motion.css'
+import './wharf-footer.css'
 import HeaderWrapper from './components/HeaderWrapper';
 import { OrganizationJsonLd, WebSiteJsonLd } from './components/JsonLd';
 export const dynamic = 'force-dynamic';
