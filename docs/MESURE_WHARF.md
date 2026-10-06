@@ -20,7 +20,7 @@
 
 Ne pas additionner les quatre événements comme s’il s’agissait de quatre prospects. Un même visiteur peut réaliser plusieurs actions. Aucune liaison entre identifiant de visiteur et coordonnées du formulaire n’est créée. Le besoin du formulaire est réduit à un code d’offre fixe.
 
-La mesure démarre après consentement. Le choix, acceptation ou refus, est conservé six mois et modifiable dans le footer. DNT et `umami.disabled=1` sont respectés. Pages privées, URLs inconnues, paramètres et fragments sont exclus ; les pages publiées sont ajoutées à la liste automatiquement. Aucun replay ni heatmap n’est activé. Les statistiques détaillées expirent après treize mois ; le sel des identifiants anonymes tourne chaque jour. Les visiteurs uniques sur un mois ne constituent pas un décompte fiable de personnes distinctes.
+La mesure démarre après consentement. Le choix, acceptation ou refus, est conservé six mois et modifiable dans le footer. DNT et `umami.disabled=1` sont respectés. Pages privées, URLs inconnues, paramètres et fragments sont exclus ; les pages publiées sont ajoutées à la liste automatiquement. Aucun replay ni heatmap n’est activé. La base locale de géolocalisation se limite au pays, sans région ni ville. Les statistiques détaillées expirent après treize mois ; le sel des identifiants anonymes tourne chaque jour. Les visiteurs uniques sur un mois ne constituent pas un décompte fiable de personnes distinctes.
 
 ## Qualification commerciale
 

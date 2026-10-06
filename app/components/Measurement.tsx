@@ -30,8 +30,17 @@ export default function Measurement({ websiteId, paths }: { websiteId?: string; 
     referrer.current = safeReferrer(document.referrer);
     setChoice(saved); setLoaded(true);
     const show = () => { setOpen(true); requestAnimationFrame(() => panel.current?.focus()); };
+    const syncChoice = (event: StorageEvent) => {
+      if (event.key === CONSENT_KEY || event.key === null) {
+        const next = readChoice(event.newValue, Date.now());
+        if (next !== 'accepted') { allowed.current = false; queue.current = []; }
+        setChoice(next);
+      }
+      if (event.key === 'umami.disabled' && event.newValue === '1') { allowed.current = false; queue.current = []; }
+    };
     window.addEventListener('wharf:preferences', show);
-    return () => window.removeEventListener('wharf:preferences', show);
+    window.addEventListener('storage', syncChoice);
+    return () => { window.removeEventListener('wharf:preferences', show); window.removeEventListener('storage', syncChoice); };
   }, []);
 
   useEffect(() => {
