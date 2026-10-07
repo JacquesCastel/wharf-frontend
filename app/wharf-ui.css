@@ -476,3 +476,9 @@ html:not([data-contrast="high"]):not([data-contrast="inverted"]) :is(.wharf-publ
 /* Le titre doit rester lisible au-dessus du film, malgré la couleur globale des headings. */
 .wharf-project .projet-hero-content h1 { color: white; }
 .wharf-project .bloc-texte-content p { color: var(--color-primary); }
+
+/* Le film reste regardable même lorsque la fiche est entièrement rédigée dans le CMS. */
+.wharf-project .project-film-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 20px; border-bottom: 1px solid currentColor; color: inherit; font: 400 15px/1.5 var(--font-sans); text-decoration: none; }
+.wharf-project .project-film-link:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
+.wharf-project .project-main-film { scroll-margin-top: 120px; }
+.wharf-project .project-main-film video { display: block; aspect-ratio: 16 / 9; object-fit: contain; background: #151515; }

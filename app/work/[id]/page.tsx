@@ -71,6 +71,18 @@ export default async function ProjetDetailPage({
   const heroImage = projet.hero_image || (projet.hero_type === 'image' ? projet.hero_media : undefined);
   const image = heroImage?.url ? heroImage : projet.vignette;
   const ogImage = image?.url ? projectMediaUrl(image.url) : undefined;
+  // A film placed explicitly in Strapi takes precedence over the hero fallback.
+  const hasContentFilm = !editorial && (projet.contenu ?? []).some(bloc => {
+    if (bloc.__component === 'bloc.video-bloc') {
+      return mediaKind(bloc.video_fichier || bloc.video) === 'video' || Boolean(safeVideoLink(bloc.video_url));
+    }
+    if (bloc.__component === 'bloc.serie-media') {
+      return (bloc.elements ?? []).some(item => mediaKind(item.media) === 'video' ||
+        (!mediaKind(item.media) && Boolean(safeVideoLink(item.video_url))));
+    }
+    return false;
+  });
+  const heroFilm = !hasContentFilm && projet.hero_type === 'video' && mediaKind(projet.hero_media) === 'video' ? projet.hero_media : undefined;
   const videos: VideoEvidence[] = [];
   if (projet.hero_type === 'video' && projet.hero_media?.url && ogImage && summary && projet.hero_media.createdAt) {
     videos.push({ name: projet.titre, description: summary, thumbnailUrl: ogImage, uploadDate: projet.hero_media.createdAt, contentUrl: projectMediaUrl(projet.hero_media.url), ...(editorial ? { embedUrl: editorial.videoUrl } : {}) });
@@ -127,6 +139,7 @@ export default async function ProjetDetailPage({
           <div className="projet-hero-content">
             <h1>{projet.titre}</h1>
             <p className="projet-type">{projectType}</p>
+            {heroFilm && <Link href="#film-du-projet" className="project-film-link">Voir le film ↓</Link>}
           </div>
         )}
       </section>
@@ -137,6 +150,7 @@ export default async function ProjetDetailPage({
           <div className="projet-container">
             <h1>{projet.titre}</h1>
             <p className="projet-type">{projectType}</p>
+            {heroFilm && <Link href="#film-du-projet" className="project-film-link">Voir le film ↓</Link>}
             {summary && (
               <p className="projet-description">{summary}</p>
             )}
@@ -150,6 +164,10 @@ export default async function ProjetDetailPage({
           <nav aria-label="Fil d’Ariane"><Link href="/work#realisations" className="card-split-link">← WORK / Réalisations</Link></nav>
           {categories.length > 0 && <nav className="project-categories" aria-label="Catégories de cette réalisation">{categories.map(category => <Link key={category.slug} href={`/work?categorie=${encodeURIComponent(category.slug)}#realisations`}>{category.nom}</Link>)}</nav>}
           {client && <p>Client : {client}</p>}
+          {heroFilm && <section id="film-du-projet" className="bloc-video project-main-film" aria-labelledby="project-film-title">
+            <h2 id="project-film-title">Voir le film</h2>
+            <TrackedFilm native src={projectMediaUrl(heroFilm.url)} mime={heroFilm.mime} poster={ogImage} title={`Film du projet ${projet.titre}`} film={`${id}-film`} />
+          </section>}
           {editorial ? (
             <>
               <div className="bloc-texte">
@@ -160,11 +178,11 @@ export default async function ProjetDetailPage({
                 <h2>{section.title}</h2>
                 <div className="bloc-texte-content">{section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
               </div>)}
-              <div className="bloc-video">
+              {!heroFilm && <div className="bloc-video">
                 <h2>Voir le film</h2>
                 <div className="video-embed"><TrackedFilm src={editorial.videoUrl} title="Au café du commerce — film d’autopromotion Wharf" film={`${id}-film`} /></div>
                 <p><a href={editorial.videoLink}>Voir « Au café du commerce » sur YouTube →</a></p>
-              </div>
+              </div>}
             </>
           ) : projet.contenu?.map((bloc, index) => {
             switch (bloc.__component) {
