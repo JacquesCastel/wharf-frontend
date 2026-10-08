@@ -11,6 +11,23 @@ function OfferReading({ id, articles, text: t }: { id: string; articles: import(
   return <p className="offer-reading">{t("components-Offers-1")}<a href={articlePath(article)}>{article.title}</a></p>;
 }
 
+function AIOfferDetails({ text: t }: { text: (key: string) => string }) {
+  return <div className="ai-offer-details">
+    {[1, 2, 3].map(index => <section key={index}>
+      <h4>{t(`offer-creation-ia-section-${index}-title`)}</h4>
+      {t(`offer-creation-ia-section-${index}-text`).split(/\n\s*\n/).map((paragraph, i) => <p key={i}>{paragraph}</p>)}
+    </section>)}
+    <section className="ai-offer-questions" aria-labelledby="ai-offer-questions-title">
+      <h4 id="ai-offer-questions-title">{t('offer-creation-ia-questions-title')}</h4>
+      {[1, 2, 3, 4].map(index => <details key={index}>
+        <summary>{t(`offer-creation-ia-question-${index}`)}</summary>
+        <p>{t(`offer-creation-ia-answer-${index}`)}</p>
+      </details>)}
+    </section>
+    <a className="card-split-link" href="/work/d3n2ackc10ow3w8i3hd4yt0o">{t('offer-creation-ia-project-link')} →</a>
+  </div>;
+}
+
 export default async function Offers({ compact = false }: { compact?: boolean }) {
   const { articles } = await getInsights();
   const copy = await getPageCopy('global');
@@ -42,6 +59,7 @@ export default async function Offers({ compact = false }: { compact?: boolean })
             <h3>{offer.title}</h3>
             <p>{offer.description}</p>
             {!compact && <ul>{offer.items.map(item => <li key={item}>{item}</li>)}</ul>}
+            {!compact && <AIOfferDetails text={t} />}
             <a className="card-split-link" href={compact ? '/work#creation-ia' : '/contact'}>{compact ? 'Explorer la création IA' : 'Parlons de votre projet'} {t("components-Offers-7")}</a>
           </article>
         ))}

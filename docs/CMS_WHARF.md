@@ -79,3 +79,14 @@ Dans **Portfolio — Réalisations**, quatre champs facultatifs complètent chaq
 Enregistrer puis **Publier** : les modifications sont lues sans nouveau déploiement. Les nouveaux champs sont laissés vides sur les fiches existantes ; aucune réalisation n’est réécrite ou republiée automatiquement. Les URLs et le titre visible restent inchangés. Le résumé peut également compléter la description du balisage vidéo d’ouverture lorsque sa source, son affiche et sa date d’upload sont disponibles.
 
 Le contexte utile à la visibilité dans les moteurs et leurs réponses IA se rédige dans **Résumé du projet** et **Présentation de la réalisation**. Aucun champ GEO caché n’est ajouté. Pour les médias, utiliser le texte alternatif de la médiathèque et les titres/légendes des séries.
+
+
+## Contenus portfolio et création IA — 8 octobre 2026
+
+Les deux fiches disposent de résumés, de titres SEO et de méta-descriptions distinctes du corps du texte. Les neuf images IA comportent des textes alternatifs et des légendes. La galerie est présentée comme une série à une colonne pour afficher les légendes sans modifier l’ordre des médias. Les films et les adresses des fiches sont conservés.
+
+Le résumé apparaît aussi dans le contenu lorsque le titre est placé sur le média d’ouverture. Le balisage vidéo existant peut alors utiliser ce résumé, avec l’affiche, le fichier et la date d’upload du média disponibles dans Strapi. Cette date décrit l’upload du fichier ; elle ne renseigne pas l’année de production du film.
+
+Dans **Pages du site → Textes communs / global**, les blocs **CRÉATION IA — section**, **question**, **réponse** et **lien vers la réalisation** pilotent les compléments de l’offre IA sur WORK. L’accueil conserve la présentation compacte. Les questions utilisent des éléments details/summary accessibles sans JavaScript. Aucun balisage spécial pour AI Overviews n’est ajouté.
+
+Les informations de commande, de public du film IA, de crédits, d’année de production et de résultats restent à préciser avec Jacques. Les contenus publiés n’inventent aucun de ces éléments. « Au café du commerce » reste exclusivement dans le portfolio.

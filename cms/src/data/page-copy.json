@@ -1058,7 +1058,7 @@
       },
       "offer-creation-ia-description": {
         "label": "CRÉATION IA — description",
-        "value": "Imaginer un univers, choisir un style, donner vie à un scénario. Wharf associe direction artistique et intelligence artificielle pour créer vos images et vos films, du concept au montage final. Une liberté de création élargie, au service de votre récit et de votre identité."
+        "value": "Wharf associe direction artistique et intelligence artificielle pour concevoir des images et des films au service de la communication des entreprises. L’accompagnement relie concept, scénario, création visuelle, animation, montage et son, avec une production entièrement générative ou hybride avec tournage."
       },
       "offer-creation-ia-items": {
         "label": "CRÉATION IA — prestations (une par ligne)",
@@ -1067,6 +1067,70 @@
       "positioning": {
         "label": "Positionnement du pied de page",
         "value": "Agence de stratégie, contenus & production vidéo B2B"
+      },
+      "offer-creation-ia-section-1-title": {
+        "label": "CRÉATION IA — section 1 — titre",
+        "value": "Construire un univers à partir de votre récit"
+      },
+      "offer-creation-ia-section-1-text": {
+        "label": "CRÉATION IA — section 1 — texte",
+        "value": "Le travail commence par votre objectif de communication, vos publics et le message à faire comprendre. Nous définissons ensuite le ton, la direction artistique et les formats adaptés : images de campagne, film de marque ou contenus courts.\n\nL’IA permet d’explorer des personnages, des décors et des styles visuels. La direction artistique organise ces possibilités autour d’une intention et de l’identité de votre entreprise."
+      },
+      "offer-creation-ia-section-2-title": {
+        "label": "CRÉATION IA — section 2 — titre",
+        "value": "De la génération aux finitions"
+      },
+      "offer-creation-ia-section-2-text": {
+        "label": "CRÉATION IA — section 2 — texte",
+        "value": "L’accompagnement peut comprendre le concept et le scénario, la création d’images, l’animation et la production vidéo IA. Il se prolonge par le montage, les finitions, la voix-off, la musique et la création sonore, selon le projet.\n\nLa production peut être entièrement générative ou associer l’IA à un tournage. Les déclinaisons sont définies en fonction des canaux et des usages prévus."
+      },
+      "offer-creation-ia-section-3-title": {
+        "label": "CRÉATION IA — section 3 — titre",
+        "value": "Préparer votre projet"
+      },
+      "offer-creation-ia-section-3-text": {
+        "label": "CRÉATION IA — section 3 — texte",
+        "value": "Pour cadrer une première discussion, réunissez votre objectif, le public visé, les messages, les supports de diffusion et quelques références visuelles. Précisez aussi les éléments qui doivent être représentés fidèlement : produit, lieu, personne ou geste métier. Ces informations aident à choisir le dispositif de création."
+      },
+      "offer-creation-ia-questions-title": {
+        "label": "CRÉATION IA — questions — titre",
+        "value": "Vos questions sur la création IA"
+      },
+      "offer-creation-ia-question-1": {
+        "label": "CRÉATION IA — question 1",
+        "value": "Que réalise Wharf avec l’intelligence artificielle ?"
+      },
+      "offer-creation-ia-answer-1": {
+        "label": "CRÉATION IA — réponse 1",
+        "value": "Wharf crée des images et des films en associant IA et direction artistique : univers visuels, animation et contenus audiovisuels. L’accompagnement peut aller du concept et du scénario au montage, au son et aux déclinaisons."
+      },
+      "offer-creation-ia-question-2": {
+        "label": "CRÉATION IA — question 2",
+        "value": "Quelle est la place de la direction artistique dans un film IA ?"
+      },
+      "offer-creation-ia-answer-2": {
+        "label": "CRÉATION IA — réponse 2",
+        "value": "La direction artistique définit l’univers du film et guide les choix de personnages, de décors, de lumière et de composition. Elle donne un cadre à la génération et à la sélection des images, en cohérence avec le récit."
+      },
+      "offer-creation-ia-question-3": {
+        "label": "CRÉATION IA — question 3",
+        "value": "Peut-on associer l’IA à un tournage ?"
+      },
+      "offer-creation-ia-answer-3": {
+        "label": "CRÉATION IA — réponse 3",
+        "value": "L’offre Wharf comprend la création entièrement générative et la production hybride avec tournage. Le choix dépend du récit, des éléments à représenter et des formats attendus."
+      },
+      "offer-creation-ia-question-4": {
+        "label": "CRÉATION IA — question 4",
+        "value": "Comment préparer un brief pour des images ou un film IA ?"
+      },
+      "offer-creation-ia-answer-4": {
+        "label": "CRÉATION IA — réponse 4",
+        "value": "Indiquez l’objectif, les publics, le message, les supports de diffusion et les références visuelles. Identifiez les éléments qui doivent être représentés fidèlement pour orienter le choix des techniques et de la production."
+      },
+      "offer-creation-ia-project-link": {
+        "label": "CRÉATION IA — lien vers la réalisation",
+        "value": "Voir les images et le film IA de Wharf"
       }
     }
   }

@@ -164,6 +164,7 @@ export default async function ProjetDetailPage({
           <nav aria-label="Fil d’Ariane"><Link href="/work#realisations" className="card-split-link">← WORK / Réalisations</Link></nav>
           {categories.length > 0 && <nav className="project-categories" aria-label="Catégories de cette réalisation">{categories.map(category => <Link key={category.slug} href={`/work?categorie=${encodeURIComponent(category.slug)}#realisations`}>{category.nom}</Link>)}</nav>}
           {client && <p>Client : {client}</p>}
+          {summary && projet.hero_titre_position !== 'dessous' && <p className="project-summary">{summary}</p>}
           {heroFilm && <section id="film-du-projet" className="bloc-video project-main-film" aria-labelledby="project-film-title">
             <h2 id="project-film-title">Voir le film</h2>
             <TrackedFilm native src={projectMediaUrl(heroFilm.url)} mime={heroFilm.mime} poster={ogImage} title={`Film du projet ${projet.titre}`} film={`${id}-film`} />
