@@ -1,7 +1,7 @@
 export const CONSENT_KEY = 'wharf-audience-choice-v1';
 export const CONSENT_MAX_AGE = 183 * 24 * 60 * 60 * 1000;
 export type AudienceChoice = 'accepted' | 'refused';
-export type MeasureEvent = 'contact_form_success' | 'email_click' | 'contact_click' | 'film_play';
+export type MeasureEvent = 'contact_form_success' | 'email_click' | 'contact_click' | 'film_play' | 'campaign_visit';
 export type MeasurePayload = { website: string; hostname: string; url: string; referrer: string; language: string; name?: MeasureEvent; data?: Record<string, string> };
 
 export function publicPath(value: string, paths: readonly string[]): string | null {

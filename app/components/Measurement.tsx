@@ -1,8 +1,9 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { CONSENT_KEY, readChoice, publicPath, safeReferrer, eventData, type AudienceChoice, type MeasureEvent, type MeasurePayload } from '../lib/measurement';
+import { CAMPAIGN_KEY, campaignContent, readCampaign, resolveCampaign, campaignEventData, type CampaignState } from '../lib/campaign';
 
 declare global { interface Window { umami?: { track: (payload: MeasurePayload) => Promise<unknown> }; } }
 
@@ -12,6 +13,7 @@ export function AudiencePreferencesButton() {
 
 export default function Measurement({ websiteId, paths }: { websiteId?: string; paths: string[] }) {
   const pathname = usePathname();
+  const search = useSearchParams()?.toString() || '';
   const [choice, setChoice] = useState<AudienceChoice | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [open, setOpen] = useState(false);
@@ -20,9 +22,23 @@ export default function Measurement({ websiteId, paths }: { websiteId?: string; 
   const allowed = useRef(false);
   const visited = useRef('');
   const referrer = useRef('');
+  const campaign = useRef<CampaignState | null>(null);
+  const pendingCampaign = useRef<string | null>(null);
+  const campaignVisitPending = useRef('');
   const panel = useRef<HTMLDivElement>(null);
   const path = publicPath(pathname, paths);
   const production = typeof window !== 'undefined' && ['bywharf.com', 'www.bywharf.com'].includes(window.location.hostname);
+
+  const clearCampaign = useCallback(() => {
+    campaign.current = null; pendingCampaign.current = null; campaignVisitPending.current = '';
+    try { sessionStorage.removeItem(CAMPAIGN_KEY); } catch { /* storage unavailable */ }
+  }, []);
+
+  useEffect(() => {
+    // Before consent, retain only a recognised code in memory, never the URL or browser storage.
+    const content = path ? campaignContent(search) : null;
+    if (content) pendingCampaign.current = content;
+  }, [path, search]);
 
   useEffect(() => {
     let saved: AudienceChoice | null = null;
@@ -33,21 +49,32 @@ export default function Measurement({ websiteId, paths }: { websiteId?: string; 
     const syncChoice = (event: StorageEvent) => {
       if (event.key === CONSENT_KEY || event.key === null) {
         const next = readChoice(event.newValue, Date.now());
-        if (next !== 'accepted') { allowed.current = false; queue.current = []; }
+        if (next !== 'accepted') { allowed.current = false; queue.current = []; clearCampaign(); }
         setChoice(next);
       }
-      if (event.key === 'umami.disabled' && event.newValue === '1') { allowed.current = false; queue.current = []; }
+      if (event.key === 'umami.disabled' && event.newValue === '1') { allowed.current = false; queue.current = []; clearCampaign(); }
     };
     window.addEventListener('wharf:preferences', show);
     window.addEventListener('storage', syncChoice);
     return () => { window.removeEventListener('wharf:preferences', show); window.removeEventListener('storage', syncChoice); };
-  }, []);
+  }, [clearCampaign]);
 
   useEffect(() => {
     let optedOut = true;
     try { optedOut = localStorage.getItem('umami.disabled') === '1'; } catch { /* fail closed */ }
     allowed.current = Boolean(websiteId && production && path && choice === 'accepted' && navigator.doNotTrack !== '1' && !optedOut);
-    if (!allowed.current) { queue.current = []; visited.current = ''; return; }
+    if (!allowed.current) {
+      queue.current = []; visited.current = '';
+      if (choice === 'refused' || optedOut || navigator.doNotTrack === '1') clearCampaign();
+      return;
+    }
+    try {
+      const now = Date.now();
+      campaign.current = resolveCampaign(campaignContent(search) || pendingCampaign.current, campaign.current || readCampaign(sessionStorage.getItem(CAMPAIGN_KEY), now), now);
+      pendingCampaign.current = null;
+      if (campaign.current) sessionStorage.setItem(CAMPAIGN_KEY, JSON.stringify(campaign.current));
+      else sessionStorage.removeItem(CAMPAIGN_KEY);
+    } catch { campaign.current = null; pendingCampaign.current = null; }
     if (window.umami) { setReady(true); return; }
     let script = document.getElementById('wharf-audience-script') as HTMLScriptElement | null;
     const onLoad = () => setReady(Boolean(window.umami));
@@ -59,7 +86,7 @@ export default function Measurement({ websiteId, paths }: { websiteId?: string; 
       script.addEventListener('load', onLoad); document.body.appendChild(script);
     } else script.addEventListener('load', onLoad);
     return () => script?.removeEventListener('load', onLoad);
-  }, [choice, path, production, websiteId]);
+  }, [choice, path, search, production, websiteId, clearCampaign]);
 
   useEffect(() => {
     if (!allowed.current || !ready || !path || !window.umami) return;
@@ -67,13 +94,26 @@ export default function Measurement({ websiteId, paths }: { websiteId?: string; 
       visited.current = path;
       void window.umami.track({ website: websiteId!, hostname: 'bywharf.com', url: path, referrer: referrer.current, language: navigator.language.split('-')[0] }).catch(() => {});
     }
+    const attribution = campaign.current;
+    const campaignData = campaignEventData(attribution, Date.now());
+    const signature = attribution && `${attribution.content}:${attribution.at}`;
+    if (attribution && signature && !attribution.visitSent && campaignData.account && campaignVisitPending.current !== signature) {
+      campaignVisitPending.current = signature;
+      void window.umami.track({ website: websiteId!, hostname: 'bywharf.com', url: path, referrer: referrer.current, language: navigator.language.split('-')[0], name: 'campaign_visit', data: { ...eventData('campaign_visit', {}, path), ...campaignData } }).then(() => {
+        if (!allowed.current || campaign.current?.content !== attribution.content || campaign.current.at !== attribution.at) return;
+        campaign.current.visitSent = true;
+        try { sessionStorage.setItem(CAMPAIGN_KEY, JSON.stringify(campaign.current)); } catch { /* storage unavailable */ }
+      }).catch(() => {}).finally(() => {
+        if (campaignVisitPending.current === signature) campaignVisitPending.current = '';
+      });
+    }
     queue.current.splice(0).forEach(payload => { void window.umami?.track(payload).catch(() => {}); });
-  }, [ready, choice, path, websiteId]);
+  }, [ready, choice, path, search, websiteId]);
 
   useEffect(() => {
     const send = (name: MeasureEvent, data: Record<string, string> = {}) => {
       if (!allowed.current || !path) return;
-      const payload: MeasurePayload = { website: websiteId!, hostname: 'bywharf.com', url: path, referrer: referrer.current, language: navigator.language.split('-')[0], name, data: eventData(name, data, path) };
+      const payload: MeasurePayload = { website: websiteId!, hostname: 'bywharf.com', url: path, referrer: referrer.current, language: navigator.language.split('-')[0], name, data: { ...eventData(name, data, path), ...campaignEventData(campaign.current, Date.now()) } };
       if (window.umami) void window.umami.track(payload).catch(() => {});
       else if (queue.current.length < 20) queue.current.push(payload);
     };
@@ -91,7 +131,7 @@ export default function Measurement({ websiteId, paths }: { websiteId?: string; 
 
   function choose(value: AudienceChoice) {
     // Stop pending sends immediately when withdrawing consent.
-    if (value === 'refused') { allowed.current = false; queue.current = []; }
+    if (value === 'refused') { allowed.current = false; queue.current = []; clearCampaign(); }
     try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ choice: value, at: Date.now() })); } catch { setChoice(null); setOpen(false); return; }
     setChoice(value); setOpen(false);
   }

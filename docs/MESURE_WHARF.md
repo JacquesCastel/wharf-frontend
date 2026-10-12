@@ -17,10 +17,23 @@
 | `contact_form_success` | Promesse EmailJS résolue, une fois par envoi | Ne prouve ni livraison en boîte de réception ni qualification commerciale |
 | `film_play` | Première lecture d’un film contrôlé ou d’un lecteur YouTube identifié dans une fiche WORK | Les vidéos d’ambiance ne comptent pas ; un lecteur externe non YouTube n’est pas instrumenté |
 | Domaine d’origine | Domaine uniquement, sans paramètres ni chemin externe | Les renvois ChatGPT/Gemini/Perplexity identifiables ne prouvent pas une citation ; certaines sources masquent le référent |
+| `campaign_visit` | Arrivée reconnue de la campagne Nouveau Wharf, après accord de mesure | Une attribution par code pendant trente minutes ; aucun effet causal ou prospect présumé |
 
 Ne pas additionner les quatre événements comme s’il s’agissait de quatre prospects. Un même visiteur peut réaliser plusieurs actions. Aucune liaison entre identifiant de visiteur et coordonnées du formulaire n’est créée. Le besoin du formulaire est réduit à un code d’offre fixe.
 
-La mesure démarre après consentement. Le choix, acceptation ou refus, est conservé six mois et modifiable dans le footer. DNT et `umami.disabled=1` sont respectés. Pages privées, URLs inconnues, paramètres et fragments sont exclus ; les pages publiées sont ajoutées à la liste automatiquement. Aucun replay ni heatmap n’est activé. La base locale de géolocalisation se limite au pays, sans région ni ville. Les statistiques détaillées expirent après treize mois ; le sel des identifiants anonymes tourne chaque jour. Les visiteurs uniques sur un mois ne constituent pas un décompte fiable de personnes distinctes.
+La mesure démarre après consentement. Le choix, acceptation ou refus, est conservé six mois et modifiable dans le footer. DNT et `umami.disabled=1` sont respectés. Pages privées, URLs inconnues, paramètres bruts et fragments sont exclus ; les pages publiées sont ajoutées à la liste automatiquement. Seuls les codes LinkedIn prédéfinis décrits ci-dessous sont reconnus séparément. Aucun replay ni heatmap n’est activé. La base locale de géolocalisation se limite au pays, sans région ni ville. Les statistiques détaillées expirent après treize mois ; le sel des identifiants anonymes tourne chaque jour. Les visiteurs uniques sur un mois ne constituent pas un décompte fiable de personnes distinctes.
+
+## Attribution LinkedIn — 12 octobre 2026
+
+Paramètres attendus, une seule occurrence chacun : `utm_source=linkedin`, `utm_medium=organic_social`, `utm_campaign=nouveau_wharf`, `utm_content=profil_jacques_p01` à `profil_jacques_p12`, ou `page_wharf_e01` à `page_wharf_e06`. Les codes permanents `profil_jacques` et `page_wharf` sont également reconnus. Les valeurs libres, comptes inversés, campagnes inconnues et doublons sont ignorés. Les autres paramètres ne sont jamais stockés ni transmis.
+
+Avant accord, seul un code reconnu reste temporairement en mémoire dans le composant. Après accord, le stockage de session conserve `content`, `at` et `visitSent`, trente minutes au maximum. Les pages internes sans paramètres héritent du dernier code reconnu. Un nouveau code remplace le précédent. Un refus ou l’exclusion du navigateur efface l’attribution ; les codes expirés ne sont pas associés aux événements. Une indisponibilité du stockage n’autorise pas de collecte supplémentaire.
+
+Dans Umami, l’événement `campaign_visit` contient `page`, `source`, `medium`, `campaign`, `account` et `publication`. Exemple : `account=profil_jacques`, `publication=p01`. Les quatre événements d’action existants reçoivent les mêmes codes de campagne, lorsqu’une attribution valide existe. Les URLs envoyées restent des chemins publics sans paramètres. Aucun champ du formulaire ni identifiant personnel n’est ajouté.
+
+Pour lire la campagne, consulter les événements et leurs données dans Umami : filtrer `campaign=nouveau_wharf`, comparer `account`, puis `publication`. Compter les arrivées reconnues avec `campaign_visit` et les actions avec leurs noms respectifs ; ne pas les additionner comme des prospects. Le marqueur d’arrivée n’est conservé qu’après confirmation du tracker ; un rechargement dans la fenêtre d’attribution ne crée pas volontairement une nouvelle arrivée. Les statistiques restent partielles et aucune attribution antérieure n’est reconstruite.
+
+Les liens de la campagne doivent être remplacés dans PostGenius pour bénéficier de ce suivi. Ajouter les paramètres sans déployer ce code ne suffit pas. Les publications sans lien ne génèrent pas d’attribution sur le site ; leurs interactions restent à lire dans LinkedIn/PostGenius.
 
 ## Qualification commerciale
 

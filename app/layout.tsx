@@ -1,4 +1,5 @@
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Suspense } from 'react';
 import { defaultMetadata } from './lib/metadata';
 import Footer from './components/Footer'
 import Measurement from './components/Measurement';
@@ -50,7 +51,7 @@ export default async function RootLayout({
         {process.env.VERCEL === '1' && <SpeedInsights />}
         <Footer />
         <AccessibilityWidget />
-        <Measurement websiteId={process.env.UMAMI_WEBSITE_ID} paths={paths} />
+        <Suspense fallback={null}><Measurement websiteId={process.env.UMAMI_WEBSITE_ID} paths={paths} /></Suspense>
       </body>
     </html>
   );
