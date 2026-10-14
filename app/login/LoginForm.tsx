@@ -29,7 +29,7 @@ export default function LoginForm() {
     } else {
       const session = await getSession();
       const destination = session?.user.role === 'admin'
-        ? (searchParams.get('callbackUrl') === '/clients' ? '/clients' : '/admin')
+        ? (['/clients', '/prospection'].includes(searchParams.get('callbackUrl') || '') ? searchParams.get('callbackUrl')! : '/admin')
         : '/sommaire';
       router.push(destination);
     }

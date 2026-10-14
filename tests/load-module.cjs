@@ -10,7 +10,7 @@ module.exports = function load(file, overrides = {}) {
     if (Object.hasOwn(overrides, relative)) return overrides[relative];
     if (modules.has(filename)) return modules.get(filename);
     if (filename.endsWith('.json')) return JSON.parse(fs.readFileSync(filename, 'utf8'));
-    const context = { exports: {}, process: { env: {} }, URL, URLSearchParams, console, AbortSignal, fetch };
+    const context = { exports: {}, process: { env: {}, cwd: () => root }, URL, URLSearchParams, console, AbortSignal, fetch, setTimeout };
     modules.set(filename, context.exports);
     context.require = name => {
       if (Object.hasOwn(overrides, name)) return overrides[name];

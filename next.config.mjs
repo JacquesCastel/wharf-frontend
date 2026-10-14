@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'standalone',
   async headers() {
-    return ['/admin/:path*', '/sommaire/:path*', '/projets/:path*', '/clients/:path*', '/login', '/typography-demo'].map(source => ({ source, headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] }));
+    return ['/admin/:path*', '/sommaire/:path*', '/projets/:path*', '/clients/:path*', '/prospection/:path*', '/desinscription/:path*', '/login', '/typography-demo'].map(source => ({ source, headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] }));
   },
   typescript: {
     ignoreBuildErrors: false,
