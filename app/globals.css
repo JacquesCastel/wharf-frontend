@@ -11,8 +11,8 @@
   --color-bg-secondary: #fbfbfd;
   --color-border: #d2d2d7;
   
-  --font-serif: 'Bodoni Moda', Georgia, serif;
-  --font-heading-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-serif: var(--font-bodoni), Georgia, serif;
+  --font-heading-serif: var(--font-lora), Georgia, 'Times New Roman', serif;
   --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
 }
 
@@ -666,7 +666,7 @@ body {
 }
 
 .hero-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-playfair), Georgia, serif;
   font-size: clamp(48px, 7vw, 72px);
   line-height: 1.05;
   font-weight: 500;
@@ -676,7 +676,7 @@ body {
 }
 
 .hero-subtitle {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-playfair), Georgia, serif;
   font-size: 26px;
   line-height: 1.4;
   color: var(--color-primary);
@@ -6398,8 +6398,8 @@ html[data-font-weight="bold"] .card-split-link {
   --highlight-deep: #2E9D95;
 
   /* Fonts espace client */
-  --client-font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+  --client-font-sans: var(--font-plex-sans), -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "SF Mono", ui-monospace, monospace;
 
   /* Espacements */
   --pad-x: 56px;

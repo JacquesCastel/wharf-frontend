@@ -10,7 +10,7 @@ body { margin: 0; }
 #main-content.wharf-public h2 { font-size: clamp(32px, 4vw, 62px); font-weight: 400; line-height: 1.18; letter-spacing: -.025em; }
 #main-content.wharf-public h3 { font-size: clamp(24px, 2.3vw, 36px); line-height: 1.28; font-weight: 400; }
 .wharf-public p { line-height: 1.7; }
-.wharf-public .editorial-eyebrow { font: 500 11px/1.6 'IBM Plex Mono', monospace; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 26px; color: inherit; }
+.wharf-public .editorial-eyebrow { font: 500 11px/1.6 var(--font-plex-mono), monospace; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 26px; color: inherit; }
 .wharf-public .wharf-section-heading { margin-bottom: clamp(32px, 4vw, 64px); }
 .wharf-public .wharf-section-heading h2 { text-align: left; margin: 0; }
 .wharf-public .card-split-link { font: 500 14px/1.7 var(--font-sans); letter-spacing: 0; text-transform: none; color: inherit; border: 0; border-bottom: 1px solid currentColor; border-radius: 0; padding: 0 0 6px; background: none; display: inline-block; text-decoration: none; transition: opacity 180ms; }
@@ -62,7 +62,7 @@ body { margin: 0; }
 .wharf-masthead h1 { margin-bottom: 32px; }
 .wharf-masthead > div > p { font-size: 18px; max-width: 650px; margin-bottom: 32px; }
 .wharf-section-nav { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 40px; }
-.wharf-section-nav a { font: 500 12px/1.6 'IBM Plex Mono', monospace; color: inherit; text-decoration: none; border-bottom: 1px solid var(--wharf-rule); padding: 10px 0; }
+.wharf-section-nav a { font: 500 12px/1.6 var(--font-plex-mono), monospace; color: inherit; text-decoration: none; border-bottom: 1px solid var(--wharf-rule); padding: 10px 0; }
 .wharf-section-nav a:hover { border-color: currentColor; }
 
 /* Réalisations : une image généreuse, un récit visible, aucun survol nécessaire. */
@@ -92,7 +92,7 @@ body { margin: 0; }
 .wharf-public .expertise:hover { transform: none; box-shadow: none; background: none; border-color: var(--wharf-rule); }
 .wharf-public .expertise :is(h3, p, li) { color: inherit; }
 .wharf-public .expertise h3 { margin-bottom: 24px; }
-.wharf-public .expertise-subtitle { font: 500 12px/1.6 'IBM Plex Mono', monospace; letter-spacing: .12em; color: inherit; margin-bottom: 28px; }
+.wharf-public .expertise-subtitle { font: 500 12px/1.6 var(--font-plex-mono), monospace; letter-spacing: .12em; color: inherit; margin-bottom: 28px; }
 .wharf-public .expertise > p:not(.expertise-subtitle) { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
 .wharf-public .expertise ul { list-style: none; padding: 0; margin: 28px 0; }
 .wharf-public .expertise li { padding: 8px 0; margin: 0; font-size: 14px; line-height: 1.6; border-bottom: 1px solid var(--wharf-rule); }
@@ -129,7 +129,7 @@ body { margin: 0; }
 .wharf-public .we-acte-visual { aspect-ratio: 4 / 3; background-size: cover; background-repeat: no-repeat; }
 .wharf-public .we-acte-content { padding: 0; background: none; }
 .wharf-public .we-acte-content h2 { font-size: clamp(30px, 3.2vw, 48px); }
-.wharf-public .we-acte-label { color: inherit; font: 500 11px/1.6 'IBM Plex Mono', monospace; letter-spacing: .12em; margin-bottom: 24px; }
+.wharf-public .we-acte-label { color: inherit; font: 500 11px/1.6 var(--font-plex-mono), monospace; letter-spacing: .12em; margin-bottom: 24px; }
 .wharf-public .we-acte-text { color: inherit; }
 .wharf-public .we-transition { padding: clamp(64px, 8vw, 120px) var(--wharf-space); background: #181818; }
 .wharf-public .we-transition-highlight { color: white; font-style: italic; }
@@ -153,7 +153,7 @@ body { margin: 0; }
 .wharf-public :is(.mouvement, .you-understand-item) { padding: 28px 0; text-align: left; background: none; border: 0; border-top: 1px solid var(--wharf-rule); border-radius: 0; cursor: default; transform: none; box-shadow: none; }
 .wharf-public :is(.mouvement, .you-understand-item):hover { transform: none; box-shadow: none; background: none; border-color: var(--wharf-rule); }
 .wharf-public :is(.mouvement, .you-understand-item) :is(h3, p) { color: inherit; }
-.wharf-public .mouvement-number { font: 400 12px/1.6 'IBM Plex Mono', monospace; color: inherit; margin-bottom: 24px; }
+.wharf-public .mouvement-number { font: 400 12px/1.6 var(--font-plex-mono), monospace; color: inherit; margin-bottom: 24px; }
 .wharf-public .mouvement:hover .mouvement-number { transform: none; }
 .wharf-public :is(.mouvement, .you-understand-item) h3 { margin-bottom: 20px; }
 .wharf-public :is(.mouvement, .you-understand-item) p { font-size: 16px; }
@@ -164,7 +164,7 @@ body { margin: 0; }
 .wharf-public .you-situation { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 7vw, 100px); padding: 40px 0; border: 0; border-top: 1px solid var(--wharf-rule); border-radius: 0; background: none; box-shadow: none; transform: none; }
 .wharf-public .you-situation:hover { background: none; box-shadow: none; transform: none; border-color: var(--wharf-rule); }
 .you-situation-heading { display: grid; grid-template-columns: 40px 1fr; gap: 24px; }
-.wharf-public .you-situation-number { color: inherit; font: 400 12px/1.6 'IBM Plex Mono', monospace; padding-top: 8px; margin: 0; }
+.wharf-public .you-situation-number { color: inherit; font: 400 12px/1.6 var(--font-plex-mono), monospace; padding-top: 8px; margin: 0; }
 .wharf-public .you-situation h3 { margin: 0; color: inherit; font-size: clamp(28px, 3vw, 44px); }
 .wharf-public .you-situation p { font-size: 16px; color: inherit; margin-bottom: 24px; }
 .wharf-public .you-situation-paths { display: flex; flex-wrap: wrap; gap: 16px 24px; }
@@ -187,7 +187,7 @@ body { margin: 0; }
 .wharf-insights > .editorial-section { padding-top: clamp(64px, 8vw, 120px); }
 .wharf-insights h1 { max-width: 1000px; margin-bottom: 32px; }
 .wharf-insights .editorial-intro { text-align: left; max-width: 750px; margin: 0 0 48px; }
-.wharf-insights .insight-browse-label { font: 500 11px/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .08em; margin-top: 28px; }
+.wharf-insights .insight-browse-label { font: 500 11px/1.6 var(--font-plex-mono), monospace; text-transform: uppercase; letter-spacing: .08em; margin-top: 28px; }
 .wharf-insights .insight-card:first-child { grid-column: span 2; padding: 40px; background: var(--color-bg-secondary); border-top: 0; }
 #main-content.wharf-insights .insight-card:first-child h2 { font-size: clamp(30px, 3.5vw, 48px); }
 
@@ -208,7 +208,7 @@ body { margin: 0; }
 .footer .footer-column-title { font-size: 19px; margin-bottom: 24px; color: var(--color-primary); }
 .footer .footer-link { font-size: 13px; }
 .footer .footer-reading { background: #f4f5f7; border: 0; padding: 32px; }
-.footer .footer-reading-topic { font: 400 10px/1.6 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: .07em; }
+.footer .footer-reading-topic { font: 400 10px/1.6 var(--font-plex-mono), monospace; text-transform: uppercase; letter-spacing: .07em; }
 .footer .footer-bottom { padding-top: 32px; }
 .footer .footer-utility { justify-content: flex-start; }
 .footer .footer-copyright, .footer .footer-bottom .footer-description { text-align: left; margin-left: 0; color: var(--color-primary); }
@@ -486,7 +486,7 @@ html:not([data-contrast="high"]):not([data-contrast="inverted"]) :is(.wharf-publ
 /* Contenus détaillés de la création IA, pilotés par les textes du CMS. */
 .wharf-public .editorial-ai-offer .ai-offer-details { max-width: 740px; margin: 48px auto 36px; text-align: left; }
 .wharf-public .ai-offer-details section { margin: 32px 0; }
-.wharf-public .ai-offer-details h4 { margin: 0 0 16px; font-family: 'Lora', Georgia, serif; font-size: clamp(22px, 3vw, 30px); line-height: 1.3; color: inherit; }
+.wharf-public .ai-offer-details h4 { margin: 0 0 16px; font-family: var(--font-lora), Georgia, serif; font-size: clamp(22px, 3vw, 30px); line-height: 1.3; color: inherit; }
 .wharf-public .ai-offer-details p { margin: 0 0 16px; font-size: 16px; line-height: 1.7; color: inherit; }
 .wharf-public .ai-offer-questions details { padding: 16px 0; border-top: 1px solid currentColor; }
 .wharf-public .ai-offer-questions summary { cursor: pointer; font-size: 16px; font-weight: 500; line-height: 1.5; }

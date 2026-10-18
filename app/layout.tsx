@@ -15,6 +15,7 @@ import './wharf-motion.css'
 import './wharf-footer.css'
 import HeaderWrapper from './components/HeaderWrapper';
 import { OrganizationJsonLd, WebSiteJsonLd } from './components/JsonLd';
+import { lora, bodoni, playfair, plexSans, plexMono } from './lib/fonts';
 export const dynamic = 'force-dynamic';
 export const metadata = defaultMetadata;
 
@@ -27,23 +28,10 @@ export default async function RootLayout({
   const projects = await getPublishedProjects() ?? [];
   const paths = ['/', '/we', '/work', '/agence-audiovisuelle-paris', '/you', '/contact', '/insights', '/accessibilite', '/accessibilite/engagement', '/confidentialite', ...articles.map(articlePath), ...publishedTopics.map(topic => `/insights/${topic.slug}`), ...publishedFormats.map(format => formatPath(format.slug)), ...publishedAuthors.map(author => authorPath(author.slug)), ...projects.map(project => `/work/${project.documentId}`)];
   return (
-    <html lang="fr">
+    <html lang="fr" className={`${lora.variable} ${bodoni.variable} ${playfair.variable} ${plexSans.variable} ${plexMono.variable}`}>
       <head>
         <OrganizationJsonLd />
         <WebSiteJsonLd />
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body>
         <HeaderWrapper />
