@@ -1,5 +1,13 @@
 # Gestion du contenu Wharf — 5 octobre 2026
 
+## Page audiovisuelle à Paris — 18 octobre 2026
+
+La page `/agence-audiovisuelle-paris` présente les formats, la méthode, les films publiés, la préparation du brief et les questions de budget et de calendrier. Ses textes, ses liens de navigation et son titre/description SEO se modifient dans **Pages du site → Textes communs / global**, blocs **VIDÉO À PARIS**. Les repères commencent par `video-paris-`. Les réalisations et les guides restent issus des collections publiées existantes. L'adresse est présentée comme une domiciliation, sans promesse de studio ou d'accueil sur place.
+
+La page possède sa canonique, un fil d'Ariane et un Service relié à l'identité Wharf. Elle est ajoutée au sitemap et au périmètre de mesure soumis au choix de l'utilisateur. L'accueil, WORK et le footer y renvoient ; `/work#video` reste disponible.
+
+`cms/scripts/add-audiovisual-paris.cjs` ajoute uniquement les blocs manquants à partir de `cms/src/data/audiovisual-paris-texts.json`. Il sauvegarde l'état publié, refuse de republier des modifications en brouillon préexistantes et conserve les blocs déjà présents. Il s'exécute dans le projet Strapi avec le chemin du fichier de textes et un chemin de sauvegarde privée neuf.
+
 CMS : https://admin.bywharf.com/admin. Se connecter avec le compte existant puis ouvrir **Content Manager / Gestionnaire de contenu**.
 
 | Où | Ce qui est modifiable |

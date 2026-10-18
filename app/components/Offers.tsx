@@ -47,8 +47,8 @@ export default async function Offers({ compact = false }: { compact?: boolean })
               <p>{offer.description}</p>
               {!compact && <ul>{offer.items.map(item => <li key={item}>{item}</li>)}</ul>}
               {!compact && <OfferReading id={offer.id} articles={articles} text={t} />}
-              <a className="card-split-link" href={compact ? `/work#${offer.id}` : '/contact'}>
-                {compact ? 'Explorer cette expertise' : 'Parlons de votre projet'} {t("components-Offers-5")}</a>
+              <a className="card-split-link" href={offer.id === 'video' ? '/agence-audiovisuelle-paris' : compact ? `/work#${offer.id}` : '/contact'}>
+                {offer.id === 'video' ? t('video-paris-offer-link') : compact ? 'Explorer cette expertise' : 'Parlons de votre projet'} {t("components-Offers-5")}</a>
             </article>
           ))}
         </div>

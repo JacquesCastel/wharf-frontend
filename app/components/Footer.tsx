@@ -22,7 +22,7 @@ export default async function Footer() {
     { title: t("components-Footer-13"), links: [
       { href: '/work#strategy', label: t("components-Footer-14") },
       { href: '/work#content', label: t("components-Footer-15") },
-      { href: '/work#video', label: t("components-Footer-16") },
+      { href: '/agence-audiovisuelle-paris', label: t('video-paris-offer-link') },
       { href: '/work#creation-ia', label: t("components-Footer-17") },
     ] },
     { title: t("components-Footer-18"), links: [

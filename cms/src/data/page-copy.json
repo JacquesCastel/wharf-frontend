@@ -1131,6 +1131,238 @@
       "offer-creation-ia-project-link": {
         "label": "CRÉATION IA — lien vers la réalisation",
         "value": "Voir les images et le film IA de Wharf"
+      },
+      "video-paris-seo-title": {
+        "label": "VIDÉO À PARIS — seo-title",
+        "value": "Agence audiovisuelle à Paris — Films B2B | Wharf"
+      },
+      "video-paris-seo-description": {
+        "label": "VIDÉO À PARIS — seo-description",
+        "value": "Wharf conçoit et produit vos films corporate, interviews et vidéos B2B à Paris. Du récit au tournage, au montage et aux déclinaisons. Parlons de votre projet."
+      },
+      "video-paris-eyebrow": {
+        "label": "VIDÉO À PARIS — eyebrow",
+        "value": "WHARF / Production audiovisuelle"
+      },
+      "video-paris-h1": {
+        "label": "VIDÉO À PARIS — h1",
+        "value": "Agence audiovisuelle à Paris"
+      },
+      "video-paris-h1-end": {
+        "label": "VIDÉO À PARIS — h1-end",
+        "value": "pour les entreprises."
+      },
+      "video-paris-intro": {
+        "label": "VIDÉO À PARIS — intro",
+        "value": "Un film pour faire comprendre votre activité, donner la parole à vos équipes ou accompagner une prise de parole. Wharf relie stratégie, récit et production vidéo pour donner forme à ce que votre entreprise veut transmettre."
+      },
+      "video-paris-cta": {
+        "label": "VIDÉO À PARIS — cta",
+        "value": "Parlons de votre film"
+      },
+      "video-paris-formats-title": {
+        "label": "VIDÉO À PARIS — formats-title",
+        "value": "Quel film pour quel enjeu ?"
+      },
+      "video-paris-formats-intro": {
+        "label": "VIDÉO À PARIS — formats-intro",
+        "value": "Le format découle de votre objectif, de vos publics et des conditions de diffusion. Nous préparons les contenus et les images autour de ces choix."
+      },
+      "video-paris-format-1-title": {
+        "label": "VIDÉO À PARIS — format-1-title",
+        "value": "Films corporate et films de marque"
+      },
+      "video-paris-format-1-text": {
+        "label": "VIDÉO À PARIS — format-1-text",
+        "value": "Présenter votre entreprise, expliquer son activité ou porter un point de vue. Le scénario organise vos messages autour de faits, de personnes et de situations qui les rendent concrets."
+      },
+      "video-paris-format-2-title": {
+        "label": "VIDÉO À PARIS — format-2-title",
+        "value": "Interviews et prises de parole dirigeantes"
+      },
+      "video-paris-format-2-text": {
+        "label": "VIDÉO À PARIS — format-2-text",
+        "value": "Partager une vision, expliquer une décision ou défendre une conviction. Nous préparons les questions, le fil de l’entretien et les conditions de tournage pour construire une parole claire et incarnée."
+      },
+      "video-paris-format-3-title": {
+        "label": "VIDÉO À PARIS — format-3-title",
+        "value": "Portraits métiers et collaborateurs"
+      },
+      "video-paris-format-3-text": {
+        "label": "VIDÉO À PARIS — format-3-text",
+        "value": "Donner à voir un métier et un environnement de travail. Les témoignages s’appuient sur des situations vécues, des gestes et des échanges, pour aider vos publics à se représenter la réalité de l’entreprise."
+      },
+      "video-paris-format-4-title": {
+        "label": "VIDÉO À PARIS — format-4-title",
+        "value": "Séries vidéo et formats courts"
+      },
+      "video-paris-format-4-text": {
+        "label": "VIDÉO À PARIS — format-4-text",
+        "value": "Faire vivre une expertise dans la durée. Nous organisons les sujets et les tournages pour produire une série cohérente, puis préparer les extraits et les déclinaisons adaptés à votre site et aux réseaux sociaux."
+      },
+      "video-paris-format-5-title": {
+        "label": "VIDÉO À PARIS — format-5-title",
+        "value": "Motion design et films pédagogiques"
+      },
+      "video-paris-format-5-text": {
+        "label": "VIDÉO À PARIS — format-5-text",
+        "value": "Expliquer une offre, une organisation ou une transformation. L’écriture, les images et le son rendent le propos accessible, avec un niveau de détail adapté aux connaissances de vos publics."
+      },
+      "video-paris-format-6-title": {
+        "label": "VIDÉO À PARIS — format-6-title",
+        "value": "Création IA et productions hybrides"
+      },
+      "video-paris-format-6-text": {
+        "label": "VIDÉO À PARIS — format-6-text",
+        "value": "Imaginer un univers visuel ou associer création générative et tournage. La direction artistique guide les choix d’images ; les éléments qui doivent représenter fidèlement un produit, un lieu ou un geste sont identifiés dès le brief."
+      },
+      "video-paris-method-title": {
+        "label": "VIDÉO À PARIS — method-title",
+        "value": "Le récit donne une direction à la production."
+      },
+      "video-paris-method-intro": {
+        "label": "VIDÉO À PARIS — method-intro",
+        "value": "Notre méthode, le design narratif, relie ce que votre entreprise fait, ce qu’elle dit et ce que ses publics comprennent. La production audiovisuelle prolonge ce travail, du premier échange au film livré."
+      },
+      "video-paris-step-1-title": {
+        "label": "VIDÉO À PARIS — step-1-title",
+        "value": "Cadrer le besoin"
+      },
+      "video-paris-step-1-text": {
+        "label": "VIDÉO À PARIS — step-1-text",
+        "value": "Préciser votre objectif, les publics, les messages et les preuves disponibles. Identifier les usages du film, vos échéances et l’enveloppe de production."
+      },
+      "video-paris-step-2-title": {
+        "label": "VIDÉO À PARIS — step-2-title",
+        "value": "Écrire et préparer"
+      },
+      "video-paris-step-2-text": {
+        "label": "VIDÉO À PARIS — step-2-text",
+        "value": "Construire le parti pris, le scénario ou la trame d’entretien. Préparer les intervenants, les lieux, les autorisations et l’organisation du tournage."
+      },
+      "video-paris-step-3-title": {
+        "label": "VIDÉO À PARIS — step-3-title",
+        "value": "Tourner et réaliser"
+      },
+      "video-paris-step-3-text": {
+        "label": "VIDÉO À PARIS — step-3-text",
+        "value": "Recueillir les paroles et les images prévues. Adapter le dispositif de prise de vues et de son au sujet, aux personnes et aux contraintes de votre entreprise."
+      },
+      "video-paris-step-4-title": {
+        "label": "VIDÉO À PARIS — step-4-title",
+        "value": "Monter et décliner"
+      },
+      "video-paris-step-4-text": {
+        "label": "VIDÉO À PARIS — step-4-text",
+        "value": "Donner au film son rythme et sa progression. Travailler le son et l’image, organiser les retours et préparer les sous-titres, les formats et les versions convenus."
+      },
+      "video-paris-method-link": {
+        "label": "VIDÉO À PARIS — method-link",
+        "value": "Découvrir le design narratif"
+      },
+      "video-paris-projects-title": {
+        "label": "VIDÉO À PARIS — projects-title",
+        "value": "Deux approches en images."
+      },
+      "video-paris-projects-intro": {
+        "label": "VIDÉO À PARIS — projects-intro",
+        "value": "Découvrez le film d’autopromotion de Wharf et notre travail de création d’images et de films avec l’IA. Chaque fiche présente le projet et permet de voir les productions."
+      },
+      "video-paris-local-title": {
+        "label": "VIDÉO À PARIS — local-title",
+        "value": "Votre projet audiovisuel à Paris."
+      },
+      "video-paris-local-text": {
+        "label": "VIDÉO À PARIS — local-text",
+        "value": "Wharf est une SARL domiciliée à Paris. Pour votre film, nous définissons avec vous les lieux de tournage, les personnes à rencontrer et les moyens nécessaires. Le dispositif se construit à partir de votre sujet et des conditions réelles de production."
+      },
+      "video-paris-address-label": {
+        "label": "VIDÉO À PARIS — address-label",
+        "value": "Domiciliation de Wharf"
+      },
+      "video-paris-brief-title": {
+        "label": "VIDÉO À PARIS — brief-title",
+        "value": "Pour préparer notre premier échange"
+      },
+      "video-paris-brief-text": {
+        "label": "VIDÉO À PARIS — brief-text",
+        "value": "Un brief peut commencer par quelques éléments : ce que le film doit faire comprendre, à qui il s’adresse, où il sera diffusé et à quelle date. Ajoutez vos contraintes, une enveloppe budgétaire si elle est définie et les ressources déjà disponibles. Le format peut encore rester ouvert."
+      },
+      "video-paris-faq-title": {
+        "label": "VIDÉO À PARIS — faq-title",
+        "value": "Préparer un film avec Wharf"
+      },
+      "video-paris-question-1": {
+        "label": "VIDÉO À PARIS — question-1",
+        "value": "Quel budget prévoir pour une production audiovisuelle ?"
+      },
+      "video-paris-answer-1": {
+        "label": "VIDÉO À PARIS — answer-1",
+        "value": "Le budget dépend notamment de la préparation éditoriale, du nombre de jours et de lieux de tournage, de l’équipe, des moyens techniques, du montage et des versions à livrer. Nous établissons une proposition à partir de votre brief et des livrables attendus. Une interview et un film de marque ne demandent pas le même dispositif."
+      },
+      "video-paris-question-2": {
+        "label": "VIDÉO À PARIS — question-2",
+        "value": "Combien de temps faut-il pour produire un film ?"
+      },
+      "video-paris-answer-2": {
+        "label": "VIDÉO À PARIS — answer-2",
+        "value": "Le calendrier dépend du format, de la disponibilité des intervenants et des lieux, de la préparation et des étapes de validation. Nous définissons ensemble les jalons : cadrage, écriture, tournage, montage, retours et livraison. Une date de diffusion connue dès le départ aide à choisir un dispositif réaliste."
+      },
+      "video-paris-question-3": {
+        "label": "VIDÉO À PARIS — question-3",
+        "value": "Peut-on décliner un tournage pour LinkedIn et le site web ?"
+      },
+      "video-paris-answer-3": {
+        "label": "VIDÉO À PARIS — answer-3",
+        "value": "Oui. Les extraits, les versions courtes, les formats verticaux ou horizontaux et les sous-titres se préparent dès la conception. Anticiper les usages permet de prévoir les questions, les cadrages et les prises nécessaires, puis d’organiser les livraisons."
+      },
+      "video-paris-question-4": {
+        "label": "VIDÉO À PARIS — question-4",
+        "value": "Faut-il déjà avoir écrit un scénario ?"
+      },
+      "video-paris-answer-4": {
+        "label": "VIDÉO À PARIS — answer-4",
+        "value": "Non. Vous pouvez nous présenter votre besoin, votre public et les éléments dont vous disposez. Wharf peut vous accompagner dans la définition du propos, le choix du format, l’écriture et la préparation des intervenants, avant la production."
+      },
+      "video-paris-question-5": {
+        "label": "VIDÉO À PARIS — question-5",
+        "value": "Comment choisissez-vous entre tournage et création IA ?"
+      },
+      "video-paris-answer-5": {
+        "label": "VIDÉO À PARIS — answer-5",
+        "value": "Le choix part du récit et de ce qui doit être montré. Un témoignage ou un geste métier appelle des images fidèles à la réalité. Un univers imaginé peut mobiliser la création IA, ou être associé à un tournage. Nous examinons ces options à la préparation et précisons les choix de production."
+      },
+      "video-paris-reading-title": {
+        "label": "VIDÉO À PARIS — reading-title",
+        "value": "Des repères avant de tourner."
+      },
+      "video-paris-closing-title": {
+        "label": "VIDÉO À PARIS — closing-title",
+        "value": "Qu’avez-vous besoin de faire comprendre ?"
+      },
+      "video-paris-closing-text": {
+        "label": "VIDÉO À PARIS — closing-text",
+        "value": "Un sujet, un public, une échéance : partons de votre situation pour construire le bon film."
+      },
+      "video-paris-offer-link": {
+        "label": "VIDÉO À PARIS — offer-link",
+        "value": "Production audiovisuelle à Paris"
+      },
+      "video-paris-nav-formats": {
+        "label": "VIDÉO À PARIS — nav-formats",
+        "value": "Les formats"
+      },
+      "video-paris-nav-method": {
+        "label": "VIDÉO À PARIS — nav-method",
+        "value": "La méthode"
+      },
+      "video-paris-nav-projects": {
+        "label": "VIDÉO À PARIS — nav-projects",
+        "value": "Les réalisations"
+      },
+      "video-paris-nav-questions": {
+        "label": "VIDÉO À PARIS — nav-questions",
+        "value": "Vos questions"
       }
     }
   }
