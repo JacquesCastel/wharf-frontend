@@ -1,3 +1,4 @@
+import '../../styles/engagement.css';
 import { generateMetadataFromStrapi } from '../../lib/metadata';
 import { WebPageJsonLd } from '../../components/JsonLd';
 export const metadata = generateMetadataFromStrapi('Notre engagement pour l’accessibilité | Wharf', 'Les principes de Wharf pour concevoir des contenus lisibles et une navigation accessible : structure, contrastes et amélioration continue.', undefined, '/accessibilite/engagement');

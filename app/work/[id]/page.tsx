@@ -1,3 +1,4 @@
+import '../../styles/project.css';
 import ScrollMotion from '../../components/ScrollMotion';
 import EditorialMark from '../../components/EditorialMark';
 import ProjectMediaSeries from '../../components/ProjectMediaSeries';

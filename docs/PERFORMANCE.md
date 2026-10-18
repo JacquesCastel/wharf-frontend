@@ -17,3 +17,15 @@ La vidéo d'accueil reste à optimiser séparément (compression et variantes ad
 Références :
 - https://nextjs.org/docs/app/getting-started/fonts
 - https://developer.chrome.com/docs/performance/insights/render-blocking
+
+## Styles par route — 18 octobre 2026
+
+Le rapport fourni signale 28,1 Kio de styles inutilisés pendant son scénario sur 34,6 Kio transférés. Ce total ne représente pas du CSS supprimable sur tout le site : les menus, variantes responsives, modes de contraste et autres pages en utilisent une partie.
+
+Les styles propres à WE, YOU, CONTACT, aux pages d'accessibilité et d'engagement, aux fiches projets et à l'espace privé ont été extraits de globals.css vers app/styles et importés dans les pages ou layouts concernés. Les styles de portfolio et d'offres restent partagés entre l'accueil et WORK. Les variables, boutons également utilisés sur le site public, règles de contraste et quelques règles dont la cascade recoupe les surcharges publiques conservent leur position d'origine dans le socle global. Les feuilles UI, mouvement et pied de page ne changent pas.
+
+Un contrôle de l'arbre CSS confirme la conservation exacte des 4 616 déclarations initiales (sélecteurs, conditions, propriétés, valeurs et !important). Aucun nettoyage automatique fondé uniquement sur le premier écran n'a été appliqué. Les tests de rendu ignorent désormais les imports CSS, traités par le bundler Next.js.
+
+Validation : compilation de production et TypeScript, 48 tests, vérification du diff ; comparaison de 21 propriétés calculées sur dix routes en 390 × 844 et 1 440 × 1 000, sans écarts constatés. Comparaison supplémentaire des contrastes élevé et inversé sur WE, YOU, CONTACT, fiche IA et accessibilité, sans écarts une fois les transitions terminées. Menu mobile et panneau d'accessibilité vérifiés. Les composants animés, le panneau de mesure conditionnel et le chargement des médias ne sont pas des comparaisons de pixels exhaustives.
+
+Mesure HTTP avant déploiement, corps des réponses CSS en gzip, sans en-têtes ni cache : accueil 35 552 octets en production avant changement, 26 716 octets dans l'aperçu de production, soit environ 25 % de moins. Le poids brut correspondant passe de 223 147 à 163 674 octets. La mesure doit être confirmée après déploiement ; elle ne prédit pas un nouveau score PageSpeed. La vidéo d'accueil reste inchangée.

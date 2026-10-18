@@ -1,3 +1,4 @@
+import '../styles/you.css';
 import ScrollMotion from '../components/ScrollMotion';
 import EditorialMark from '../components/EditorialMark';
 import { getPageCopy, getInsights, getLiveSituations } from '../lib/cms-content';

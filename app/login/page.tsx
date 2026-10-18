@@ -1,3 +1,4 @@
+import '../styles/private.css';
 import { privateRobots } from '../lib/site';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';

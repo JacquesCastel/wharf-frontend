@@ -1,0 +1,198 @@
+
+
+/* ============================================
+   PAGE ENGAGEMENT - STYLES NORMAUX
+   Ajoutez dans globals.css
+   ============================================ */
+
+/* Container et spacing */
+.engagement-page {
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+.engagement-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Hero/Titre principal */
+.engagement-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 6vw, 64px);
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.engagement-hero p {
+  font-size: 20px;
+  color: var(--color-secondary);
+  margin-bottom: 60px;
+}
+
+/* Sections */
+.engagement-section {
+  margin-bottom: 80px;
+}
+
+.engagement-section h2 {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: var(--color-primary);
+}
+
+.engagement-section p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-secondary);
+  margin-bottom: 20px;
+}
+
+.engagement-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Citation mise en valeur */
+.engagement-quote {
+  padding: 40px;
+  background: var(--color-bg-secondary);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 8px;
+  margin: 60px 0;
+}
+
+.engagement-quote p {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-style: italic;
+  text-align: center;
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Grille des engagements */
+.engagement-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.engagement-card {
+  padding: 32px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.engagement-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.engagement-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--color-primary);
+}
+
+.engagement-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-secondary);
+  margin: 0;
+}
+
+/* Section contact finale */
+.engagement-contact {
+  padding-top: 60px;
+  border-top: 1px solid var(--color-border);
+}
+
+.engagement-contact p {
+  font-size: 18px;
+  color: var(--color-secondary);
+  margin-bottom: 24px;
+}
+
+.engagement-contact-button {
+  display: inline-block;
+  padding: 16px 32px;
+  background: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.engagement-contact-button:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .engagement-page {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .engagement-container {
+    padding: 0 24px;
+  }
+
+  .engagement-hero h1 {
+    font-size: 36px;
+  }
+
+  .engagement-hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+
+  .engagement-section {
+    margin-bottom: 60px;
+  }
+
+  .engagement-section h2 {
+    font-size: 28px;
+  }
+
+  .engagement-section p {
+    font-size: 16px;
+  }
+
+  .engagement-quote {
+    padding: 24px;
+    margin: 40px 0;
+  }
+
+  .engagement-quote p {
+    font-size: 20px;
+  }
+
+  .engagement-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+
+  .engagement-card {
+    padding: 24px;
+  }
+
+  .engagement-contact {
+    padding-top: 40px;
+  }
+}

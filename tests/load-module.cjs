@@ -10,6 +10,8 @@ module.exports = function load(file, overrides = {}) {
     if (Object.hasOwn(overrides, relative)) return overrides[relative];
     if (modules.has(filename)) return modules.get(filename);
     if (filename.endsWith('.json')) return JSON.parse(fs.readFileSync(filename, 'utf8'));
+    // Styles are bundled by Next.js; renderer tests only execute JavaScript.
+    if (filename.endsWith('.css')) return {};
     const context = { exports: {}, process: { env: {}, cwd: () => root }, URL, URLSearchParams, console, AbortSignal, fetch, setTimeout };
     modules.set(filename, context.exports);
     context.require = name => {

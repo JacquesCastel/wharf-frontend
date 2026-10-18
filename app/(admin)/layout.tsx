@@ -1,3 +1,4 @@
+import '../styles/private.css';
 import { privateRobots } from '../lib/site';
 export const metadata = { robots: privateRobots };
 import { getServerSession } from 'next-auth';

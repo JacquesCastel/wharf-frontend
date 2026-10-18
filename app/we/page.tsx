@@ -1,3 +1,4 @@
+import '../styles/we.css';
 import Image from 'next/image';
 import ScrollMotion from '../components/ScrollMotion';
 import EditorialMark from '../components/EditorialMark';

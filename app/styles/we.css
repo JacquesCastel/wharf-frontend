@@ -1,0 +1,382 @@
+
+/* ============================================
+   PAGE WE - HERO
+   ============================================ */
+.we-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fbfbfd 0%, #f5f5f5 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.we-hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.we-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.we-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 40px;
+}
+
+.we-hero-accent {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* ============================================
+   PAGE WE - TIMELINE ACTES
+   ============================================ */
+.we-actes-timeline {
+  padding: 120px 40px;
+  background: white;
+  position: relative;
+}
+
+.we-timeline-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  position: relative;
+}
+
+.we-timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-accent) 0%, transparent 100%);
+  transform: translateX(-50%);
+}
+
+.we-acte {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+}
+
+.we-acte:nth-child(even) {
+  direction: rtl;
+}
+
+.we-acte:nth-child(even) > * {
+  direction: ltr;
+}
+
+.we-acte-number {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: bold;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.2);
+}
+
+.we-acte-visual {
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0;
+  background-size: 80%;
+}
+
+.we-timeline-container > .we-acte:nth-child(2) .we-acte-visual {
+  background-image: url('/images/acte-1.jpg');
+}
+.we-timeline-container > .we-acte:nth-child(3) .we-acte-visual {
+  background-image: url('/images/acte-2.jpg');
+}
+.we-timeline-container > .we-acte:nth-child(4) .we-acte-visual {
+  background-image: url('/images/acte-3.jpg');
+}
+
+.we-acte-content {
+  background: #fbfbfd;
+  padding: 60px;
+  border-radius: 0;
+}
+
+.we-acte-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.we-acte-text p {
+  margin-bottom: 16px;
+}
+
+.we-acte-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   PAGE WE - TRANSITION
+   ============================================ */
+.we-transition {
+  padding: 100px 40px;
+  text-align: center;
+  background: var(--color-primary);
+  color: white;
+}
+
+.we-transition-highlight {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* ============================================
+   PAGE WE - PILLARS
+   ============================================ */
+.we-pillars {
+  padding: 140px 40px;
+  background: white;
+}
+
+.we-pillars-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.we-pillars-title {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 100px;
+  color: var(--color-primary);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.we-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.we-pillar {
+  padding: 80px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-top: 3px solid var(--color-accent);
+  transition: all 0.4s;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.we-pillar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.we-pillar:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  border-color: var(--color-accent);
+  background: #ffffff;
+}
+
+.we-pillar:hover::before {
+  opacity: 1;
+}
+
+.we-pillar h3 {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  margin-bottom: 24px;
+  color: var(--color-primary);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  transition: color 0.4s;
+}
+
+.we-pillar:hover h3 {
+  color: var(--color-accent);
+}
+
+.we-pillar:hover p {
+  color: var(--color-primary);
+}
+
+/* ============================================
+   PAGE WE - CLOSING CTA
+   ============================================ */
+.we-closing {
+  padding: 100px 40px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2d2d2f 100%);
+  color: white;
+  text-align: center;
+}
+
+.we-closing h2 {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #ff6b35;
+}
+
+.we-cta-button {
+  display: inline-block;
+  padding: 12px 40px;
+  background: white;
+  color: var(--color-primary);
+  text-decoration: none;
+  border-radius: 980px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  transition: all 0.3s;
+}
+
+.we-cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .we-timeline-line {
+    display: none;
+  }
+
+  .we-acte {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .we-acte:nth-child(even) {
+    direction: ltr;
+  }
+
+  .we-hero h1 {
+    font-size: 48px;
+  }
+
+  .we-hero-subtitle {
+    font-size: 18px;
+  }
+
+  .we-acte-number {
+    position: static;
+    transform: none;
+    margin-bottom: 20px;
+  }
+
+  .we-acte-content {
+    padding: 40px;
+  }
+
+  .we-acte-content h2 {
+    font-size: 32px;
+  }
+
+  .we-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .we-pillar {
+    padding: 60px 40px;
+  }
+
+  .we-pillar h3 {
+    font-size: 24px;
+  }
+
+  .we-closing h2 {
+    font-size: 36px;
+  }
+}
+
+/* ============================================
+   MODE INVERSÉ - PAGE WE
+   Ajoutez dans globals.css
+   ============================================ */
+
+/* Timeline des actes */
+
+/* Section transition */
+
+/* Piliers WE */
+
+/* Hero WE */
+
+/* CTA section WE */
+
+/* Si vous avez des blocs avec fond coloré spécifique */
+
+/* Blocs avec images de fond */
+
+/* ============================================
+   MODE INVERSÉ - PAGE WE (classes correctes)
+   Ajoutez dans globals.css
+   ============================================ */
+
+/* Hero WE */
+
+/* Timeline des actes */
+
+/* Section transition */
+
+/* Pillars */
+
+/* Closing CTA */
+
+/* Mode contraste élevé - PAGE WE */
