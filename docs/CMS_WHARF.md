@@ -51,7 +51,7 @@ Aucun nouvel accès API ni mot de passe n’est créé. Les données privées de
 
 ## Exploitation et code
 
-Strapi 5.56.0 ; Node LTS 22 dédié sous `/opt/wharf-node22/current`. Le frontend conserve son runtime existant. Strapi reste en production sous PM2, lié à `127.0.0.1:1337` derrière le proxy HTTPS ; Vite/HMR n’est pas exposé. La base réelle et les uploads restent dans `/var/www/wharf-strapi/.tmp/data.db` et `/var/www/wharf-strapi/public/uploads`.
+Strapi 5.56.0 ; Node LTS 22 dédié sous `/opt/wharf-node22/current` (22.23.4 depuis le 23 octobre 2026). Le frontend et PM2 utilisent Node LTS 24 (24.22.1). Voir `docs/NODE_RUNTIME_WHARF.md`. Strapi reste en production sous PM2, lié à `127.0.0.1:1337` derrière le proxy HTTPS ; Vite/HMR n’est pas exposé. La base réelle et les uploads restent dans `/var/www/wharf-strapi/.tmp/data.db` et `/var/www/wharf-strapi/public/uploads`.
 
 Les ajouts/modifications du CMS sont versionnés dans `cms/`. Ce dossier contient une couche à appliquer au projet Strapi existant, pas un remplacement des contrôleurs, services, politiques ou lifecycles clients. `cms/scripts/import-editorial.cjs` importe les archives initiales sans écraser un contenu existant modifié. `cms/scripts/configure-editorial.cjs` configure les libellés et dispositions d’édition. `cms/scripts/test-editorial.cjs` refuse de fonctionner hors de la copie de test désignée.
 
