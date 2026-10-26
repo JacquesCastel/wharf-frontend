@@ -1363,6 +1363,218 @@
       "video-paris-nav-questions": {
         "label": "VIDÉO À PARIS — nav-questions",
         "value": "Vos questions"
+      },
+      "manifesto-seo-title": {
+        "label": "MANIFESTE — titre SEO",
+        "value": "La parole nous engage. — Le manifeste Wharf"
+      },
+      "manifesto-seo-description": {
+        "label": "MANIFESTE — description SEO",
+        "value": "Savoir qui l’on est, choisir un cap, être compris et faire place au dialogue : le manifeste de Wharf pour une parole d’entreprise qui engage."
+      },
+      "manifesto-eyebrow": {
+        "label": "MANIFESTE — libellé",
+        "value": "Notre manifeste"
+      },
+      "manifesto-h1": {
+        "label": "MANIFESTE — titre, première ligne",
+        "value": "La parole"
+      },
+      "manifesto-h1-end": {
+        "label": "MANIFESTE — titre, deuxième ligne",
+        "value": "nous engage."
+      },
+      "manifesto-intro": {
+        "label": "MANIFESTE — introduction",
+        "value": "Les convictions qui guident notre manière de penser la stratégie, de créer des contenus et de réaliser des films."
+      },
+      "manifesto-toc-label": {
+        "label": "MANIFESTE — sommaire",
+        "value": "Dans ce manifeste"
+      },
+      "manifesto-start-link": {
+        "label": "MANIFESTE — commencer la lecture",
+        "value": "Lire le manifeste"
+      },
+      "manifesto-link": {
+        "label": "MANIFESTE — lien vers le manifeste",
+        "value": "Lire notre manifeste"
+      },
+      "manifesto-teaser": {
+        "label": "MANIFESTE — extrait pour l’accueil et WE",
+        "value": "Nous voulons une parole assez claire pour être comprise, assez solide pour être questionnée et assez ouverte pour faire une place à la réponse."
+      },
+      "manifesto-signature": {
+        "label": "MANIFESTE — signature",
+        "value": "Notre parole nous engage."
+      },
+      "manifesto-contact-link": {
+        "label": "MANIFESTE — lien de contact",
+        "value": "Engageons la conversation"
+      },
+      "manifesto-we-link": {
+        "label": "MANIFESTE — lien vers WE",
+        "value": "Découvrir notre approche"
+      },
+      "manifesto-back-link": {
+        "label": "MANIFESTE — retour en haut",
+        "value": "Revenir au début"
+      },
+      "manifesto-section-1-title": {
+        "label": "MANIFESTE — 01 — titre",
+        "value": "Avant de prendre la parole, savoir qui l’on est."
+      },
+      "manifesto-section-1-text": {
+        "label": "MANIFESTE — 01 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Nous croyons qu’une parole juste prend appui sur une connaissance lucide de soi. Pour une entreprise, cela signifie regarder son histoire, ses métiers, ses pratiques, ses convictions et les relations qu’elle entretient avec ceux qui la font vivre. Reconnaître ce qui la distingue, ce à quoi elle tient, ce qu’elle peut montrer et les contradictions qu’elle doit encore travailler.\n\nNous défendons ce travail de vérité. Il demande de confronter la manière dont une entreprise se présente à la réalité vécue par ses équipes, ses clients et ses partenaires. De reconnaître ses forces et ses limites. De nommer les convictions qui résistent à l’épreuve des décisions et les engagements qui prennent déjà forme dans les actes.\n\nSe connaître permet de trouver un point d’appui. Une identité peut évoluer ; elle gagne à comprendre ce dont elle hérite, ce qu’elle choisit de conserver et ce qu’elle veut transformer."
+      },
+      "manifesto-section-1-nav": {
+        "label": "MANIFESTE — 01 — sommaire",
+        "value": "Se connaître"
+      },
+      "manifesto-section-2-title": {
+        "label": "MANIFESTE — 02 — titre",
+        "value": "Et surtout, choisir où l’on veut aller."
+      },
+      "manifesto-section-2-text": {
+        "label": "MANIFESTE — 02 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Nous voulons une parole portée par une direction. Une entreprise doit pouvoir nommer l’avenir qu’elle cherche à construire, la place qu’elle souhaite prendre et ce qu’elle veut rendre possible pour ses équipes, ses clients et ceux que son activité concerne. Cette ambition engage des choix : les priorités que l’on se donne, les moyens que l’on mobilise et les renoncements que l’on assume.\n\nUn cap donne une intention au récit et un sens à l’action. Il permet de comprendre pourquoi une entreprise prend la parole, ce qu’elle veut faire avancer et la place qu’elle souhaite prendre dans son environnement. Il donne aussi à ses publics la possibilité de se situer, de contribuer et de questionner le chemin proposé.\n\nNous défendons une ambition capable de regarder son point de départ en face. L’écart entre ce que nous sommes et ce que nous voulons devenir doit pouvoir être nommé. Il appelle un chemin, des décisions et des actes. La communication rend ce mouvement compréhensible ; elle engage ceux qui annoncent la destination sur la manière de l’atteindre.\n\nCe cap prend toute sa portée lorsqu’il est partagé avec ceux qu’il concerne. Le formuler devant ses équipes, ses clients ou ses partenaires, c’est leur donner la possibilité de le comprendre, de le questionner et d’en attendre une traduction dans les actes."
+      },
+      "manifesto-section-2-nav": {
+        "label": "MANIFESTE — 02 — sommaire",
+        "value": "Choisir un cap"
+      },
+      "manifesto-section-3-title": {
+        "label": "MANIFESTE — 03 — titre",
+        "value": "Affirmer cette direction demande du courage."
+      },
+      "manifesto-section-3-text": {
+        "label": "MANIFESTE — 03 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Le courage de rendre ses choix visibles, d’expliquer ce qui les fonde et de reconnaître le chemin qui reste à parcourir. Celui d’exposer ses convictions au regard des autres, d’entendre leurs objections et d’accepter que leurs réponses puissent faire évoluer notre propre point de vue.\n\nC’est en cela que prendre la parole engage. Une ambition exprimée crée des attentes chez ceux qui l’entendent. Elle appelle des réponses, des décisions et une cohérence dans le temps. Nous défendons ce courage : celui d’assumer sa place dans un récit qui se construit avec les autres."
+      },
+      "manifesto-section-3-nav": {
+        "label": "MANIFESTE — 03 — sommaire",
+        "value": "Assumer ses choix"
+      },
+      "manifesto-section-4-title": {
+        "label": "MANIFESTE — 04 — titre",
+        "value": "Toute parole commence par une relation."
+      },
+      "manifesto-section-4-text": {
+        "label": "MANIFESTE — 04 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Il y a celui qui s’exprime et celui auquel il s’adresse. Un émetteur et un récepteur, avec des expériences, des connaissances, des attentes et des sensibilités qui leur appartiennent. Entre eux, le sens doit trouver son chemin. Ce que l’un pense avoir dit et ce que l’autre comprend peuvent être éloignés. Nous prenons cette distance au sérieux.\n\nNous reconnaissons à nos publics une capacité de jugement, une liberté d’interprétation et le droit de répondre. Un collaborateur, un candidat, un client ou un partenaire apporte sa propre expérience à la conversation. Sa réception fait partie du message. Sa réponse doit pouvoir en devenir la suite. L’entreprise qui prend la parole doit être prête, à son tour, à écouter."
+      },
+      "manifesto-section-4-nav": {
+        "label": "MANIFESTE — 04 — sommaire",
+        "value": "Entrer en relation"
+      },
+      "manifesto-section-5-title": {
+        "label": "MANIFESTE — 05 — titre",
+        "value": "Être compris engage autant que s’exprimer."
+      },
+      "manifesto-section-5-text": {
+        "label": "MANIFESTE — 05 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Nous défendons l’effort de compréhension réciproque. Avant de choisir une formule, une image ou un film, il faut s’intéresser à ce que l’autre connaît, à ce qu’il croit, à ce qu’il attend et à ce qui peut lui échapper. Un mot familier à une direction peut rester opaque pour une équipe. Une image peut rassurer certains publics et laisser les autres à distance.\n\nPartager un langage demande de travailler les mots, les références, les représentations et les codes. De rendre les idées accessibles tout en conservant leur précision. De donner des repères pour aborder la complexité. De reconnaître les écarts de culture, de métier ou de situation qui influencent la compréhension. Un langage commun permet à des convictions différentes de se rencontrer.\n\nNous voulons que l’exigence de clarté fasse partie du travail de création. Elle demande parfois de reprendre une phrase séduisante, d’expliquer un terme que l’on croyait évident ou de choisir une autre façon de montrer. La justesse se cherche aussi dans ce que l’autre peut effectivement comprendre."
+      },
+      "manifesto-section-5-nav": {
+        "label": "MANIFESTE — 05 — sommaire",
+        "value": "Être compris"
+      },
+      "manifesto-section-6-title": {
+        "label": "MANIFESTE — 06 — titre",
+        "value": "Nous faisons de l’écoute une exigence."
+      },
+      "manifesto-section-6-text": {
+        "label": "MANIFESTE — 06 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Écouter demande du temps, de l’attention et la possibilité d’être surpris. Cela suppose de poser des questions dont on ne connaît pas déjà les réponses. De regarder les pratiques autant que les discours. D’entendre les hésitations, les mots qui reviennent et les expériences qui dérangent une présentation trop bien ordonnée.\n\nNous voulons accorder une place à ceux que la communication montre peu : les personnes qui exercent les métiers, qui mettent les décisions en œuvre, qui vivent les transformations ou qui en éprouvent les difficultés. Leur parole aide à comprendre ce qui existe réellement. Elle apporte aux récits leur matière, leur précision et leur profondeur."
+      },
+      "manifesto-section-6-nav": {
+        "label": "MANIFESTE — 06 — sommaire",
+        "value": "Écouter"
+      },
+      "manifesto-section-7-title": {
+        "label": "MANIFESTE — 07 — titre",
+        "value": "Le dialogue doit pouvoir nous faire changer."
+      },
+      "manifesto-section-7-text": {
+        "label": "MANIFESTE — 07 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Nous défendons le droit à la contradiction. Une objection mérite d’être examinée. Une incompréhension mérite d’être éclaircie. Une critique peut révéler un fait que nous n’avions pas vu, une conséquence que nous avions sous-estimée ou une promesse devenue difficile à tenir.\n\nAccepter le dialogue, c’est accepter que la réponse influence la suite. Il faut pouvoir expliquer un désaccord, reconnaître une erreur, préciser une intention et faire évoluer un choix. Le courage de parler se prolonge dans le courage de réexaminer sa propre position.\n\nUn échange peut laisser subsister des divergences. Nous lui reconnaissons déjà une valeur lorsqu’il permet de les nommer, d’en comprendre les raisons et de maintenir la possibilité de se parler."
+      },
+      "manifesto-section-7-nav": {
+        "label": "MANIFESTE — 07 — sommaire",
+        "value": "Accueillir la contradiction"
+      },
+      "manifesto-section-8-title": {
+        "label": "MANIFESTE — 08 — titre",
+        "value": "Nous défendons un espace de parole éthique et ouvert."
+      },
+      "manifesto-section-8-text": {
+        "label": "MANIFESTE — 08 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Cet espace se construit par des conditions concrètes : des intentions explicites, des faits que l’on peut examiner, des interlocuteurs identifiables et une place réelle pour les questions. Chacun doit pouvoir comprendre qui parle, à quel titre et avec quelle responsabilité.\n\nL’ouverture exige le respect des personnes. Elle suppose que l’on puisse questionner une décision sans être disqualifié, exprimer un doute sans être humilié et contester un propos sans attaquer celui qui le porte. Les différences de statut et de pouvoir appellent une attention particulière : une invitation à parler reste fragile lorsque certains craignent les conséquences de leur réponse.\n\nNous refusons la manipulation, la déformation des faits et la mise en scène d’un dialogue dont l’issue serait déjà écrite. Nous défendons le droit de demander des précisions, de faire reconnaître une erreur et d’obtenir une réponse, y compris lorsque cette réponse doit exprimer une limite ou un désaccord."
+      },
+      "manifesto-section-8-nav": {
+        "label": "MANIFESTE — 08 — sommaire",
+        "value": "Ouvrir la parole"
+      },
+      "manifesto-section-9-title": {
+        "label": "MANIFESTE — 09 — titre",
+        "value": "Une parole engage par ce qu’elle promet."
+      },
+      "manifesto-section-9-text": {
+        "label": "MANIFESTE — 09 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Chaque affirmation crée une attente. Afficher une valeur, annoncer un changement ou présenter un engagement donne aux autres des raisons de nous juger sur nos actes. La confiance se construit dans cette continuité et dans la manière dont nous répondons aux écarts.\n\nNous voulons une communication capable de distinguer ce qui existe, ce qui est décidé, ce qui reste à construire et ce qui demeure incertain. Une ambition peut être formulée comme une ambition. Une difficulté peut être reconnue. Une promesse peut être assortie de conditions et d’étapes. Cette précision permet à chacun de comprendre ce sur quoi il peut compter.\n\nNous défendons une parole qui puisse montrer ses fondements, expliquer ses choix et reconnaître ses limites. L’expérience des personnes concernées doit pouvoir rencontrer ce que l’entreprise affirme d’elle-même."
+      },
+      "manifesto-section-9-nav": {
+        "label": "MANIFESTE — 09 — sommaire",
+        "value": "Tenir parole"
+      },
+      "manifesto-section-10-title": {
+        "label": "MANIFESTE — 10 — titre",
+        "value": "La création donne au sens une forme partageable."
+      },
+      "manifesto-section-10-text": {
+        "label": "MANIFESTE — 10 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Nous croyons à la force des mots, des images et des sons. Une fiction peut ouvrir une réflexion. Un portrait peut rendre un métier sensible. Un film peut donner accès à une situation difficile à expliquer. L’humour, l’émotion, la surprise et la beauté ont leur place dans la communication des entreprises.\n\nNous revendiquons la liberté d’inventer des formes, d’explorer des univers et de prendre des partis pris. Cette liberté s’accompagne d’une exigence : savoir ce que nos choix font comprendre, ressentir et croire. Le scénario, le cadrage, le montage ou la voix donnée à une personne participent pleinement au sens. Ils engagent la responsabilité de ceux qui les choisissent."
+      },
+      "manifesto-section-10-nav": {
+        "label": "MANIFESTE — 10 — sommaire",
+        "value": "Donner forme au sens"
+      },
+      "manifesto-section-11-title": {
+        "label": "MANIFESTE — 11 — titre",
+        "value": "Les possibilités de création évoluent. Notre responsabilité demeure."
+      },
+      "manifesto-section-11-text": {
+        "label": "MANIFESTE — 11 — texte (paragraphes séparés par une ligne vide)",
+        "value": "L’intelligence artificielle ouvre de nouveaux espaces pour imaginer des images, des films, des personnages et des récits. Nous voulons explorer ces possibilités avec une intention, un regard et une direction artistique assumés. L’outil prend sa place dans une chaîne de choix dont nous répondons.\n\nUne création peut relever de la fiction, de la reconstitution, du documentaire ou associer plusieurs de ces registres. Chacun appelle des repères de lecture. Lorsque la fabrication d’une image, d’une voix ou d’une scène peut modifier la compréhension de ce qui est présenté, nous considérons qu’il faut donner au public les éléments nécessaires pour l’interpréter.\n\nNous défendons ensemble la liberté de créer, le respect des personnes représentées et la confiance de ceux qui regardent. Les moyens de production peuvent changer ; la responsabilité de ce que nous décidons de montrer et de diffuser nous appartient."
+      },
+      "manifesto-section-11-nav": {
+        "label": "MANIFESTE — 11 — sommaire",
+        "value": "Créer avec responsabilité"
+      },
+      "manifesto-section-12-title": {
+        "label": "MANIFESTE — 12 — titre",
+        "value": "L’attention qui nous est accordée mérite un contenu utile."
+      },
+      "manifesto-section-12-text": {
+        "label": "MANIFESTE — 12 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Nous voulons donner à chaque prise de parole une intention et une place. Aider à comprendre une activité, éclairer une décision, partager une expertise, découvrir un métier ou permettre une discussion : ces objectifs donnent une direction au travail.\n\nNous défendons une communication qui apporte à ceux qui la reçoivent. Nous voulons en apprécier la qualité à travers ce qu’ils comprennent, ce qu’ils peuvent s’approprier, questionner et faire. Leurs réactions et leurs usages doivent nourrir les prises de parole suivantes. Une relation se travaille dans la durée."
+      },
+      "manifesto-section-12-nav": {
+        "label": "MANIFESTE — 12 — sommaire",
+        "value": "Être utile"
+      },
+      "manifesto-section-13-title": {
+        "label": "MANIFESTE — 13 — titre",
+        "value": "C’est cette exigence que nous portons chez Wharf."
+      },
+      "manifesto-section-13-text": {
+        "label": "MANIFESTE — 13 — texte (paragraphes séparés par une ligne vide)",
+        "value": "Nous accompagnons les entreprises qui veulent prendre leur place dans la conversation et assumer ce qu’elles y apportent. Notre travail commence par la compréhension de ce qu’elles sont et de ce qu’elles veulent devenir. Nous écoutons leur réalité : les faits, les métiers, les personnes, les convictions et les tensions qui les traversent. Nous les aidons à clarifier leur direction, puis à construire une parole qui permette de comprendre cette ambition, d’en discuter et d’y prendre part.\n\nLe design narratif relie leur identité, leur cap et les publics auxquels elles s’adressent. La stratégie précise les choix et les priorités. Le travail éditorial développe et rend la pensée accessible. Les films et les créations visuelles lui donnent une présence. Une même responsabilité traverse ces choix, du premier échange à la diffusion.\n\nRévéler ce qui existe déjà, c’est reconnaître ce sur quoi l’on peut s’appuyer pour avancer. À partir de cette réalité, nous donnons forme à une direction qui puisse être comprise, partagée et mise en discussion.\n\nNous voulons une parole assez claire pour être comprise, assez solide pour être questionnée et assez ouverte pour faire une place à la réponse.\n\nPrendre la parole demande du courage. Faire place à celle de l’autre aussi."
+      },
+      "manifesto-section-13-nav": {
+        "label": "MANIFESTE — 13 — sommaire",
+        "value": "Notre engagement"
       }
     }
   }

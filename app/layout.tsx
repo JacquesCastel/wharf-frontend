@@ -26,7 +26,7 @@ export default async function RootLayout({
 }) {
   const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
   const projects = await getPublishedProjects() ?? [];
-  const paths = ['/', '/we', '/work', '/agence-audiovisuelle-paris', '/you', '/contact', '/insights', '/accessibilite', '/accessibilite/engagement', '/confidentialite', ...articles.map(articlePath), ...publishedTopics.map(topic => `/insights/${topic.slug}`), ...publishedFormats.map(format => formatPath(format.slug)), ...publishedAuthors.map(author => authorPath(author.slug)), ...projects.map(project => `/work/${project.documentId}`)];
+  const paths = ['/', '/manifeste', '/we', '/work', '/agence-audiovisuelle-paris', '/you', '/contact', '/insights', '/accessibilite', '/accessibilite/engagement', '/confidentialite', ...articles.map(articlePath), ...publishedTopics.map(topic => `/insights/${topic.slug}`), ...publishedFormats.map(format => formatPath(format.slug)), ...publishedAuthors.map(author => authorPath(author.slug)), ...projects.map(project => `/work/${project.documentId}`)];
   return (
     <html lang="fr" className={`${lora.variable} ${bodoni.variable} ${playfair.variable} ${plexSans.variable} ${plexMono.variable}`}>
       <head>

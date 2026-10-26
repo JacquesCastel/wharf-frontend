@@ -8,6 +8,7 @@ export const dynamic = 'force-dynamic';
 
 import { SITE_URL } from './lib/site';
 import { authorPath } from './lib/insights-authors';
+import { manifestoPath, manifestoRevision } from './lib/manifesto';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { articles, publishedTopics, publishedFormats, publishedAuthors } = await getInsights();
   const projects = await getPublishedProjects();
@@ -17,6 +18,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articleDates = articles.map(article => article.updatedAt);
   const projectDates = projects.map(project => project.updatedAt);
   const staticPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}${manifestoPath}`, lastModified: latestContentDate(modified('global'), manifestoRevision), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/agence-audiovisuelle-paris`, lastModified: latestContentDate(modified('global'), '2026-10-18'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/confidentialite`, lastModified: new Date('2026-10-06'), changeFrequency: 'yearly', priority: 0.2 },
     { url: `${SITE_URL}/`,              lastModified: latestContentDate(modified('home'), pageUpdatedAt.home, ...articleDates, ...projectDates), changeFrequency: 'weekly',  priority: 1.0 },

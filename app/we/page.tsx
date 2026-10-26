@@ -19,7 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function WePage() {
-  const copy = await getPageCopy('we');
+  const [copy, globalCopy] = await Promise.all([getPageCopy('we'), getPageCopy('global')]);
+  const m = (key: string) => globalCopy.text(`manifesto-${key}`);
   const t = copy.text;
   const seoCopy = copy;
   const [data, projects] = await Promise.all([getWe(), getPublishedProjects()]);
@@ -163,6 +164,13 @@ export default async function WePage() {
         <p>{t("we-page-56")}</p>
         <a href={`/work/${cafeProject.documentId}`} className="card-split-link">{t("we-page-57")}</a>
       </div></section>}
+
+      <section className="editorial-section" aria-labelledby="we-manifesto-title"><div className="we-pillars-container">
+        <p className="editorial-eyebrow">{m('eyebrow')}</p>
+        <h2 id="we-manifesto-title">{m('h1')} {m('h1-end')}</h2>
+        <p>{m('teaser')}</p>
+        <a href="/manifeste" className="card-split-link">{m('link')} →</a>
+      </div></section>
 
       {/* CLOSING CTA */}
       <section className="we-closing" data-scroll-scene><span className="page-closing-orbit" aria-hidden="true" data-scroll-shift="-140" data-scroll-turn="20" />

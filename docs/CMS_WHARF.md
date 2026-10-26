@@ -98,3 +98,20 @@ Le résumé apparaît aussi dans le contenu lorsque le titre est placé sur le m
 Dans **Pages du site → Textes communs / global**, les blocs **CRÉATION IA — section**, **question**, **réponse** et **lien vers la réalisation** pilotent les compléments de l’offre IA sur WORK. L’accueil conserve la présentation compacte. Les questions utilisent des éléments details/summary accessibles sans JavaScript. Aucun balisage spécial pour AI Overviews n’est ajouté.
 
 Les informations de commande, de public du film IA, de crédits, d’année de production et de résultats restent à préciser avec Jacques. Les contenus publiés n’inventent aucun de ces éléments. « Au café du commerce » reste exclusivement dans le portfolio.
+
+
+## Page manifeste — 26 octobre 2026
+
+La route `/manifeste` présente « La parole nous engage. » en treize parties, avec sommaire, ancres stables et signature Wharf. Elle est reliée à la navigation principale (ordinateur et mobile), à l’accueil, à WE et au footer ; elle ne fait pas partie du blog. Si le CMS contient déjà un lien vers `/manifeste`, il est conservé sans doublon ; sinon, le menu ajoute MANIFESTE après WE.
+
+Les textes et métadonnées suivent le fonctionnement des textes communs, dans **Pages du site → Textes communs / global**. Les nouveaux blocs portent le préfixe **MANIFESTE —** et le repère `manifesto-`. Pour modifier les paragraphes, conserver une ligne vide entre chacun. Le rendu échappe le contenu ; aucun HTML n’est nécessaire. Les ancres restent stables lorsque les titres changent. Les anciennes clés du bloc d’accueil sont conservées mais ne pilotent plus ce bloc.
+
+Les 53 blocs du manifeste ont été ajoutés au CMS de production le 26 octobre 2026 depuis `cms/src/data/manifesto-texts.json`, après sauvegarde privée de la base et du contenu publié. Les autres textes existants sont conservés. Le contrat de repères des textes communs a été étendu dans `src/data/page-copy.json` et `dist/src/data/page-copy.json`, sans modifier les règles de validation.
+
+Pour reproduire l’installation, ajouter d’abord les seuls repères manquants `manifesto-` au contrat global de `src/data/page-copy.json` et `dist/src/data/page-copy.json`, en conservant tous les autres blocs et toutes les pages. Transférer le script et son JSON dans le projet Strapi existant, puis exécuter depuis `/var/www/wharf-strapi` avec un chemin de sauvegarde privé neuf :
+
+```sh
+NODE_ENV=production /opt/wharf-node22/current/bin/node scripts/add-manifesto.cjs src/data/manifesto-texts.json /root/wharf-maintenance/manifeste-global-avant-import.json
+```
+
+Le script ajoute uniquement les repères manquants, conserve tous les textes existants et refuse de publier lorsqu’un autre brouillon global a été modifié. Il sauvegarde l’état initial avant ajout et peut reprendre son propre brouillon interrompu. Le script vérifie avant toute écriture que les nouveaux repères figurent dans le contrat compilé. Il ne nécessite ni changement du modèle, ni reconstruction du CMS ; redémarrer Strapi avec son runtime Node 22 actuel après la mise à jour du contrat JSON pour recharger les repères autorisés. Après l’import, enregistrer puis **Publier** dans Strapi suffit pour les futures corrections de texte. Le frontend doit être déployé une première fois pour rendre la nouvelle route accessible en production.

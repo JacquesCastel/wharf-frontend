@@ -21,7 +21,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage() {
   const { articles } = await getInsights();
-  const copy = await getPageCopy('home');
+  const [copy, globalCopy] = await Promise.all([getPageCopy('home'), getPageCopy('global')]);
+  const m = (key: string) => globalCopy.text(`manifesto-${key}`);
   const t = copy.text;
   const seoCopy = copy;
   const [homeData, projects] = await Promise.all([getHome(), getPublishedProjects()]);
@@ -73,11 +74,10 @@ export default async function HomePage() {
         <span className="manifesto-colour-dot" data-scroll-shift="-190" data-scroll-drift="-40" />
       </div>
       <div className="wharf-manifesto-copy">
-        <p className="editorial-eyebrow">{t("page-17")}</p>
-        <h2 id="manifesto-title" data-scroll-shift="-16">{t("page-18")}<br />{t("page-19")}</h2>
-        <p>{t("page-20")}</p>
-        <p>{t("page-21")}</p>
-        <a href="/we" className="card-split-link">{t("page-22")}</a>
+        <p className="editorial-eyebrow">{m('eyebrow')}</p>
+        <h2 id="manifesto-title" data-scroll-shift="-16">{m('h1')}<br />{m('h1-end')}</h2>
+        <p>{m('teaser')}</p>
+        <a href="/manifeste" className="card-split-link">{m('link')} →</a>
       </div>
     </section>
 

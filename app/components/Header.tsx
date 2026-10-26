@@ -39,9 +39,15 @@ export default function Header({ navigationData }: { navigationData: NavigationD
   ];
   const links = (navigationData.liens.length ? navigationData.liens : defaultLinks)
     .filter(item => item.url.replace(/\/$/, '') !== '/contact');
+  const menuLinks = links.some(item => item.url.replace(/\/$/, '') === '/insights')
+    ? links : [...links, { id: -1, label: 'INSIGHTS', url: '/insights' }];
+  if (!menuLinks.some(item => item.url.replace(/\/$/, '') === '/manifeste')) {
+    const agencyIndex = menuLinks.findIndex(item => item.url.replace(/\/$/, '') === '/we');
+    menuLinks.splice(agencyIndex < 0 ? menuLinks.length : agencyIndex + 1, 0, { id: -2, label: 'MANIFESTE', url: '/manifeste' });
+  }
   const navData = {
     logo: navigationData.logo,
-    liens_menu: links.some(item => item.url.replace(/\/$/, '') === '/insights') ? links : [...links, { id: -1, label: 'INSIGHTS', url: '/insights' }],
+    liens_menu: menuLinks,
   };
 
   return (
