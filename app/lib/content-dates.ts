@@ -1,10 +1,11 @@
+// Dernières révisions des pages dans le code, combinées aux dates du CMS dans le sitemap.
 export const pageUpdatedAt = {
   home: '2026-10-05',
   we: '2026-10-05',
-  work: '2026-10-05',
-  you: '2026-10-05',
+  work: '2026-11-03',
+  you: '2026-11-03',
   insights: '2026-10-05',
-  contact: '2026-10-05',
+  contact: '2026-11-03',
 };
 
 export function latestContentDate(...dates: (string | undefined)[]): Date | undefined {
