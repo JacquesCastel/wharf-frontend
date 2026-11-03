@@ -102,7 +102,7 @@ Les informations de commande, de public du film IA, de crédits, d’année de p
 
 ## Page manifeste — 26 octobre 2026
 
-La route `/manifeste` présente « La parole nous engage. » en treize parties, avec sommaire, ancres stables et signature Wharf. Elle est reliée à la navigation principale (ordinateur et mobile), à l’accueil, à WE et au footer ; elle ne fait pas partie du blog. Si le CMS contient déjà un lien vers `/manifeste`, il est conservé sans doublon ; sinon, le menu ajoute MANIFESTE après WE.
+La route `/manifeste` présente « La parole nous engage. » en treize parties, avec sommaire, ancres stables et signature Wharf. Elle est reliée à la navigation principale (ordinateur et mobile), à l’accueil, à WE et au footer ; elle ne fait pas partie du blog. Le menu place **MANIFESTE** après **INSIGHTS**, puis **L’AGENCE**. Les liens déjà présents dans le CMS sont conservés sans doublon avec leur libellé.
 
 Les textes et métadonnées suivent le fonctionnement des textes communs, dans **Pages du site → Textes communs / global**. Les nouveaux blocs portent le préfixe **MANIFESTE —** et le repère `manifesto-`. Pour modifier les paragraphes, conserver une ligne vide entre chacun. Le rendu échappe le contenu ; aucun HTML n’est nécessaire. Les ancres restent stables lorsque les titres changent. Les anciennes clés du bloc d’accueil sont conservées mais ne pilotent plus ce bloc.
 
@@ -119,7 +119,7 @@ Le script ajoute uniquement les repères manquants, conserve tous les textes exi
 
 ## Page agence — 3 novembre 2026
 
-La nouvelle route `/agence` présente Jacques Castel, la direction des projets, les collaborations avec des professionnels indépendants, le parcours, le livre et LinkeePost. WE conserve la méthode existante. Le lien **L’AGENCE** suit **MANIFESTE** dans la navigation ordinateur et mobile, même lorsque les liens viennent de Strapi ; les entrées existantes sont préservées et le lien agence n’est pas dupliqué. Le footer propose le même accès après le manifeste.
+La nouvelle route `/agence` présente Jacques Castel, la direction des projets, les collaborations avec des professionnels indépendants, le parcours, le livre et LinkeePost. WE conserve la méthode existante. Les liens **MANIFESTE** puis **L’AGENCE** suivent **INSIGHTS** dans la navigation ordinateur et mobile, même lorsque les liens viennent de Strapi ; les entrées existantes sont préservées et le lien agence n’est pas dupliqué. Le footer propose le même accès après le manifeste.
 
 Les 41 textes et métadonnées se modifient dans **Pages du site → Textes communs / global**, blocs **AGENCE —**, repères `agency-`. Une ligne vide sépare deux paragraphes. Les textes sont échappés et aucun HTML n’est nécessaire. La présentation ne suppose ni équipe salariée permanente, ni témoignage ou résultat client. Les articles conservent leur signature actuelle. Aucun portrait de substitution n’est créé.
 

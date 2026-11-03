@@ -5,22 +5,23 @@ const load = require('./load-module.cjs');
 const seed = require('../app/lib/page-copy.json').global.texts;
 const { publicMenuLinks } = load('app/lib/public-navigation.ts');
 
-test('agency follows the manifesto once in either menu without changing CMS input or other links', () => {
+test('manifesto and agency follow insights once in either menu without changing CMS input or other links', () => {
   const input = Object.freeze([
     { id: 7, label: 'Notre agence', url: '/agence/' },
     { id: 1, label: 'WE', url: '/we' },
     { id: 8, label: 'Doublon', url: '/agence' },
     { id: 2, label: 'MANIFESTE', url: '/manifeste' },
+    { id: 9, label: 'Doublon manifeste', url: 'https://www.bywharf.com/manifeste/' },
     { id: 3, label: 'WORK', url: '/work' },
     { id: 4, label: 'Contact', url: '/contact/' },
   ]);
   const before = JSON.stringify(input);
   const links = publicMenuLinks(input);
   assert.equal(JSON.stringify(input), before);
-  assert.deepEqual(Array.from(links, link => link.url), ['/we', '/manifeste', '/agence/', '/work', '/insights']);
-  assert.equal(links[2].label, 'Notre agence');
+  assert.deepEqual(Array.from(links, link => link.url), ['/we', '/work', '/insights', '/manifeste', '/agence/']);
+  assert.equal(links[4].label, 'Notre agence');
   const defaults = publicMenuLinks([]);
-  assert.deepEqual(Array.from(defaults, link => link.url), ['/we', '/manifeste', '/agence', '/work', '/you', '/insights']);
+  assert.deepEqual(Array.from(defaults, link => link.url), ['/we', '/work', '/you', '/insights', '/manifeste', '/agence']);
 });
 
 const page = edits => load('app/agence/page.tsx', {

@@ -8,15 +8,12 @@ const pathOf = (url: string) => {
 /** Both menus share the same order, including when links come from Strapi. */
 export function publicMenuLinks(items: PublicMenuItem[]): PublicMenuItem[] {
   const defaults = [{ id: 1, label: 'WE', url: '/we' }, { id: 2, label: 'WORK', url: '/work' }, { id: 3, label: 'YOU', url: '/you' }];
-  const links = (items.length ? items : defaults).filter(item => pathOf(item.url) !== '/contact');
+  const source = items.length ? items : defaults;
+  const manifesto = source.find(item => pathOf(item.url) === '/manifeste') ?? { id: -2, label: 'MANIFESTE', url: '/manifeste' };
+  const agency = source.find(item => pathOf(item.url) === '/agence') ?? { id: -3, label: 'L’AGENCE', url: '/agence' };
+  const links = source.filter(item => !['/contact', '/manifeste', '/agence'].includes(pathOf(item.url)));
   if (!links.some(item => pathOf(item.url) === '/insights')) links.push({ id: -1, label: 'INSIGHTS', url: '/insights' });
-  if (!links.some(item => pathOf(item.url) === '/manifeste')) {
-    const we = links.findIndex(item => pathOf(item.url) === '/we');
-    links.splice(we < 0 ? links.length : we + 1, 0, { id: -2, label: 'MANIFESTE', url: '/manifeste' });
-  }
-  const agency = links.find(item => pathOf(item.url) === '/agence') ?? { id: -3, label: 'L’AGENCE', url: '/agence' };
-  const result = links.filter(item => pathOf(item.url) !== '/agence');
-  const manifesto = result.findIndex(item => pathOf(item.url) === '/manifeste');
-  result.splice(manifesto + 1, 0, agency);
-  return result;
+  const insights = links.findIndex(item => pathOf(item.url) === '/insights');
+  links.splice(insights + 1, 0, manifesto, agency);
+  return links;
 }
