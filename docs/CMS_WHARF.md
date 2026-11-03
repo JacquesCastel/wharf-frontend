@@ -115,3 +115,14 @@ NODE_ENV=production /opt/wharf-node22/current/bin/node scripts/add-manifesto.cjs
 ```
 
 Le script ajoute uniquement les repères manquants, conserve tous les textes existants et refuse de publier lorsqu’un autre brouillon global a été modifié. Il sauvegarde l’état initial avant ajout et peut reprendre son propre brouillon interrompu. Le script vérifie avant toute écriture que les nouveaux repères figurent dans le contrat compilé. Il ne nécessite ni changement du modèle, ni reconstruction du CMS ; redémarrer Strapi avec son runtime Node 22 actuel après la mise à jour du contrat JSON pour recharger les repères autorisés. Après l’import, enregistrer puis **Publier** dans Strapi suffit pour les futures corrections de texte. Le frontend doit être déployé une première fois pour rendre la nouvelle route accessible en production.
+
+
+## Page agence — 3 novembre 2026
+
+La nouvelle route `/agence` présente Jacques Castel, la direction des projets, les collaborations avec des professionnels indépendants, le parcours, le livre et LinkeePost. WE conserve la méthode existante. Le lien **L’AGENCE** suit **MANIFESTE** dans la navigation ordinateur et mobile, même lorsque les liens viennent de Strapi ; les entrées existantes sont préservées et le lien agence n’est pas dupliqué. Le footer propose le même accès après le manifeste.
+
+Les 41 textes et métadonnées se modifient dans **Pages du site → Textes communs / global**, blocs **AGENCE —**, repères `agency-`. Une ligne vide sépare deux paragraphes. Les textes sont échappés et aucun HTML n’est nécessaire. La présentation ne suppose ni équipe salariée permanente, ni témoignage ou résultat client. Les articles conservent leur signature actuelle. Aucun portrait de substitution n’est créé.
+
+Le script `cms/scripts/add-agency.cjs` et le fichier `cms/src/data/agency-texts.json` reprennent la procédure additive du manifeste : installer les seuls repères `agency-` manquants dans les contrats source et compilé de Strapi, redémarrer avec son Node 22 dédié pour charger le contrat, puis exécuter le script depuis le projet serveur avec le JSON et un chemin de sauvegarde privé neuf. Il préserve les textes existants et refuse une publication si un autre brouillon global a été modifié. Ne pas remplacer les contrats complets du serveur par une ancienne copie locale.
+
+La page possède sa canonique de production, un AboutPage, une Person reliée à Wharf et un fil d’Ariane. Elle est ajoutée au sitemap et au périmètre de mesure soumis au consentement. Après le premier déploiement du frontend, publier les textes dans Strapi suffit pour les modifications éditoriales.

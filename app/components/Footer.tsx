@@ -16,6 +16,7 @@ export default async function Footer() {
     { title: t("components-Footer-8"), links: [
       { href: '/we', label: t("components-Footer-9") },
       { href: '/manifeste', label: t('manifesto-eyebrow') },
+      { href: '/agence', label: t('agency-link') },
       { href: '/work', label: t("components-Footer-10") },
       { href: '/you', label: t("components-Footer-11") },
       { href: '/contact', label: t("components-Footer-12") },

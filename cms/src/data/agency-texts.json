@@ -1,0 +1,166 @@
+{
+  "agency-seo-title": {
+    "label": "AGENCE — titre SEO",
+    "value": "L’agence Wharf — Jacques Castel, stratégie, contenus & vidéo"
+  },
+  "agency-seo-description": {
+    "label": "AGENCE — description SEO",
+    "value": "Découvrez Wharf, agence indépendante portée par Jacques Castel : stratégie de communication, contenus et production vidéo B2B, avec une équipe adaptée au projet."
+  },
+  "agency-eyebrow": {
+    "label": "AGENCE — rubrique",
+    "value": "L’agence"
+  },
+  "agency-link": {
+    "label": "AGENCE — lien de navigation",
+    "value": "L’agence"
+  },
+  "agency-h1": {
+    "label": "AGENCE — titre, première ligne",
+    "value": "Un regard"
+  },
+  "agency-h1-end": {
+    "label": "AGENCE — titre, deuxième ligne",
+    "value": "qui relie."
+  },
+  "agency-name": {
+    "label": "AGENCE — nom",
+    "value": "Jacques Castel"
+  },
+  "agency-signature": {
+    "label": "AGENCE — signature",
+    "value": "Stratégie · Contenus · Vidéo"
+  },
+  "agency-positioning": {
+    "label": "AGENCE — positionnement",
+    "value": "Wharf — Agence indépendante de stratégie, contenus & production vidéo B2B."
+  },
+  "agency-intro": {
+    "label": "AGENCE — introduction",
+    "value": "Je suis Jacques Castel. Avec Wharf, j’accompagne les entreprises dans ce qu’elles veulent faire comprendre, raconter et partager."
+  },
+  "agency-role": {
+    "label": "AGENCE — rôle de Jacques",
+    "value": "Je relie la réflexion stratégique, le travail éditorial et la création d’images. Selon les besoins, je réunis des professionnels indépendants aux compétences complémentaires. Je porte la direction du projet et reste votre interlocuteur tout au long de l’accompagnement."
+  },
+  "agency-contact-link": {
+    "label": "AGENCE — lien de contact",
+    "value": "Parlons de votre projet"
+  },
+  "agency-regard-title": {
+    "label": "AGENCE — Le regard — titre",
+    "value": "Chaque entreprise a quelque chose à faire comprendre."
+  },
+  "agency-regard-text": {
+    "label": "AGENCE — Le regard — texte",
+    "value": "Un métier que l’on connaît mal. Un savoir-faire devenu si familier qu’on ne pense plus à l’expliquer. Une conviction qui guide les décisions. Une transformation dont il faut partager le sens.\n\nC’est cette matière qui m’intéresse. Je cherche à comprendre ce qu’elle raconte de votre entreprise, ce qu’elle engage et ce qu’elle peut apporter aux personnes auxquelles vous vous adressez.\n\nUn même sujet peut conduire deux entreprises à des prises de parole différentes. Leur histoire, leur place dans le marché, leurs responsabilités et leurs publics orientent le regard qu’elles portent sur lui. Choisir un angle, c’est rendre cette position compréhensible.\n\nAvant de produire, je vous aide donc à préciser votre point de départ et la direction que vous voulez prendre. C’est le fondement du design narratif de Wharf : relier ce que vous êtes, ce que vous voulez dire et ce que vos publics peuvent en comprendre."
+  },
+  "agency-regard-label": {
+    "label": "AGENCE — Le regard — repère",
+    "value": "Le regard"
+  },
+  "agency-recit-title": {
+    "label": "AGENCE — Du sens à la forme — titre",
+    "value": "Du premier échange à la forme que prend le récit."
+  },
+  "agency-recit-text": {
+    "label": "AGENCE — Du sens à la forme — texte",
+    "value": "La stratégie donne une direction : la question à éclairer, le public concerné, le point de vue à défendre et les faits sur lesquels s’appuyer.\n\nLe travail éditorial développe cette intention. Il organise les idées, choisit les mots et construit une progression. Un article, un livre blanc, une interview ou une série de contenus doivent pouvoir expliquer leur utilité à ceux qui les liront.\n\nL’image et le film ouvrent d’autres possibilités : montrer un geste, faire entendre une voix, installer un univers ou donner une forme sensible à une idée. Le tournage, l’animation et la création par l’IA prennent leur place dans cette recherche.\n\nJe veille à ce que ces choix restent liés, du cadrage du sujet à sa réalisation. Le scénario, l’écriture, les images et le montage prolongent la même intention."
+  },
+  "agency-recit-label": {
+    "label": "AGENCE — Du sens à la forme — repère",
+    "value": "Du sens à la forme"
+  },
+  "agency-equipe-title": {
+    "label": "AGENCE — Les collaborations — titre",
+    "value": "Je porte le projet. Les compétences se réunissent autour de lui."
+  },
+  "agency-equipe-text": {
+    "label": "AGENCE — Les collaborations — texte",
+    "value": "Wharf fonctionne avec une direction identifiée et des collaborations choisies selon le travail à mener.\n\nVous échangez directement avec moi pour poser le besoin, définir les priorités et discuter les choix. Je construis l’approche, coordonne les contributions et veille à la cohérence du résultat.\n\nSelon le projet, des professionnels indépendants interviennent en conception, rédaction, réalisation, image, son ou postproduction. Chacun apporte son métier et son regard dans un cadre partagé.\n\nNous précisons ensemble le périmètre de l’accompagnement, les personnes qui interviennent et les étapes de validation. Vous savez ainsi qui fait quoi et comment le projet avance."
+  },
+  "agency-equipe-label": {
+    "label": "AGENCE — Les collaborations — repère",
+    "value": "Les collaborations"
+  },
+  "agency-proof-title": {
+    "label": "AGENCE — Les réalisations — titre",
+    "value": "Le travail donne une forme à ces convictions."
+  },
+  "agency-proof-text": {
+    "label": "AGENCE — Les réalisations — texte",
+    "value": "Les réalisations de Wharf permettent de découvrir des partis pris de récit, d’image et de production. Les analyses et les guides partagent des questions, des méthodes et des critères pour préparer vos propres contenus."
+  },
+  "agency-proof-label": {
+    "label": "AGENCE — Les réalisations — repère",
+    "value": "Les réalisations"
+  },
+  "agency-cta-title": {
+    "label": "AGENCE — La rencontre — titre",
+    "value": "Commençons par ce que vous voulez faire comprendre."
+  },
+  "agency-cta-text": {
+    "label": "AGENCE — La rencontre — texte",
+    "value": "Une expertise à rendre visible, une parole à préparer, une transformation à expliquer ou un film à imaginer : le premier échange sert à poser votre sujet et les questions qu’il soulève.\n\nParlons de votre entreprise, de vos publics et de ce que vous voulez faire avancer."
+  },
+  "agency-projects-label": {
+    "label": "AGENCE — projets — repère",
+    "value": "Réflexions et explorations"
+  },
+  "agency-projects-title": {
+    "label": "AGENCE — projets — titre",
+    "value": "Une réflexion qui se prolonge dans les projets."
+  },
+  "agency-book-label": {
+    "label": "AGENCE — livre — repère",
+    "value": "Un livre"
+  },
+  "agency-book-title": {
+    "label": "AGENCE — livre — titre",
+    "value": "Écrire sur le dialogue."
+  },
+  "agency-book-text": {
+    "label": "AGENCE — livre — texte",
+    "value": "Mon parcours m’a conduit des projets web et de la mesure d’audience à la communication corporate, notamment au sein du groupe Publicis, avant la cofondation de Wharf en 2008.\n\nLa relation entre une entreprise et ses publics est aussi au cœur de « Marques, engagez le dialogue ! Pour une com’ plus rentable », l’ouvrage que j’ai coécrit aux Éditions Kawa. Il aborde la place de l’écoute, de la médiation et de la réponse dans la communication des marques.\n\nCette question traverse aujourd’hui le manifeste de Wharf : prendre la parole engage aussi une manière d’écouter et d’accueillir la contradiction."
+  },
+  "agency-project-title": {
+    "label": "AGENCE — LinkeePost — titre",
+    "value": "Explorer de nouvelles manières de prendre la parole."
+  },
+  "agency-project-text": {
+    "label": "AGENCE — LinkeePost — texte",
+    "value": "Je développe également LinkeePost, un projet consacré à la prise de parole des entreprises sur LinkedIn.\n\nIl prolonge une question centrale de mon travail : comment partir de l’identité d’une entreprise, de son marché, de ses connaissances et de ses convictions pour construire des contenus qui lui correspondent ?\n\nL’IA ouvre des possibilités de rédaction et de création. Les choix éditoriaux restent à examiner : l’angle retenu, la fidélité aux faits, la manière de s’adresser au public et la responsabilité de ce qui sera publié."
+  },
+  "agency-expertise-link": {
+    "label": "AGENCE — lien vers les expertises",
+    "value": "Découvrir les expertises de Wharf"
+  },
+  "agency-book-link": {
+    "label": "AGENCE — lien vers le livre",
+    "value": "Découvrir le livre chez l’éditeur"
+  },
+  "agency-manifesto-link": {
+    "label": "AGENCE — lien vers le manifeste",
+    "value": "Lire le manifeste de Wharf"
+  },
+  "agency-project-link": {
+    "label": "AGENCE — lien vers LinkeePost",
+    "value": "Découvrir LinkeePost"
+  },
+  "agency-work-link": {
+    "label": "AGENCE — lien vers les réalisations",
+    "value": "Explorer les réalisations"
+  },
+  "agency-insights-link": {
+    "label": "AGENCE — lien vers le blog",
+    "value": "Lire les analyses et les guides"
+  },
+  "agency-method-link": {
+    "label": "AGENCE — lien vers WE",
+    "value": "Découvrir notre méthode"
+  },
+  "agency-cta-link": {
+    "label": "AGENCE — lien final de contact",
+    "value": "Échangeons sur votre projet"
+  }
+}

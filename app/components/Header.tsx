@@ -4,15 +4,11 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-interface MenuItem {
-  id: number;
-  label: string;
-  url: string;
-}
+import { publicMenuLinks, type PublicMenuItem } from '../lib/public-navigation';
 
 interface NavigationData {
   logo: { url: string; alternativeText: string; width?: number; height?: number } | null;
-  liens: MenuItem[];
+  liens: PublicMenuItem[];
   cta_text: string;
   cta_url: string;
 }
@@ -32,19 +28,7 @@ export default function Header({ navigationData }: { navigationData: NavigationD
     document.addEventListener('keydown', closeOnEscape);
     return () => document.removeEventListener('keydown', closeOnEscape);
   }, [mobileMenuOpen]);
-  const defaultLinks = [
-    { id: 1, label: 'WE', url: '/we' },
-    { id: 2, label: 'WORK', url: '/work' },
-    { id: 3, label: 'YOU', url: '/you' },
-  ];
-  const links = (navigationData.liens.length ? navigationData.liens : defaultLinks)
-    .filter(item => item.url.replace(/\/$/, '') !== '/contact');
-  const menuLinks = links.some(item => item.url.replace(/\/$/, '') === '/insights')
-    ? links : [...links, { id: -1, label: 'INSIGHTS', url: '/insights' }];
-  if (!menuLinks.some(item => item.url.replace(/\/$/, '') === '/manifeste')) {
-    const agencyIndex = menuLinks.findIndex(item => item.url.replace(/\/$/, '') === '/we');
-    menuLinks.splice(agencyIndex < 0 ? menuLinks.length : agencyIndex + 1, 0, { id: -2, label: 'MANIFESTE', url: '/manifeste' });
-  }
+  const menuLinks = publicMenuLinks(navigationData.liens);
   const navData = {
     logo: navigationData.logo,
     liens_menu: menuLinks,
