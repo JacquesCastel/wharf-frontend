@@ -68,3 +68,5 @@
 }
 
 .wharf-public .journey-starts { margin: 0 0 40px; }
+
+.wharf-project .project-next-scene > .projet-container > .card-split-link { display: inline-block; min-height: 44px; }
