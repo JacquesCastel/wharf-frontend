@@ -38,4 +38,9 @@ test('related reading excludes the current article and prioritizes its theme', (
   assert.ok(related.length <= 3);
   assert.ok(related.every(x => x.slug !== first.slug));
   assert.equal(related[0].theme, first.theme);
+  const select = loadModule('app/lib/insights.ts').relatedArticles;
+  const portrait = { slug: 'portrait', theme: 'marque-employeur', service: '/you#recrutement' };
+  const peer = { slug: 'metier', theme: 'marque-employeur', service: '/you#recrutement' };
+  const newsletter = { slug: 'newsletter', theme: 'content-b2b', service: '/work#content' };
+  assert.deepEqual(JSON.parse(JSON.stringify(select(portrait, [portrait, peer, newsletter]))), [peer]);
 });

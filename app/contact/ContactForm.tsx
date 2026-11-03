@@ -15,8 +15,8 @@ const needs = [
   'Autre besoin / À définir',
 ];
 
-export default function ContactForm({ email }: { email: string }) {
-  const [formData, setFormData] = useState(emptyForm);
+export default function ContactForm({ email, initialNeed = '' }: { email: string; initialNeed?: string }) {
+  const [formData, setFormData] = useState({ ...emptyForm, situation: needs.includes(initialNeed) ? initialNeed : '' });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');

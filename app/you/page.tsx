@@ -6,7 +6,10 @@ import { WebPageJsonLd } from '../components/JsonLd';
 import type { Metadata } from 'next';
 import { getYou } from '../lib/strapi';
 import { generateMetadataFromStrapi } from '../lib/metadata';
-import { articlePath } from '../lib/insights';
+import { contactHref, contextProjects, contextReadings } from '../lib/content-paths';
+import { getPublishedProjects } from '../lib/projects';
+import ProjectLinks from '../components/ProjectLinks';
+import ReadingLinks from '../components/ReadingLinks';
 
 export const dynamic = 'force-dynamic';
 export async function generateMetadata(): Promise<Metadata> {
@@ -20,6 +23,7 @@ export default async function YouPage() {
   const t = copy.text;
   const seoCopy = copy;
   const situations = await getLiveSituations();
+  const projects = await getPublishedProjects() ?? [];
   return (
     <main id="main-content" className="wharf-public wharf-you wharf-motion">
       <ScrollMotion />
@@ -35,9 +39,10 @@ export default async function YouPage() {
         <div className="you-container">
           <h2>{t("you-page-6")}</h2>
           <p className="editorial-intro">{t("you-page-7")}</p>
+          <nav className="wharf-section-nav journey-starts" aria-label="Choisir votre besoin">{situations.map(situation => <a key={situation.id} href={`#${situation.id}`}>{situation.titre}</a>)}</nav>
           <div className="you-situations-grid">
             {situations.map((situation, index) => {
-              const reading = 'readingSlug' in situation ? articles.find(article => article.slug === situation.readingSlug) : undefined;
+              const readings = contextReadings(articles, `/you#${situation.id}`);
               return (
               <article key={situation.id} id={situation.id} className="you-situation" data-scroll-scene><span className="you-situation-accent" aria-hidden="true" data-scroll-shift="-65" data-scroll-turn="10" />
                 <div className="you-situation-heading"><div className="you-situation-number">{String(index + 1).padStart(2, '0')}</div><h3>{situation.titre}</h3></div>
@@ -47,8 +52,9 @@ export default async function YouPage() {
                 <ul className="you-situation-paths" aria-label="Les accompagnements pour ce besoin">
                   {situation.links.map(link => <li key={link.href}><a className="card-split-link" href={link.href}>{link.label} {t("you-page-9")}</a></li>)}
                 </ul>
-                {reading && <p className="you-situation-reading">{t("you-page-10")}<a href={articlePath(reading)}>{reading.title}</a></p>}
-                <a href="/contact" className="you-situation-link" aria-label={`Parlons de votre besoin : ${situation.titre.toLowerCase()}`}>{t("you-page-11")}</a>
+                <ReadingLinks items={readings} label="Pour éclairer ce besoin" />
+                <ProjectLinks projects={contextProjects(projects, `/you#${situation.id}`)} />
+                <a href={contactHref(`/you#${situation.id}`)} className="you-situation-link" aria-label={`Parlons de votre besoin : ${situation.titre.toLowerCase()}`}>{t("you-page-11")}</a>
                 </div>
               </article>
               );

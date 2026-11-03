@@ -65,6 +65,13 @@ test('portfolio pages provide stable destinations and reject nonexistent selecti
 test('CMS rich text keeps internal links, escapes text and cannot add another H1', () => {
   const data = load('app/lib/strapi.ts');
   const html = data.blocksToHtml([{ type: 'heading', level: 1, children: [{ text: 'Titre' }] }, { type: 'paragraph', children: [{ type: 'link', url: '/work#video', children: [{ text: 'Vidéo & <script>' }] }, { type: 'link', url: 'javascript:alert(1)', children: [{ text: 'Texte' }] }] }], 3);
+  const links = data.blocksToHtml([{ type: 'paragraph', children: [
+    { type: 'link', url: 'https://www.bywharf.com/work?categorie=creation-ia&view=all#creation-ia', children: [{ text: 'Interne' }] },
+    { type: 'link', url: 'https://example.com/work', children: [{ text: 'Externe' }] },
+  ] }]);
+  assert.ok(links.includes('href="/work?categorie=creation-ia&amp;view=all#creation-ia"'));
+  assert.ok(links.includes('href="https://example.com/work"'));
+
   assert.ok(html.includes('<h3>Titre</h3>'));
   assert.ok(html.includes('href="/work#video"'));
   assert.ok(html.includes('&amp; &lt;script&gt;'));

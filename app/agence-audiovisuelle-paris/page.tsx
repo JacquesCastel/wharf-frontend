@@ -10,6 +10,8 @@ import { generateMetadataFromStrapi } from '../lib/metadata';
 import { servicesSchema } from '../lib/structured-data';
 import { serviceId } from '../lib/site';
 import './audiovisual.css';
+import { contactHref, offerNeeds } from '../lib/content-paths';
+import ContextLinks from '../components/ContextLinks';
 
 export const dynamic = 'force-dynamic';
 const path = '/agence-audiovisuelle-paris';
@@ -33,7 +35,7 @@ export default async function AudiovisualParisPage() {
       <div className="wharf-masthead-aside"><p className="editorial-eyebrow">{t('eyebrow')}</p><EditorialMark className="masthead-art" variant="frames" /></div>
       <div><h1 id="audiovisual-title">{t('h1')}<br /><em>{t('h1-end')}</em></h1>
         <p>{t('intro')}</p>
-        <a href="/contact" className="card-split-link">{t('cta')} →</a>
+        <a href={contactHref("/work#video")} className="card-split-link">{t('cta')} →</a>
         <nav className="wharf-section-nav" aria-label="Explorer la production audiovisuelle">
           <a href="#formats">{t('nav-formats')}</a><a href="#methode">{t('nav-method')}</a><a href="#realisations">{t('nav-projects')}</a><a href="#questions">{t('nav-questions')}</a>
         </nav>
@@ -56,14 +58,15 @@ export default async function AudiovisualParisPage() {
     <WorkPortfolio projects={films} compact />
     <section className="editorial-section audiovisual-local" aria-labelledby="local-title"><div className="work-container audiovisual-grid">
       <div><h2 id="local-title">{t('local-title')}</h2><p>{t('local-text')}</p><p className="audiovisual-address"><strong>{t('address-label')}</strong><br />122 rue Amelot, 75011 Paris<br /><a href="mailto:contact@bywharf.com">contact@bywharf.com</a></p></div>
-      <div><h2>{t('brief-title')}</h2><p>{t('brief-text')}</p><a href="/contact" className="card-split-link">{t('cta')} →</a></div>
+      <div><h2>{t('brief-title')}</h2><p>{t('brief-text')}</p><a href={contactHref("/work#video")} className="card-split-link">{t('cta')} →</a></div>
     </div></section>
     <section className="editorial-section" id="questions" aria-labelledby="questions-title"><div className="work-container">
       <h2 id="questions-title">{t('faq-title')}</h2><div className="audiovisual-questions">{[1, 2, 3, 4, 5].map(index => <details key={index}><summary>{t(`question-${index}`)}</summary><p>{t(`answer-${index}`)}</p></details>)}</div>
     </div></section>
     <section className="editorial-section"><div className="work-container"><h2>{t('reading-title')}</h2>
+      <ContextLinks links={offerNeeds("/work#video")} label="Votre point de départ" />
       <InsightCards items={articles.filter(article => article.theme === 'video-b2b' && article.format === 'guides').slice(0, 3)} headingLevel={3} composed />
     </div></section>
-    <section className="work-closing"><div className="work-container"><h2>{t('closing-title')}</h2><p>{t('closing-text')}</p><a href="/contact" className="work-cta-button">{t('cta')} →</a></div></section>
+    <section className="work-closing"><div className="work-container"><h2>{t('closing-title')}</h2><p>{t('closing-text')}</p><a href={contactHref("/work#video")} className="work-cta-button">{t('cta')} →</a></div></section>
   </main>;
 }

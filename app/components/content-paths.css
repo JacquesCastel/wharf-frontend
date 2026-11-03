@@ -1,0 +1,70 @@
+/* Contextual reading and project links, shared by the public pages. */
+:is(.wharf-public, .wharf-project) .context-readings { margin: 32px 0; padding-top: 24px; border-top: 1px solid var(--color-border); text-align: left; }
+:is(.wharf-public, .wharf-project) .context-readings-label { margin: 0 0 16px; font: 500 10px/1.6 var(--font-plex-mono), monospace; letter-spacing: .1em; text-transform: uppercase; color: inherit; }
+:is(.wharf-public, .wharf-project) .context-readings .context-readings-list { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr); margin: 0; padding: 0; columns: auto; max-width: none; }
+:is(.wharf-public, .wharf-project) .context-readings .context-readings-list li { margin: 0; padding: 0; border: 0; }
+:is(.wharf-public, .wharf-project) .context-readings-list li::before { display: none; }
+:is(.wharf-public, .wharf-project) .context-reading-link { display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 44px; padding: 14px 0; border-bottom: 1px solid var(--color-border); color: inherit; text-decoration: none; }
+:is(.wharf-public, .wharf-project) .context-reading-format { display: block; margin-bottom: 6px; font: 400 10px/1.5 var(--font-plex-mono), monospace; letter-spacing: .02em; color: inherit; opacity: .75; }
+:is(.wharf-public, .wharf-project) .context-reading-title { display: block; font: 400 16px/1.5 var(--font-sans); text-wrap: pretty; }
+:is(.wharf-public, .wharf-project) .context-reading-arrow { flex: 0 0 auto; color: inherit; transition: transform 180ms; }
+:is(.wharf-public, .wharf-project) .context-reading-link:hover .context-reading-title { text-decoration: underline; text-underline-offset: 4px; }
+:is(.wharf-public, .wharf-project) .context-reading-link:hover .context-reading-arrow { transform: translate(2px, -2px); }
+:is(.wharf-public, .wharf-project) .project-proof { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: stretch; margin: clamp(36px, 5vw, 72px) 0; background: color-mix(in srgb, var(--scene-lilac, #e8deeb) 30%, var(--color-bg)); color: var(--color-primary); text-align: left; }
+:is(.wharf-public, .wharf-project) .project-proof-image { display: block; position: relative; align-self: stretch; min-height: 340px; overflow: hidden; background: #252525; }
+:is(.wharf-public, .wharf-project) .project-proof-image img { display: block; position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 400ms; }
+:is(.wharf-public, .wharf-project) .project-proof-image:hover img { transform: scale(1.025); }
+:is(.wharf-public, .wharf-project) .project-proof-image-label { position: absolute; bottom: 24px; left: 24px; padding: 7px 12px; background: var(--scene-sage, #d3e5db); color: #282828; font: 500 10px/1.6 var(--font-plex-mono), monospace; letter-spacing: .06em; }
+:is(.wharf-public, .wharf-project) .project-proof-copy { padding: clamp(28px, 4vw, 56px); align-self: center; min-width: 0; }
+:is(.wharf-public, .wharf-project) .project-proof-label { margin: 0 0 22px; font: 500 10px/1.6 var(--font-plex-mono), monospace; letter-spacing: .08em; text-transform: uppercase; color: inherit; }
+#main-content:is(.wharf-public, .wharf-project) .project-proof :is(h3, h4) { margin: 0 0 22px; font: 400 clamp(26px, 3vw, 42px)/1.2 var(--font-heading-serif); letter-spacing: -.02em; }
+:is(.wharf-public, .wharf-project) .project-proof-copy > p:not(.project-proof-label) { margin: 0 0 24px; font-size: 16px; line-height: 1.65; color: inherit; }
+:is(.wharf-public, .wharf-project) .project-proof-copy > p.project-proof-note { font-size: 12px; opacity: .8; }
+:is(.wharf-public, .wharf-project) .editorial-ai-offer > .project-proof { max-width: 1200px; margin-inline: auto; }
+:is(.wharf-public, .wharf-project) .editorial-ai-offer > .context-readings { max-width: 740px; margin-inline: auto; }
+:is(.wharf-public, .wharf-project) .project-demonstration-note { margin: 24px 0; padding: 20px 24px; border-left: 3px solid var(--scene-sage, #d3e5db); background: color-mix(in srgb, var(--scene-sage, #d3e5db) 20%, var(--color-bg)); }
+:is(.wharf-public, .wharf-project) .project-demonstration-note p { margin: 0; }
+:is(.wharf-public, .wharf-project) .project-demonstration-note .editorial-eyebrow { margin-bottom: 8px; }
+:is(.wharf-public, .wharf-project) .project-next-scene .context-readings { max-width: 740px; }
+@media (max-width: 760px) {
+  :is(.wharf-public, .wharf-project) .project-proof { grid-template-columns: minmax(0, 1fr); }
+  :is(.wharf-public, .wharf-project) .project-proof-image { min-height: 0; aspect-ratio: 16 / 10; }
+  :is(.wharf-public, .wharf-project) .project-proof-copy { padding: 28px 24px; }
+  :is(.wharf-public, .wharf-project) .project-proof-image-label { left: 20px; bottom: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.wharf-public, .wharf-project) :is(.project-proof-image img, .context-reading-arrow) { transition: none; }
+}
+:is([data-contrast="high"], [data-contrast="inverted"]) :is(.wharf-public, .wharf-project) :is(.project-proof, .project-demonstration-note) { background: var(--color-bg); border: 1px solid currentColor; }
+
+#main-content:is(.wharf-public, .wharf-project) .editorial-ai-offer .project-proof :is(.card-split-link, .card-split-link:hover) { color: var(--color-primary); }
+
+:is(.wharf-public, .wharf-project) .context-routes { margin: 28px 0; padding-top: 22px; border-top: 1px solid var(--color-border); text-align: left; }
+:is(.wharf-public, .wharf-project) .context-routes ul { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; columns: auto; list-style: none; padding: 0; margin: 0; max-width: none; }
+:is(.wharf-public, .wharf-project) .context-routes li { padding: 0; margin: 0; border: 0; }
+:is(.wharf-public, .wharf-project) .context-routes li::before { display: none; }
+:is(.wharf-public, .wharf-project) .context-routes a { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 12px 0; min-height: 44px; color: inherit; text-decoration: none; font: 400 14px/1.6 var(--font-sans); }
+:is(.wharf-public, .wharf-project) .context-routes a:hover { text-decoration: underline; text-underline-offset: 4px; }
+:is(.wharf-public, .wharf-project) .context-projects { margin: 28px 0; padding-top: 22px; border-top: 1px solid var(--color-border); text-align: left; }
+:is(.wharf-public, .wharf-project) .context-projects ul { columns: auto; list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+:is(.wharf-public, .wharf-project) .context-projects li { margin: 0; padding: 0; border: 0; }
+:is(.wharf-public, .wharf-project) .context-projects li::before { display: none; }
+:is(.wharf-public, .wharf-project) .context-project-link { display: flex; align-items: center; gap: 16px; color: inherit; text-decoration: none; font: 400 14px/1.5 var(--font-sans); }
+:is(.wharf-public, .wharf-project) .context-project-link > img { width: 88px; height: 68px; object-fit: cover; flex: 0 0 88px; }
+:is(.wharf-public, .wharf-project) .context-project-link > span:nth-last-child(2) { min-width: 0; flex: 1; }
+:is(.wharf-public, .wharf-project) .context-project-link:hover > span:nth-last-child(2) { text-decoration: underline; text-underline-offset: 4px; }
+:is(.wharf-public, .wharf-project) .expertise .context-offer-contact { display: table; margin-top: 18px; }
+:is(.wharf-public, .wharf-project) .editorial-ai-offer > .context-routes { max-width: 740px; margin-inline: auto; }
+.wharf-public .contact-context-form { min-width: 0; }
+.wharf-public .contact-path-note { padding: 24px; margin-bottom: 24px; border-left: 3px solid var(--scene-sage); background: color-mix(in srgb, var(--scene-sage) 20%, var(--color-bg)); }
+.wharf-public .contact-path-note p { margin: 0 0 12px; }
+.wharf-public .contact-path-note p:nth-child(2) { font: 400 24px/1.3 var(--font-heading-serif); }
+.wharf-public .contact-path-note p:nth-child(3), .wharf-public .contact-path-note a { font: 400 13px/1.6 var(--font-sans); }
+.wharf-public .contact-path-note a { color: inherit; text-underline-offset: 4px; }
+.wharf-public .insight-article-cta .context-routes { color: inherit; }
+@media (max-width: 480px) {
+  :is(.wharf-public, .wharf-project) .context-project-link { gap: 12px; }
+  :is(.wharf-public, .wharf-project) .context-project-link > img { width: 64px; height: 64px; flex-basis: 64px; }
+}
+
+.wharf-public .journey-starts { margin: 0 0 40px; }

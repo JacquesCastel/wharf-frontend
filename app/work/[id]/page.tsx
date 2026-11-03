@@ -19,6 +19,10 @@ import { ProjectJsonLd, WebPageJsonLd, BreadcrumbJsonLd } from '../../components
 import { getPublishedProjects, projectMediaUrl } from '../../lib/projects';
 import { getProjectSeo } from '../../lib/project-seo';
 import { getProjectEditorial } from '../../lib/project-editorial';
+import { AI_PROJECT_ID, contactHref, contextReadings, projectRoutes } from '../../lib/content-paths';
+import { getInsights } from '../../lib/cms-content';
+import ReadingLinks from '../../components/ReadingLinks';
+import ContextLinks from '../../components/ContextLinks';
 
 type ProjectBlock = { __component: string; titre?: string; contenu?: unknown; image?: ProjectMedia; legende?: string; type_video?: string; video?: ProjectMedia; video_fichier?: ProjectMedia; video_url?: string; colonnes?: number; images?: ProjectMedia[]; elements?: ProjectMediaItem[]; citation?: string; auteur?: string; fonction?: string; entreprise?: string };
 type ProjectData = { documentId: string; titre: string; type?: string; categories?: PortfolioCategory[]; description_courte?: string; seo_title?: string; seo_description?: string; seo_image?: ProjectMedia; hero_type?: string; hero_image?: ProjectMedia; vignette?: ProjectMedia; hero_media?: ProjectMedia; hero_titre_position?: string; publishedAt?: string; updatedAt?: string; client?: unknown; contenu?: ProjectBlock[] };
@@ -99,6 +103,9 @@ export default async function ProjetDetailPage({
   const expertiseIds = categories.flatMap(category => ({ strategie: ['strategy'], 'contenus-editoriaux': ['content'], 'films-videos': ['video'], 'creation-ia': ['creation-ia'] }[category.slug] ?? []));
   const isAI = categories.some(category => category.slug === 'creation-ia');
   const isVideo = categories.some(category => category.slug === 'films-videos') || projet.hero_type === 'video' || /vidéo|video|film|fiction/i.test(projectType || '');
+  const projectContext = isAI || id === AI_PROJECT_ID ? '/work#creation-ia' : isVideo ? '/work#video' : expertiseIds[0] ? `/work#${expertiseIds[0]}` : '';
+  const readings = projectContext ? contextReadings((await getInsights()).articles, projectContext) : [];
+  const routes = projectRoutes(expertiseIds.length ? expertiseIds : isVideo ? ['video'] : [], isVideo);
 
 
   return (
@@ -166,6 +173,7 @@ export default async function ProjetDetailPage({
           {categories.length > 0 && <nav className="project-categories" aria-label="Catégories de cette réalisation">{categories.map(category => <Link key={category.slug} href={`/work?categorie=${encodeURIComponent(category.slug)}#realisations`}>{category.nom}</Link>)}</nav>}
           {client && <p>Client : {client}</p>}
           {summary && projet.hero_titre_position !== 'dessous' && <p className="project-summary">{summary}</p>}
+          {id === AI_PROJECT_ID && <aside className="project-demonstration-note"><p className="editorial-eyebrow">Démonstration · Test d’avant-vente</p><p>Un test réalisé pour présenter la compétence de création image et vidéo IA de Wharf, du scénario à la finition.</p></aside>}
           {heroFilm && <section id="film-du-projet" className="bloc-video project-main-film" aria-labelledby="project-film-title">
             <h2 id="project-film-title">Voir le film</h2>
             <TrackedFilm native src={projectMediaUrl(heroFilm.url)} mime={heroFilm.mime} poster={ogImage} title={`Film du projet ${projet.titre}`} film={`${id}-film`} />
@@ -266,9 +274,10 @@ export default async function ProjetDetailPage({
 
       <section className="editorial-section project-next-scene" data-scroll-scene><div className="projet-container">
         <div className="wharf-composed-heading"><h2>Du récit à votre prochain projet</h2><EditorialMark variant="frames" /></div>
-        <p>Découvrez nos <Link href="/work#strategy">expertises de conseil</Link>, notre <Link href="/work#content">création de contenus</Link> et notre <Link href="/work#video">production vidéo</Link>.</p>
-        {isAI && <p><Link href="/work#creation-ia">Découvrir la création d’images et de films par l’IA →</Link></p>}
-        <Link href={isVideo ? '/insights/video-b2b' : '/insights'} className="card-split-link">{isVideo ? 'Préparer votre production vidéo : guides et analyses →' : 'Explorer nos guides et analyses →'}</Link>
+        <ContextLinks links={routes} label="Pour construire votre projet avec Wharf" />
+        <ReadingLinks items={readings} label="Pour préparer votre prochain projet" />
+        <Link href={contactHref(projectContext)} className="card-split-link">{isAI ? 'Parlons de vos images et de votre film IA' : 'Parlons de votre projet'} →</Link>
+
       </div></section>
       {/* NAVIGATION PROJET PRÉCÉDENT / SUIVANT */}
       <section id="projet-navigation" className="projet-navigation" aria-label="Autres réalisations">

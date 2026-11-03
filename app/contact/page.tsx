@@ -5,13 +5,17 @@ import { getPageCopy } from '../lib/cms-content';
 import { WebPageJsonLd } from '../components/JsonLd';
 import { getContact } from '../lib/strapi';
 import ContactForm from './ContactForm';
+import Link from 'next/link';
+import { contactContext } from '../lib/content-paths';
+import '../components/content-paths.css';
 
 export async function generateMetadata() {
   const copy = await getPageCopy('contact');
   return generateMetadataFromStrapi(copy.seo.title, copy.seo.description, undefined, '/contact');
 }
 
-export default async function ContactPage() {
+export default async function ContactPage({ searchParams }: { searchParams: Promise<{ parcours?: string | string[] }> }) {
+  const context = contactContext((await searchParams).parcours);
   const copy = await getPageCopy('contact');
   const t = copy.text;
   const data = await getContact();
@@ -44,7 +48,15 @@ export default async function ContactPage() {
             <a href="/you" className="card-split-link">{t("contact-page-13")}</a>
           </nav>
         </aside>
-        <ContactForm email={email} />
+        <div className="contact-context-form" id="votre-projet">
+          {context && <aside className="contact-path-note" aria-label="Votre point de départ">
+            <p className="context-readings-label">Votre point de départ</p>
+            <p>{context.label}</p>
+            <p>Le besoin est présélectionné ci-dessous. Vous pouvez l’ajuster.</p>
+            <Link href={context.href}>Revenir à cette présentation →</Link>
+          </aside>}
+          <ContactForm key={context?.code ?? 'general'} email={email} initialNeed={context?.need} />
+        </div>
       </div>
     </section>
   </main>;

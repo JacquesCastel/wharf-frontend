@@ -3,6 +3,9 @@ import EditorialMark from '../../../components/EditorialMark';
 import { getInsights, getLiveArticle } from '../../../lib/cms-content';
 import { getPublishedProjects } from '../../../lib/projects';
 import { CAFE_PROJECT_ID } from '../../../lib/project-editorial';
+import { articleContactHref, articleRoutes, contextualProjectIds } from '../../../lib/content-paths';
+import ProjectProof from '../../../components/ProjectProof';
+import ContextLinks from '../../../components/ContextLinks';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -31,7 +34,8 @@ export default async function ArticlePage({ params }: Props) {
   const topic = publishedTopics.find(topic => topic.slug === theme)!;
   const format = getArticleFormat(article);
   const author = articleAuthor(article);
-  const linkedProjects = article.relatedProjectIds?.length ? (await getPublishedProjects() ?? []).filter(project => project.documentId !== CAFE_PROJECT_ID && article.relatedProjectIds!.includes(project.documentId)) : [];
+  const projectIds = contextualProjectIds(article);
+  const linkedProjects = projectIds.length ? (await getPublishedProjects() ?? []).filter(project => project.documentId !== CAFE_PROJECT_ID && projectIds.includes(project.documentId)) : [];
   const offer = offers.find(offer => article.service === `/work#${offer.id}`);
   const situation = situations.find(situation => article.service === `/you#${situation.id}`);
   const situationLabels: Record<string, string> = { visibilite: 'notre accompagnement pour rendre votre expertise visible', dirigeants: 'notre accompagnement pour la parole dirigeante', recrutement: 'notre accompagnement en marque employeur', transformation: 'notre accompagnement pour expliquer une transformation', reseaux: 'notre accompagnement pour vos contenus réguliers', film: 'notre accompagnement pour produire un film' };
@@ -65,9 +69,9 @@ export default async function ArticlePage({ params }: Props) {
         <h3>Limites de l’étude</h3><p>{article.research.limitations}</p>
         <ul>{article.research.sources.map(source => <li key={source.url}><InsightSource source={source} /></li>)}</ul>
       </section>}
-      <footer className="insight-article-cta"><h2>{article.cta}</h2><p>Découvrez <Link href={article.service}>{serviceLabel}</Link>, puis parlons de votre situation.</p><Link href="/contact" className="btn btn-primary">Parlons de votre projet →</Link></footer>
+      <footer className="insight-article-cta" id="insight-next-step"><h2>{article.cta}</h2><p>Découvrez <Link href={article.service}>{serviceLabel}</Link>, puis parlons de votre situation.</p><ContextLinks links={articleRoutes(article).filter(link => link.href !== article.service)} label="Les accompagnements pour ce sujet" /><Link href={articleContactHref(article)} className="btn btn-primary">Parlons de votre projet →</Link></footer>
     </article>
-    {linkedProjects.length > 0 && <section className="editorial-section"><div className="work-container"><h2>Réalisations liées</h2><ul>{linkedProjects.map(project => <li key={project.documentId}><Link href={`/work/${project.documentId}`}>{project.titre}</Link>{project.description_courte && <p>{project.description_courte}</p>}</li>)}</ul></div></section>}
+    {linkedProjects.length > 0 && <section className="editorial-section"><div className="work-container"><h2>Voir ce que cela peut donner</h2>{linkedProjects.map(project => <ProjectProof key={project.documentId} project={project} />)}</div></section>}
     <section className="editorial-section"><div className="work-container"><h2>Pour poursuivre la réflexion</h2><InsightCards items={relatedArticles(article, articles)} headingLevel={3} composed /></div></section>
   </main>;
 }

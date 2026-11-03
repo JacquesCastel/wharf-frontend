@@ -13,7 +13,16 @@ function renderInline(node: RichTextNode): string {
   if (node.bold) text = `<strong>${text}</strong>`;
   if (node.italic) text = `<em>${text}</em>`;
   if (node.underline) text = `<u>${text}</u>`;
-  if (node.type === 'link' && node.url && /^(https?:\/\/|mailto:|tel:|\/|#)/i.test(node.url)) text = `<a href="${escapeHtml(node.url)}">${text}</a>`;
+  if (node.type === 'link' && node.url && /^(https?:\/\/|mailto:|tel:|\/|#)/i.test(node.url)) {
+    let href = node.url;
+    try {
+      const url = new URL(href);
+      if (['http:', 'https:'].includes(url.protocol) && ['bywharf.com', 'www.bywharf.com'].includes(url.hostname) && !url.port) {
+        href = `${url.pathname}${url.search}${url.hash}`;
+      }
+    } catch { /* Relative links and mail/tel links retain their existing destination. */ }
+    text = `<a href="${escapeHtml(href)}">${text}</a>`;
+  }
   return text;
 }
 export function blocksToHtml(blocks: unknown, minHeadingLevel = 2): string {

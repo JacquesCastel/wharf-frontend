@@ -1,15 +1,13 @@
 import { getPageCopy, getInsights, getLiveOffers } from '../lib/cms-content';
 import { ServicesJsonLd } from './JsonLd';
 import FogBackdrop from './FogBackdrop';
-import { articlePath } from '../lib/insights';
+import { AI_PROJECT_ID, contactHref, contextProjects, contextReadings, offerNeeds } from '../lib/content-paths';
+import { getPublishedProjects } from '../lib/projects';
+import ReadingLinks from './ReadingLinks';
+import ProjectProof from './ProjectProof';
+import ProjectLinks from './ProjectLinks';
+import ContextLinks from './ContextLinks';
 import EditorialMark from './EditorialMark';
-
-function OfferReading({ id, articles, text: t }: { id: string; articles: import('../lib/insights').InsightArticle[]; text: (key: string) => string }) {
-  const article = articles.find(item => item.service === `/work#${id}`)
-    ?? (id === 'video' ? articles.find(item => item.theme === 'video-b2b') : undefined);
-  if (!article) return null;
-  return <p className="offer-reading">{t("components-Offers-1")}<a href={articlePath(article)}>{article.title}</a></p>;
-}
 
 function AIOfferDetails({ text: t }: { text: (key: string) => string }) {
   return <div className="ai-offer-details">
@@ -24,12 +22,13 @@ function AIOfferDetails({ text: t }: { text: (key: string) => string }) {
         <p>{t(`offer-creation-ia-answer-${index}`)}</p>
       </details>)}
     </section>
-    <a className="card-split-link" href="/work/d3n2ackc10ow3w8i3hd4yt0o">{t('offer-creation-ia-project-link')} →</a>
   </div>;
 }
 
 export default async function Offers({ compact = false }: { compact?: boolean }) {
   const { articles } = await getInsights();
+  const projects = compact ? [] : await getPublishedProjects() ?? [];
+  const aiProject = projects.find(project => project.documentId === AI_PROJECT_ID);
   const copy = await getPageCopy('global');
   const t = copy.text;
   const offers = await getLiveOffers();
@@ -46,9 +45,12 @@ export default async function Offers({ compact = false }: { compact?: boolean })
               <h3>{offer.title}</h3>
               <p>{offer.description}</p>
               {!compact && <ul>{offer.items.map(item => <li key={item}>{item}</li>)}</ul>}
-              {!compact && <OfferReading id={offer.id} articles={articles} text={t} />}
-              <a className="card-split-link" href={offer.id === 'video' ? '/agence-audiovisuelle-paris' : compact ? `/work#${offer.id}` : '/contact'}>
+              {!compact && <ReadingLinks items={contextReadings(articles, `/work#${offer.id}`)} />}
+              {!compact && <ProjectLinks projects={contextProjects(projects, `/work#${offer.id}`)} />}
+              {!compact && <ContextLinks links={offerNeeds(`/work#${offer.id}`)} label="Votre point de départ" />}
+              <a className="card-split-link" href={offer.id === 'video' ? '/agence-audiovisuelle-paris' : compact ? `/work#${offer.id}` : contactHref(`/work#${offer.id}`)}>
                 {offer.id === 'video' ? t('video-paris-offer-link') : compact ? 'Explorer cette expertise' : 'Parlons de votre projet'} {t("components-Offers-5")}</a>
+              {!compact && offer.id === "video" && <a className="card-split-link context-offer-contact" href={contactHref("/work#video")}>Parlons de votre film →</a>}
             </article>
           ))}
         </div>
@@ -60,7 +62,10 @@ export default async function Offers({ compact = false }: { compact?: boolean })
             <p>{offer.description}</p>
             {!compact && <ul>{offer.items.map(item => <li key={item}>{item}</li>)}</ul>}
             {!compact && <AIOfferDetails text={t} />}
-            <a className="card-split-link" href={compact ? '/work#creation-ia' : '/contact'}>{compact ? 'Explorer la création IA' : 'Parlons de votre projet'} {t("components-Offers-7")}</a>
+            {aiProject && <ProjectProof project={aiProject} anchorId="creation-ia-exemple" headingLevel={4} />}
+            {!compact && <ReadingLinks items={contextReadings(articles, "/work#creation-ia")} label="Pour explorer les possibilités et les limites" />}
+            {!compact && <ContextLinks links={offerNeeds("/work#creation-ia")} label="Votre projet de film" />}
+            <a className="card-split-link" href={compact ? '/work#creation-ia' : contactHref('/work#creation-ia')}>{compact ? 'Explorer la création IA' : 'Parlons de votre projet'} {t("components-Offers-7")}</a>
           </article>
         ))}
       </div>
