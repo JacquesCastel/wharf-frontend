@@ -7,7 +7,7 @@ const pathOf = (url: string) => {
 };
 /** Both menus share the same order, including when links come from Strapi. */
 export function publicMenuLinks(items: PublicMenuItem[]): PublicMenuItem[] {
-  const defaults = [{ id: 1, label: 'WE', url: '/we' }, { id: 2, label: 'WORK', url: '/work' }, { id: 3, label: 'YOU', url: '/you' }];
+  const defaults = [{ id: 1, label: 'L’APPROCHE', url: '/we' }, { id: 2, label: 'WORK', url: '/work' }, { id: 3, label: 'YOU', url: '/you' }];
   const source = items.length ? items : defaults;
   const manifesto = source.find(item => pathOf(item.url) === '/manifeste') ?? { id: -2, label: 'MANIFESTE', url: '/manifeste' };
   const agency = source.find(item => pathOf(item.url) === '/agence') ?? { id: -3, label: 'L’AGENCE', url: '/agence' };
