@@ -2,7 +2,16 @@
 const nextConfig = {
   output: 'standalone',
   async headers() {
-    return ['/admin/:path*', '/sommaire/:path*', '/projets/:path*', '/clients/:path*', '/prospection/:path*', '/desinscription/:path*', '/login', '/typography-demo'].map(source => ({ source, headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] }));
+    const privateHeaders = ['/admin/:path*', '/sommaire/:path*', '/projets/:path*', '/clients/:path*', '/prospection/:path*', '/desinscription/:path*', '/login', '/typography-demo'].map(source => ({ source, headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] }));
+    return [
+      {
+        source: '/:path*',
+        // Scope HSTS to the two HTTPS frontend hosts, excluding local previews and other subdomains.
+        has: [{ type: 'host', value: '(?:www\\.)?bywharf\\.com' }],
+        headers: [{ key: 'Strict-Transport-Security', value: 'max-age=31536000' }],
+      },
+      ...privateHeaders,
+    ];
   },
   typescript: {
     ignoreBuildErrors: false,
