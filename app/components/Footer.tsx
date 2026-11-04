@@ -5,6 +5,7 @@ import { getFooter } from '../lib/strapi';
 import { articlePath } from '../lib/insights';
 import EditorialMark from './EditorialMark';
 import ScrollMotion from './ScrollMotion';
+import { contentUsagePath } from '../lib/content-usage';
 
 export default async function Footer() {
   const { articles, publishedTopics } = await getInsights();
@@ -88,8 +89,9 @@ export default async function Footer() {
           </nav>}
         </section>
         <div className="footer-bottom">
-          <nav className="footer-utility" aria-label="Pied de page — accessibilité">
+          <nav className="footer-utility" aria-label="Pied de page — informations et préférences">
             <Link href="/confidentialite" className="footer-link">Confidentialité</Link>
+            <Link href={contentUsagePath} className="footer-link">Utilisation des contenus</Link>
             <AudiencePreferencesButton />
             <Link href="/accessibilite" className="footer-link">{t("components-Footer-27")}</Link>
             <Link href="/accessibilite/engagement" className="footer-link">{t("components-Footer-28")}</Link>
