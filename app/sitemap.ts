@@ -24,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}${agencyPath}`, lastModified: latestContentDate(modified('global'), agencyRevision), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}${manifestoPath}`, lastModified: latestContentDate(modified('global'), manifestoRevision), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/agence-audiovisuelle-paris`, lastModified: latestContentDate(modified('global'), '2026-10-18'), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/confidentialite`, lastModified: new Date('2026-10-06'), changeFrequency: 'yearly', priority: 0.2 },
+    { url: `${SITE_URL}/confidentialite`, lastModified: new Date('2026-11-10'), changeFrequency: 'yearly', priority: 0.2 },
     { url: `${SITE_URL}/`,              lastModified: latestContentDate(modified('home'), pageUpdatedAt.home, ...articleDates, ...projectDates), changeFrequency: 'weekly',  priority: 1.0 },
     { url: `${SITE_URL}/we`,            lastModified: latestContentDate(modified('we'), pageUpdatedAt.we), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/work`,          lastModified: latestContentDate(modified('work'), pageUpdatedAt.work, ...projectDates), changeFrequency: 'weekly',  priority: 0.9 },

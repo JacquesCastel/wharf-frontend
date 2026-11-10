@@ -55,7 +55,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
             <p>Le besoin est présélectionné ci-dessous. Vous pouvez l’ajuster.</p>
             <Link href={context.href}>Revenir à cette présentation →</Link>
           </aside>}
-          <ContactForm key={context?.code ?? 'general'} email={email} initialNeed={context?.need} />
+          <ContactForm key={context?.code ?? 'general'} email={email} initialNeed={context?.need} captchaSiteKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY?.trim()} />
         </div>
       </div>
     </section>

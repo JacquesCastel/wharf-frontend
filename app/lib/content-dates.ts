@@ -5,7 +5,7 @@ export const pageUpdatedAt = {
   work: '2026-11-03',
   you: '2026-11-03',
   insights: '2026-10-05',
-  contact: '2026-11-03',
+  contact: '2026-11-10',
 };
 
 export function latestContentDate(...dates: (string | undefined)[]): Date | undefined {

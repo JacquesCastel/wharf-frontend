@@ -1,0 +1,8 @@
+.wharf-contact .contact-captcha { min-width: 0; }
+.wharf-contact .contact-captcha > p:first-child { margin: 0 0 12px; font: 500 13px/1.6 var(--font-sans); }
+.wharf-contact .contact-captcha-widget { min-height: 78px; }
+.wharf-contact .contact-captcha-status, .wharf-contact .contact-captcha-privacy { max-width: 440px; margin: 12px 0 0; font: 400 12px/1.6 var(--font-sans); }
+.wharf-contact .contact-captcha a { text-decoration: underline; text-underline-offset: 3px; }
+.wharf-contact .contact-captcha a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.wharf-contact .contact-captcha .contact-reset-button { margin-top: 12px; }
+.wharf-contact .contact-submit-button:disabled { cursor: not-allowed; }

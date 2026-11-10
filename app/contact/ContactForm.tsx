@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import { measure, needCode } from '../lib/measurement';
+import ContactCaptcha from './ContactCaptcha';
+import './contact-captcha.css';
 
 const emptyForm = { name: '', email: '', organization: '', situation: '', message: '' };
 const needs = [
@@ -15,11 +17,14 @@ const needs = [
   'Autre besoin / À définir',
 ];
 
-export default function ContactForm({ email, initialNeed = '' }: { email: string; initialNeed?: string }) {
+export default function ContactForm({ email, initialNeed = '', captchaSiteKey = '' }: { email: string; initialNeed?: string; captchaSiteKey?: string }) {
   const [formData, setFormData] = useState({ ...emptyForm, situation: needs.includes(initialNeed) ? initialNeed : '' });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [captchaToken, setCaptchaToken] = useState('');
+  const [captchaReset, setCaptchaReset] = useState(0);
+  const captchaResponse = useRef('');
   const sending = useRef(false);
   const successRef = useRef<HTMLDivElement>(null);
   const errorRef = useRef<HTMLDivElement>(null);
@@ -33,9 +38,19 @@ export default function ContactForm({ email, initialNeed = '' }: { email: string
     setFormData(previous => ({ ...previous, [name]: value }));
   }
 
+  function handleCaptchaChange(token: string) {
+    captchaResponse.current = token;
+    setCaptchaToken(token);
+    if (token) setError('');
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (sending.current) return;
+    if (captchaSiteKey && !captchaResponse.current) {
+      setError('Validez la vérification antispam avant d’envoyer votre message.');
+      return;
+    }
     sending.current = true;
     setLoading(true);
     setError('');
@@ -47,6 +62,7 @@ export default function ContactForm({ email, initialNeed = '' }: { email: string
         situation: formData.situation,
         message: formData.message,
         to_email: 'contact@bywharf.com',
+        ...(captchaSiteKey ? { 'g-recaptcha-response': captchaResponse.current } : {}),
       });
       measure('contact_form_success', { offer: needCode(formData.situation) });
       setSubmitted(true);
@@ -54,6 +70,10 @@ export default function ContactForm({ email, initialNeed = '' }: { email: string
     } catch {
       setError('Votre message n’a pas pu être envoyé. Vous pouvez réessayer ou nous écrire directement par email.');
     } finally {
+      if (captchaSiteKey) {
+        handleCaptchaChange('');
+        setCaptchaReset(value => value + 1);
+      }
       sending.current = false;
       setLoading(false);
     }
@@ -95,11 +115,12 @@ export default function ContactForm({ email, initialNeed = '' }: { email: string
           <textarea id="message" name="message" value={formData.message} onChange={handleChange} required placeholder="Votre enjeu, votre idée, ce que vous souhaitez faire avancer…" rows={6} />
         </div>
       </fieldset>
+      {captchaSiteKey && <ContactCaptcha siteKey={captchaSiteKey} resetKey={captchaReset} onChange={handleCaptchaChange} />}
       {error && <div className="contact-error-message" role="alert" tabIndex={-1} ref={errorRef}>
         <p>{error}</p><a href={`mailto:${email}`}>{email}</a>
       </div>}
       <div className="contact-form-actions">
-        <button type="submit" className="contact-submit-button" disabled={loading}>{loading ? 'Envoi en cours…' : 'Envoyer votre message'} <span aria-hidden="true">↗</span></button>
+        <button type="submit" className="contact-submit-button" disabled={loading || Boolean(captchaSiteKey && !captchaToken)}>{loading ? 'Envoi en cours…' : 'Envoyer votre message'} <span aria-hidden="true">↗</span></button>
         <p>Ces informations nous permettent de vous répondre au sujet de votre projet. <a href="/confidentialite">Confidentialité</a>.</p>
       </div>
     </form>}
