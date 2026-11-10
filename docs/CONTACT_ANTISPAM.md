@@ -11,6 +11,10 @@ Le formulaire conserve EmailJS, son service `service_dl0m9h9` et son modèle `te
 
 **Configuration sans clé :** sans clé publique, le formulaire existant reste disponible et aucun script Google n’est chargé. Cette configuration ne constitue pas une protection captcha active. Ne pas annoncer la protection comme opérationnelle avant l’activation et la vérification côté EmailJS.
 
+## Clé dédiée au formulaire Wharf
+
+La clé créée le 10 novembre 2026 porte le libellé **Wharf — Formulaire de contact**, dans le projet Google Cloud **Wharf**. Sa configuration est accessible dans https://www.google.com/recaptcha/admin/site/773416838/settings. Le choix doit être **Défi (v2)** puis **Case à cocher « Je ne suis pas un robot »**. Un exemple Google utilisant `enterprise.execute(..., { action: "LOGIN" })` ne correspond pas à cette intégration EmailJS. La clé secrète reste dans Google et dans les réglages du modèle EmailJS ; elle ne figure pas ici.
+
 ## Comportement attendu
 
 Avec une clé configurée, l’envoi reste verrouillé jusqu’à la validation du widget. L’expiration ou une erreur invalide la réponse. Un échec d’envoi conserve les champs saisis et exige une nouvelle vérification ; les jetons ne sont pas réutilisés. Le script peut être rechargé après une panne réseau. Le widget passe au format compact sur les petits écrans. L’adresse email directe reste disponible si la vérification ne fonctionne pas.

@@ -53,7 +53,7 @@ export default function ContactCaptcha({ siteKey, resetKey, onChange }: {
 
   return <div className="contact-captcha" aria-labelledby="contact-captcha-label">
     <p id="contact-captcha-label">Vérification antispam *</p>
-    <div key={`${siteKey}:${compact}:${resetKey}:${attempt}`} className="contact-captcha-widget" ref={containerRef} />
+    <div key={`${siteKey}:${compact}:${resetKey}:${attempt}`} className="contact-captcha-widget" ref={containerRef} hidden={status === 'error'} />
     <p className="contact-captcha-status" role="status" aria-live="polite">
       {status === 'loading' ? 'Chargement de la vérification…' : status === 'error'
         ? 'La vérification n’a pas pu être chargée. Réessayez ou utilisez le lien email ci-dessous.'
