@@ -1150,15 +1150,15 @@
       },
       "video-paris-h1-end": {
         "label": "VIDÉO À PARIS — h1-end",
-        "value": "pour les entreprises."
+        "value": "production vidéo B2B"
       },
       "video-paris-intro": {
         "label": "VIDÉO À PARIS — intro",
-        "value": "Un film pour faire comprendre votre activité, donner la parole à vos équipes ou accompagner une prise de parole. Wharf relie stratégie, récit et production vidéo pour donner forme à ce que votre entreprise veut transmettre."
+        "value": "Un savoir-faire difficile à expliquer, un métier à faire découvrir, une conviction à porter : Wharf conçoit et réalise les films qui rendent votre activité concrète."
       },
       "video-paris-cta": {
         "label": "VIDÉO À PARIS — cta",
-        "value": "Parlons de votre film"
+        "value": "Parlons de votre projet"
       },
       "video-paris-formats-title": {
         "label": "VIDÉO À PARIS — formats-title",
@@ -1218,11 +1218,11 @@
       },
       "video-paris-method-title": {
         "label": "VIDÉO À PARIS — method-title",
-        "value": "Le récit donne une direction à la production."
+        "value": "Du sujet au film, un accompagnement éditorial et audiovisuel"
       },
       "video-paris-method-intro": {
         "label": "VIDÉO À PARIS — method-intro",
-        "value": "Notre méthode, le design narratif, relie ce que votre entreprise fait, ce qu’elle dit et ce que ses publics comprennent. La production audiovisuelle prolonge ce travail, du premier échange au film livré."
+        "value": "Vous pouvez arriver avec un brief précis ou une question encore ouverte. Nous travaillons avec vous ce que le film doit raconter, les personnes qui peuvent l’incarner et les situations à montrer."
       },
       "video-paris-step-1-title": {
         "label": "VIDÉO À PARIS — step-1-title",
@@ -1739,6 +1739,22 @@
       "agency-cta-link": {
         "label": "AGENCE — lien final de contact",
         "value": "Échangeons sur votre projet"
+      },
+      "video-paris-tagline": {
+        "label": "VIDÉO À PARIS — tagline",
+        "value": "Donner à voir ce qui fait votre entreprise."
+      },
+      "video-paris-intro-formats": {
+        "label": "VIDÉO À PARIS — intro-formats",
+        "value": "Films corporate, interviews, portraits métiers ou séries vidéo : nous vous accompagnons du choix du sujet au montage, avec une même attention au récit, aux personnes et aux images."
+      },
+      "video-paris-films-cta": {
+        "label": "VIDÉO À PARIS — films-cta",
+        "value": "Voir nos films"
+      },
+      "video-paris-method-delivery": {
+        "label": "VIDÉO À PARIS — method-delivery",
+        "value": "Cette préparation guide ensuite l’écriture, le tournage et le montage. Les versions destinées à votre site, à votre chaîne YouTube ou à LinkedIn sont définies dès le départ, selon vos usages."
       }
     }
   }

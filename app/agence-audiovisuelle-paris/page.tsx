@@ -33,14 +33,21 @@ export default async function AudiovisualParisPage() {
     <JsonLd data={{ ...service, description: t('intro'), areaServed: { '@type': 'City', name: 'Paris' } }} />
     <section className="wharf-masthead" aria-labelledby="audiovisual-title">
       <div className="wharf-masthead-aside"><p className="editorial-eyebrow">{t('eyebrow')}</p><EditorialMark className="masthead-art" variant="frames" /></div>
-      <div><h1 id="audiovisual-title">{t('h1')}<br /><em>{t('h1-end')}</em></h1>
+      <div><h1 id="audiovisual-title">{t('h1')} —<br /><em>{t('h1-end')}</em></h1>
+        <p className="audiovisual-tagline">{t('tagline')}</p>
         <p>{t('intro')}</p>
-        <a href={contactHref("/work#video")} className="card-split-link">{t('cta')} →</a>
+        <p>{t('intro-formats')}</p>
+        <div className="audiovisual-actions">
+          <a href="#realisations" className="card-split-link">{t('films-cta')}</a>
+          <a href={contactHref("/work#video")} className="card-split-link">{t('cta')}</a>
+        </div>
         <nav className="wharf-section-nav" aria-label="Explorer la production audiovisuelle">
-          <a href="#formats">{t('nav-formats')}</a><a href="#methode">{t('nav-method')}</a><a href="#realisations">{t('nav-projects')}</a><a href="#questions">{t('nav-questions')}</a>
+          <a href="#realisations">{t('nav-projects')}</a><a href="#formats">{t('nav-formats')}</a><a href="#methode">{t('nav-method')}</a><a href="#questions">{t('nav-questions')}</a>
         </nav>
       </div>
     </section>
+    <div className="audiovisual-project-intro"><div className="work-container"><p className="editorial-eyebrow">{t('projects-title')}</p><p>{t('projects-intro')}</p></div></div>
+    <WorkPortfolio projects={films} compact />
     <section className="editorial-section audiovisual-formats" id="formats" aria-labelledby="formats-title">
       <div className="work-container"><h2 id="formats-title">{t('formats-title')}</h2><p>{t('formats-intro')}</p>
         <div className="audiovisual-grid">{[1, 2, 3, 4, 5, 6].map(index => <article key={index}>
@@ -49,13 +56,11 @@ export default async function AudiovisualParisPage() {
       </div>
     </section>
     <section className="editorial-section" id="methode" aria-labelledby="method-title">
-      <div className="work-container"><h2 id="method-title">{t('method-title')}</h2><p>{t('method-intro')}</p>
+      <div className="work-container"><h2 id="method-title">{t('method-title')}</h2><p>{t('method-intro')}</p><p>{t('method-delivery')}</p>
         <ol className="editorial-steps">{[1, 2, 3, 4].map(index => <li key={index}><h3>{t(`step-${index}-title`)}</h3><p>{t(`step-${index}-text`)}</p></li>)}</ol>
         <a href="/we" className="card-split-link">{t('method-link')} →</a>
       </div>
     </section>
-    <div className="audiovisual-project-intro"><div className="work-container"><p className="editorial-eyebrow">{t('projects-title')}</p><p>{t('projects-intro')}</p></div></div>
-    <WorkPortfolio projects={films} compact />
     <section className="editorial-section audiovisual-local" aria-labelledby="local-title"><div className="work-container audiovisual-grid">
       <div><h2 id="local-title">{t('local-title')}</h2><p>{t('local-text')}</p><p className="audiovisual-address"><strong>{t('address-label')}</strong><br />122 rue Amelot, 75011 Paris<br /><a href="mailto:contact@bywharf.com">contact@bywharf.com</a></p></div>
       <div><h2>{t('brief-title')}</h2><p>{t('brief-text')}</p><a href={contactHref("/work#video")} className="card-split-link">{t('cta')} →</a></div>
