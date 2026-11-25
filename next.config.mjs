@@ -11,6 +11,7 @@ const nextConfig = {
         headers: [{ key: 'Strict-Transport-Security', value: 'max-age=31536000' }],
       },
       ...privateHeaders,
+      { source: '/motions/:path*', headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }] },
     ];
   },
   typescript: {
@@ -40,3 +41,4 @@ const nextConfig = {
 // Updated
 
 export default nextConfig;
+
