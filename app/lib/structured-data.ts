@@ -9,7 +9,7 @@ export const organizationSchema = (): Schema => ({
   '@context': 'https://schema.org', '@type': 'Organization', '@id': ORGANIZATION_ID,
   name: 'Wharf', url: SITE_URL, logo: absoluteUrl('/images/logo-wharf.png'),
   description, slogan: positioning, email: 'contact@bywharf.com',
-  sameAs: ['https://maps.app.goo.gl/ncxfQLTfN91HADuL7'],
+  sameAs: ['https://maps.app.goo.gl/ncxfQLTfN91HADuL7', 'https://www.linkedin.com/company/agence-wharf/'],
   areaServed: { '@type': 'Country', name: 'France' },
   contactPoint: { '@type': 'ContactPoint', email: 'contact@bywharf.com', contactType: 'customer service', availableLanguage: 'fr' },
   knowsAbout: ['Stratégie de communication B2B', 'Contenus B2B', 'Production vidéo B2B', 'Communication corporate', 'Design narratif', 'Marque employeur', 'Communication du changement', 'Stratégie éditoriale', 'Création image et vidéo IA'],
