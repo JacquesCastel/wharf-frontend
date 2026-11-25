@@ -1,4 +1,6 @@
 import '../../styles/project.css';
+import InsightMotion from '../../components/InsightMotion';
+import { motionForVideoUrl } from '../../lib/insight-motions';
 import ScrollMotion from '../../components/ScrollMotion';
 import EditorialMark from '../../components/EditorialMark';
 import ProjectMediaSeries from '../../components/ProjectMediaSeries';
@@ -235,6 +237,8 @@ export default async function ProjetDetailPage({
 
               case 'bloc.video-bloc': {
                 const media = bloc.video_fichier || bloc.video;
+                const motion = mediaKind(media) !== 'video' ? motionForVideoUrl(bloc.video_url) : undefined;
+                if (motion) return <div key={index} className="bloc-video"><InsightMotion theme={motion.theme} slug={motion.slug} /></div>;
                 const embed = videoEmbed(bloc.video_url);
                 const link = safeVideoLink(bloc.video_url);
                 return <div key={index} className="bloc-video">
