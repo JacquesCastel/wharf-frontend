@@ -53,10 +53,10 @@ for (const motion of motions) test(`${motion.id}: controls, captions, finite ani
   }
 });
 
-test('article association does not affect unrelated pages; interview is still a draft', () => {
+test('article association does not affect unrelated pages; both reviewed episodes are approved', () => {
   assert.equal(motions.length, 2);
   assert.equal(motions.find(m => m.id === 'brief-video').status, 'approved');
-  assert.equal(motions.find(m => m.id === 'interview-dirigeant').status, 'draft');
+  assert.equal(motions.find(m => m.id === 'interview-dirigeant').status, 'approved');
   assert(motions.every(m => m.theme === 'video-b2b'));
   assert.equal(new Set(motions.map(m => m.slug)).size, motions.length);
   for (const motion of motions) {
