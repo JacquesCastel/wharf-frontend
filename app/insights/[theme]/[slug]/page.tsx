@@ -1,4 +1,5 @@
 import ScrollMotion from '../../../components/ScrollMotion';
+import InsightMotion from '../../../components/InsightMotion';
 import EditorialMark from '../../../components/EditorialMark';
 import { getInsights, getLiveArticle } from '../../../lib/cms-content';
 import { getPublishedProjects } from '../../../lib/projects';
@@ -54,6 +55,7 @@ export default async function ArticlePage({ params }: Props) {
         <p className="insight-lead">{article.intro}</p>
       </header>
       {article.takeaway && <aside className="insight-takeaway" aria-label="À retenir"><strong>À retenir</strong><p>{article.takeaway}</p></aside>}
+      <InsightMotion theme={article.theme} slug={article.slug} />
       <nav className="insight-toc" aria-label="Sommaire de l’article"><h2>Dans cet article</h2><ol>{article.sections.map(section => <li key={section.id}><a href={`#${section.id}`}>{section.title}</a></li>)}</ol></nav>
       {article.sections.map(section => <section key={section.id} id={section.id} className="insight-section"><h2>{section.title}</h2>{section.paragraphs.map((p, i) => <p key={i}>{p}</p>)}{section.items && <ul>{section.items.map(item => <li key={item}>{item}</li>)}</ul>}{section.table && <div className="insight-table-wrap"><table className="insight-table"><caption>{section.table.caption}</caption><thead><tr>{section.table.headers.map(header => <th key={header} scope="col">{header}</th>)}</tr></thead><tbody>{section.table.rows.map((row, index) => <tr key={index}>{row.map((cell, column) => column === 0 ? <th key={column} scope="row">{cell}</th> : <td key={column}>{cell}</td>)}</tr>)}</tbody></table></div>}{section.source && <p className="insight-source">Source : <InsightSource source={section.source} /></p>}</section>)}
       {article.research && <section className="insight-section" aria-labelledby="research-method">
@@ -75,3 +77,4 @@ export default async function ArticlePage({ params }: Props) {
     <section className="editorial-section"><div className="work-container"><h2>Pour poursuivre la réflexion</h2><InsightCards items={relatedArticles(article, articles)} headingLevel={3} composed /></div></section>
   </main>;
 }
+

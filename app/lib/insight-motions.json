@@ -1,0 +1,124 @@
+[
+  {
+    "id": "brief-video",
+    "theme": "video-b2b",
+    "slug": "preparer-brief-film-message-public-contraintes",
+    "title": "Un film commence par des décisions",
+    "description": "Les sept décisions à prendre avant le scénario et le devis.",
+    "duration": 36,
+    "status": "approved",
+    "transcript": [
+      {
+        "start": 0,
+        "end": 3,
+        "text": "Un film commence par des décisions."
+      },
+      {
+        "start": 3,
+        "end": 6,
+        "text": "Que doit changer votre film ?"
+      },
+      {
+        "start": 6,
+        "end": 9,
+        "text": "Une personne. Une situation. Une question."
+      },
+      {
+        "start": 9,
+        "end": 12,
+        "text": "Une idée essentielle. Celle qui reste."
+      },
+      {
+        "start": 12,
+        "end": 16,
+        "text": "Un geste. Une parole. Un fait documenté."
+      },
+      {
+        "start": 16,
+        "end": 20,
+        "text": "La forme qui rend votre sujet sensible et compréhensible."
+      },
+      {
+        "start": 20,
+        "end": 24,
+        "text": "Site, réseaux, rendez-vous : préparez chaque usage."
+      },
+      {
+        "start": 24,
+        "end": 28,
+        "text": "Du temps, des moyens, une équipe et des validations."
+      },
+      {
+        "start": 28,
+        "end": 32,
+        "text": "Sept décisions. Un brief. Une direction commune."
+      },
+      {
+        "start": 32,
+        "end": 36,
+        "text": "Wharf. Donner une direction, puis donner forme."
+      }
+    ]
+  },
+  {
+    "id": "interview-dirigeant",
+    "theme": "video-b2b",
+    "slug": "preparer-interview-dirigeant-video",
+    "title": "Une interview. Une parole.",
+    "description": "Préparer les questions, relancer et préserver le sens au montage.",
+    "duration": 36,
+    "status": "approved",
+    "transcript": [
+      {
+        "start": 0,
+        "end": 3,
+        "text": "Une interview fait entendre une parole."
+      },
+      {
+        "start": 3,
+        "end": 6,
+        "text": "Partez d’une décision réelle à expliquer."
+      },
+      {
+        "start": 6,
+        "end": 9,
+        "text": "Situez les faits : quand, avec qui, dans quelle situation ?"
+      },
+      {
+        "start": 9,
+        "end": 12,
+        "text": "Relancez : pouvez-vous donner un exemple précis ?"
+      },
+      {
+        "start": 12,
+        "end": 16,
+        "text": "Faites raconter le choix, ses raisons et ses limites."
+      },
+      {
+        "start": 16,
+        "end": 20,
+        "text": "Préparez le cadre, le regard et un son intelligible."
+      },
+      {
+        "start": 20,
+        "end": 24,
+        "text": "Laissez finir la réponse. Gardez les silences utiles."
+      },
+      {
+        "start": 24,
+        "end": 28,
+        "text": "Resserrez le propos en préservant son sens."
+      },
+      {
+        "start": 28,
+        "end": 32,
+        "text": "Chaque extrait doit se comprendre sans la question."
+      },
+      {
+        "start": 32,
+        "end": 36,
+        "text": "Wharf. Donner une direction, puis donner forme."
+      }
+    ]
+  }
+]

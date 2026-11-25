@@ -1,0 +1,9 @@
+.insight-motion { margin: 2.5rem 0; padding: clamp(1rem, 3vw, 2rem); border: 1px solid #28282830; background: #fff; color: #282828; }
+.insight-motion h2 { margin: .5rem 0 1rem; }
+.insight-motion-player { display: block; width: 100%; height: clamp(320px, 55vw, 720px); border: 0; margin: 1.5rem 0 1rem; background: #fff; }
+.insight-motion-transcript { border-top: 1px solid #28282830; padding-top: 1rem; }
+.insight-motion-transcript summary { cursor: pointer; text-underline-offset: .25em; }
+.insight-motion-transcript summary:focus-visible { outline: 2px solid #282828; outline-offset: 4px; }
+.insight-motion-transcript ol { padding-left: 1.25rem; }
+.insight-motion-transcript li { margin: .75rem 0; }
+.insight-motion-time { font-family: var(--font-plex-mono), monospace; font-size: .8em; white-space: nowrap; }
